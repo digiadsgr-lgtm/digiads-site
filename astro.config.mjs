@@ -30,10 +30,6 @@ export default defineConfig({
     '/digital-marketing/villa-hotel-promotion/': {
       status: 301,
       destination: '/touristiko-marketing'
-    },
-    '/photo-services/': {
-      status: 301,
-      destination: '/#portfolio'
     }
   },
   vite: {
