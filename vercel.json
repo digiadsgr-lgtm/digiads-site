@@ -1,0 +1,55 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/digital-marketing/google-ads-management",
+      "destination": "/digital-marketing/performance-marketing",
+      "permanent": true
+    },
+    {
+      "source": "/touristiko-marketing-epitixias",
+      "destination": "/touristiko-marketing",
+      "permanent": true
+    },
+    {
+      "source": "/digital-marketing/villa-hotel-promotion",
+      "destination": "/touristiko-marketing",
+      "permanent": true
+    },
+    {
+      "source": "/(about|about-us)",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/services/(.*)",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/uploads/(.*)",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ]
+}
