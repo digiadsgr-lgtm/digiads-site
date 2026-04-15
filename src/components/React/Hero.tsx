@@ -39,11 +39,12 @@ export default function Hero({ lang = 'el' }: HeroProps) {
 
   return (
     <section className="relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden bg-[#000000]">
-      {/* Liquid Cyber CSS Background (Zero GPU Overhead) */}
+      {/* Ultra-High Performance Cyber Background (Zero GPU Overhead) */}
       <div className="absolute inset-0 z-0 pointer-events-none">
          <div className="absolute inset-0 bg-[#00d9ff]/[0.015] bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-         <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#00d9ff] rounded-full mix-blend-screen filter blur-[150px] opacity-10 animate-pulse" />
-         <div className="absolute bottom-[-100px] right-1/4 w-[500px] h-[500px] bg-indigo-600 rounded-full mix-blend-screen filter blur-[150px] opacity-10" />
+         {/* Replaced heavy blur filters with static gradients mapping to the same visual effect */}
+         <div className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle_at_center,rgba(0,217,255,0.08)_0%,transparent_70%)] opacity-80" />
+         <div className="absolute bottom-[-100px] right-1/4 w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.08)_0%,transparent_70%)] opacity-80" />
       </div>
 
       {/* Deep Shadow Gradient Overlay */}

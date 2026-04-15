@@ -15,8 +15,8 @@ import Footer from '../../components/Astro/Footer.astro';
     title="DIGIADS | Top Digital Marketing & Web Architecture in Crete"
     description="DIGIADS is the leading Digital Marketing agency in Crete. Performance Ads, SEO, UX/UI Web Design, and Growth Hacking."
 >
-    <!-- Assuming we extend Navbar/Footer later to support languages -->
-    <Navbar />
+    <!-- Navbar with EN localization context -->
+    <Navbar lang="en" />
 
     <Hero lang="en" client:load />
 
@@ -34,5 +34,5 @@ import Footer from '../../components/Astro/Footer.astro';
         <Testimonials lang="en" client:visible />
     </div>
 
-    <Footer />
+    <Footer lang="en" />
 </Layout>

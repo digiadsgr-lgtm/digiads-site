@@ -139,11 +139,14 @@ const structuredData = {
                 }
             });
 
-            // Initialize Lenis
+            // Initialize High-Performance Crisp Lenis Scroll
             const lenis = new Lenis({
               autoRaf: true,
-              duration: 1.2,
+              duration: 0.7, // Reduced for faster, snappier feel
               easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+              orientation: 'vertical',
+              smoothWheel: true,
+              wheelMultiplier: 1.2, // Increases scroll distance per wheel click
             });
         </script>
 	</body>
