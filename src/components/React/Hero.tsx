@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Magnetic from "./Magnetic";
 
 interface HeroProps {
   lang: 'el' | 'en';
@@ -69,10 +70,6 @@ export default function Hero({ lang = 'el' }: HeroProps) {
             </span>
             <span className="text-[10px] md:text-xs font-mono tracking-[0.3em] text-[#00d9ff] font-bold uppercase">{data.badge}</span>
           </motion.div>
-
-import Magnetic from "./Magnetic";
-
-// ... [inside component] ...
 
           {/* Staggered Text Reveal (Kinetic Mask) */}
           <div className="flex flex-col items-center">

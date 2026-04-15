@@ -1,12 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const bentoData = {
   el: {
     badge: "Enterprise Impact / Portfolio",
     titleStart: "Τα Ψηφιακά Οικοσυστήματά μας ",
     titleEnd: "στο απόγειο.",
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+    subhead: "Δεν παραδίδουμε απλά websites, αλλά Cloud-Native μηχανές κερδοφορίας. Παρακάτω βλέπετε συστήματα που δίνουν λύσεις, αυτοματοποιούν διαδικασίες και κυριαρχούν στην αγορά (Dominate).",
+  },
+  en: {
+    badge: "Enterprise Impact / Portfolio",
+    titleStart: "Our Digital Ecosystems ",
+    titleEnd: "in peak performance.",
+    subhead: "We do not merely deliver websites, but Cloud-Native profit engines. Below are systems that solve problems, automate operations, and dominate the market.",
+  }
+};
 
 const portfolioItems = [
   { id: 1, name: "Guest First", type: "Hospitality System", logo: "/logo/Guestfirstgr-logo.svg", url: "https://guestfirst.gr/", colSpan: "md:col-span-2", rowSpan: "md:row-span-1" },
