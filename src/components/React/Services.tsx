@@ -20,7 +20,7 @@ const servicesData = {
         description: "Απόλυτη κυριαρχία μέσω data-driven καμπανιών. Retargeting funnels, lookalike audiences και AI-optimized bidding strategies που συνθλίβουν τον ανταγωνισμό.",
         metrics: ["+127%", "Μέσος ROI"],
         color: "#00d9ff",
-        href: "/services/performance-marketing",
+        href: "/digital-marketing/performance-marketing",
       },
       {
         id: "web-design",
@@ -34,7 +34,7 @@ const servicesData = {
         description: "Ψηφιακά αρχιτεκτονικά αριστουργήματα. Κατασκευή ιστοσελίδων με 100/100 Lighthouse, CRO optimization και cinematic UX/UI που μετατρέπει επισκέπτες σε πελάτες.",
         metrics: ["100/100", "Lighthouse"],
         color: "#a855f7",
-        href: "/services/web-design",
+        href: "/kataskevi-istoselidon",
       },
       {
         id: "tourism",
@@ -48,7 +48,7 @@ const servicesData = {
         description: "Απόλυτη εξειδίκευση στον τουριστικό τομέα της Κρήτης. Στρατηγικές προώθησης βιλών, ξενοδοχείων και boutique properties για μέγιστες direct bookings.",
         metrics: ["+340%", "Direct Bookings"],
         color: "#22c55e",
-        href: "/services/tourism-marketing",
+        href: "/touristiko-marketing",
       },
       {
         id: "branding",
@@ -62,7 +62,7 @@ const servicesData = {
         description: "Τοποθετούμε το Brand σας ως τον απόλυτο ηγέτη της αγοράς σας. Social media management, content strategy και visual identity που δημιουργεί loyalty.",
         metrics: ["200+", "5-Star Reviews"],
         color: "#f59e0b",
-        href: "/services/brand-strategy",
+        href: "/digital-marketing/performance-marketing",
       },
       {
         id: "seo",
@@ -76,7 +76,7 @@ const servicesData = {
         description: "Κυριαρχία στα οργανικά αποτελέσματα. Technical SEO, Local SEO mastery, Schema markup και LLM optimization για AI-ready παρουσία στα SERPs.",
         metrics: ["#1", "Rankings"],
         color: "#ec4899",
-        href: "/services/seo",
+        href: "/digital-marketing/performance-marketing",
       },
       {
         id: "photo-drone",
@@ -91,7 +91,7 @@ const servicesData = {
         description: "Παραγωγή high-end φωτογραφικού και εναέριου υλικού. Επαγγελματική φωτογράφιση, drone videography και 3D virtual tours για maximum impact.",
         metrics: ["4K", "Cinematic"],
         color: "#06b6d4",
-        href: "/services/photo-drone",
+        href: "/photo-services",
       },
     ]
   },
@@ -113,7 +113,7 @@ const servicesData = {
         description: "Absolute dominance through data-driven campaigns. Retargeting funnels, lookalike audiences, and AI-optimized bidding strategies that crush the competition.",
         metrics: ["+127%", "Avg ROI"],
         color: "#00d9ff",
-        href: "/en/services/performance-marketing",
+        href: "/en/performance-marketing",
       },
       {
         id: "web-design",
@@ -127,7 +127,7 @@ const servicesData = {
         description: "Digital architectural masterpieces. Building websites with 100/100 Lighthouse, CRO optimization, and cinematic UX/UI that turns visitors into clients.",
         metrics: ["100/100", "Lighthouse"],
         color: "#a855f7",
-        href: "/en/services/web-design",
+        href: "/en/web-design",
       },
       {
         id: "tourism",
@@ -141,7 +141,7 @@ const servicesData = {
         description: "Absolute specialization in Crete's tourism sector. Promotion strategies for villas, hotels, and boutique properties for maximum direct bookings.",
         metrics: ["+340%", "Direct Bookings"],
         color: "#22c55e",
-        href: "/en/services/tourism-marketing",
+        href: "/en/tourism-marketing",
       },
       {
         id: "branding",
@@ -155,7 +155,7 @@ const servicesData = {
         description: "Positioning your brand as the absolute leader of your market. Social media management, content strategy, and visual identity that builds loyalty.",
         metrics: ["200+", "5-Star Reviews"],
         color: "#f59e0b",
-        href: "/en/services/brand-strategy",
+        href: "/en/performance-marketing",
       },
       {
         id: "seo",
@@ -169,7 +169,7 @@ const servicesData = {
         description: "Dominance in organic results. Technical SEO, Local SEO mastery, Schema markup, and LLM optimization for AI-ready presence in SERPs.",
         metrics: ["#1", "Rankings"],
         color: "#ec4899",
-        href: "/en/services/seo",
+        href: "/en/performance-marketing",
       },
       {
         id: "photo-drone",
@@ -184,10 +184,11 @@ const servicesData = {
         description: "Production of high-end photographic and aerial material. Professional photography, drone videography, and 3D virtual tours for maximum visual impact.",
         metrics: ["4K", "Cinematic"],
         color: "#06b6d4",
-        href: "/en/services/photo-drone",
+        href: "/photo-services",
       },
     ]
   }
+};
 };
 
 function ServiceCard({ service, index }: { service: any; index: number }) {
