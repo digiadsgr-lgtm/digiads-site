@@ -30,47 +30,35 @@ const portfolioItems = [
 ];
 
 function BentoItem({ item, lang }: { item: any, lang: string }) {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
-
-  // Dynamic parallax transforms depending on index/position
-  const yParallax = useTransform(scrollYProgress, [0, 1], ["0%", item.id % 2 === 0 ? "15%" : "-15%"]);
-  const scaleParallax = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1.05, 0.95]);
-
+  // Use pure CSS transitions instead of heavy JS scroll calculations for blazing fast 120 FPS
   return (
-    <motion.a
-      ref={ref}
+    <a
       href={item.url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group relative overflow-hidden rounded-3xl bg-[#050814] border border-white/5 flex items-center justify-center p-8 transition-colors hover:border-[#00d9ff]/30 ${item.colSpan} ${item.rowSpan} min-h-[250px]`}
+      className={`group relative overflow-hidden rounded-3xl bg-[#090b14] border border-white/5 flex flex-col items-center justify-center p-8 transition-all hover:bg-[#0c0f1a] hover:border-[#00d9ff]/20 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#00d9ff]/10 ${item.colSpan} ${item.rowSpan} min-h-[250px]`}
       data-cursor-text="VISIT"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-[#00d9ff]/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-      
-      <motion.div 
-        className="w-full h-full flex flex-col items-center justify-center gap-6"
-        style={{ y: yParallax, scale: scaleParallax }}
-      >
-        <div className="w-[180px] h-[80px] relative transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110 group-hover:-translate-y-2">
+      <div className="w-full flex-grow flex items-center justify-center">
+        <div className="w-[140px] h-[60px] relative transition-transform duration-500 group-hover:scale-105">
           {item.logo ? (
-             <div className="w-full h-full bg-white/95 rounded-2xl shadow-[0_10_30px_rgba(0,0,0,0.5)] border border-white/20 flex items-center justify-center p-3 opacity-90 group-hover:opacity-100 transition-all duration-700 relative overflow-hidden group-hover:border-[#00d9ff]/50">
-               <div className="absolute inset-0 bg-gradient-to-br from-[#00d9ff]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-               <img src={item.logo} alt={item.name} className="w-full h-full object-contain relative z-10 filter drop-shadow-md" />
-             </div>
+            <img 
+              src={item.logo} 
+              alt={item.name} 
+              className="w-full h-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 brightness-0 invert" 
+              loading="lazy"
+            />
           ) : (
-            <div className="w-full h-full bg-white/5 rounded-lg flex items-center justify-center text-slate-500">Logo missing</div>
+            <div className="w-full h-full flex items-center justify-center text-slate-500 uppercase text-xs tracking-widest font-mono">No Logo</div>
           )}
         </div>
-        <div className="absolute bottom-4 left-6 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
-           <span className="text-[#00d9ff] font-mono text-xs uppercase tracking-widest">{item.type}</span>
-           <h3 className="text-white font-bold text-lg">{item.name}</h3>
-        </div>
-      </motion.div>
-    </motion.a>
+      </div>
+      
+      <div className="absolute bottom-6 left-6 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+         <span className="text-[#00d9ff] font-mono text-[10px] uppercase tracking-widest block mb-1">{item.type}</span>
+         <h3 className="text-white font-medium text-sm tracking-wide">{item.name}</h3>
+      </div>
+    </a>
   );
 }
 

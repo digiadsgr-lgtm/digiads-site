@@ -15,10 +15,7 @@ export default function CustomCursor() {
     let cursorX = mouseX;
     let cursorY = mouseY;
     let isHovering = false;
-    let isMassive = false;
-    let cursorText = "";
 
-    // Smooth Linear Interpolation
     const lerp = (start: number, end: number, amt: number) => {
       return (1 - amt) * start + amt * end;
     };
@@ -30,25 +27,10 @@ export default function CustomCursor() {
 
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      
-      // Check for interactive elements
       if (target.closest && target.closest("a, button, input, textarea, [data-magnetic]")) {
         isHovering = true;
       } else {
         isHovering = false;
-      }
-
-      // Check for elements wanting the MASSIVE "VIEW" cursor effect
-      const massiveTarget = target.closest && target.closest("[data-cursor-text]");
-      if (massiveTarget) {
-        isMassive = true;
-        cursorText = (massiveTarget as HTMLElement).getAttribute("data-cursor-text") || "VIEW";
-      } else if (target.tagName.toLowerCase() === 'img') {
-        isMassive = true;
-        cursorText = "VIEW";
-      } else {
-        isMassive = false;
-        cursorText = "";
       }
     };
 
@@ -58,27 +40,26 @@ export default function CustomCursor() {
     let animationFrameId: number;
 
     const render = () => {
-      // Very smooth lag for that cinematic cursor weight
-      cursorX = lerp(cursorX, mouseX, 0.15); 
-      cursorY = lerp(cursorY, mouseY, 0.15);
+      cursorX = lerp(cursorX, mouseX, 0.2); 
+      cursorY = lerp(cursorY, mouseY, 0.2);
       
-      if (cursorRef.current && textRef.current) {
-        // Base sizes
-        let size = 16;
-        if (isHovering && !isMassive) size = 64; // bigger circle over standard links
-        if (isMassive) size = 120; // massive circle over images
+      if (cursorRef.current) {
+        let size = 12;
+        if (isHovering) size = 48;
         
         const offset = size / 2;
         
-        // Transform the outer div
         cursorRef.current.style.transform = `translate3d(${cursorX - offset}px, ${cursorY - offset}px, 0)`;
         cursorRef.current.style.width = `${size}px`;
         cursorRef.current.style.height = `${size}px`;
         
-        // Handle inner text visibility
-        textRef.current.textContent = cursorText;
-        textRef.current.style.opacity = isMassive ? '1' : '0';
-        textRef.current.style.transform = isMassive ? 'scale(1)' : 'scale(0.5)';
+        if (isHovering) {
+            cursorRef.current.style.backgroundColor = 'transparent';
+            cursorRef.current.style.border = '1px solid #00d9ff';
+        } else {
+            cursorRef.current.style.backgroundColor = '#00d9ff';
+            cursorRef.current.style.border = 'none';
+        }
       }
       
       animationFrameId = requestAnimationFrame(render);
@@ -97,22 +78,14 @@ export default function CustomCursor() {
   return (
     <div
       ref={cursorRef}
-      className="fixed top-0 left-0 z-[9999] pointer-events-none rounded-full flex items-center justify-center mix-blend-difference bg-white text-black shadow-2xl"
+      className="fixed top-0 left-0 z-[9999] pointer-events-none rounded-full flex items-center justify-center transition-colors duration-200"
       style={{
-        width: '16px',
-        height: '16px',
+        width: '12px',
+        height: '12px',
         transform: 'translate3d(-100px, -100px, 0)',
         willChange: 'transform, width, height',
-        transition: 'width 0.4s cubic-bezier(0.16, 1, 0.3, 1), height 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
+        transition: 'width 0.2s ease-out, height 0.2s ease-out'
       }}
-    >
-      <span 
-        ref={textRef} 
-        className="font-black tracking-[0.2em] uppercase text-xs transition-all duration-300 pointer-events-none"
-        style={{ opacity: 0, transform: 'scale(0.5)' }}
-      >
-        VIEW
-      </span>
-    </div>
+    />
   );
 }
