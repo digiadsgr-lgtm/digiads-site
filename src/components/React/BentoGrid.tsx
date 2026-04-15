@@ -57,7 +57,10 @@ function BentoItem({ item, lang }: { item: any, lang: string }) {
       >
         <div className="w-[180px] h-[80px] relative transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110 group-hover:-translate-y-2">
           {item.logo ? (
-            <img src={item.logo} alt={item.name} className="w-full h-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" />
+             <div className="w-full h-full bg-white/95 rounded-2xl shadow-[0_10_30px_rgba(0,0,0,0.5)] border border-white/20 flex items-center justify-center p-3 opacity-90 group-hover:opacity-100 transition-all duration-700 relative overflow-hidden group-hover:border-[#00d9ff]/50">
+               <div className="absolute inset-0 bg-gradient-to-br from-[#00d9ff]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+               <img src={item.logo} alt={item.name} className="w-full h-full object-contain relative z-10 filter drop-shadow-md" />
+             </div>
           ) : (
             <div className="w-full h-full bg-white/5 rounded-lg flex items-center justify-center text-slate-500">Logo missing</div>
           )}
