@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import HeroCanvas from "./Three/HeroCanvas";
 
 interface HeroProps {
   lang: 'el' | 'en';
@@ -40,8 +39,12 @@ export default function Hero({ lang = 'el' }: HeroProps) {
 
   return (
     <section className="relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden bg-[#010205]">
-      {/* 3D Canvas Background mapped as a standard component (no next/dynamic here, handled by Astro) */}
-      <HeroCanvas />
+      {/* Ultra-Fast Static CSS Background (Zero WebGL Overhead) */}
+      <div className="absolute inset-0 z-0">
+         <div className="absolute inset-0 bg-[#00d9ff]/[0.02] bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#00d9ff] rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-pulse" />
+         <div className="absolute top-20 right-1/4 w-[400px] h-[400px] bg-purple-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-10" />
+      </div>
 
       {/* Layered Gradient Overlays */}
       <div className="absolute inset-0 z-[1]">
