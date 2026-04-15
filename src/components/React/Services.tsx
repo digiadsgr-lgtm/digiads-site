@@ -189,7 +189,6 @@ const servicesData = {
     ]
   }
 };
-};
 
 function ServiceCard({ service, index }: { service: any; index: number }) {
   const ref = useRef(null);
