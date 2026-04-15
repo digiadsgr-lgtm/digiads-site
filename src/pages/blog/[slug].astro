@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Astro/Navbar.astro';
 import Footer from '../../components/Astro/Footer.astro';
@@ -7,13 +7,13 @@ import Footer from '../../components/Astro/Footer.astro';
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
   return posts.map(post => ({
-    params: { slug: post.slug },
+    params: { slug: post.slug || post.id.replace(/\.[^/.]+$/, "") },
     props: { post },
   }));
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 ---
 
 <Layout title={`${post.data.title} | DIGIADS Blog`} description={post.data.description} lang="el">

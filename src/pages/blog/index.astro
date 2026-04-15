@@ -33,7 +33,7 @@ const description = "Διαβάστε τα τελευταία άρθρα μας 
             {posts.length > 0 ? (
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {posts.map((post) => (
-                        <a href={`/blog/${post.slug}`} class="group group-hover relative p-[1px] rounded-[24px] overflow-hidden bg-gradient-to-b from-white/10 to-transparent block mb-8 transition-transform duration-500 hover:-translate-y-2">
+                        <a href={`/blog/${post.slug || post.id.replace(/\.[^/.]+$/, "")}`} class="group group-hover relative p-[1px] rounded-[24px] overflow-hidden bg-gradient-to-b from-white/10 to-transparent block mb-8 transition-transform duration-500 hover:-translate-y-2">
                             <div class="absolute inset-0 bg-gradient-to-br from-[#00d9ff]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                             <div class="relative h-full bg-[#030509] rounded-[23px] overflow-hidden flex flex-col">
                                 {post.data.image && (
