@@ -17,16 +17,14 @@ const bentoData = {
 };
 
 const portfolioItems = [
-  { id: 1, name: "Guest First", type: "Hospitality System", logo: "/logo/Guestfirstgr-logo.svg", url: "https://guestfirst.gr/", colSpan: "md:col-span-2", rowSpan: "md:row-span-1" },
-  { id: 2, name: "Άγιος Παύλος", type: "Tourism / Hospitality", logo: "/logo/Agiospavlos.gr-logo.svg", url: "https://www.agiospavlos.gr/", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" },
-  { id: 3, name: "Pela Suites", type: "Luxury Villas", logo: "/logo/Pela-suites-1-1.svg", url: "https://pelasuites.com/", colSpan: "md:col-span-1", rowSpan: "md:row-span-2" },
-  { id: 4, name: "Xrisi", type: "Corporate Transport", logo: "/logo/Xrisilogowhite.svg", url: "https://xrisitransport.gr/", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" },
-  { id: 5, name: "Bespoke", type: "Property Management", logo: "/logo/bespoke-1.svg", url: "https://bespokeproperty.gr/", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" },
-  { id: 6, name: "Baxevanis", type: "E-shop / Retail", logo: "/logo/Baxevanis-logo-.svg", url: "https://baxevanis.gr/", colSpan: "md:col-span-2", rowSpan: "md:row-span-1" },
-  { id: 7, name: "InShot", type: "Creative Portfolio", logo: "/logo/Inshotgr-Logo.webp", url: "https://inshot.gr/", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" },
-  { id: 8, name: "Corallia Villas", type: "Luxury Property", logo: "/logo/corallia-villas-logo.webp", url: "https://corallia-villas.com/", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" },
-  { id: 9, name: "Evergreen Tours", type: "Travel Operations", logo: "/logo/evergreen-tours_logo.webp", url: "https://evergreen-tours.com/", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" },
-  { id: 10, name: "Rimondi", type: "Hospitality Resort", logo: "/logo/rimondi.webp", hasWhiteBg: true, url: "https://rimondi.com.gr/", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" },
+  { id: 1, name: "Sanus Creta", type: "Luxury Booking Platform", logo: "/logo/Sanus.webp", url: "#", colSpan: "md:col-span-2", rowSpan: "md:row-span-1" },
+  { id: 2, name: "Guest First", type: "Hospitality System", logo: "/logo/Guestfirstgr-logo.svg", url: "https://guestfirst.gr/", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" },
+  { id: 3, name: "Alouminia Papadakis", type: "Construction / B2B", logo: "/logo/alouminia.webp", url: "#", colSpan: "md:col-span-1", rowSpan: "md:row-span-2" },
+  { id: 4, name: "Άγιος Παύλος", type: "Tourism / Hospitality", logo: "/logo/Agiospavlos.gr-logo.svg", url: "https://www.agiospavlos.gr/", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" },
+  { id: 5, name: "Titho", type: "E-Commerce", logo: "/logo/titho.webp", url: "#", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" },
+  { id: 6, name: "Leatheraki", type: "Retail / E-Shop", logo: "/logo/leatheraki.webp", url: "#", colSpan: "md:col-span-2", rowSpan: "md:row-span-1" },
+  { id: 7, name: "Corallia Villas", type: "Luxury Property", logo: "/logo/corallia-villas-logo.webp", url: "https://corallia-villas.com/", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" },
+  { id: 8, name: "Evergreen Tours", type: "Travel Operations", logo: "/logo/evergreen-tours_logo.webp", url: "https://evergreen-tours.com/", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" },
 ];
 
 function BentoItem({ item, lang }: { item: any, lang: string }) {
