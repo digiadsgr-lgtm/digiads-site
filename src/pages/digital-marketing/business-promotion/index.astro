@@ -1,0 +1,76 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navbar from '../../../components/Astro/Navbar.astro';
+import Footer from '../../../components/Astro/Footer.astro';
+
+const title = "Business Promotion & Εταιρική Ανάπτυξη | DIGIADS";
+const description = "Κλιμακώστε την επιχείρησή σας με Data-Driven Business Promotion στρατηγικές από την DIGIADS. Εταιρική ταυτότητα, ψηφιακός μετασχηματισμός και growth hacks.";
+---
+
+<Layout title={title} description={description} lang="el">
+    <Navbar />
+
+    {/* Hero Split Layout */}
+    <section class="relative pt-32 pb-20 bg-[#010205] min-h-[90vh] flex items-center overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,217,255,0.05)_0%,transparent_50%)] pointer-events-none" />
+        
+        <div class="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10 w-full">
+            {/* Text Content */}
+            <div>
+                <span class="px-3 py-1 bg-[#00d9ff]/10 text-[#00d9ff] rounded-full text-xs font-bold tracking-widest uppercase border border-[#00d9ff]/20 mb-6 inline-block">
+                    Corporate Strategy
+                </span>
+                <h1 class="text-4xl md:text-5xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 font-montserrat tracking-tight leading-none mb-6">
+                    Business<br/>Promotion.
+                </h1>
+                <p class="text-lg text-slate-400 font-light leading-relaxed mb-8 max-w-xl">
+                    Επαναπροσδιορίζουμε την Εταιρική σας Ταυτότητα. Μέσα από βαθιά ανάλυση δεδομένων και premium αισθητική, τοποθετούμε το Brand σας στην κορυφή της αγοράς.
+                </p>
+                <div class="flex gap-4">
+                    <a href="/contact" class="px-8 py-4 bg-white text-black font-bold rounded-full hover:scale-105 transition-transform">
+                        ΞΕΚΙΝΗΣΤΕ ΣΗΜΕΡΑ
+                    </a>
+                </div>
+            </div>
+
+            {/* AI Visual */}
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-[#00d9ff] to-purple-500 rounded-[2rem] blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative aspect-square md:aspect-[4/3] rounded-[2rem] overflow-hidden bg-[#0a0d16] border border-white/10">
+                    <img src="/visuals/business_growth.png" alt="Business Growth AI Node Map" class="w-full h-full object-cover scale-[1.02] group-hover:scale-110 transition-transform duration-[1.5s] ease-out" loading="lazy" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8">
+                        <p class="text-[#00d9ff] font-mono text-xs mb-2">NETWORK EXPANSION</p>
+                        <p class="text-white font-bold text-xl tracking-wide">Data-Driven Growth</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {/* Details */}
+    <section class="py-24 bg-[#030509]">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="p-8 rounded-[24px] bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition-colors">
+                <h3 class="text-2xl font-bold text-white mb-4">Brand Identity</h3>
+                <p class="text-slate-400 font-light leading-relaxed">
+                    Δημιουργούμε σύγχρονα, ισχυρά Brands που ξεχωρίζουν. Από το λογότυπο μέχρι την πλήρη εταιρική ταυτότητα.
+                </p>
+            </div>
+            <div class="p-8 rounded-[24px] bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition-colors border-t-[#00d9ff]/30">
+                <h3 class="text-2xl font-bold text-white mb-4">Digital Transformation</h3>
+                <p class="text-slate-400 font-light leading-relaxed">
+                    Εκσυγχρονίζουμε τον τρόπο που λειτουργεί και προβάλλεται η επιχείρησή σας στο διαδίκτυο.
+                </p>
+            </div>
+            <div class="p-8 rounded-[24px] bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition-colors border-t-purple-500/30">
+                <h3 class="text-2xl font-bold text-white mb-4">Market Positioning</h3>
+                <p class="text-slate-400 font-light leading-relaxed">
+                    Στρατηγική τοποθέτηση για να βρείτε το ιδανικό πελατολόγιο, αυξάνοντας το Life Time Value κάθε πελάτη (LTV).
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>

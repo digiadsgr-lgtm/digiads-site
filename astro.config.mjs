@@ -15,14 +15,6 @@ export default defineConfig({
       status: 301,
       destination: '/digital-marketing/performance-marketing'
     },
-    '/digital-marketing/business-promotion/': {
-      status: 301,
-      destination: '/#services'
-    },
-    '/digital-marketing/social-media-management/': {
-      status: 301,
-      destination: '/digital-marketing/performance-marketing'
-    },
     '/touristiko-marketing-epitixias/': {
       status: 301,
       destination: '/touristiko-marketing'

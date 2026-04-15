@@ -1,0 +1,85 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navbar from '../../../components/Astro/Navbar.astro';
+import Footer from '../../../components/Astro/Footer.astro';
+
+const title = "Social Media Management & Viral Marketing | DIGIADS";
+const description = "Κορυφαίο Social Media Management (Instagram, TikTok, Facebook). Viral marketing, Aesthetic Branding και διαχείριση περιεχομένου από την DIGIADS.";
+---
+
+<Layout title={title} description={description} lang="el">
+    <Navbar />
+
+    {/* Hero Split Layout */}
+    <section class="relative pt-32 pb-20 bg-[#010205] min-h-[90vh] flex items-center overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(236,72,153,0.05)_0%,transparent_50%)] pointer-events-none" />
+        
+        <div class="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10 w-full">
+            {/* Text Content */}
+            <div class="order-2 lg:order-1">
+                <span class="px-3 py-1 bg-pink-500/10 text-pink-400 rounded-full text-xs font-bold tracking-widest uppercase border border-pink-500/20 mb-6 inline-block">
+                    Viral Growth
+                </span>
+                <h1 class="text-4xl md:text-5xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 font-montserrat tracking-tight leading-none mb-6">
+                    Social Media<br/>Management.
+                </h1>
+                <p class="text-lg text-slate-400 font-light leading-relaxed mb-8 max-w-xl">
+                    Χτίζουμε κοινότητες που λατρεύουν το Brand σας. Creative content, Viral videos (TikTok & Reels) και Aesthetic curation που μετατρέπουν τους followers σε φανατικούς πελάτες.
+                </p>
+                <div class="flex gap-4">
+                    <a href="/contact" class="px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold rounded-full hover:scale-105 transition-transform">
+                        ΓΙΝΕ VIRAL
+                    </a>
+                </div>
+            </div>
+
+            {/* AI Visual */}
+            <div class="relative group order-1 lg:order-2">
+                <div class="absolute -inset-1 bg-gradient-to-r from-pink-500 to-purple-600 rounded-[2rem] blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative aspect-[4/5] md:aspect-square rounded-[2rem] overflow-hidden bg-[#0a0d16] border border-white/10">
+                    <img src="/visuals/social_media_viral.png" alt="Social Media Viral Growth Concept Aesthetic" class="w-full h-full object-cover scale-[1.02] group-hover:scale-110 transition-transform duration-[1.5s] ease-out" loading="lazy" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8">
+                        <p class="text-pink-400 font-mono text-xs mb-2">AESTHETIC BRANDING</p>
+                        <p class="text-white font-bold text-2xl tracking-wide">Digital Influence</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {/* Platforms Grid */}
+    <section class="py-24 bg-[#030509]">
+        <div class="max-w-7xl mx-auto px-6">
+             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                 
+                 {/* Instagram */}
+                 <div class="group p-8 rounded-[24px] bg-[#0#0509] border border-white/5 hover:bg-white/[0.02] transition-all bg-gradient-to-b from-pink-500/5 to-transparent">
+                     <h3 class="text-2xl font-black text-white mb-3">Instagram</h3>
+                     <p class="text-slate-400 font-light text-sm leading-relaxed">
+                         Αισθητική υπεροχή. Δημιουργούμε το απόλυτο digital vitrine για την επιχείρησή σας μέσω High-End Posts & Stories.
+                     </p>
+                 </div>
+
+                 {/* TikTok */}
+                 <div class="group p-8 rounded-[24px] bg-[#0#0509] border border-white/5 hover:bg-white/[0.02] transition-all bg-gradient-to-b from-[#00f2fe]/5 to-transparent">
+                     <h3 class="text-2xl font-black text-white mb-3">TikTok</h3>
+                     <p class="text-slate-400 font-light text-sm leading-relaxed">
+                         Viral Content Creation. Σκηνοθετούμε και μοντάρουμε Short-Form Videos που εκτοξεύουν το organic reach.
+                     </p>
+                 </div>
+
+                 {/* Content Creation */}
+                 <div class="group p-8 rounded-[24px] bg-[#0#0509] border border-white/5 hover:bg-white/[0.02] transition-all bg-gradient-to-b from-purple-500/5 to-transparent lg:col-span-2">
+                     <h3 class="text-2xl font-black text-white mb-3">Content Creation Center</h3>
+                     <p class="text-slate-400 font-light text-sm leading-relaxed max-w-md">
+                         Αναλαμβάνουμε εξ ολοκλήρου την παραγωγή περιεχομένου (Φωτογραφίσεις, Reels/TikTok Videos, Copywriting) ώστε να μη χρειαστεί να αγχωθείτε ξανά για το "τι θα ανεβάσουμε σήμερα".
+                     </p>
+                 </div>
+
+             </div>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>
