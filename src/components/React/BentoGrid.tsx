@@ -103,16 +103,17 @@ export default function BentoGrid() {
             <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#02040A] to-transparent z-10 pointer-events-none"></div>
             
             {/* Ticker Animation Container */}
-            <div className="flex gap-16 items-center px-8 w-max relative animate-marquee hover:[animation-play-state:paused]">
+            <div className="flex gap-8 items-center px-8 w-max relative animate-marquee hover:[animation-play-state:paused]">
                 {/* Double the array for seamless infinite scrolling */}
                 {[...clientLogos, ...clientLogos].map((logo, idx) => (
-                    <img 
-                        key={idx} 
-                        src={logo} 
-                        alt="Client Logo" 
-                        className="h-12 w-auto object-contain filter grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 brightness-0 invert" 
-                        loading="lazy"
-                    />
+                    <div key={idx} className="h-24 w-[200px] bg-white/[0.03] border border-white/10 rounded-2xl flex items-center justify-center px-6 hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+                        <img 
+                            src={logo} 
+                            alt="Client Logo" 
+                            className="max-h-12 max-w-full object-contain filter drop-shadow-xl" 
+                            loading="lazy"
+                        />
+                    </div>
                 ))}
             </div>
             
