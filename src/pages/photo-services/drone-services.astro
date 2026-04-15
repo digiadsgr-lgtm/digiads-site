@@ -30,44 +30,60 @@ import Footer from '../../components/Astro/Footer.astro';
         </div>
     </section>
 
-    {/* Details Grid */}
-    <section class="py-24 bg-[#030509]">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {/* Cinematic Masterpiece Gallery (Bento Layout) */}
+    <section class="py-12 bg-[#030509]">
+        <div class="max-w-[1400px] mx-auto px-6">
+            
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[400px]">
                 
-                <div class="group relative p-[1px] rounded-[24px] overflow-hidden bg-gradient-to-b from-white/10 to-transparent">
-                    <div class="absolute inset-0 bg-gradient-to-br from-[#00d9ff]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                    <div class="relative h-full bg-[#030509] rounded-[23px] p-8 flex flex-col">
-                        <div class="w-12 h-12 bg-[#00d9ff]/10 rounded-xl flex items-center justify-center text-[#00d9ff] mb-6">🗺️</div>
-                         <h3 class="text-2xl font-bold text-white mb-4">Τοπογραφικές Εφαρμογές</h3>
-                         <p class="text-slate-400 font-light leading-relaxed flex-grow">
-                             Χαρτογραφήσεις, ογκομετρήσεις και σύνταξη ψηφιακών μοντέλων εδάφους/επιφανείας με ακρίβεια εκατοστού.
-                         </p>
+                {/* Large Panoramic Drone Cinematic */}
+                <a href="/visuals/drone_cinematic.png" target="_blank" rel="noopener noreferrer" class="md:col-span-8 group relative rounded-3xl overflow-hidden cursor-crosshair block bg-[#0a0d16] border border-white/5">
+                    <img src="/visuals/drone_cinematic.png" alt="FPV Drone Resort Videography" class="w-full h-full object-cover scale-[1.01] group-hover:scale-105 transition-transform duration-[1s] ease-out" loading="lazy" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    <div class="absolute bottom-0 left-0 p-8 md:p-10 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                        <span class="px-3 py-1 bg-[#00d9ff]/20 text-[#00d9ff] border border-[#00d9ff]/30 rounded-full text-[10px] font-bold tracking-widest uppercase mb-3 inline-block">FPV & Aerial Cinematic</span>
+                        <h2 class="text-3xl lg:text-5xl font-black text-white tracking-tight">Cinematic Aerials</h2>
+                        <p class="text-slate-400 mt-3 max-w-md font-light text-sm md:text-base leading-relaxed">
+                            Αεροβιντεοσκόπηση 4K ξενοδοχείων, real estate και ειδικών events. Αυξήστε το κύρος και την οπτική αξία του έργου σας με εντυπωσιακά εναέρια πλάνα.
+                        </p>
                     </div>
-                </div>
+                </a>
 
-                <div class="group relative p-[1px] rounded-[24px] overflow-hidden bg-gradient-to-b from-white/10 to-transparent">
-                    <div class="absolute inset-0 bg-gradient-to-br from-[#00d9ff]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                    <div class="relative h-full bg-[#030509] rounded-[23px] p-8 flex flex-col">
-                        <div class="w-12 h-12 bg-[#00d9ff]/10 rounded-xl flex items-center justify-center text-[#00d9ff] mb-6">🎥</div>
-                         <h3 class="text-2xl font-bold text-white mb-4">Cinematic Aerial Video</h3>
-                         <p class="text-slate-400 font-light leading-relaxed flex-grow">
-                             Αεροβιντεοσκόπηση 4K ξενοδοχείων, real estate και ειδικών events που ανεβάζουν το κύρος του έργου σας.
-                         </p>
+                {/* Vertical Topography Grid */}
+                <a href="/visuals/drone_topography.png" target="_blank" rel="noopener noreferrer" class="md:col-span-4 group relative rounded-3xl overflow-hidden cursor-crosshair block bg-[#0a0d16] border border-white/5">
+                    <img src="/visuals/drone_topography.png" alt="3D Topography Drone Survey" class="w-full h-full object-cover scale-[1.01] group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    <div class="absolute bottom-0 left-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                        <span class="px-3 py-1 bg-purple-500/20 text-purple-400 border border-purple-500/30 rounded-full text-[10px] font-bold tracking-widest uppercase mb-3 inline-block">3D Mapping</span>
+                        <h2 class="text-2xl font-bold text-white tracking-tight">Τοπογραφικές<br/>Εφαρμογές</h2>
+                        <p class="text-slate-400 mt-2 font-light text-sm">Χαρτογραφήσεις και σύνταξη ψηφιακών μοντέλων (DEM/DSM) με ακρίβεια εκατοστού.</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="group relative p-[1px] rounded-[24px] overflow-hidden bg-gradient-to-b from-white/10 to-transparent">
-                    <div class="absolute inset-0 bg-gradient-to-br from-[#00d9ff]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                    <div class="relative h-full bg-[#030509] rounded-[23px] p-8 flex flex-col">
-                        <div class="w-12 h-12 bg-[#00d9ff]/10 rounded-xl flex items-center justify-center text-[#00d9ff] mb-6">🏗️</div>
-                         <h3 class="text-2xl font-bold text-white mb-4">Επιθεώρηση Έργων</h3>
-                         <p class="text-slate-400 font-light leading-relaxed flex-grow">
-                             Παρακολούθηση της πορείας των κατασκευαστικών έργων με time-lapse αεροφωτογράφιση και monitoring εργοταξίου.
-                         </p>
-                    </div>
-                </div>
+            </div>
+        </div>
+    </section>
 
+    {/* The Rest of Services in Minimalistic Dark UI */}
+    <section class="py-24 bg-[#010205]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors border-t-[#00d9ff]/30">
+                    <div class="text-[#00d9ff] font-mono text-sm mb-4">CERTIFIED</div>
+                    <h2 class="text-xl font-bold text-white mb-3">Επιθεώρηση Έργων & Εργοταξίων</h2>
+                    <p class="text-slate-400 font-light text-sm leading-relaxed">
+                        Ασφαλής παρακολούθηση της πορείας κατασκευαστικών έργων με time-lapse αεροφωτογράφιση και remote monitoring, καλύπτοντας τις υψηλότερες προδιαγραφές ασφαλείας.
+                    </p>
+                </div>
+                <div class="p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors border-t-emerald-500/30">
+                    <div class="text-emerald-400 font-mono text-sm mb-4">CAMCOPTER ALLIANCE</div>
+                    <h2 class="text-xl font-bold text-white mb-3">Πιστοποιημένος Εξοπλισμός</h2>
+                    <p class="text-slate-400 font-light text-sm leading-relaxed">
+                        Σε συνεργασία με την Camcopter, ο στόλος μας αποτελείται από τελευταίας τεχνολογίας Drones διασφαλίζοντας νόμιμες πτήσεις (EASA certified) σε κάθε τοποθεσία.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
