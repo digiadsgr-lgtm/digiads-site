@@ -132,7 +132,6 @@ export default function Hero({ lang = 'el' }: HeroProps) {
             </a>
           </motion.div>
       </div>
-      </div>
 
       {/* Scroll indicator */}
       <motion.div
