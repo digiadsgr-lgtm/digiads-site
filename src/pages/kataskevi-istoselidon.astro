@@ -1,0 +1,144 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Astro/Navbar.astro';
+import Footer from '../components/Astro/Footer.astro';
+import SiteAuditor from '../components/React/SiteAuditor';
+import TechShowcase from '../components/React/TechShowcase';
+
+// Exact same path as the WP site to preserve URL authority
+// Path: digiads-astro/src/pages/kataskevi-istoselidon/index.astro
+// Target Keywords: Κατασκευή ιστοσελίδων Κρήτη, Web Design Ρέθυμνο, Δημιουργία eshop Χανιά, Web Development Greece
+
+const title = "Κατασκευή Ιστοσελίδας & E-shop στην Κρήτη (Ρέθυμνο, Χανιά) | DIGIADS";
+const description = "Κορυφαία κατασκευή ιστοσελίδων και e-shop στην Κρήτη (Ρέθυμνο, Χανιά, Ηράκλειο). 100/100 ταχύτητα, Custom Web Design, Next.js / Astro. Ζητήστε προσφορά!";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Πόσος χρόνος χρειάζεται για την κατασκευή μιας ιστοσελίδας;",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Μια εταιρική ιστοσελίδα (corporate site) συνήθως ολοκληρώνεται σε 15-20 εργάσιμες ημέρες, ενώ ένα e-shop απαιτεί 30-45 ημέρες, ανάλογα με την πολυπλοκότητα των διασυνδέσεων (ERP, τράπεζες)."
+    }
+  }, {
+    "@type": "Question",
+    "name": "Οι ιστοσελίδες σας βγαίνουν στην πρώτη σελίδα της Google;",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Απολύτως. Χτίζουμε σε τεχνολογίες Next.js και Astro (Server-Side Rendering) εξασφαλίζοντας δείκτες Core Web Vitals στο απόλυτο 100/100, το οποίο δίνει τεράστιο προβάδισμα έναντι του ανταγωνισμού που χρησιμοποιεί τεχνολογίες όπως το WordPress."
+    }
+  }, {
+    "@type": "Question",
+    "name": "Αναλαμβάνετε projects εκτός Κρήτης;",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ναι, ενώ έχουμε ισχυρή έδρα (Ρέθυμνο, Ηράκλειο, Χανιά), αναλαμβάνουμε projects υψηλών προδιαγραφών (Ξενοδοχεία, E-commerce, Web Apps) σε όλη την Ελλάδα και το εξωτερικό."
+    }
+  }]
+};
+---
+
+<Layout title={title} description={description} lang="el">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <Navbar />
+
+    <!-- SEO Hero Section -->
+    <section class="relative pt-40 pb-20 overflow-hidden bg-[#010205]">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,217,255,0.1)_0%,transparent_70%)] pointer-events-none" />
+        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+            <span class="text-[#00d9ff] font-mono tracking-[0.2em] uppercase text-sm mb-6 inline-block">Web Design Agency Crete</span>
+            
+            {/* The primary H1 must contain the core exact-match keywords */}
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white font-montserrat tracking-tight leading-tight mb-8">
+                Κατασκευή Ιστοσελίδων & <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-[#00d9ff]">E-shop</span>
+            </h1>
+            
+            <h2 class="text-xl md:text-2xl text-slate-300 font-light max-w-3xl mx-auto leading-relaxed mb-10">
+                Δεν φτιάχνουμε απλώς site. Χτίζουμε <strong>ταχύτατα ψηφιακά περιουσιακά στοιχεία (assets)</strong> με 100/100 ταχύτητα που μετατρέπουν τους επισκέπτες σε πελάτες στο Ρέθυμνο, τα Χανιά και σε όλη την Ελλάδα.
+            </h2>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                 <a href="/contact" class="px-8 py-4 bg-[#00d9ff] text-black rounded-full font-bold uppercase tracking-wider hover:bg-white transition-all">
+                    Ζητηστε Προσφορα
+                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Features (H2 Content SEO) -->
+    <section class="py-24 bg-[#02040A] relative z-10">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-[#050814] p-8 rounded-3xl border border-white/5 hover:border-[#00d9ff]/30 transition-colors">
+                    <h3 class="text-2xl font-bold text-white mb-4">Εκρηκτική Ταχύτητα (Lighthouse 100)</h3>
+                    <p class="text-slate-400 leading-relaxed">Χρησιμοποιούμε τεχνολογίες αιχμής όπως React, Next.js και Astro. Το e-shop ή η ιστοσελίδα σας φορτώνει σε χιλιοστά του δευτερολέπτου, προστατεύοντας τα rankings σας στη Google.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="bg-[#050814] p-8 rounded-3xl border border-white/5 hover:border-purple-500/30 transition-colors">
+                    <h3 class="text-2xl font-bold text-white mb-4">Responsive Web Design</h3>
+                    <p class="text-slate-400 leading-relaxed">Άψογη εμπειρία (Mobile First) σε κινητά και tablet. Η πλειοψηφία των πωλήσεων γίνεται από smartphones, ειδικά στον Τουρισμό της Κρήτης και το λιανεμπόριο.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="bg-[#050814] p-8 rounded-3xl border border-white/5 hover:border-green-500/30 transition-colors">
+                    <h3 class="text-2xl font-bold text-white mb-4">SEO & Core Web Vitals</h3>
+                    <p class="text-slate-400 leading-relaxed">Custom κατασκευή που τηρεί αυστηρά τα κριτήρια της Google. Σωστή δομή H1/H2, JSON-LD Schema markup και βελτιστοποίηση εικόνων από την πρώτη μέρα.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Silo: Text-Heavy Section for Local SEO -->
+    <section class="py-24 bg-[#010205]">
+        <div class="max-w-4xl mx-auto px-6 prose prose-invert prose-lg prose-headings:font-montserrat">
+            <h2>Η Νο#1 Εταιρεία Κατασκευής Ιστοσελίδων στην Κρήτη</h2>
+            <p>
+                Η παρουσία σας στο διαδίκτυο δεν είναι απλώς μια 'βιτρίνα'. Στη DIGIADS αντιμετωπίζουμε το <strong>custom web design</strong> ως δημιουργία ενός μηχανισμού πωλήσεων. Με έδρα το <strong>Ρέθυμνο</strong>, εξυπηρετούμε κορυφαίες επιχειρήσεις στα <strong>Χανιά, το Ηράκλειο</strong> και διαχειριζόμαστε projects (ξενοδοχεία, βίλες, rent a car, e-commerce) σε όλη την Ελλάδα.
+            </p>
+            <h3>Δημιουργία E-shop που πουλάει</h3>
+            <p>
+                Η <strong>κατασκευή e-shop</strong> είναι μαθηματικά και User Experience (UX). Σχεδιάζουμε τη διαδρομή του πελάτη (funnel) βήμα-βήμα, μειώνοντας το cart abandonment rate και αυξάνοντας το Average Order Value (AOV).
+            </p>
+            <ul>
+                <li>Υποστήριξη πολλαπλών τρόπων πληρωμής (Πιστωτική, PayPal, IRIS)</li>
+                <li>Διασύνδεση με ERP και μεταφορικές εταιρείες (Speedex, ACS)</li>
+                <li>Full SEO Optimization (Κατηγορίες, Προϊόντα)</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- FAQ Section (Voice Search SEO) -->
+    <section class="py-20 bg-[#02040A] relative border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-black text-white font-montserrat mb-10 text-center">Συχνές Ερωτήσεις (FAQ)</h2>
+            <div class="space-y-6">
+                <!-- Question 1 -->
+                <div class="bg-[#050814] p-6 rounded-2xl border border-white/5 hover:border-[#00d9ff]/30 transition-colors">
+                    <h3 class="text-xl font-bold text-[#00d9ff] mb-3">Πόσος χρόνος χρειάζεται για την κατασκευή μιας ιστοσελίδας;</h3>
+                    <p class="text-slate-400">Μια εταιρική ιστοσελίδα (corporate site) συνήθως ολοκληρώνεται σε 15-20 εργάσιμες ημέρες, ενώ ένα e-shop απαιτεί 30-45 ημέρες, ανάλογα με την πολυπλοκότητα των διασυνδέσεων (ERP, τράπεζες).</p>
+                </div>
+                <!-- Question 2 -->
+                <div class="bg-[#050814] p-6 rounded-2xl border border-white/5 hover:border-[#00d9ff]/30 transition-colors">
+                    <h3 class="text-xl font-bold text-[#00d9ff] mb-3">Οι ιστοσελίδες σας βγαίνουν στην πρώτη σελίδα της Google;</h3>
+                    <p class="text-slate-400">Απολύτως. Χτίζουμε σε τεχνολογίες Next.js και Astro (Server-Side Rendering) εξασφαλίζοντας δείκτες Core Web Vitals στο απόλυτο 100/100, το οποίο δίνει τεράστιο προβάδισμα έναντι του ανταγωνισμού που χρησιμοποιεί τεχνολογίες όπως το WordPress.</p>
+                </div>
+                <!-- Question 3 -->
+                <div class="bg-[#050814] p-6 rounded-2xl border border-white/5 hover:border-[#00d9ff]/30 transition-colors">
+                    <h3 class="text-xl font-bold text-[#00d9ff] mb-3">Αναλαμβάνετε projects εκτός Κρήτης;</h3>
+                    <p class="text-slate-400">Ναι, ενώ έχουμε ισχυρή έδρα (Ρέθυμνο, Ηράκλειο, Χανιά), αναλαμβάνουμε projects υψηλών προδιαγραφών (Ξενοδοχεία, E-commerce, Web Apps) σε όλη την Ελλάδα και το εξωτερικό.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bring in the AI component to prove technical authority -->
+    <TechShowcase client:visible />
+    
+    <div id="audit" class="border-t border-white/5">
+        <SiteAuditor lang="el" client:visible />
+    </div>
+
+    <Footer />
+</Layout>

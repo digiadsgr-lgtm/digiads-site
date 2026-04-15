@@ -1,0 +1,49 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Astro/Navbar.astro';
+import Footer from '../../components/Astro/Footer.astro';
+
+const title = "Privacy Policy & GDPR Compliance | DIGIADS";
+const description = "The Privacy Policy and GDPR compliance terms of DIGIADS.";
+---
+
+<Layout title={title} description={description} lang="en">
+    <Navbar lang="en" />
+
+    <section class="pt-40 pb-20 px-6 relative bg-[#010205] min-h-screen">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <h1 class="text-4xl md:text-5xl font-black text-white font-montserrat mb-12 border-b border-white/10 pb-8">
+                Privacy Policy <span class="text-[#00d9ff]">& GDPR</span>
+            </h1>
+
+            <div class="prose prose-invert prose-lg max-w-none text-slate-300">
+                <p>Last Updated: {new Date().toLocaleDateString('en-US')}</p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">1. Introduction</h2>
+                <p>
+                    <strong>DIGIADS</strong> ("we", "our company") is deeply committed to protecting your privacy and rigorously complying with the General Data Protection Regulation (GDPR) of the European Union.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">2. Data Collection (Via Forms & Analytics)</h2>
+                <p>We collect operational data through the following mechanisms:</p>
+                <ul>
+                    <li><strong>Contact Forms:</strong> When you submit a Strategy Session request (Name, Email), we utilize Web3Forms for secure server-side transmission. Your data is strictly confidential and is never sold to third parties.</li>
+                    <li><strong>Performance Analytics & Advertising:</strong> We deploy tracking pixels (Google Analytics, Meta Pixel) strictly to measure generalized traffic performance and optimize our bespoke retargeting campaigns.</li>
+                </ul>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">3. Cookie Policy</h2>
+                <p>
+                    Our platform relies on essential operational cookies to function flawlessly, alongside performance metrics cookies to analyze user interaction paradigms, thereby optimizing structural UX. By navigating this architecture, you consent to their usage.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">4. Your Cyber Rights</h2>
+                <p>
+                    You retain the absolute right to access, rectify, or demand the permanent eradication of your personal data footprint. You may contact our data officers anytime at <a href="mailto:info@digiads.gr" class="text-[#00d9ff] hover:underline">info@digiads.gr</a> to exercise your rights (Right to be Forgotten).
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    <Footer lang="en" />
+</Layout>

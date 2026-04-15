@@ -1,0 +1,139 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Astro/Navbar.astro';
+import Footer from '../../components/Astro/Footer.astro';
+import SiteAuditor from '../../components/React/SiteAuditor';
+import TechShowcase from '../../components/React/TechShowcase';
+
+const title = "Web Design & Development in Crete | DIGIADS";
+const description = "Top-tier custom website & e-shop development in Crete (Chania, Heraklion, Rethymno). 100/100 performance, Next.js / Astro. Get a quote!";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "How long does it take to build a custom website?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A corporate website is typically delivered in 15-20 business days, while an e-commerce platform requires 30-45 days, depending on ERP and bank integrations."
+    }
+  }, {
+    "@type": "Question",
+    "name": "Do your websites rank on the first page of Google?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Absolutely. We build with Next.js and Astro (Server-Side Rendering) securing Core Web Vitals at a perfect 100/100, providing an immense advantage against competitors using legacy CMS like WordPress."
+    }
+  }, {
+    "@type": "Question",
+    "name": "Do you take projects outside of Crete?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, while our headquarters are in Crete (Rethymno, Heraklion, Chania), we undertake high-end projects (Hotels, E-commerce, Web Apps) across Greece and internationally."
+    }
+  }]
+};
+---
+
+<Layout title={title} description={description} lang="en">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <Navbar lang="en" />
+
+    <!-- SEO Hero Section -->
+    <section class="relative pt-40 pb-20 overflow-hidden bg-[#010205]">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,217,255,0.1)_0%,transparent_70%)] pointer-events-none" />
+        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+            <span class="text-[#00d9ff] font-mono tracking-[0.2em] uppercase text-sm mb-6 inline-block">Web Design Agency Crete</span>
+            
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white font-montserrat tracking-tight leading-tight mb-8">
+                Web Design & <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-[#00d9ff]">E-shop</span>
+            </h1>
+            
+            <h2 class="text-xl md:text-2xl text-slate-300 font-light max-w-3xl mx-auto leading-relaxed mb-10">
+                We don't just build sites. We develop <strong>blazing-fast digital assets</strong> with 100/100 performance that convert visitors into loyal clients globally.
+            </h2>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                 <a href="/en/contact" class="px-8 py-4 bg-[#00d9ff] text-black rounded-full font-bold uppercase tracking-wider hover:bg-white transition-all">
+                    Request a Quote
+                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Features (H2 Content SEO) -->
+    <section class="py-24 bg-[#02040A] relative z-10">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-[#050814] p-8 rounded-3xl border border-white/5 hover:border-[#00d9ff]/30 transition-colors">
+                    <h3 class="text-2xl font-bold text-white mb-4">Explosive Speed (Lighthouse 100)</h3>
+                    <p class="text-slate-400 leading-relaxed">We utilize cutting-edge technologies like React, Next.js, and Astro. Your e-shop or site loads in milliseconds, protecting your SEO rankings.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="bg-[#050814] p-8 rounded-3xl border border-white/5 hover:border-purple-500/30 transition-colors">
+                    <h3 class="text-2xl font-bold text-white mb-4">Responsive Web Design</h3>
+                    <p class="text-slate-400 leading-relaxed">Flawless Mobile First experience. The majority of sales happen via smartphones, especially in Tourism and e-commerce across Europe.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="bg-[#050814] p-8 rounded-3xl border border-white/5 hover:border-green-500/30 transition-colors">
+                    <h3 class="text-2xl font-bold text-white mb-4">SEO & Core Web Vitals</h3>
+                    <p class="text-slate-400 leading-relaxed">Custom code that strictly adheres to Google guidelines. Proper H1/H2 structures, JSON-LD Schema integration, and aggressive image optimization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Silo: Text-Heavy Section for Local SEO -->
+    <section class="py-24 bg-[#010205]">
+        <div class="max-w-4xl mx-auto px-6 prose prose-invert prose-lg prose-headings:font-montserrat">
+            <h2>The No#1 Web Development Agency in Crete</h2>
+            <p>
+                Your online presence is more than an aesthetic 'shop window'. At DIGIADS, we treat <strong>custom web design</strong> as the foundation of your sales mechanism. Headquartered in <strong>Rethymno</strong>, we serve top-tier enterprises in <strong>Chania, Heraklion</strong> and manage international projects (luxury hotels, real estate, e-commerce).
+            </p>
+            <h3>Building High-Conversion E-shops</h3>
+            <p>
+                Building an <strong>e-shop</strong> blends mathematics with User Experience (UX). We design our sales funnels meticulously step-by-step, driving cart abandonment rates down and increasing your Average Order Value (AOV).
+            </p>
+            <ul>
+                <li>Support for robust payment gateways (Stripe, PayPal, Local Banks)</li>
+                <li>ERP API and Logistics integrations</li>
+                <li>Full Technical SEO Optimization for Collections & Products</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- FAQ Section (Voice Search SEO) -->
+    <section class="py-20 bg-[#02040A] relative border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-black text-white font-montserrat mb-10 text-center">Frequently Asked Questions (FAQ)</h2>
+            <div class="space-y-6">
+                <!-- Question 1 -->
+                <div class="bg-[#050814] p-6 rounded-2xl border border-white/5 hover:border-[#00d9ff]/30 transition-colors">
+                    <h3 class="text-xl font-bold text-[#00d9ff] mb-3">How long does it take to build a custom website?</h3>
+                    <p class="text-slate-400">A corporate website is typically delivered in 15-20 business days, while an e-commerce platform requires 30-45 days, depending on ERP and bank integrations.</p>
+                </div>
+                <!-- Question 2 -->
+                <div class="bg-[#050814] p-6 rounded-2xl border border-white/5 hover:border-[#00d9ff]/30 transition-colors">
+                    <h3 class="text-xl font-bold text-[#00d9ff] mb-3">Do your websites rank on the first page of Google?</h3>
+                    <p class="text-slate-400">Absolutely. We build with Next.js and Astro (Server-Side Rendering) securing Core Web Vitals at a perfect 100/100, providing an immense advantage against competitors using legacy CMS like WordPress.</p>
+                </div>
+                <!-- Question 3 -->
+                <div class="bg-[#050814] p-6 rounded-2xl border border-white/5 hover:border-[#00d9ff]/30 transition-colors">
+                    <h3 class="text-xl font-bold text-[#00d9ff] mb-3">Do you take projects outside of Crete?</h3>
+                    <p class="text-slate-400">Yes, while our headquarters are in Crete (Rethymno, Heraklion, Chania), we undertake high-end projects (Hotels, E-commerce, Web Apps) across Greece and internationally.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bring in the AI component to prove technical authority -->
+    <TechShowcase lang="en" client:visible />
+    
+    <div id="audit" class="border-t border-white/5">
+        <SiteAuditor lang="en" client:visible />
+    </div>
+
+    <Footer lang="en" />
+</Layout>

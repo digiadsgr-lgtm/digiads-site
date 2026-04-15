@@ -1,0 +1,79 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Astro/Navbar.astro';
+import Footer from '../../components/Astro/Footer.astro';
+
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+// Sort by date descending
+posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const title = "DIGIADS Blog | Tech & Growth Insights";
+const description = "Διαβάστε τα τελευταία άρθρα μας γύρω από το Performance Marketing, SEO, AI και το Web Architecture.";
+---
+
+<Layout title={title} description={description} lang="el">
+    <Navbar />
+
+    <section class="relative pt-40 pb-20 px-6 min-h-screen bg-[#010205]">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,217,255,0.1)_0%,transparent_70%)] pointer-events-none" />
+        
+        <div class="max-w-[1200px] mx-auto relative z-10">
+            <div class="text-center mb-20 flex flex-col items-center">
+                 <span class="w-12 h-[1px] bg-gradient-to-r from-transparent via-[#00d9ff] to-transparent mb-6 block" />
+                 <h1 class="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 font-montserrat tracking-tight mb-6">
+                    Our <span class="text-[#00d9ff]">Insights</span>
+                 </h1>
+                 <p class="text-slate-400 text-lg md:text-xl font-light max-w-2xl">
+                    Εξερευνήστε κορυφαίες στρατηγικές και the next big things σε SEO, Machine Learning ADS και Headless Web Development.
+                 </p>
+            </div>
+
+            {posts.length > 0 ? (
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    {posts.map((post) => (
+                        <a href={`/blog/${post.slug}`} class="group group-hover relative p-[1px] rounded-[24px] overflow-hidden bg-gradient-to-b from-white/10 to-transparent block mb-8 transition-transform duration-500 hover:-translate-y-2">
+                            <div class="absolute inset-0 bg-gradient-to-br from-[#00d9ff]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                            <div class="relative h-full bg-[#030509] rounded-[23px] overflow-hidden flex flex-col">
+                                {post.data.image && (
+                                    <div class="w-full h-56 overflow-hidden">
+                                         <img 
+                                            src={post.data.image} 
+                                            alt={post.data.title} 
+                                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 blur-[2px] group-hover:blur-0" 
+                                        />
+                                    </div>
+                                )}
+                                <div class="p-8 flex-grow flex flex-col">
+                                    <div class="flex items-center justify-between mb-4">
+                                         <span class="text-[#00d9ff] text-xs font-bold tracking-widest uppercase">{post.data.tags[0]}</span>
+                                         <span class="text-slate-500 font-mono text-xs">{post.data.pubDate.toLocaleDateString('el-GR')}</span>
+                                    </div>
+                                    <h2 class="text-2xl font-bold text-white mb-4 line-clamp-2 leading-snug group-hover:text-[#00d9ff] transition-colors">{post.data.title}</h2>
+                                    <p class="text-slate-400 font-light text-sm line-clamp-3 leading-relaxed mb-6 flex-grow">
+                                        {post.data.description}
+                                    </p>
+                                    <div class="flex items-center text-sm font-bold text-white group-hover:text-[#00d9ff] transition-colors gap-2">
+                                         Read Protocol
+                                         <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    ))}
+                </div>
+            ) : (
+                <div class="text-center py-20 border border-white/5 rounded-3xl bg-[#030509]">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/5 text-[#00d9ff] mb-6">
+                        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Systems Initiating</h3>
+                    <p class="text-slate-400">Τα πρώτα άρθρα μας γράφονται. Επιστρέψτε σύντομα.</p>
+                </div>
+            )}
+        </div>
+    </section>
+
+    <Footer />
+</Layout>

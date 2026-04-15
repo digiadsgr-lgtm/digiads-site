@@ -1,0 +1,150 @@
+---
+import '../styles/global.css';
+import CustomCursor from '../components/React/CustomCursor';
+import CookieConsent from '../components/React/CookieConsent';
+
+interface Props {
+	title?: string;
+	description?: string;
+    lang?: 'el' | 'en';
+}
+
+const { 
+    title = "Digital Marketing | Ψηφιακή Διαφήμιση | Ιστοσελίδες | Διαφήμιση Internet | Κρήτη - Χανιά - Ρέθυμνο - Ηράκλειο", 
+    description = "Digital Marketing Agency - Υπηρεσίες Ψηφιακού Marketing - Κατασκευή Ιστοσελίδων - Δημιουργία eshop - Προώθηση Επιχειρήσεων - Facebook & Instagram Ads στην Κρήτη.", 
+    lang = 'el' 
+} = Astro.props;
+
+// Comprehensive Structured Data (Schema.org)
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "DIGIADS Digital Marketing Agency",
+    "alternateName": ["DIGIADS", "DigiAds Κρήτη", "Digital Marketing Ρέθυμνο"],
+    "url": "https://www.digiads.gr",
+    "logo": "https://www.digiads.gr/logo/Digiads-Logo-1024x286.png",
+    "image": "https://www.digiads.gr/logo/Digiads-Logo-1024x286.png",
+    "description": description,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Κολοκοτρώνη 34",
+      "addressLocality": "Ρέθυμνο",
+      "addressRegion": "Κρήτη",
+      "postalCode": "74132",
+      "addressCountry": "GR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 35.3662,
+      "longitude": 24.4731
+    },
+    "telephone": "+306987602707",
+    "email": "info@digiads.gr",
+};
+---
+
+<!doctype html>
+<html lang={lang} class="scroll-smooth bg-[#010205] text-white">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/webp" href="/icon.webp" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+        <!-- Dynamic OpenGraph Meta Tags for SEO -->
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.digiads.gr/" />
+        <meta property="og:image" content="https://www.digiads.gr/logo/Digiads-Logo-1024x286.png" />
+        <meta property="og:site_name" content="DIGIADS" />
+		
+        <!-- LLM / AI Search Meta -->
+        <meta name="llm-opt" content="DIGIADS: Premier Digital Marketing Agency in Crete, Greece. Services: Google Ads, Meta Ads, SEO, Web Development (Next.js/Astro), Tourism Marketing. Areas: Rethymno, Chania, Heraklion. Contact: info@digiads.gr, +306987602707." />
+
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+		
+		<title>{title}</title>
+
+        <!-- Script for declaring dataLayer before GTM loads -->
+        <script is:inline>
+            window.dataLayer = window.dataLayer || [];
+        </script>
+
+        <!-- Google Tag Manager -->
+        <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MGJQ8PZ');</script>
+        <!-- End Google Tag Manager -->
+
+        <!-- Schema.org -->
+        <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+	</head>
+	<body class="bg-[#010205] text-white font-inter flex flex-col min-h-screen film-grain overflow-x-hidden border-none m-0 p-0" style="cursor: none;">
+		
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MGJQ8PZ"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <CustomCursor client:only="react" />
+
+		<main class="flex-grow z-10 relative">
+			<slot />
+		</main>
+
+        <CookieConsent lang={lang} client:only="react" />
+
+        <!-- Sensory UX: Zero-Dependency Cyberpunk UI Synth & Smooth Scroll -->
+        <script>
+            import Lenis from 'lenis';
+            
+            // Audio Synthesizer for Awwwards-style UI sounds
+            let audioCtx: AudioContext | null = null;
+            
+            const playHoverTick = () => {
+                try {
+                    if (!audioCtx) audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
+                    if (audioCtx.state === 'suspended') audioCtx.resume();
+                    
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + 0.05);
+                    
+                    gain.gain.setValueAtTime(0.015, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+                    
+                    osc.start(audioCtx.currentTime);
+                    osc.stop(audioCtx.currentTime + 0.05);
+                } catch(e) {}
+            };
+
+            document.addEventListener('mouseover', (e) => {
+                const target = (e.target as HTMLElement).closest('a, button');
+                if (target && !target.hasAttribute('data-hovered')) {
+                     target.setAttribute('data-hovered', 'true');
+                     playHoverTick();
+                     target.addEventListener('mouseleave', () => target.removeAttribute('data-hovered'), { once: true });
+                }
+            });
+
+            // Initialize Lenis
+            const lenis = new Lenis({
+              autoRaf: true,
+              duration: 1.2,
+              easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+            });
+        </script>
+	</body>
+</html>

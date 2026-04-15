@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Astro/Navbar.astro';
+import Footer from '../components/Astro/Footer.astro';
+
+const title = "Πολιτική Απορρήτου (Privacy Policy) | DIGIADS";
+const description = "Η Πολιτική Απορρήτου (Privacy Policy) και προστασίας προσωπικών δεδομένων (GDPR) της DIGIADS.";
+---
+
+<Layout title={title} description={description} lang="el">
+    <Navbar />
+
+    <section class="pt-40 pb-20 px-6 relative bg-[#010205] min-h-screen">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <h1 class="text-4xl md:text-5xl font-black text-white font-montserrat mb-12 border-b border-white/10 pb-8">
+                Πολιτική Απορρήτου <span class="text-[#00d9ff]">& GDPR</span>
+            </h1>
+
+            <div class="prose prose-invert prose-lg max-w-none text-slate-300">
+                <p>Τελευταία Ενημέρωση: {new Date().toLocaleDateString('el-GR')}</p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">1. Εισαγωγή</h2>
+                <p>
+                    Η <strong>DIGIADS</strong> ("εμείς", "η εταιρεία μας") δεσμεύεται να προστατεύει την ιδιωτικότητά σας και να συμμορφώνεται με τον Γενικό Κανονισμό για την Προστασία Δεδομένων (GDPR) της Ευρωπαϊκής Ένωσης.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">2. Συλλογή Δεδομένων (Μέσω Φορμών & Analytics)</h2>
+                <p>Συλλέγουμε πληροφορίες με τους εξής τρόπους:</p>
+                <ul>
+                    <li><strong>Φόρμες Επικοινωνίας:</strong> Όταν υποβάλετε φόρμα για Strategy Session (Όνομα, Email), χρησιμοποιούμε την Web3Forms για την ασφαλή προώθηση στο server μας. Τα δεδομένα δεν πωλούνται σε τρίτους.</li>
+                    <li><strong>Performance Analytics & Ads:</strong> Χρησιμοποιούμε tracking pixels (Google Analytics, Meta Pixel) για μέτρηση της επισκεψιμότητας και επαναστόχευση (Retargeting) διαφημίσεων.</li>
+                </ul>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">3. Πολιτική Cookies</h2>
+                <p>
+                    Το site μας χρησιμοποιεί αυστηρά απαραίτητα cookies για τη λειτουργία του, καθώς και cookies επιδόσεων (Performance) για να αναλύσουμε πώς αλληλεπιδράτε με το website μας, βελτιώνοντας την εμπειρία χρήσης (UX). Με την πλοήγησή σας συμφωνείτε στη χρήση τους.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">4. Τα Δικαιώματά σας</h2>
+                <p>
+                    Έχετε δικαίωμα πρόσβασης, διόρθωσης ή μόνιμης διαγραφής των προσωπικών σας δεδομένων. Οποιαδήποτε στιγμή μπορείτε να επικοινωνήσετε μαζί μας στο <a href="mailto:info@digiads.gr" class="text-[#00d9ff] hover:underline">info@digiads.gr</a> για να ασκήσετε τα δικαιώματά σας (Right to be Forgotten).
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>

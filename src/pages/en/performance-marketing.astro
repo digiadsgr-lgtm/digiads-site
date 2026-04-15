@@ -1,0 +1,53 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Astro/Navbar.astro';
+import Footer from '../../components/Astro/Footer.astro';
+
+const title = "Performance Marketing & Google Ads in Crete | DIGIADS";
+const description = "Dominate the market through data-driven advertising. Google Ads, Facebook & Meta Ads. Data Scraping and Retargeting strategies by DIGIADS.";
+---
+
+<Layout title={title} description={description} lang="en">
+    <Navbar lang="en" />
+
+    <section class="relative pt-40 pb-20 overflow-hidden bg-[#010205]">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,217,255,0.1)_0%,transparent_70%)] pointer-events-none" />
+        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+            <span class="text-[#00d9ff] font-mono tracking-[0.2em] uppercase text-sm mb-6 inline-block">Data-Driven Domination</span>
+            
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white font-montserrat tracking-tight leading-tight mb-8">
+                Performance <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-[#00d9ff]">Marketing</span>
+            </h1>
+            
+            <h2 class="text-xl md:text-2xl text-slate-300 font-light max-w-3xl mx-auto leading-relaxed mb-10">
+                The most profitable investment for your business. We strategically target your ideal customer achieving measurable ROI and revenue growth.
+            </h2>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                 <a href="/en/contact" class="px-8 py-4 bg-[#00d9ff] text-black rounded-full font-bold uppercase tracking-wider hover:bg-white transition-all">
+                    Start Now
+                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Silo -->
+    <section class="py-24 bg-[#02040A]">
+        <div class="max-w-4xl mx-auto px-6 prose prose-invert prose-lg prose-headings:font-montserrat">
+            <h2>Google Ads & Meta Ads: Your Competitive Advantage</h2>
+            <p>
+                We do not just do "advertising". We execute <strong>Performance Marketing</strong>. Our campaigns are built on Machine Learning (AI) and dynamic data allocation. We identify users manifesting strong Buyer Intent and ensure your business dominates the top of Google search results.
+            </p>
+            <h3>Google Ads Management</h3>
+            <p>
+                As a <strong>Google Partner</strong>, DIGIADS strategically manages substantial advertising budgets, yielding the highest possible ROAS (Return On Ad Spend) for e-shops, local businesses in Crete, and international B2B corporations.
+            </p>
+            <h3>Facebook, Instagram & TikTok Ads</h3>
+            <p>
+                We construct intricate Sales Funnels. If someone views your product or service, they will not forget it. Through advanced Retargeting, Pixel tracking, and lookalike audiences, we nurture them down the funnel until the final conversion.
+            </p>
+        </div>
+    </section>
+
+    <Footer lang="en" />
+</Layout>

@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/React/Hero';
+import StatsBar from '../components/React/StatsBar';
+import Services from '../components/React/Services';
+import BentoGrid from '../components/React/BentoGrid';
+import SiteAuditor from '../components/React/SiteAuditor';
+import Testimonials from '../components/React/Testimonials';
+import Navbar from '../components/Astro/Navbar.astro';
+import Footer from '../components/Astro/Footer.astro';
+---
+
+<Layout lang="el">
+    <Navbar />
+    <!-- Hero Canvas uses client:load to ensure 3D mounts immediately -->
+    <Hero lang="el" client:load />
+
+    <StatsBar lang="el" client:visible />
+
+    <Services lang="el" client:visible />
+
+    <BentoGrid lang="el" client:visible />
+
+    <div id="audit">
+        <SiteAuditor lang="el" client:visible />
+    </div>
+
+    <div id="testimonials">
+        <Testimonials lang="el" client:visible />
+    </div>
+
+    <Footer />
+</Layout>

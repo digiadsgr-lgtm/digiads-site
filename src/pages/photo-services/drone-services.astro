@@ -1,0 +1,78 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Astro/Navbar.astro';
+import Footer from '../../components/Astro/Footer.astro';
+import CTA from '../../components/React/CTA';
+---
+
+<Layout 
+    title="Υπηρεσίες Drone | Τοπογραφικά & Cinematic Λήψεις | DIGIADS" 
+    description="Υψηλής ακρίβειας Drone Services σε συνεργασία με την Camcopter. Φωτογραμμετρίες 3D, τοπογραφικά και επαγγελματικές αεροφωτογραφίες με πιστοποιήσεις."
+    lang="el"
+>
+    <Navbar />
+
+    {/* Hero Section */}
+    <section class="relative pt-40 pb-20 bg-[#010205] overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,217,255,0.05)_0%,transparent_50%)] pointer-events-none" />
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <span class="px-3 py-1 bg-[#00d9ff]/10 text-[#00d9ff] rounded-full text-xs font-bold tracking-widest uppercase border border-[#00d9ff]/20 mb-6 inline-block">
+                Drone & Aerial
+            </span>
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 font-montserrat tracking-tight leading-tight mb-8">
+                Τοπογραφικά & <br/>Cinematic Λήψεις.
+            </h1>
+            <p class="text-lg text-slate-400 max-w-2xl mx-auto font-light leading-relaxed mb-10">
+                Υψηλής ακρίβειας υπηρεσίες Drone. Προσφέρουμε φωτογραμμετρίες, βιντεοσκοπήσεις και τοπογραφικά με πιστοποιημένο εξοπλισμό σε συνεργασία με την Camcopter.
+            </p>
+            <a href="/contact" class="px-8 py-4 bg-gradient-to-r from-[#00d9ff] to-purple-500 text-black font-black rounded-full hover:scale-105 transition-transform inline-block">
+                ΣΥΖΗΤΗΣΤΕ ΤΟ PROJECT ΣΑΣ 🚁
+            </a>
+        </div>
+    </section>
+
+    {/* Details Grid */}
+    <section class="py-24 bg-[#030509]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="group relative p-[1px] rounded-[24px] overflow-hidden bg-gradient-to-b from-white/10 to-transparent">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#00d9ff]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                    <div class="relative h-full bg-[#030509] rounded-[23px] p-8 flex flex-col">
+                        <div class="w-12 h-12 bg-[#00d9ff]/10 rounded-xl flex items-center justify-center text-[#00d9ff] mb-6">🗺️</div>
+                         <h3 class="text-2xl font-bold text-white mb-4">Τοπογραφικές Εφαρμογές</h3>
+                         <p class="text-slate-400 font-light leading-relaxed flex-grow">
+                             Χαρτογραφήσεις, ογκομετρήσεις και σύνταξη ψηφιακών μοντέλων εδάφους/επιφανείας με ακρίβεια εκατοστού.
+                         </p>
+                    </div>
+                </div>
+
+                <div class="group relative p-[1px] rounded-[24px] overflow-hidden bg-gradient-to-b from-white/10 to-transparent">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#00d9ff]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                    <div class="relative h-full bg-[#030509] rounded-[23px] p-8 flex flex-col">
+                        <div class="w-12 h-12 bg-[#00d9ff]/10 rounded-xl flex items-center justify-center text-[#00d9ff] mb-6">🎥</div>
+                         <h3 class="text-2xl font-bold text-white mb-4">Cinematic Aerial Video</h3>
+                         <p class="text-slate-400 font-light leading-relaxed flex-grow">
+                             Αεροβιντεοσκόπηση 4K ξενοδοχείων, real estate και ειδικών events που ανεβάζουν το κύρος του έργου σας.
+                         </p>
+                    </div>
+                </div>
+
+                <div class="group relative p-[1px] rounded-[24px] overflow-hidden bg-gradient-to-b from-white/10 to-transparent">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#00d9ff]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                    <div class="relative h-full bg-[#030509] rounded-[23px] p-8 flex flex-col">
+                        <div class="w-12 h-12 bg-[#00d9ff]/10 rounded-xl flex items-center justify-center text-[#00d9ff] mb-6">🏗️</div>
+                         <h3 class="text-2xl font-bold text-white mb-4">Επιθεώρηση Έργων</h3>
+                         <p class="text-slate-400 font-light leading-relaxed flex-grow">
+                             Παρακολούθηση της πορείας των κατασκευαστικών έργων με time-lapse αεροφωτογράφιση και monitoring εργοταξίου.
+                         </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <CTA lang="el" client:visible />
+    <Footer />
+</Layout>

@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Astro/Navbar.astro';
+import Footer from '../../components/Astro/Footer.astro';
+
+const title = "Tourism Marketing & Villa / Hotel Promotion in Crete | DIGIADS";
+const description = "The No1 Tourism Marketing agency in Crete. Premium villa, hotel, and luxury Airbnb promotion. Maximize your Direct Bookings with DIGIADS.";
+---
+
+<Layout title={title} description={description} lang="en">
+    <Navbar lang="en" />
+
+    <section class="relative pt-40 pb-20 overflow-hidden bg-[#010205]">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(34,197,94,0.1)_0%,transparent_70%)] pointer-events-none" />
+        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+            <span class="text-green-400 font-mono tracking-[0.2em] uppercase text-sm mb-6 inline-block">Direct Bookings Mastery</span>
+            
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white font-montserrat tracking-tight leading-tight mb-8">
+                Tourism <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-[#00d9ff]">Marketing</span>
+            </h1>
+            
+            <h2 class="text-xl md:text-2xl text-slate-300 font-light max-w-3xl mx-auto leading-relaxed mb-10">
+                Dominate the Cretan Tourism market. Break free from OTA commission fees (Booking & Airbnb) through strategic Direct Booking growth mechanisms.
+            </h2>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                 <a href="/en/contact" class="px-8 py-4 bg-green-500 text-black rounded-full font-bold uppercase tracking-wider hover:bg-white transition-all">
+                    Get in Touch
+                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Silo -->
+    <section class="py-24 bg-[#02040A]">
+        <div class="max-w-4xl mx-auto px-6 prose prose-invert prose-lg prose-headings:font-montserrat">
+            <h2>The Villa & Hotel Promotion Strategy</h2>
+            <p>
+                Crete is the premier tourism destination in Greece. Consequently, there is massive competition (Rethymno, Chania, Elounda). DIGIADS uniquely specializes in <strong>Tourism Marketing</strong> aiding hospitality accommodations to craft their autonomous Brand and effortlessly attract Premium clientele.
+            </p>
+            <h3>Direct Bookings: The Key to Independence</h3>
+            <p>
+                OTA platforms (Booking.com, Airbnb, Expedia) enforce crippling commissions ranging from 15% to 20%. Our strategy involves:
+            </p>
+            <ul>
+                <li>Developing high-converting Accommodation Websites embedded with proprietary Booking Engines.</li>
+                <li>Executing targeted Google Ads campaigns in profitable demographic segments (UK, Germany, France).</li>
+                <li>Comprehensive Brand Image & Social Media Management establishing a luxurious aesthetic baseline (Aesthetic Marketing).</li>
+            </ul>
+        </div>
+    </section>
+
+    <Footer lang="en" />
+</Layout>

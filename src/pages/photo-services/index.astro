@@ -1,0 +1,117 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Astro/Navbar.astro';
+import Footer from '../../components/Astro/Footer.astro';
+import CTA from '../../components/React/CTA';
+---
+
+<Layout 
+    title="Photo & Video Παραγωγές | Εταιρικά Βίντεο | DIGIADS" 
+    description="Επαγγελματικές φωτογραφήσεις και εταιρική βιντεοσκόπηση προϊόντων, ξενοδοχείων και events. Cinematic λήψεις που αναδεικνύουν την ποιότητα του brand σας."
+    lang="el"
+>
+    <Navbar />
+
+    {/* Hero Section */}
+    <section class="relative pt-40 pb-20 bg-[#010205] overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,217,255,0.05)_0%,transparent_50%)] pointer-events-none" />
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <span class="px-3 py-1 bg-[#00d9ff]/10 text-[#00d9ff] rounded-full text-xs font-bold tracking-widest uppercase border border-[#00d9ff]/20 mb-6 inline-block">
+                Cinematic Productions
+            </span>
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 font-montserrat tracking-tight leading-tight mb-8">
+                Η Ιστορία του Brand σου,<br/>Μέσα από την Εικόνα.
+            </h1>
+            <p class="text-lg text-slate-400 max-w-2xl mx-auto font-light leading-relaxed mb-10">
+                Δημιουργούμε την αισθητική που μετατρέπει το Brand σας σε Εμπειρία. Κάθε φωτογράφιση, μια μοναδική στιγμή.
+            </p>
+            <a href="/contact" class="px-8 py-4 bg-gradient-to-r from-[#00d9ff] to-purple-500 text-black font-black rounded-full hover:scale-105 transition-transform inline-block">
+                ΚΛΕΙΣΕ ΡΑΝΤΕΒΟΥ ΓΙΑ ΤΟ PROJECT ΣΟΥ 📸
+            </a>
+        </div>
+    </section>
+
+    {/* Services Grid */}
+    <section class="py-24 bg-[#030509]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                {/* Service 1 */}
+                <div class="group relative p-[1px] rounded-[24px] overflow-hidden bg-gradient-to-b from-white/10 to-transparent">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#00d9ff]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                    <div class="relative h-full bg-[#030509] rounded-[23px] p-8 flex flex-col">
+                        <div class="w-12 h-12 bg-[#00d9ff]/10 rounded-xl flex items-center justify-center text-[#00d9ff] mb-6">📸</div>
+                         <h3 class="text-2xl font-bold text-white mb-4">Φωτογραφίσεις Γάμου & Βάπτισης</h3>
+                         <p class="text-slate-400 font-light leading-relaxed flex-grow">
+                             Αναλαμβάνουμε την φωτογράφιση του γάμου ή της βάπτισής σας. Με φαντασία κάνουμε την πιο όμορφη μέρα σας ακόμα ομορφότερη.
+                         </p>
+                    </div>
+                </div>
+
+                {/* Service 2 */}
+                <div class="group relative p-[1px] rounded-[24px] overflow-hidden bg-gradient-to-b from-white/10 to-transparent">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#00d9ff]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                    <div class="relative h-full bg-[#030509] rounded-[23px] p-8 flex flex-col">
+                        <div class="w-12 h-12 bg-[#00d9ff]/10 rounded-xl flex items-center justify-center text-[#00d9ff] mb-6">🏨</div>
+                         <h3 class="text-2xl font-bold text-white mb-4">Ξενοδοχεία & Καταλύματα</h3>
+                         <p class="text-slate-400 font-light leading-relaxed flex-grow">
+                             Αναδεικνύουμε τους χώρους σας με τέχνη. Συνεργαζόμαστε με γραφεία μοντέλων και δημιουργούμε την τέλεια ατμόσφαιρα.
+                         </p>
+                    </div>
+                </div>
+
+                {/* Service 3 */}
+                <div class="group relative p-[1px] rounded-[24px] overflow-hidden bg-gradient-to-b from-white/10 to-transparent">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#00d9ff]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                    <div class="relative h-full bg-[#030509] rounded-[23px] p-8 flex flex-col">
+                        <div class="w-12 h-12 bg-[#00d9ff]/10 rounded-xl flex items-center justify-center text-[#00d9ff] mb-6">💻</div>
+                         <h3 class="text-2xl font-bold text-white mb-4">Φωτογραφίσεις e-Shop</h3>
+                         <p class="text-slate-400 font-light leading-relaxed flex-grow">
+                             Άψογη φωτογράφιση προϊόντων για άμεσα, γρήγορα και αποτελεσματικά αποτελέσματα πωλήσεων στο ηλεκτρονικό σας κατάστημα.
+                         </p>
+                    </div>
+                </div>
+
+                {/* Service 4 */}
+                <div class="group relative p-[1px] rounded-[24px] overflow-hidden bg-gradient-to-b from-white/10 to-transparent">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#00d9ff]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                    <div class="relative h-full bg-[#030509] rounded-[23px] p-8 flex flex-col">
+                        <div class="w-12 h-12 bg-[#00d9ff]/10 rounded-xl flex items-center justify-center text-[#00d9ff] mb-6">🍽️</div>
+                         <h3 class="text-2xl font-bold text-white mb-4">Food & Menu Photo</h3>
+                         <p class="text-slate-400 font-light leading-relaxed flex-grow">
+                             Ιδανική υπηρεσία για χώρους εστίασης. Δημιουργούμε portfolio για τον κατάλογό σας και τα Social Media.
+                         </p>
+                    </div>
+                </div>
+
+                {/* Service 5 */}
+                <div class="group relative p-[1px] rounded-[24px] overflow-hidden bg-gradient-to-b from-white/10 to-transparent">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#00d9ff]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                    <div class="relative h-full bg-[#030509] rounded-[23px] p-8 flex flex-col">
+                        <div class="w-12 h-12 bg-[#00d9ff]/10 rounded-xl flex items-center justify-center text-[#00d9ff] mb-6">🔄</div>
+                         <h3 class="text-2xl font-bold text-white mb-4">360° Photo & GMB</h3>
+                         <p class="text-slate-400 font-light leading-relaxed flex-grow">
+                             Φωτογραφίζουμε τους χώρους εντυπωσιακά με 360° κάμερα και κατευθείαν συνδεδεμένα με το Google My Business Profile σας.
+                         </p>
+                    </div>
+                </div>
+
+                 {/* Service 6 */}
+                 <div class="group relative p-[1px] rounded-[24px] overflow-hidden bg-gradient-to-b from-white/10 to-transparent">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#00d9ff]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                    <div class="relative h-full bg-[#030509] rounded-[23px] p-8 flex flex-col">
+                        <div class="w-12 h-12 bg-[#00d9ff]/10 rounded-xl flex items-center justify-center text-[#00d9ff] mb-6">🤝</div>
+                         <h3 class="text-2xl font-bold text-white mb-4">B2B Υπηρεσίες Μοντάζ</h3>
+                         <p class="text-slate-400 font-light leading-relaxed flex-grow">
+                             Αναλαμβάνουμε το μοντάζ εταιρικών εκδηλώσεων ή video clip με κινηματογραφική προσέγγιση και άμεση παράδοση.
+                         </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <CTA lang="el" client:visible />
+    <Footer />
+</Layout>

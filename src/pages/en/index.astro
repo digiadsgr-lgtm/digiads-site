@@ -1,0 +1,38 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/React/Hero';
+import StatsBar from '../../components/React/StatsBar';
+import Services from '../../components/React/Services';
+import BentoGrid from '../../components/React/BentoGrid';
+import SiteAuditor from '../../components/React/SiteAuditor';
+import Testimonials from '../../components/React/Testimonials';
+import Navbar from '../../components/Astro/Navbar.astro';
+import Footer from '../../components/Astro/Footer.astro';
+---
+
+<Layout 
+    lang="en" 
+    title="DIGIADS | Top Digital Marketing & Web Architecture in Crete"
+    description="DIGIADS is the leading Digital Marketing agency in Crete. Performance Ads, SEO, UX/UI Web Design, and Growth Hacking."
+>
+    <!-- Assuming we extend Navbar/Footer later to support languages -->
+    <Navbar />
+
+    <Hero lang="en" client:load />
+
+    <StatsBar lang="en" client:visible />
+
+    <Services lang="en" client:visible />
+
+    <BentoGrid lang="en" client:visible />
+
+    <div id="audit">
+        <SiteAuditor lang="en" client:visible />
+    </div>
+
+    <div id="testimonials">
+        <Testimonials lang="en" client:visible />
+    </div>
+
+    <Footer />
+</Layout>

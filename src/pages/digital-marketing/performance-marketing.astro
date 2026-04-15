@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Astro/Navbar.astro';
+import Footer from '../../components/Astro/Footer.astro';
+
+// Target Keywords: Google Ads Κρήτη, Meta Ads Ρέθυμνο, Performance Marketing, Διαφήμιση στο internet
+
+const title = "Performance Marketing & Google Ads στην Κρήτη | DIGIADS";
+const description = "Κυριαρχήστε στην αγορά μέσω data-driven διαφημίσεων. Google Ads, Facebook & Meta Ads. Data Scraping και Retargeting στρατηγικές στην Κρήτη από τη DIGIADS.";
+---
+
+<Layout title={title} description={description} lang="el">
+    <Navbar />
+
+    <section class="relative pt-40 pb-20 overflow-hidden bg-[#010205]">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,217,255,0.1)_0%,transparent_70%)] pointer-events-none" />
+        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+            <span class="text-[#00d9ff] font-mono tracking-[0.2em] uppercase text-sm mb-6 inline-block">Data-Driven Domination</span>
+            
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white font-montserrat tracking-tight leading-tight mb-8">
+                Performance <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-[#00d9ff]">Marketing</span>
+            </h1>
+            
+            <h2 class="text-xl md:text-2xl text-slate-300 font-light max-w-3xl mx-auto leading-relaxed mb-10">
+                Η πιο αποδοτική επένδυση για την επιχείρησή σας. Στοχεύουμε στρατηγικά τον ιδανικό σας πελάτη με μετρήσιμο ROI και αύξηση τζίρου.
+            </h2>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                 <a href="/contact" class="px-8 py-4 bg-[#00d9ff] text-black rounded-full font-bold uppercase tracking-wider hover:bg-white transition-all">
+                    Ξεκινηστε Τωρα
+                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Silo -->
+    <section class="py-24 bg-[#02040A]">
+        <div class="max-w-4xl mx-auto px-6 prose prose-invert prose-lg prose-headings:font-montserrat">
+            <h2>Google Ads & Meta Ads: Το ανταγωνιστικό σας πλεονέκτημα στην Κρήτη</h2>
+            <p>
+                Δεν κάνουμε απλά "διαφήμιση". Κάνουμε <strong>Performance Marketing</strong>. Οι καμπάνιες μας είναι στημένες πάνω στο Machine Learning (AI) και στα δυναμικά δεδομένα. Αξιολογούμε ποιοι χρήστες έχουν αγοραστική πρόθεση (Buyer Intent) και εξασφαλίζουμε πως βρίσκεστε στην κορυφή της Google.
+            </p>
+            <h3>Google Ads Management</h3>
+            <p>
+                Η DIGIADS ως <strong>Google Partner</strong> διαχειρίζεται στρατηγικά χιλιάδες ευρώ διαφημιστικού μπάτζετ, φέρνοντας το υψηλότερο δυνατό ROAS (Return On Ad Spend) σε e-shop, τοπικές επιχειρήσεις στα Χανιά και στο Ρέθυμνο, και B2B εταιρείες.
+            </p>
+            <h3>Facebook, Instagram & TikTok Ads</h3>
+            <p>
+                Χτίζουμε πολύπλοκα Sales Funnels. Αν κάποιος δει το προϊόν σας, δε θα το ξεχάσει ποτέ. Μέσω Advanced Retargeting, Pixel tracking και lookalike audiences τον ακολουθούμε μέχρι την τελική αγορά.
+            </p>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>
