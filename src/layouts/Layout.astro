@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import CustomCursor from '../components/React/CustomCursor';
 import CookieConsent from '../components/React/CookieConsent';
+import Analytics from '@vercel/analytics/astro';
 
 interface Props {
 	title?: string;
@@ -86,7 +87,7 @@ const structuredData = {
         <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 	</head>
 	<body class="bg-[#010205] text-white font-inter flex flex-col min-h-screen film-grain overflow-x-hidden border-none m-0 p-0" style="cursor: none;">
-		
+		<Analytics />
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MGJQ8PZ"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
