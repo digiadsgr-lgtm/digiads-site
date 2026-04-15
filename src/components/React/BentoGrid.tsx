@@ -2,16 +2,16 @@ import { useState, useEffect } from "react";
 
 const bentoData = {
   el: {
-    badge: "Enterprise Portfolio",
-    titleStart: "Τα Ψηφιακά Συστήματά μας ",
-    titleEnd: "σε παραγωγή.",
-    subhead: "Δεν στήνουμε απλά websites. Παραδίδουμε custom-made, Cloud-Native συστήματα που δίνουν λύσεις και επεκτείνουν το επιχειρηματικό σας πεδίο.",
+    badge: "Enterprise Impact / Portfolio",
+    titleStart: "Τα Ψηφιακά Οικοσυστήματά μας ",
+    titleEnd: "στο απόγειο.",
+    subhead: "Δεν παραδίδουμε απλά websites, αλλά Cloud-Native μηχανές κερδοφορίας. Παρακάτω βλέπετε συστήματα που δίνουν λύσεις, αυτοματοποιούν διαδικασίες και κυριαρχούν στην αγορά (Dominate).",
   },
   en: {
-    badge: "Enterprise Portfolio",
-    titleStart: "Our Digital Systems ",
-    titleEnd: "in production.",
-    subhead: "We don't just build websites. We deliver custom-made, Cloud-Native systems that provide solutions and expand your business domain.",
+    badge: "Enterprise Impact / Portfolio",
+    titleStart: "Our Digital Ecosystems ",
+    titleEnd: "in peak performance.",
+    subhead: "We do not merely deliver websites, but Cloud-Native profit engines. Below are systems that solve problems, automate operations, and dominate the market.",
   }
 };
 
