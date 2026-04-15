@@ -61,10 +61,14 @@ const t = {
 				<span class="text-slate-500 block">{t.ready}</span>
 				<span class="text-white block">{t.scale}</span>
 			</h2>
-			<a href={t.contactHref} class="group inline-flex items-center gap-4 px-8 py-4 bg-[#00d9ff] text-black rounded-full font-bold uppercase tracking-widest text-sm hover:scale-105 hover:shadow-[0_0_40px_rgba(0,217,255,0.4)] transition-all duration-500">
-				{t.cta}
-				<svg class="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-			</a>
+            {/* Needs client:load since React component is running inside Astro static context */}
+			<div class="inline-block" data-cursor-text="START">
+                {/* Notice: since Magnetic requires React, we must wrap the a tag logic properly or use standard hover. But Magnetic requires children. Let's use it as a React wrapper if possible. Wait, Astro can't pass Astro HTML into a React component as children easily unless it's a solid node, but simple HTML elements work. Let's just create a quick React CTA that includes Magnetic to avoid Astro/React children hydration mismatch entirely. */}
+                <a href={t.contactHref} class="group inline-flex items-center gap-4 px-8 py-4 bg-[#00d9ff] text-black rounded-full font-bold uppercase tracking-widest text-sm hover:scale-105 hover:shadow-[0_0_40px_rgba(0,217,255,0.4)] transition-all duration-500" data-magnetic="true">
+                    {t.cta}
+                    <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
+            </div>
 		</div>
 
 		{/* Right Side: SEO Links Matrix */}

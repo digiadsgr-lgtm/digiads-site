@@ -5,28 +5,63 @@ const bentoData = {
     badge: "Enterprise Impact / Portfolio",
     titleStart: "Τα Ψηφιακά Οικοσυστήματά μας ",
     titleEnd: "στο απόγειο.",
-    subhead: "Δεν παραδίδουμε απλά websites, αλλά Cloud-Native μηχανές κερδοφορίας. Παρακάτω βλέπετε συστήματα που δίνουν λύσεις, αυτοματοποιούν διαδικασίες και κυριαρχούν στην αγορά (Dominate).",
-  },
-  en: {
-    badge: "Enterprise Impact / Portfolio",
-    titleStart: "Our Digital Ecosystems ",
-    titleEnd: "in peak performance.",
-    subhead: "We do not merely deliver websites, but Cloud-Native profit engines. Below are systems that solve problems, automate operations, and dominate the market.",
-  }
-};
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const portfolioItems = [
   { id: 1, name: "Guest First", type: "Hospitality System", logo: "/logo/Guestfirstgr-logo.svg", url: "https://guestfirst.gr/", colSpan: "md:col-span-2", rowSpan: "md:row-span-1" },
   { id: 2, name: "Άγιος Παύλος", type: "Tourism / Hospitality", logo: "/logo/Agiospavlos.gr-logo.svg", url: "https://www.agiospavlos.gr/", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" },
-  { id: 3, name: "InShot", type: "Creative Portfolio", logo: "/logo/Inshotgr-Logo.webp", url: "https://inshot.gr/", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" },
-  { id: 4, name: "Corallia Villas", type: "Luxury Property", logo: "/logo/corallia-villas-logo.webp", url: "https://corallia-villas.com/", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" },
-  { id: 5, name: "Evergreen Tours", type: "Travel Operations", logo: "/logo/evergreen-tours_logo.webp", url: "https://evergreen-tours.com/", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" },
-  { id: 6, name: "Gadgetshop", type: "E-Commerce", logo: "/logo/Gadgetshop-logo.svg", url: "https://www.gadgetshoprethimno.gr/", colSpan: "md:col-span-2", rowSpan: "md:row-span-1" },
-  { id: 7, name: "Kipo Paradiso", type: "E-Commerce", logo: "/logo/kipoparadiso.webp", hasWhiteBg: true, url: "https://kipoparadiso.gr/", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" },
-  { id: 8, name: "Το Φυστίκι Που Κυλάει", type: "Creator Platform", logo: "/logo/fystiki.webp", hasWhiteBg: true, url: "https://fystikipoykylaei.gr/", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" },
-  { id: 9, name: "Alouminia Papadakis", type: "B2B Construction", logo: "/logo/alouminia.webp", hasWhiteBg: true, url: "https://alouminia-papadakis.gr/", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" },
-  { id: 10, name: "Rimondi", type: "Hospitality Resort", logo: "/logo/rimondi.webp", hasWhiteBg: true, url: "https://rimondi.com.gr/", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" }
+  { id: 3, name: "Pela Suites", type: "Luxury Villas", logo: "/logo/Pela-suites-1-1.svg", url: "https://pelasuites.com/", colSpan: "md:col-span-1", rowSpan: "md:row-span-2" },
+  { id: 4, name: "Xrisi", type: "Corporate Transport", logo: "/logo/Xrisilogowhite.svg", url: "https://xrisitransport.gr/", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" },
+  { id: 5, name: "Bespoke", type: "Property Management", logo: "/logo/bespoke-1.svg", url: "https://bespokeproperty.gr/", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" },
+  { id: 6, name: "Baxevanis", type: "E-shop / Retail", logo: "/logo/Baxevanis-logo-.svg", url: "https://baxevanis.gr/", colSpan: "md:col-span-2", rowSpan: "md:row-span-1" },
+  { id: 7, name: "InShot", type: "Creative Portfolio", logo: "/logo/Inshotgr-Logo.webp", url: "https://inshot.gr/", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" },
+  { id: 8, name: "Corallia Villas", type: "Luxury Property", logo: "/logo/corallia-villas-logo.webp", url: "https://corallia-villas.com/", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" },
+  { id: 9, name: "Evergreen Tours", type: "Travel Operations", logo: "/logo/evergreen-tours_logo.webp", url: "https://evergreen-tours.com/", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" },
+  { id: 10, name: "Rimondi", type: "Hospitality Resort", logo: "/logo/rimondi.webp", hasWhiteBg: true, url: "https://rimondi.com.gr/", colSpan: "md:col-span-1", rowSpan: "md:row-span-1" },
 ];
+
+function BentoItem({ item, lang }: { item: any, lang: string }) {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+
+  // Dynamic parallax transforms depending on index/position
+  const yParallax = useTransform(scrollYProgress, [0, 1], ["0%", item.id % 2 === 0 ? "15%" : "-15%"]);
+  const scaleParallax = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1.05, 0.95]);
+
+  return (
+    <motion.a
+      ref={ref}
+      href={item.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`group relative overflow-hidden rounded-3xl bg-[#050814] border border-white/5 flex items-center justify-center p-8 transition-colors hover:border-[#00d9ff]/30 ${item.colSpan} ${item.rowSpan} min-h-[250px]`}
+      data-cursor-text="VISIT"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-[#00d9ff]/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+      
+      <motion.div 
+        className="w-full h-full flex flex-col items-center justify-center gap-6"
+        style={{ y: yParallax, scale: scaleParallax }}
+      >
+        <div className="w-[180px] h-[80px] relative transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110 group-hover:-translate-y-2">
+          {item.logo ? (
+            <img src={item.logo} alt={item.name} className="w-full h-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" />
+          ) : (
+            <div className="w-full h-full bg-white/5 rounded-lg flex items-center justify-center text-slate-500">Logo missing</div>
+          )}
+        </div>
+        <div className="absolute bottom-4 left-6 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
+           <span className="text-[#00d9ff] font-mono text-xs uppercase tracking-widest">{item.type}</span>
+           <h3 className="text-white font-bold text-lg">{item.name}</h3>
+        </div>
+      </motion.div>
+    </motion.a>
+  );
+}
 
 export default function BentoGrid({ lang = 'el' }: { lang?: 'el' | 'en' }) {
   const [mounted, setMounted] = useState(false);
@@ -56,55 +91,9 @@ export default function BentoGrid({ lang = 'el' }: { lang?: 'el' | 'en' }) {
           </div>
         </div>
 
-        <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 auto-rows-[260px] gap-6 transition-all duration-[2000ms] ease-out ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
-          {portfolioItems.map((item, i) => (
-            <a 
-              key={item.id} 
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`group relative rounded-3xl overflow-hidden bg-[#050814] border border-white/10 hover:border-[#00d9ff]/50 hover:shadow-[0_0_60px_rgba(0,217,255,0.15)] transition-all duration-700 cursor-pointer flex flex-col items-center justify-center p-8 ${item.colSpan} ${item.rowSpan}`}
-              style={{ transitionDelay: `${i * 50}ms` }}
-              title={`Visit ${item.name}`}
-            >
-              <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,rgba(0,217,255,0.05)_0%,transparent_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-              <div className="absolute -inset-[2px] bg-gradient-to-br from-transparent via-[#00d9ff]/0 to-transparent group-hover:via-[#00d9ff]/20 rounded-3xl z-0 transition-all duration-[1500ms] pointer-events-none" />
-
-              <div className="relative z-10 w-full h-[60%] flex items-center justify-center pointer-events-none transition-transform duration-700 group-hover:scale-105 group-hover:-translate-y-2">
-                 <div className="relative w-full max-w-[200px] h-full flex items-center justify-center">
-                   {item.hasWhiteBg ? (
-                     <div className="relative w-full h-[80px] bg-white rounded-xl shadow-lg flex items-center justify-center p-2 overflow-hidden ring-1 ring-white/20">
-                       <img
-                         src={item.logo}
-                         alt={`${item.name} Logo`}
-                         className="w-full h-full object-contain p-2"
-                         loading="lazy"
-                       />
-                     </div>
-                   ) : (
-                     <img
-                       src={item.logo}
-                       alt={`${item.name} Logo`}
-                       className="w-full h-full object-contain"
-                       loading="lazy"
-                     />
-                   )}
-                 </div>
-              </div>
-
-              <div className="absolute bottom-6 left-8 z-20 w-max text-left">
-                <p className="text-[#00d9ff] font-mono text-[10px] sm:text-xs uppercase tracking-widest mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0">{item.type}</p>
-                <h3 className="text-white text-base sm:text-lg font-bold font-montserrat tracking-tight opacity-50 group-hover:opacity-100 transition-opacity duration-500">{item.name}</h3>
-              </div>
-
-              <div className="absolute bottom-8 right-8 z-20 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-4 group-hover:translate-x-0">
-                <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center bg-white/5 backdrop-blur-sm hover:bg-[#00d9ff] hover:text-black hover:border-transparent transition-colors">
-                  <svg className="w-4 h-4 text-white hover:text-black transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </div>
-              </div>
-            </a>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 auto-rows-[250px] gap-6">
+          {portfolioItems.map((item) => (
+            <BentoItem key={item.id} item={item} lang={lang} />
           ))}
         </div>
       </div>

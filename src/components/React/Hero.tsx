@@ -70,67 +70,88 @@ export default function Hero({ lang = 'el' }: HeroProps) {
             <span className="text-[10px] md:text-xs font-mono tracking-[0.3em] text-[#00d9ff] font-bold uppercase">{data.badge}</span>
           </motion.div>
 
-          {/* Staggered Text Reveal */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-[130px] font-black tracking-tighter leading-[0.85] mb-2 font-montserrat text-white">
-              DATA-DRIVEN.
-            </h1>
-            <div className="text-4xl sm:text-6xl md:text-8xl lg:text-[130px] font-black tracking-tighter leading-[0.85] mb-6 font-montserrat">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-500 drop-shadow-lg">
-                AI-POWERED.
-              </span>
+import Magnetic from "./Magnetic";
+
+// ... [inside component] ...
+
+          {/* Staggered Text Reveal (Kinetic Mask) */}
+          <div className="flex flex-col items-center">
+            {/* Mask Container */}
+            <div className="overflow-hidden pb-2">
+              <motion.h1 
+                className="text-4xl sm:text-6xl md:text-8xl lg:text-[130px] font-black tracking-tighter leading-[0.85] font-montserrat text-white"
+                initial={{ y: "110%" }}
+                animate={{ y: "0%" }}
+                transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: 0.1 }}
+              >
+                DATA-DRIVEN.
+              </motion.h1>
+            </div>
+
+            <div className="overflow-hidden pb-4">
+              <motion.div 
+                className="text-4xl sm:text-6xl md:text-8xl lg:text-[130px] font-black tracking-tighter leading-[0.85] font-montserrat"
+                initial={{ y: "110%" }}
+                animate={{ y: "0%" }}
+                transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
+              >
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-500 drop-shadow-lg">
+                  AI-POWERED.
+                </span>
+              </motion.div>
             </div>
             
             {/* Animated Morphing Keyword */}
-            <div className="h-[50px] sm:h-[80px] md:h-[100px] lg:h-[140px] overflow-hidden relative w-full flex justify-center">
+            <div className="h-[50px] sm:h-[80px] md:h-[100px] lg:h-[140px] overflow-hidden relative w-full flex justify-center pb-2">
               <motion.h2
                 key={headlineIndex}
-                initial={{ y: "100%", opacity: 0, rotateX: 45 }}
-                animate={{ y: "0%", opacity: 1, rotateX: 0 }}
-                exit={{ y: "-100%", opacity: 0, rotateX: -45 }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="text-4xl sm:text-6xl md:text-8xl lg:text-[130px] font-black tracking-tighter leading-[0.85] font-montserrat text-[#00d9ff] drop-shadow-[0_0_40px_rgba(0,217,255,0.4)]"
+                initial={{ y: "110%", rotateX: 25 }}
+                animate={{ y: "0%", rotateX: 0 }}
+                exit={{ y: "-110%", rotateX: -25, opacity: 0 }}
+                transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
+                className="text-4xl sm:text-6xl md:text-8xl lg:text-[130px] font-black tracking-tighter leading-[0.85] font-montserrat text-[#00d9ff] drop-shadow-[0_0_40px_rgba(0,217,255,0.4)] absolute"
                 style={{ transformOrigin: "bottom center" }}
               >
                 {data.headlines[headlineIndex]}
               </motion.h2>
             </div>
-          </motion.div>
+          </div>
 
           {/* Subhead CRO Optimization */}
           <motion.p
             className="max-w-2xl text-base md:text-xl text-slate-400 font-light mt-10 mb-14 leading-relaxed tracking-wide"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 1 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.8, duration: 1, ease: "easeOut" }}
           >
             {data.subhead}
           </motion.p>
 
           {/* Magnetic CTAs */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto"
+            className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto items-center justify-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ delay: 1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <a
-              href="#services"
-              className="group relative px-10 py-5 bg-gradient-to-r from-[#00d9ff] to-blue-500 text-black rounded-full font-black text-sm tracking-[0.2em] uppercase overflow-hidden hover:shadow-[0_0_50px_rgba(0,217,255,0.6)] hover:scale-[1.05] transition-all duration-500 w-full sm:w-auto text-center"
-            >
-              <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
-              <span className="relative z-10 mix-blend-difference text-white group-hover:text-black transition-colors duration-500">{data.ctaPrimary}</span>
-            </a>
-            <a
-              href="#audit"
-              className="px-10 py-5 border border-white/20 text-white rounded-full font-bold text-sm tracking-[0.2em] uppercase hover:bg-white/10 hover:border-white/40 backdrop-blur-md transition-all duration-500 w-full sm:w-auto text-center"
-            >
-              {data.ctaSecondary}
-            </a>
+            <Magnetic strength={0.4}>
+              <a
+                href="#services"
+                className="group relative px-10 py-5 bg-gradient-to-r from-[#00d9ff] to-blue-500 text-black rounded-full font-black text-sm tracking-[0.2em] uppercase overflow-hidden hover:shadow-[0_0_50px_rgba(0,217,255,0.6)] hover:scale-[1.05] transition-all duration-500 w-full sm:w-auto text-center"
+              >
+                <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+                <span className="relative z-10 mix-blend-difference text-white group-hover:text-black transition-colors duration-500">{data.ctaPrimary}</span>
+              </a>
+            </Magnetic>
+
+            <Magnetic strength={0.2}>
+              <a
+                href="#audit"
+                className="px-10 py-5 border border-white/20 text-white rounded-full font-bold text-sm tracking-[0.2em] uppercase hover:bg-white/10 hover:border-white/40 backdrop-blur-md transition-all duration-500 w-full sm:w-auto text-center"
+              >
+                {data.ctaSecondary}
+              </a>
+            </Magnetic>
           </motion.div>
       </div>
 
