@@ -8,14 +8,6 @@
       <stop offset="0%" stop-color="#e91e63" />
       <stop offset="100%" stop-color="#ff007f" />
     </linearGradient>
-    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="25" result="blur" />
-      <feMerge>
-        <feMergeNode in="blur" />
-        <feMergeNode in="blur" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
   </defs>
   
   <!-- Sleek Dark Background matching the site -->
@@ -25,10 +17,9 @@
   <path d="M 160,110 h 100 c 130,0 170,70 170,146 c 0,76 -40,146 -170,146 h -100 z" 
         fill="none" 
         stroke="url(#primary-grad)" 
-        stroke-width="45" 
+        stroke-width="55" 
         stroke-linecap="round" 
-        stroke-linejoin="round"
-        filter="url(#glow)"/>
+        stroke-linejoin="round"/>
         
   <!-- Intense inner structure of the D -->
   <path d="M 180,140 h 70 c 90,0 110,50 110,116 c 0,66 -20,116 -110,116 h -70 z" 
@@ -41,9 +32,8 @@
   <!-- The vertical spine of the D -->
   <line x1="160" y1="110" x2="160" y2="402" 
         stroke="url(#secondary-grad)" 
-        stroke-width="45" 
-        stroke-linecap="round"
-        filter="url(#glow)"/>
+        stroke-width="55" 
+        stroke-linecap="round"/>
         
   <line x1="160" y1="130" x2="160" y2="382" 
         stroke="#ffffff" 
