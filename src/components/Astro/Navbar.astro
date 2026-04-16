@@ -100,7 +100,7 @@ const nav = data[lang];
         {/* Mobile Menu Button - Interactive for Mobile Agents */}
         <div class="lg:hidden flex items-center gap-4">
             <a href={nav.switcher.href} class="text-xl opacity-60 flex items-center justify-center">{nav.switcher.flag}</a>
-            <button id="mobile-menu-btn" class="text-white hover:text-[#00d9ff] transition-colors p-2">
+            <button id="mobile-menu-btn" aria-label="Toggle Mobile Menu" class="text-white hover:text-[#00d9ff] transition-colors p-2">
                 <svg class="w-8 h-8 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
             </button>
         </div>

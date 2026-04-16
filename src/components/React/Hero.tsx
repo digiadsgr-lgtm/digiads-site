@@ -75,14 +75,14 @@ export default function Hero({ lang = 'el' }: HeroProps) {
           <div className="flex flex-col items-center">
             {/* Mask Container */}
             <div className="overflow-hidden pb-2">
-              <motion.h1 
+              <motion.div 
                 className="text-4xl sm:text-6xl md:text-8xl lg:text-[130px] font-black tracking-tighter leading-[0.85] font-montserrat text-white"
                 initial={{ y: "110%" }}
                 animate={{ y: "0%" }}
                 transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: 0.1 }}
               >
                 DATA-DRIVEN.
-              </motion.h1>
+              </motion.div>
             </div>
 
             <div className="overflow-hidden pb-4">

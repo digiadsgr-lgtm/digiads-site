@@ -12,9 +12,11 @@ import Footer from '../components/Astro/Footer.astro';
 
 <Layout 
     lang="el"
-    title="Digital Marketing Agency | Κατασκευή Ιστοσελίδων | DIGIADS Κρήτη & Αθήνα"
+    title="DIGIADS | Digital Marketing & Κατασκευή Ιστοσελίδων"
     description="Η κορυφαία Digital Marketing Agency σε Κρήτη & Αθήνα. Υπηρεσίες προώθησης SEO, Google Ads, Social Media, δημιουργία E-shop & Κατασκευή Ιστοσελίδων."
 >
+    <!-- Hidden semantic H1 for SEO -->
+    <h1 class="sr-only">Digital Marketing & Κατασκευή Ιστοσελίδων στην Κρήτη</h1>
     <Navbar />
     <!-- Hero Canvas uses client:load to ensure 3D mounts immediately -->
     <Hero lang="el" client:load />

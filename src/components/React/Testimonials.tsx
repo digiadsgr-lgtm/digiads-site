@@ -137,11 +137,15 @@ export default function Testimonials({ lang = 'el' }: { lang?: 'el' | 'en' }) {
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`w-2 h-2 rounded-full transition-all duration-500 ${
-                i === current ? "w-8 bg-[#00d9ff]" : "bg-white/20 hover:bg-white/40"
-              }`}
+              className="p-3 focus:outline-none"
               aria-label={`Go to slide ${i + 1}`}
-            />
+            >
+              <div 
+                className={`h-2 rounded-full transition-all duration-500 ${
+                  i === current ? "w-8 bg-[#00d9ff]" : "w-2 bg-white/20 hover:bg-white/40"
+                }`}
+              />
+            </button>
           ))}
         </div>
       </div>
