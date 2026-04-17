@@ -87,6 +87,9 @@ const structuredData = {
         <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 	</head>
 	<body class="bg-[#010205] text-white font-inter flex flex-col min-h-screen film-grain overflow-x-hidden border-none m-0 p-0" style="cursor: none;">
+        <!-- Space Background Effect Canvas -->
+        <canvas id="space-canvas" class="fixed inset-0 z-0 pointer-events-none opacity-50"></canvas>
+
 		<Analytics />
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MGJQ8PZ"
@@ -149,6 +152,101 @@ const structuredData = {
               smoothWheel: true,
               wheelMultiplier: 1.2, // Increases scroll distance per wheel click
             });
+
+            // --- Space Background Effect (Highly Optimized 3D Starfield) ---
+            const canvas = document.getElementById('space-canvas') as HTMLCanvasElement | null;
+            if (canvas) {
+                const ctx = canvas.getContext('2d', { alpha: true });
+                let width = window.innerWidth;
+                let height = window.innerHeight;
+                canvas.width = width;
+                canvas.height = height;
+
+                const stars: {x: number, y: number, z: number}[] = [];
+                // Adaptive count based on screen size for max performance (PageSpeed)
+                const numStars = width < 768 ? 120 : 300; 
+
+                for (let i = 0; i < numStars; i++) {
+                    stars.push({
+                        x: Math.random() * width - width / 2,
+                        y: Math.random() * height - height / 2,
+                        z: Math.random() * 1000
+                    });
+                }
+
+                let mouseX = 0;
+                let mouseY = 0;
+                let targetX = 0;
+                let targetY = 0;
+
+                // Subtle parallax on mouse move, using passive for scroll perf
+                window.addEventListener('mousemove', (e) => {
+                    targetX = (e.clientX - width / 2) * 0.1;
+                    targetY = (e.clientY - height / 2) * 0.1;
+                }, { passive: true });
+
+                function drawStars() {
+                    if (!ctx) return;
+                    ctx.clearRect(0, 0, width, height);
+                    
+                    mouseX += (targetX - mouseX) * 0.05;
+                    mouseY += (targetY - mouseY) * 0.05;
+
+                    const cw = width / 2;
+                    const ch = height / 2;
+
+                    for (let i = 0; i < stars.length; i++) {
+                        const star = stars[i];
+                        star.z -= 1.2; // Speed of space movement
+                        
+                        // Respawn star at back when passing camera
+                        if (star.z <= 0) {
+                            star.x = Math.random() * width - cw;
+                            star.y = Math.random() * height - ch;
+                            star.z = 1000;
+                        }
+
+                        // Perspective projection
+                        const x = cw + ((star.x - mouseX) / (star.z || 1)) * 1000;
+                        const y = ch + ((star.y - mouseY) / (star.z || 1)) * 1000;
+
+                        // Only draw if on screen
+                        if (x >= -50 && x <= width + 50 && y >= -50 && y <= height + 50) {
+                            // Star fades in from distance and grows
+                            const radius = Math.max(0.1, (1 - star.z / 1000) * 2.2);
+                            const alpha = 1 - (star.z / 1000);
+
+                            // Cyan/blue outer glow
+                            ctx.beginPath();
+                            ctx.arc(x, y, radius * 1.5, 0, Math.PI * 2);
+                            ctx.fillStyle = `rgba(0, 217, 255, ${alpha * 0.5})`; 
+                            ctx.fill();
+                            
+                            // Bright white inner core
+                            ctx.beginPath();
+                            ctx.arc(x, y, Math.max(0.1, radius * 0.4), 0, Math.PI * 2);
+                            ctx.fillStyle = `rgba(255, 255, 255, ${alpha * 0.9})`; 
+                            ctx.fill();
+                        }
+                    }
+
+                    requestAnimationFrame(drawStars);
+                }
+
+                let resizeTimeout: any;
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(() => {
+                        width = window.innerWidth;
+                        height = window.innerHeight;
+                        canvas.width = width;
+                        canvas.height = height;
+                    }, 150);
+                }, { passive: true });
+
+                // Start loop
+                requestAnimationFrame(drawStars);
+            }
         </script>
 	</body>
 </html>
