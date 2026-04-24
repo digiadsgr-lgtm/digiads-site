@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import CustomCursor from '../components/React/CustomCursor';
 import CookieConsent from '../components/React/CookieConsent';
+import DigiChat from '../components/React/AI/DigiChat';
 import Analytics from '@vercel/analytics/astro';
 
 interface Props {
@@ -103,6 +104,9 @@ const structuredData = {
 		</main>
 
         <CookieConsent lang={lang} client:only="react" />
+
+        {/* DIGI — Virtual Sales Agent (global, client-side only) */}
+        <DigiChat client:only="react" />
 
         <!-- Sensory UX: Zero-Dependency Cyberpunk UI Synth & Smooth Scroll -->
         <script>
