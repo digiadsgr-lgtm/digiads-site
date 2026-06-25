@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Astro/Navbar.astro';
+import Footer from '../components/Astro/Footer.astro';
+import LocalBusinessSchema from '../components/schema/LocalBusinessSchema.astro';
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
+
+const title = "Digital Marketing Ρέθυμνο | Κορυφαία Agency στην Κρήτη | DIGIADS";
+const description = "Η #1 Digital Marketing Agency στο Ρέθυμνο. Εξειδίκευση σε SEO, Google Ads, Social Media και Κατασκευή Ιστοσελίδων. Αυξήστε τις πωλήσεις σας σήμερα!";
+
+const breadcrumbs = [
+  { name: "Αρχική", url: "https://www.digiads.gr/" },
+  { name: "Digital Marketing Ρέθυμνο", url: "https://www.digiads.gr/digital-marketing-rethymno" }
+];
+---
+
+<Layout title={title} description={description} lang="el">
+    <LocalBusinessSchema />
+    <BreadcrumbSchema items={breadcrumbs} />
+    <Navbar />
+
+    <section class="relative pt-40 pb-20 overflow-hidden bg-[#010205]">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,217,255,0.1)_0%,transparent_70%)] pointer-events-none" />
+        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+            <h1 class="text-4xl md:text-6xl font-black text-white font-montserrat tracking-tight mb-8">
+                Digital Marketing <span class="text-[#00d9ff]">Ρέθυμνο</span>
+            </h1>
+            <p class="text-xl text-slate-300 font-light mb-10">
+                Η τοπική σας επιχείρηση αξίζει παγκόσμια προβολή. Στη DIGIADS, την κορυφαία digital marketing εταιρεία στο Ρέθυμνο, μετατρέπουμε τα κλικ σε πελάτες.
+            </p>
+            <a href="/contact" class="px-8 py-4 bg-[#00d9ff] text-black rounded-full font-bold uppercase tracking-wider hover:bg-white transition-all">
+                Ξεκινηστε Σημερα
+            </a>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[#02040A]">
+        <div class="max-w-4xl mx-auto px-6 prose prose-invert prose-lg">
+            <h2>Γιατί να επιλέξετε τη DIGIADS στο Ρέθυμνο;</h2>
+            <p>
+                Ο ανταγωνισμός στην Κρήτη, ειδικά στον τουρισμό και το λιανεμπόριο, είναι τεράστιος. Χρειάζεστε μια <a href="/kataskevi-istoselidon" class="text-[#00d9ff]">αξιόπιστη κατασκευή ιστοσελίδας</a> και στοχευμένη προώθηση.
+            </p>
+            <h3>Υπηρεσίες που παρέχουμε στο Ρέθυμνο:</h3>
+            <ul>
+                <li><strong>Local SEO:</strong> Εμφανιστείτε πρώτοι όταν κάποιος ψάχνει για τις υπηρεσίες σας στο Ρέθυμνο.</li>
+                <li><strong>Google Ads (PPC):</strong> Άμεσα αποτελέσματα με στοχευμένες διαφημίσεις.</li>
+                <li><strong>Social Media Marketing:</strong> Διαχείριση Facebook, Instagram και TikTok.</li>
+                <li><strong>Τουριστικό Marketing:</strong> Εξειδίκευση σε ξενοδοχεία και βίλες σε όλο το νομό Ρεθύμνης.</li>
+            </ul>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>

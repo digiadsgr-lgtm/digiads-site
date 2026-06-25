@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Astro/Navbar.astro';
+import Footer from '../../components/Astro/Footer.astro';
+import ServiceSchema from '../../components/schema/ServiceSchema.astro';
+import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
+
+const title = "Διαφήμιση Facebook & Instagram | Social Media Agency Κρήτη";
+const description = "Στοχευμένη διαφήμιση σε Facebook και Instagram. Αυξήστε τις πωλήσεις σας με conversion-focused καμπάνιες από τη DIGIADS.";
+
+const breadcrumbs = [
+  { name: "Αρχική", url: "https://www.digiads.gr/" },
+  { name: "Social Media", url: "https://www.digiads.gr/digital-marketing/social-media-management" },
+  { name: "Διαφήμιση Facebook & Instagram", url: "https://www.digiads.gr/social-media/diafimisi-facebook-instagram" }
+];
+---
+
+<Layout title={title} description={description} lang="el">
+    <ServiceSchema serviceType="Social Media Marketing" description={description} />
+    <BreadcrumbSchema items={breadcrumbs} />
+    <Navbar />
+
+    <section class="relative pt-40 pb-20 overflow-hidden bg-[#010205]">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(168,85,247,0.15)_0%,transparent_70%)] pointer-events-none" />
+        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+            <h1 class="text-4xl md:text-6xl font-black text-white font-montserrat tracking-tight mb-8">
+                Διαφήμιση <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">Facebook & Instagram</span>
+            </h1>
+            <p class="text-xl text-slate-300 font-light mb-10">
+                Performance Marketing που φέρνει μετρήσιμα αποτελέσματα. ROAS που δικαιολογεί κάθε ευρώ της επένδυσής σας.
+            </p>
+            <a href="/contact" class="px-8 py-4 bg-purple-500 text-white rounded-full font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-all">
+                Αυξηστε τις Πωλησεις σας
+            </a>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[#02040A]">
+        <div class="max-w-4xl mx-auto px-6 prose prose-invert prose-lg">
+            <h2>Social Media Advertising (Meta Ads)</h2>
+            <p>
+                Η διαφήμιση στο Facebook και το Instagram δεν είναι απλά ένα boost post. Είναι η επιστήμη της στόχευσης, του retargeting και του copywriting.
+            </p>
+            <h3>Πώς δουλεύουμε:</h3>
+            <ul>
+                <li><strong>Custom Audiences:</strong> Στοχεύουμε χρήστες με βάση τη συμπεριφορά τους στην <a href="/kataskevi-istoselidon" class="text-purple-400">ιστοσελίδα</a> σας (Pixel Tracking).</li>
+                <li><strong>A/B Testing:</strong> Συνεχής δοκιμή εικαστικών και λεκτικών για μέγιστη απόδοση.</li>
+                <li><strong>Dynamic Product Ads:</strong> Ιδανικό για e-commerce, προβάλλει τα προϊόντα που είδε ο χρήστης αλλά δεν αγόρασε (cart abandonment).</li>
+            </ul>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>

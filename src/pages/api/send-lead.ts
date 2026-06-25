@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import nodemailer from 'nodemailer';
 import { buildLeadConfirmationEmail, buildOwnerNotificationEmail } from '../../lib/digiKnowledgeBase';
 
 export const prerender = false;
@@ -9,20 +10,6 @@ interface LeadPayload {
   phone?: string;
   service?: string;
   chatSummary: string;
-}
-
-async function sendEmailJS(templateId: string, templateParams: Record<string, string>, apiKeys: { publicKey: string; privateKey: string; serviceId: string }) {
-  return fetch('https://api.emailjs.com/api/v1.0/email/send', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      service_id: apiKeys.serviceId,
-      template_id: templateId,
-      user_id: apiKeys.publicKey,
-      accessToken: apiKeys.privateKey,
-      template_params: templateParams,
-    }),
-  });
 }
 
 export const POST: APIRoute = async ({ request }) => {
@@ -37,61 +24,71 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    const apiKeys = {
-      publicKey: import.meta.env.EMAILJS_PUBLIC_KEY ?? '',
-      privateKey: import.meta.env.EMAILJS_PRIVATE_KEY ?? '',
-      serviceId: import.meta.env.EMAILJS_SERVICE_ID ?? '',
-    };
+    const user = (import.meta.env.SMTP_EMAIL || process.env.SMTP_EMAIL || '').trim();
+    const pass = (import.meta.env.SMTP_PASSWORD || process.env.SMTP_PASSWORD || '').trim();
+    const notificationEmail = (import.meta.env.NOTIFICATION_EMAIL || process.env.NOTIFICATION_EMAIL || 'digiadsgr@gmail.com').trim();
 
-    const templateLead = import.meta.env.EMAILJS_TEMPLATE_LEAD ?? 'template_lead_confirm';
-    const templateNotify = import.meta.env.EMAILJS_TEMPLATE_NOTIFY ?? 'template_notify_owner';
+    if (!user || !pass) {
+      console.error('Missing SMTP credentials in environment variables.');
+      return new Response(
+        JSON.stringify({ success: false, error: 'Το σύστημα αποστολής δεν έχει ρυθμιστεί.' }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
 
-    const now = new Date().toLocaleString('el-GR', { timeZone: 'Europe/Athens' });
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: { user, pass },
+      tls: {
+        // do not fail on invalid certs
+        rejectUnauthorized: false
+      }
+    });
 
-    // Build beautiful HTML emails
     const leadHtml = buildLeadConfirmationEmail({ name, service: service ?? '', chatSummary });
     const notifyHtml = buildOwnerNotificationEmail({ name, email, phone: phone ?? '', service: service ?? '', chatSummary });
 
-    // Template params — EmailJS template should render {{html_content}} unescaped
-    const leadParams: Record<string, string> = {
-      to_name: name,
-      to_email: email,
-      service_interest: service ?? 'Γενική Πληροφόρηση',
-      sent_at: now,
-      html_content: leadHtml,
-    };
+    // Send the email to the lead
+    const leadResult = await transporter.sendMail({
+      from: `"DIGIADS Virtual Agent" <${user}>`,
+      to: email,
+      replyTo: notificationEmail,
+      subject: 'Επιβεβαίωση Αίτησης — DIGIADS',
+      html: leadHtml,
+    }).catch(err => {
+      console.error('Error sending lead email:', err);
+      return null;
+    });
 
-    const notifyParams: Record<string, string> = {
-      lead_name: name,
-      lead_email: email,
-      lead_phone: phone ?? 'Δεν δόθηκε',
-      lead_service: service ?? 'Δεν διευκρινίστηκε',
-      sent_at: now,
-      notify_email: import.meta.env.NOTIFICATION_EMAIL ?? 'digiadsgr@gmail.com',
-      html_content: notifyHtml,
-    };
+    // Send the notification to the owner
+    const notifyResult = await transporter.sendMail({
+      from: `"DIGIADS Virtual Agent" <${user}>`,
+      to: notificationEmail,
+      replyTo: email,
+      subject: `Νέο Lead: ${name} 🎯`,
+      html: notifyHtml,
+    }).catch(err => {
+      console.error('Error sending owner email:', err);
+      return null;
+    });
 
-    // Send both emails in parallel
-    const [leadResult, notifyResult] = await Promise.allSettled([
-      sendEmailJS(templateLead, leadParams, apiKeys),
-      sendEmailJS(templateNotify, notifyParams, apiKeys),
-    ]);
+    if (!leadResult && !notifyResult) {
+      return new Response(
+        JSON.stringify({ success: false, error: 'Απέτυχε η αποστολή. Επικοινώνησε μαζί μας στο info@digiads.gr' }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
 
-    const leadOk = leadResult.status === 'fulfilled' && leadResult.value.ok;
-    const notifyOk = notifyResult.status === 'fulfilled' && notifyResult.value.ok;
-
-    if (!leadOk) console.warn('Lead email failed:', leadResult);
-    if (!notifyOk) console.warn('Notify email failed:', notifyResult);
-
-    // Return success even if email partially fails — lead is captured
     return new Response(
       JSON.stringify({ success: true, message: 'Η αίτηση ελήφθη! Σου στείλαμε email επιβεβαίωσης.' }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     );
   } catch (error) {
-    console.error('Lead send error:', error);
+    console.error('Lead send critical error:', error);
     return new Response(
-      JSON.stringify({ success: false, error: 'Αποτυχία αποστολής' }),
+      JSON.stringify({ success: false, error: 'Αποτυχία συστήματος' }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }
     );
   }

@@ -2,6 +2,7 @@
 
 interface DigiQuickRepliesProps {
   onSelect: (text: string) => void;
+  onOpenForm: () => void;
   disabled: boolean;
   exchangeCount: number;
 }
@@ -22,11 +23,18 @@ const FOLLOWUP_REPLIES = [
   { label: "⏱ Χρόνος;", value: "Πόσο καιρό παίρνει να δω αποτελέσματα;" },
 ];
 
-export default function DigiQuickReplies({ onSelect, disabled, exchangeCount }: DigiQuickRepliesProps) {
+export default function DigiQuickReplies({ onSelect, onOpenForm, disabled, exchangeCount }: DigiQuickRepliesProps) {
   const replies = exchangeCount === 0 ? INITIAL_REPLIES : FOLLOWUP_REPLIES;
 
   return (
     <div className="flex flex-wrap gap-2 px-4 py-3 border-t border-white/5">
+      <button
+        onClick={onOpenForm}
+        disabled={disabled}
+        className="text-xs bg-gradient-to-r from-[#00d9ff]/20 to-[#0055ff]/20 hover:from-[#00d9ff]/40 hover:to-[#0055ff]/40 border border-[#00d9ff]/40 text-white rounded-full px-3 py-1.5 font-bold transition-all duration-200 shadow-[0_0_10px_rgba(0,217,255,0.15)] disabled:opacity-40 whitespace-nowrap"
+      >
+        📝 Αίτηση Προσφοράς
+      </button>
       {replies.map((r) => (
         <button
           key={r.value}

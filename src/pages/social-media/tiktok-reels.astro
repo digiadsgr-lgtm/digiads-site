@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Astro/Navbar.astro';
+import Footer from '../../components/Astro/Footer.astro';
+import ServiceSchema from '../../components/schema/ServiceSchema.astro';
+import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
+
+const title = "Διαφήμιση TikTok & Instagram Reels | Παραγωγή Video Κρήτη";
+const description = "Δημιουργία viral περιεχομένου, TikTok & Instagram Reels για επιχειρήσεις. Εκρηκτικό οργανικό reach και UGC περιεχόμενο από τη DIGIADS.";
+
+const breadcrumbs = [
+  { name: "Αρχική", url: "https://www.digiads.gr/" },
+  { name: "Social Media", url: "https://www.digiads.gr/digital-marketing/social-media-management" },
+  { name: "TikTok & Reels", url: "https://www.digiads.gr/social-media/tiktok-reels" }
+];
+---
+
+<Layout title={title} description={description} lang="el">
+    <ServiceSchema serviceType="Video Production & TikTok Marketing" description={description} />
+    <BreadcrumbSchema items={breadcrumbs} />
+    <Navbar />
+
+    <section class="relative pt-40 pb-20 overflow-hidden bg-[#010205]">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,0,80,0.15)_0%,transparent_70%)] pointer-events-none" />
+        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+            <h1 class="text-4xl md:text-6xl font-black text-white font-montserrat tracking-tight mb-8">
+                <span class="text-[#ff0050]">TikTok</span> & Instagram Reels
+            </h1>
+            <p class="text-xl text-slate-300 font-light mb-10">
+                Η εποχή του στατικού περιεχομένου έχει περάσει. Δημιουργούμε short-form videos που γίνονται viral και χτίζουν brand awareness σε χιλιάδες χρήστες.
+            </p>
+            <a href="/contact" class="px-8 py-4 bg-[#ff0050] text-white rounded-full font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-all">
+                Γινε Viral Σημερα
+            </a>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[#02040A]">
+        <div class="max-w-4xl mx-auto px-6 prose prose-invert prose-lg">
+            <h2>Γιατί η επιχείρησή σας χρειάζεται TikTok;</h2>
+            <p>
+                Το TikTok και τα Reels προσφέρουν το μεγαλύτερο <strong>οργανικό reach</strong> στην ιστορία του ίντερνετ. Σε αντίθεση με τη <a href="/digital-marketing-rethymno" class="text-[#ff0050]">τοπική αναζήτηση</a>, ο αλγόριθμος μπορεί να φέρει χιλιάδες προβολές ακόμα και σε νέους λογαριασμούς.
+            </p>
+            <h3>Τι αναλαμβάνουμε:</h3>
+            <ul>
+                <li><strong>Content Creation:</strong> Σεναριοποίηση, λήψη (shooting) και editing.</li>
+                <li><strong>UGC (User Generated Content):</strong> Δημιουργία περιεχομένου που φαίνεται αυθεντικό.</li>
+                <li><strong>Trends & Sounds:</strong> Αξιοποίηση των πιο hot trends της στιγμής για μέγιστη απήχηση.</li>
+            </ul>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>

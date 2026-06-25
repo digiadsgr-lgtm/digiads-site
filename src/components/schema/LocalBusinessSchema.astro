@@ -1,0 +1,58 @@
+---
+const schema = {
+  "@context": "https://schema.org",
+  "@type": ["ProfessionalService", "MarketingAgency"],
+  "@id": "https://www.digiads.gr/#organization",
+  "name": "DIGIADS",
+  "alternateName": "DIGIADS Digital Marketing & Web Development",
+  "url": "https://www.digiads.gr",
+  "logo": "https://www.digiads.gr/logo/Digiads-Logo-1024x286.png",
+  "image": "https://www.digiads.gr/logo/Digiads-Logo-1024x286.png",
+  "description": "Digital Marketing Agency στο Ρέθυμνο, Κρήτη. Κατασκευή ιστοσελίδων, SEO, Google Ads, Social Media, διαφήμιση Facebook/Instagram/TikTok και τουριστικό marketing.",
+  "priceRange": "€€",
+  "email": "hello@digiads.gr",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Κολοκοτρώνη 34",
+    "addressLocality": "Ρέθυμνο",
+    "addressRegion": "Κρήτη",
+    "postalCode": "74132",
+    "addressCountry": "GR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 35.3667,
+    "longitude": 24.4736
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Ρέθυμνο" },
+    { "@type": "City", "name": "Χανιά" },
+    { "@type": "City", "name": "Ηράκλειο" },
+    { "@type": "AdministrativeArea", "name": "Κρήτη" },
+    { "@type": "Country", "name": "Ελλάδα" }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/digiads.gr/",
+    "https://www.facebook.com/digiads.gr"
+  ],
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "opens": "09:00",
+    "closes": "18:00"
+  }],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Υπηρεσίες Digital Marketing",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Κατασκευή Ιστοσελίδων & E-shop" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Marketing & Performance Ads" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Διαφήμιση Facebook & Instagram" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "TikTok & Reels Content Production" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO & Local SEO" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Τουριστικό Marketing (Villas & Hotels)" }}
+    ]
+  }
+}
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

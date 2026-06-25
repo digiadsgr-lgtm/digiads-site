@@ -62,7 +62,22 @@ const servicesData = {
         description: "Τοποθετούμε το Brand σας ως τον απόλυτο ηγέτη της αγοράς σας. Social media management, content strategy και visual identity που δημιουργεί loyalty.",
         metrics: ["200+", "5-Star Reviews"],
         color: "#f59e0b",
-        href: "/digital-marketing/performance-marketing",
+        href: "/digital-marketing/social-media-management",
+      },
+      {
+        id: "tiktok",
+        icon: (
+          <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        ),
+        title: "TikTok & Reels",
+        subtitle: "Short-form Video Production",
+        description: "Δημιουργία viral περιεχομένου με AI-powered διαδικασία (Gemini/Veo). Χτίστε engagement και πωλήσεις μέσα από αυθεντικό video content.",
+        metrics: ["1M+", "Views"],
+        color: "#ff0050",
+        href: "/social-media/tiktok-reels",
       },
       {
         id: "seo",
@@ -76,7 +91,7 @@ const servicesData = {
         description: "Κυριαρχία στα οργανικά αποτελέσματα. Technical SEO, Local SEO mastery, Schema markup και LLM optimization για AI-ready παρουσία στα SERPs.",
         metrics: ["#1", "Rankings"],
         color: "#ec4899",
-        href: "/digital-marketing/performance-marketing",
+        href: "/digital-marketing-rethymno",
       },
       {
         id: "photo-drone",
@@ -155,7 +170,22 @@ const servicesData = {
         description: "Positioning your brand as the absolute leader of your market. Social media management, content strategy, and visual identity that builds loyalty.",
         metrics: ["200+", "5-Star Reviews"],
         color: "#f59e0b",
-        href: "/en/performance-marketing",
+        href: "/digital-marketing/social-media-management",
+      },
+      {
+        id: "tiktok",
+        icon: (
+          <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        ),
+        title: "TikTok & Reels",
+        subtitle: "Short-form Video Production",
+        description: "Creation of viral content with AI-powered process (Gemini/Veo). Build engagement and sales through authentic video content.",
+        metrics: ["1M+", "Views"],
+        color: "#ff0050",
+        href: "/social-media/tiktok-reels",
       },
       {
         id: "seo",
@@ -169,7 +199,7 @@ const servicesData = {
         description: "Dominance in organic results. Technical SEO, Local SEO mastery, Schema markup, and LLM optimization for AI-ready presence in SERPs.",
         metrics: ["#1", "Rankings"],
         color: "#ec4899",
-        href: "/en/performance-marketing",
+        href: "/digital-marketing/seo",
       },
       {
         id: "photo-drone",

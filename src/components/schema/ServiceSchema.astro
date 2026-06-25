@@ -1,0 +1,17 @@
+---
+export interface Props {
+  serviceType: string;
+  description: string;
+}
+const { serviceType, description } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": serviceType,
+  "provider": { "@id": "https://www.digiads.gr/#organization" },
+  "areaServed": { "@type": "AdministrativeArea", "name": "Κρήτη" },
+  "description": description
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

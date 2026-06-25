@@ -10,7 +10,8 @@ const t = {
 		contactHref: "/contact",
 		servicesTitle: "Υπηρεσίες",
 		services: [
-			{ name: "Digital Marketing", href: "/digital-marketing/performance-marketing" },
+			{ name: "Digital Marketing Ρέθυμνο", href: "/digital-marketing-rethymno" },
+			{ name: "Social Media & TikTok", href: "/social-media/tiktok-reels" },
 			{ name: "Κατασκευή Ιστοσελίδων", href: "/kataskevi-istoselidon" },
 			{ name: "Τουριστικό Marketing", href: "/touristiko-marketing" },
 			{ name: "Φωτογραφία & Βίντεο", href: "/photo-services" },
@@ -98,8 +99,21 @@ const t = {
 				</ul>
 				
 				<div class="mt-8 pt-8 border-t border-white/10">
-					<p class="text-slate-400 text-sm mb-2 font-mono">{t.address}</p>
-					<a href="tel:+306987602707" class="text-2xl font-black text-white hover:text-[#00d9ff] transition-colors">698 760 2707</a>
+					<p class="text-slate-400 text-sm mb-4 font-mono">{t.address}</p>
+					
+					{/* Custom DIGI Trigger */}
+					<button 
+						onclick="window.dispatchEvent(new CustomEvent('open-digi-chat'))"
+						class="w-full text-left bg-gradient-to-tr from-[#00d9ff]/10 to-blue-500/10 border border-[#00d9ff]/20 hover:border-[#00d9ff]/50 rounded-xl p-4 transition-all duration-300 group hover:shadow-[0_0_20px_rgba(0,217,255,0.15)]"
+					>
+						<p class="text-white font-bold text-sm mb-1.5 flex items-center gap-2 group-hover:text-[#00d9ff] transition-colors">
+							<span class="w-2 h-2 bg-[#00d9ff] rounded-full animate-pulse shadow-[0_0_8px_#00d9ff]"></span>
+							{lang === 'el' ? "Μίλησε με τον DIGI" : "Chat with DIGI"}
+						</p>
+						<p class="text-slate-400 text-xs leading-relaxed">
+							{lang === 'el' ? "Η πρώτη επαφή γίνεται πάντα ψηφιακά. Συζήτησε με τον σύμβουλό μας και θα επικοινωνήσουμε άμεσα μαζί σου!" : "Initial contact is always digital. Chat with our advisor and we'll reach out to you shortly!"}
+						</p>
+					</button>
 				</div>
 			</div>
 		</div>

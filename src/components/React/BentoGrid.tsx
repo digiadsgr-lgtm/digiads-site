@@ -27,14 +27,14 @@ const featuredProjects = [
 ];
 
 const clientLogos = [
-  "/logo/Sanus.webp",
-  "/logo/Guestfirstgr-logo.svg",
-  "/logo/alouminia.webp",
-  "/logo/Agiospavlos.gr-logo.svg",
-  "/logo/titho.webp",
-  "/logo/leatheraki.webp",
-  "/logo/corallia-villas-logo.webp",
-  "/logo/evergreen-tours_logo.webp"
+  { src: "/logo/Sanus.webp", alt: "Sanus Creta - πελάτης DIGIADS κατασκευή ιστοσελίδας" },
+  { src: "/logo/Guestfirstgr-logo.svg", alt: "GuestFirst - τουριστικό marketing Κρήτη" },
+  { src: "/logo/alouminia.webp", alt: "Αλουμίνια Παπαδάκης - πελάτης local SEO Ρέθυμνο" },
+  { src: "/logo/Agiospavlos.gr-logo.svg", alt: "Agios Pavlos - web development ξενοδοχείου" },
+  { src: "/logo/titho.webp", alt: "Titho - performance marketing πελάτης" },
+  { src: "/logo/leatheraki.webp", alt: "Leatheraki - κατασκευή eshop Κρήτη" },
+  { src: "/logo/corallia-villas-logo.webp", alt: "Corallia Villas - τουριστικό marketing βίλας" },
+  { src: "/logo/evergreen-tours_logo.webp", alt: "Evergreen Tours - digital marketing agency client" }
 ];
 
 export default function BentoGrid() {
@@ -108,8 +108,8 @@ export default function BentoGrid() {
                 {[...clientLogos, ...clientLogos].map((logo, idx) => (
                     <div key={idx} className="h-24 w-[200px] bg-white/[0.03] border border-white/10 rounded-2xl flex items-center justify-center px-6 hover:bg-white/10 hover:border-white/20 transition-all duration-300">
                         <img 
-                            src={logo} 
-                            alt="Client Logo" 
+                            src={logo.src} 
+                            alt={logo.alt} 
                             className="max-h-12 max-w-full object-contain filter drop-shadow-xl" 
                             loading="lazy"
                         />

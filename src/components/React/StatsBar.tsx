@@ -61,7 +61,7 @@ export default function StatsBar({ lang = 'el' }: { lang?: 'el' | 'en' }) {
                   {stat.icon}
                 </div>
                 <span className="text-3xl md:text-4xl lg:text-5xl font-black font-montserrat text-white mb-2 tracking-tight">
-                  {isInView ? <AnimatedCounter end={stat.value} suffix={stat.suffix} /> : `0${stat.suffix}`}
+                  {isInView ? <AnimatedCounter end={stat.value} suffix={stat.suffix} /> : `${stat.value}${stat.suffix}`}
                 </span>
                 <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#00d9ff] font-mono text-center px-2">
                   {stat.label}

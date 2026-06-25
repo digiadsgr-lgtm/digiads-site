@@ -14,7 +14,8 @@ interface Message {
 
 // Simple markdown-lite renderer
 function renderText(text: string) {
-  const parts = text
+  const cleanText = text.replace(/\[SHOW_FORM\]/g, "");
+  const parts = cleanText
     .replace(/\*\*(.+?)\*\*/g, '<strong style="color:white">$1</strong>')
     .replace(/\*(.+?)\*/g, "<em>$1</em>")
     .split("\n");
@@ -51,16 +52,106 @@ export default function DigiChat() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
-  const [isTyping, setIsTyping] = useState(false);
+  const [agentState, setAgentState] = useState<"online" | "reading" | "analyzing" | "typing">("online");
+  const isTyping = agentState !== "online";
   const [exchangeCount, setExchangeCount] = useState(0);
   const [showLeadForm, setShowLeadForm] = useState(false);
   const [leadSubmitted, setLeadSubmitted] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const [isInitialized, setIsInitialized] = useState(false);
+  const [isListening, setIsListening] = useState(false);
+  const recognitionRef = useRef<any>(null);
+
+  const playPopSound = useCallback(() => {
+    try {
+      const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
+      const ctx = new AudioContext();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(600, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(1200, ctx.currentTime + 0.1);
+      gain.gain.setValueAtTime(0, ctx.currentTime);
+      gain.gain.linearRampToValueAtTime(0.15, ctx.currentTime + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.1);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.1);
+    } catch (e) {}
+  }, []);
 
   useEffect(() => {
-    const t = setTimeout(() => setShowNotification(true), 6000);
+    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    if (SpeechRecognition) {
+      const recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = "el-GR";
+
+      recognition.onresult = (event: any) => {
+        let finalTranscript = "";
+        for (let i = event.resultIndex; i < event.results.length; ++i) {
+          if (event.results[i].isFinal) {
+            finalTranscript += event.results[i][0].transcript;
+          }
+        }
+        if (finalTranscript) {
+          setInput((prev) => (prev ? prev + " " : "") + finalTranscript.trim());
+        }
+      };
+
+      recognition.onerror = () => setIsListening(false);
+      recognition.onend = () => setIsListening(false);
+      recognitionRef.current = recognition;
+    }
+  }, []);
+
+  const toggleListening = () => {
+    if (isListening) {
+      recognitionRef.current?.stop();
+      setIsListening(false);
+    } else {
+      if (recognitionRef.current) {
+        recognitionRef.current.start();
+        setIsListening(true);
+      } else {
+        alert("Η φωνητική πληκτρολόγηση δεν υποστηρίζεται σε αυτόν τον browser.");
+      }
+    }
+  };
+
+  // Listen for custom external events to open chat
+  useEffect(() => {
+    const handleOpen = () => setIsOpen(true);
+    window.addEventListener("open-digi-chat", handleOpen);
+    return () => window.removeEventListener("open-digi-chat", handleOpen);
+  }, []);
+
+  useEffect(() => {
+    const savedMessages = sessionStorage.getItem("digi_chat_messages");
+    const savedCount = sessionStorage.getItem("digi_chat_count");
+    if (savedMessages) {
+      try {
+        const parsed = JSON.parse(savedMessages);
+        setMessages(parsed);
+      } catch (e) {}
+    }
+    if (savedCount) setExchangeCount(parseInt(savedCount, 10));
+    setIsInitialized(true);
+  }, []);
+
+  useEffect(() => {
+    if (isInitialized) {
+      sessionStorage.setItem("digi_chat_messages", JSON.stringify(messages));
+      sessionStorage.setItem("digi_chat_count", exchangeCount.toString());
+    }
+  }, [messages, exchangeCount, isInitialized]);
+
+  useEffect(() => {
+    const t = setTimeout(() => setShowNotification(true), 2000);
     return () => clearTimeout(t);
   }, []);
 
@@ -76,14 +167,25 @@ export default function DigiChat() {
   }, [isOpen]);
 
   useEffect(() => {
-    if (isOpen && messages.length === 0) {
+    if (isOpen && messages.length === 0 && isInitialized) {
+      const path = window.location.pathname;
+      let contextGreeting = "Είτε ψάχνεις για ιστοσελίδα, Google Ads, SEO ή τίποτα συγκεκριμένο ακόμα — είμαι εδώ να σε βοηθήσω να βρεις τη σωστή λύση.";
+      
+      if (path.includes("web-design") || path.includes("kataskevi-istoselidon")) {
+        contextGreeting = "Βλέπω ότι ενδιαφέρεσαι για **Κατασκευή Ιστοσελίδων**. Μπορώ να σου εξηγήσω πώς σχεδιάζουμε premium, ταχύτατα sites που φέρνουν πωλήσεις.";
+      } else if (path.includes("tourism-marketing") || path.includes("touristiko-marketing")) {
+        contextGreeting = "Βλέπω ότι σε ενδιαφέρει το **Τουριστικό Marketing**. Έχουμε ειδικές στρατηγικές (Google/Meta Ads) αποκλειστικά για ξενοδοχεία και βίλες που αυξάνουν τις απευθείας κρατήσεις.";
+      } else if (path.includes("photo-services") || path.includes("drone-services")) {
+        contextGreeting = "Βλέπω ότι κοιτάς τις **Υπηρεσίες Φωτογράφισης & Drone**. Μια επαγγελματική εικόνα είναι το 50% της πώλησης! Θέλεις να δούμε πώς μπορούμε να αναδείξουμε το project σου;";
+      }
+
       setMessages([{
         id: "greeting",
         role: "assistant",
-        content: "Γεια σου! 👋 Είμαι ο **DIGI**, ο ψηφιακός σύμβουλος της DIGIADS.\n\nΕίτε ψάχνεις για ιστοσελίδα, Google Ads, SEO ή τίποτα συγκεκριμένο ακόμα — είμαι εδώ να σε βοηθήσω.\n\n**Πες μου, με τι ασχολείται η επιχείρησή σου;** 🚀",
+        content: `Γεια σου! 👋 Είμαι ο **DIGI**, ο ψηφιακός σύμβουλος της DIGIADS.\n\n${contextGreeting}\n\n**Πες μου, με τι ασχολείται η επιχείρησή σου;** 🚀`,
       }]);
     }
-  }, [isOpen, messages.length]);
+  }, [isOpen, messages.length, isInitialized]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -102,30 +204,99 @@ export default function DigiChat() {
     const newMessages = [...messages, userMsg];
     setMessages(newMessages);
     setInput("");
-    setIsTyping(true);
+    
+    setAgentState("reading");
     const newCount = exchangeCount + 1;
     setExchangeCount(newCount);
 
     try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 45000); // 45s max duration
+
+      setAgentState("analyzing");
+
       const res = await fetch("/api/digi-chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           messages: newMessages.map((m) => ({ role: m.role, content: m.content })),
           exchangeCount: newCount,
+          currentPage: window.location.pathname
         }),
+        signal: controller.signal,
       });
 
-      const data = await res.json();
-      setMessages((prev) => [...prev, { id: `b-${Date.now()}`, role: "assistant", content: data.message ?? "Συγγνώμη, κάτι πήγε στραβά." }]);
+      setAgentState("typing"); // begin streaming!
 
-      if (data.captureLeads && !showLeadForm && !leadSubmitted) {
-        setTimeout(() => setShowLeadForm(true), 1500);
+      const contentType = res.headers.get("content-type");
+      if (contentType && contentType.includes("application/json")) {
+        const data = await res.json();
+        setMessages((prev) => [
+          ...prev,
+          { id: `b-${Date.now()}`, role: "assistant", content: data.message || "Συγγνώμη, κάτι πήγε στραβά." },
+        ]);
+        setAgentState("online");
+        return;
+      }
+
+      const reader = res.body?.getReader();
+      const decoder = new TextDecoder("utf-8");
+      let done = false;
+      let buffer = "";
+      let botMessage = "";
+      const botMsgId = `b-${Date.now()}`;
+
+      // Initial empty message to stream into
+      setMessages((prev) => [
+        ...prev,
+        { id: botMsgId, role: "assistant", content: "" },
+      ]);
+      playPopSound();
+
+      if (reader) {
+        while (!done) {
+          const { value, done: readerDone } = await reader.read();
+          done = readerDone;
+          if (value) {
+            buffer += decoder.decode(value, { stream: true });
+            const lines = buffer.split("\n");
+            buffer = lines.pop() || ""; // Keep the last incomplete line
+            
+            for (const line of lines) {
+              if (line.trim().startsWith("data: ")) {
+                const dataStr = line.replace("data: ", "").trim();
+                if (!dataStr || dataStr === "[DONE]") continue;
+                try {
+                  const data = JSON.parse(dataStr);
+                  const textPart = data.candidates?.[0]?.content?.parts?.[0]?.text;
+                  if (textPart) {
+                    botMessage += textPart;
+                    if (botMessage.includes("[SHOW_FORM]") && !showLeadForm && !leadSubmitted) {
+                      setShowLeadForm(true);
+                    }
+                    setMessages((prev) =>
+                      prev.map((m) =>
+                        m.id === botMsgId ? { ...m, content: botMessage } : m
+                      )
+                    );
+                  }
+                } catch (e) {}
+              }
+            }
+          }
+        }
+      }
+      
+      clearTimeout(timeoutId);
+
+      // Fallback: Show lead form after 4 exchanges if it hasn't popped up yet
+      if (newCount >= 4 && !showLeadForm && !leadSubmitted) {
+        setTimeout(() => setShowLeadForm(true), 2500);
       }
     } catch {
       setMessages((prev) => [...prev, { id: `err-${Date.now()}`, role: "assistant", content: "Συγγνώμη, δεν μπόρεσα να συνδεθώ. Γράψε μας στο **info@digiads.gr** 🙏" }]);
     } finally {
-      setIsTyping(false);
+      setAgentState("online");
     }
   }, [messages, isTyping, exchangeCount, showLeadForm, leadSubmitted]);
 
@@ -197,13 +368,11 @@ export default function DigiChat() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 40, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 380, damping: 30 }}
+            className="digi-chat-window"
             style={{
-              position: "fixed", bottom: "96px", right: "24px", zIndex: 9997,
-              width: "380px", maxWidth: "calc(100vw - 1.5rem)",
-              height: "560px", maxHeight: "calc(100vh - 8rem)",
               display: "flex", flexDirection: "column",
               background: "rgba(6,11,26,0.97)", backdropFilter: "blur(20px)",
-              border: "1px solid rgba(255,255,255,0.08)", borderRadius: "20px",
+              border: "1px solid rgba(255,255,255,0.08)",
               boxShadow: "0 25px 60px -15px rgba(0,0,0,0.8), 0 0 0 1px rgba(0,217,255,0.05)",
               overflow: "hidden",
             }}
@@ -218,7 +387,12 @@ export default function DigiChat() {
               </div>
               <div style={{ flex: 1 }}>
                 <p style={{ color: "white", fontWeight: 700, fontSize: "14px", margin: 0 }}>DIGI</p>
-                <p style={{ color: "#00d9ff", fontSize: "11px", fontFamily: "monospace", letterSpacing: "0.1em", margin: 0 }}>Virtual Sales Agent · Online</p>
+                <p style={{ color: "#00d9ff", fontSize: "11px", fontFamily: "monospace", letterSpacing: "0.1em", margin: 0 }}>
+                  {agentState === "online" ? "Virtual Sales Agent · Online" : 
+                   agentState === "reading" ? "Virtual Sales Agent · διαβάζει..." : 
+                   agentState === "analyzing" ? "Virtual Sales Agent · σκέφτεται..." : 
+                   "Virtual Sales Agent · πληκτρολογεί..."}
+                </p>
               </div>
               {!leadSubmitted && (
                 <button
@@ -234,7 +408,7 @@ export default function DigiChat() {
             </div>
 
             {/* Messages */}
-            <div style={{ flex: 1, overflowY: "auto", padding: "16px", position: "relative" }}>
+            <div className="digi-scroll" style={{ flex: 1, overflowY: "auto", padding: "16px", position: "relative" }}>
               {messages.map((msg) => (
                 <div key={msg.id} style={{ display: "flex", alignItems: "flex-end", gap: "10px", marginBottom: "12px", flexDirection: msg.role === "user" ? "row-reverse" : "row" }}>
                   {msg.role === "assistant" && (
@@ -263,7 +437,7 @@ export default function DigiChat() {
                   </motion.div>
                 </div>
               ))}
-              {isTyping && <TypingIndicator />}
+              {(agentState === "reading" || agentState === "analyzing") && <TypingIndicator />}
               <div ref={messagesEndRef} />
 
               <AnimatePresence>
@@ -275,7 +449,7 @@ export default function DigiChat() {
 
             {/* Quick replies */}
             {!showLeadForm && (
-              <DigiQuickReplies onSelect={sendMessage} disabled={isTyping} exchangeCount={exchangeCount} />
+              <DigiQuickReplies onSelect={sendMessage} onOpenForm={() => setShowLeadForm(true)} disabled={isTyping} exchangeCount={exchangeCount} />
             )}
 
             {/* Input */}
@@ -284,6 +458,23 @@ export default function DigiChat() {
                 onSubmit={(e) => { e.preventDefault(); sendMessage(input); }}
                 style={{ display: "flex", gap: "8px", padding: "12px 16px", borderTop: "1px solid rgba(255,255,255,0.05)", flexShrink: 0 }}
               >
+                <button
+                  type="button"
+                  onClick={toggleListening}
+                  style={{
+                    width: "40px", height: "40px", flexShrink: 0, borderRadius: "12px",
+                    display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer",
+                    background: isListening ? "rgba(239,68,68,0.2)" : "rgba(255,255,255,0.05)",
+                    border: isListening ? "1px solid #ef4444" : "1px solid rgba(255,255,255,0.1)",
+                    color: isListening ? "#ef4444" : "white",
+                    transition: "all 0.2s"
+                  }}
+                  title="Φωνητική Πληκτρολόγηση"
+                >
+                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" style={{ animation: isListening ? "pulse 1.5s infinite" : "none" }}>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                  </svg>
+                </button>
                 <input
                   ref={inputRef}
                   value={input}
@@ -291,7 +482,7 @@ export default function DigiChat() {
                   placeholder="Γράψε το μήνυμά σου..."
                   disabled={isTyping}
                   maxLength={500}
-                  style={{ flex: 1, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", padding: "10px 16px", fontSize: "13px", color: "white", outline: "none", opacity: isTyping ? 0.5 : 1 }}
+                  style={{ flex: 1, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", padding: "12px 16px", fontSize: "16px", color: "white", outline: "none", opacity: isTyping ? 0.5 : 1 }}
                 />
                 <motion.button
                   type="submit"
@@ -317,6 +508,53 @@ export default function DigiChat() {
       <style>{`
         @keyframes ping {
           75%, 100% { transform: scale(2); opacity: 0; }
+        }
+        .digi-scroll::-webkit-scrollbar {
+          width: 6px;
+        }
+        .digi-scroll::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .digi-scroll::-webkit-scrollbar-thumb {
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 10px;
+        }
+        .digi-scroll::-webkit-scrollbar-thumb:hover {
+          background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .digi-chat-window {
+          position: fixed;
+          bottom: 96px;
+          right: 24px;
+          z-index: 9997;
+          width: 380px;
+          max-width: calc(100vw - 1.5rem);
+          height: 560px;
+          max-height: calc(100vh - 8rem);
+          border-radius: 20px;
+        }
+
+        @media (max-width: 640px) {
+          .digi-chat-window {
+            bottom: 0;
+            right: 0;
+            width: 100vw;
+            max-width: 100vw;
+            height: 85dvh;
+            max-height: 85dvh;
+            border-radius: 24px 24px 0 0;
+            border-bottom: none;
+            border-right: none;
+            border-left: none;
+          }
+          .digi-chat-window input {
+            font-size: 16px !important;
+          }
+        }
+        @keyframes pulse {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50% { opacity: 0.5; transform: scale(0.9); }
         }
       `}</style>
     </>

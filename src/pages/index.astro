@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import LocalBusinessSchema from '../components/schema/LocalBusinessSchema.astro';
+import WebSiteSchema from '../components/schema/WebSiteSchema.astro';
 import Hero from '../components/React/Hero';
 import StatsBar from '../components/React/StatsBar';
 import Services from '../components/React/Services';
@@ -16,10 +18,30 @@ import Footer from '../components/Astro/Footer.astro';
     description="Η κορυφαία Digital Marketing Agency σε Κρήτη & Αθήνα. Υπηρεσίες προώθησης SEO, Google Ads, Social Media, δημιουργία E-shop & Κατασκευή Ιστοσελίδων."
 >
     <!-- Hidden semantic H1 for SEO -->
-    <h1 class="sr-only">Digital Marketing & Κατασκευή Ιστοσελίδων στην Κρήτη</h1>
+    <h1 class="sr-only">Digital Marketing στο Ρέθυμνο & Κατασκευή Ιστοσελίδων στην Κρήτη</h1>
+    <LocalBusinessSchema />
+    <WebSiteSchema />
     <Navbar />
     <!-- Hero Canvas uses client:load to ensure 3D mounts immediately -->
     <Hero lang="el" client:load />
+
+    <section class="intro-seo max-w-7xl mx-auto px-6 py-12 text-white/80">
+      <h2 class="text-3xl font-bold text-white mb-4">Digital Marketing Agency στο Ρέθυμνο, Κρήτη</h2>
+      <p class="mb-4 text-lg">
+        Η DIGIADS είναι η <strong>digital marketing εταιρεία στο Ρέθυμνο</strong> που
+        μετατρέπει τις τοπικές επιχειρήσεις της Κρήτης σε ψηφιακούς ηγέτες. Από την
+        <strong>κατασκευή ιστοσελίδων</strong> και e-shop με τεχνολογία Next.js/Astro,
+        μέχρι τη <strong>διαφήμιση σε Google, Facebook και Instagram</strong> και την
+        παραγωγή περιεχομένου για <strong>TikTok και Reels</strong>, χτίζουμε ολοκληρωμένα
+        συστήματα ανάπτυξης.
+      </p>
+      <p class="text-lg">
+        Με έδρα την Κολοκοτρώνη 34 στο <strong>Ρέθυμνο</strong>, εξυπηρετούμε επιχειρήσεις
+        σε <strong>Ρέθυμνο, Χανιά, Ηράκλειο</strong> και σε όλη την Κρήτη, με εξειδίκευση
+        στον τουρισμό (βίλες, ξενοδοχεία), το λιανεμπόριο και τις B2B υπηρεσίες. Στόχος μας
+        είναι μετρήσιμα αποτελέσματα: περισσότερες κρατήσεις, πωλήσεις και leads.
+      </p>
+    </section>
 
     <StatsBar lang="el" client:visible />
 
