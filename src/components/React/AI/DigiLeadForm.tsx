@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface DigiLeadFormProps {
-  onSubmit: (data: { name: string; email: string; phone: string; service: string }) => Promise<void>;
+  onSubmit: (data: { name: string; email: string; service: string }) => Promise<void>;
   onSkip: () => void;
 }
 
@@ -22,7 +22,6 @@ const SERVICES = [
 export default function DigiLeadForm({ onSubmit, onSkip }: DigiLeadFormProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
   const [service, setService] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -36,7 +35,7 @@ export default function DigiLeadForm({ onSubmit, onSkip }: DigiLeadFormProps) {
     setError("");
     setLoading(true);
     try {
-      await onSubmit({ name, email, phone, service });
+      await onSubmit({ name, email, service });
     } finally {
       setLoading(false);
     }
@@ -86,19 +85,6 @@ export default function DigiLeadForm({ onSubmit, onSkip }: DigiLeadFormProps) {
             placeholder="giorgis@example.com"
             className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-slate-600 focus:outline-none focus:border-[#00d9ff]/50 transition-all"
             required
-          />
-        </div>
-
-        <div>
-          <label className="block text-xs font-mono text-slate-400 mb-1.5 tracking-wider uppercase">
-            Τηλέφωνο <span className="text-slate-600">(προαιρετικό)</span>
-          </label>
-          <input
-            type="tel"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            placeholder="+30 69..."
-            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-slate-600 focus:outline-none focus:border-[#00d9ff]/50 transition-all"
           />
         </div>
 
