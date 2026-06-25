@@ -300,7 +300,7 @@ export default function DigiChat() {
     }
   }, [messages, isTyping, exchangeCount, showLeadForm, leadSubmitted]);
 
-  const handleLeadSubmit = async (data: { name: string; email: string; phone: string; service: string }) => {
+  const handleLeadSubmit = async (data: { name: string; email: string; service: string }) => {
     const summary = messages.slice(-6).map((m) => `${m.role === "user" ? "Πελάτης" : "DIGI"}: ${m.content}`).join("\n");
     const res = await fetch("/api/send-lead", {
       method: "POST",
@@ -313,7 +313,7 @@ export default function DigiChat() {
       setMessages((prev) => [...prev, {
         id: `ok-${Date.now()}`,
         role: "assistant",
-        content: `Τέλεια, **${data.name}**! ✅\n\nΣου έστειλα email επιβεβαίωσης στο **${data.email}**.\n\nΗ ομάδα μας θα σε επικοινωνήσει σύντομα με πλήρη πρόταση. Ανυπομονούμε να συνεργαστούμε! 🚀`,
+        content: `Τέλεια, **${data.name}**! ✅\n\nΣου έστειλα email επιβεβαίωσης στο **${data.email}**.\n\nΗ ομάδα μας θα επικοινωνήσει σύντομα με πλήρη πρόταση. Ανυπομονούμε να συνεργαστούμε! 🚀`,
       }]);
     }
   };
