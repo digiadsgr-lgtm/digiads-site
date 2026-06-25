@@ -2,12 +2,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    {
-      "source": "/(.*)",
-      "has": [{ "type": "host", "value": "digiads.gr" }],
-      "destination": "https://www.digiads.gr/$1",
-      "permanent": true
-    },
+
     {
       "source": "/digital-marketing/google-ads-management",
       "destination": "/digital-marketing/performance-marketing",
