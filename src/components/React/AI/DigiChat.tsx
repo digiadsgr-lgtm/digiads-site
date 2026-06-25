@@ -294,7 +294,14 @@ export default function DigiChat() {
         setTimeout(() => setShowLeadForm(true), 2500);
       }
     } catch {
-      setMessages((prev) => [...prev, { id: `err-${Date.now()}`, role: "assistant", content: "Συγγνώμη, δεν μπόρεσα να συνδεθώ. Γράψε μας στο **info@digiads.gr** 🙏" }]);
+      setMessages((prev) => [...prev, { 
+        id: `err-${Date.now()}`, 
+        role: "assistant", 
+        content: "Υπάρχει μια μικρή καθυστέρηση στο δίκτυο. Κανένα πρόβλημα όμως — συμπλήρωσε τα στοιχεία σου για να επικοινωνήσουμε εμείς μαζί σου! [SHOW_FORM]" 
+      }]);
+      if (!leadSubmitted) {
+        setShowLeadForm(true);
+      }
     } finally {
       setAgentState("online");
     }

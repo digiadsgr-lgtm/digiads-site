@@ -7,11 +7,13 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     const { messages, exchangeCount, currentPage } = await request.json();
 
+    const FALLBACK_MESSAGE = 'Αυτή τη στιγμή το δίκτυο έχει μεγάλο φόρτο. Παρόλα αυτά, είμαι εδώ για σένα! Θέλεις να σημειώσω τα στοιχεία σου για να σου στείλει η ομάδα μας μια δωρεάν πρόταση; [SHOW_FORM]';
+
     const apiKey = import.meta.env.GEMINI_API_KEY || process.env.GEMINI_API_KEY;
     if (!apiKey) {
       return new Response(
-        JSON.stringify({ message: 'API key missing', captureLeads: false }),
-        { status: 500, headers: { 'Content-Type': 'application/json' } }
+        JSON.stringify({ message: FALLBACK_MESSAGE, captureLeads: true }),
+        { status: 200, headers: { 'Content-Type': 'application/json' } }
       );
     }
 
@@ -42,6 +44,10 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
+    // Wrap fetch with timeout for extra resilience
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 12000); // 12s timeout for Gemini
+
     const response = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:streamGenerateContent?alt=sse&key=${apiKey}`,
       {
@@ -56,20 +62,17 @@ export const POST: APIRoute = async ({ request }) => {
             topP: 0.9,
           },
         }),
+        signal: controller.signal,
       }
     );
+    clearTimeout(timeoutId);
 
     if (!response.ok) {
       const err = await response.text();
       console.error('Gemini API error:', err);
-      if (response.status === 429) {
-        return new Response(
-          JSON.stringify({ message: 'Στιγμή — έχω πολλές συνομιλίες τώρα. Δοκίμασε ξανά σε λίγα δευτερόλεπτα! ⏱️', captureLeads: false }),
-          { status: 200, headers: { 'Content-Type': 'application/json' } }
-        );
-      }
+      // Even on rate limit or other errors, return 200 with fallback so the UI pops the form!
       return new Response(
-        JSON.stringify({ message: 'Συγγνώμη, κάτι πήγε στραβά. Δοκίμασε ξανά!', captureLeads: false }),
+        JSON.stringify({ message: FALLBACK_MESSAGE, captureLeads: true }),
         { status: 200, headers: { 'Content-Type': 'application/json' } }
       );
     }
@@ -85,10 +88,11 @@ export const POST: APIRoute = async ({ request }) => {
     });
   } catch (error) {
     console.error('Digi chat error:', error);
+    const FALLBACK_MESSAGE = 'Υπάρχει μια μικρή καθυστέρηση. Θέλεις να σημειώσω το email σου για να επικοινωνήσουμε εμείς μαζί σου; [SHOW_FORM]';
     return new Response(
       JSON.stringify({
-        message: 'Κάτι πήγε στραβά. Επικοινώνησε μαζί μας στο info@digiads.gr 🙏',
-        captureLeads: false,
+        message: FALLBACK_MESSAGE,
+        captureLeads: true,
       }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     );
