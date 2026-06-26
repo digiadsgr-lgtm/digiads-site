@@ -1,4 +1,5 @@
-import type { APIRoute } from "astro";
+﻿const fs = require("fs");
+const content = `import type { APIRoute } from "astro";
 import nodemailer from "nodemailer";
 import { buildLeadConfirmationEmail, buildOwnerNotificationEmail } from "../../lib/digiKnowledgeBase";
 
@@ -96,3 +97,6 @@ export const POST: APIRoute = async ({ request }) => {
     );
   }
 };
+`;
+fs.writeFileSync("src/pages/api/send-lead.ts", content, "utf8");
+console.log("SUCCESS: send-lead.ts written, lines:", content.split("\n").length);
