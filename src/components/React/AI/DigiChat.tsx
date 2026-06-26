@@ -228,51 +228,6 @@ export default function DigiChat() {
     }
   }, [isOpen]);
 
-  // ── JS Scroll Isolation — αποτρέπει scroll propagation στη σελίδα ──
-  useEffect(() => {
-    if (!isOpen) return;
-
-    const timer = setTimeout(() => {
-      const el = scrollRef.current;
-      if (!el) return;
-
-      // Κλειδώνει το scroll ΚΑΙ στο html ΚΑΙ στο body
-      const lockBody = () => { 
-        document.body.style.overflow = 'hidden'; 
-        document.documentElement.style.overflow = 'hidden'; 
-      };
-      // Ξεκλειδώνει
-      const unlockBody = () => { 
-        document.body.style.overflow = ''; 
-        document.documentElement.style.overflow = ''; 
-      };
-
-      el.addEventListener('mouseenter', lockBody);
-      el.addEventListener('mouseleave', unlockBody);
-      el.addEventListener('touchstart', lockBody, { passive: true });
-      el.addEventListener('touchend', unlockBody, { passive: true });
-
-      (el as any).__digiCleanup = () => {
-        el.removeEventListener('mouseenter', lockBody);
-        el.removeEventListener('mouseleave', unlockBody);
-        el.removeEventListener('touchstart', lockBody);
-        el.removeEventListener('touchend', unlockBody);
-        unlockBody(); 
-      };
-    }, 50);
-
-    return () => {
-      clearTimeout(timer);
-      const el = scrollRef.current;
-      if (el && (el as any).__digiCleanup) {
-        (el as any).__digiCleanup();
-        delete (el as any).__digiCleanup;
-      } else {
-        document.body.style.overflow = '';
-        document.documentElement.style.overflow = '';
-      }
-    };
-  }, [isOpen]);
 
   // ── Helper: strip [SHOW_FORM] ακόμη κι αν σπάσει σε 2 tokens ──
   const stripFormToken = (t: string) =>
@@ -545,10 +500,11 @@ export default function DigiChat() {
               )}
             </div>
 
-            {/* Messages — scrollRef για JS scroll isolation */}
+            {/* Messages — data-lenis-prevent για Lenis smooth scroll isolation */}
             <div
               ref={scrollRef}
               className="digi-scroll"
+              data-lenis-prevent="true"
               style={{ flex: 1, overflowY: "auto", padding: "16px", position: "relative", overscrollBehavior: "contain" }}
             >
               {messages.map((msg) => (
