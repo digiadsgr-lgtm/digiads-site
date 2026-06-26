@@ -228,6 +228,34 @@ export default function DigiChat() {
     }
   }, [isOpen]);
 
+  // ── Απόλυτο Scroll Isolation για Lenis / Astro ──
+  useEffect(() => {
+    if (!isOpen) return;
+    const timer = setTimeout(() => {
+      const el = scrollRef.current;
+      if (!el) return;
+      
+      const stopProp = (e: Event) => e.stopPropagation();
+      // Το Lenis ακούει στο window. Σταματώντας το bubbling, το Lenis δεν βλέπει το scroll.
+      el.addEventListener('wheel', stopProp, { passive: false });
+      el.addEventListener('touchmove', stopProp, { passive: false });
+
+      (el as any).__digiCleanup = () => {
+        el.removeEventListener('wheel', stopProp);
+        el.removeEventListener('touchmove', stopProp);
+      };
+    }, 50);
+
+    return () => {
+      clearTimeout(timer);
+      const el = scrollRef.current;
+      if (el && (el as any).__digiCleanup) {
+        (el as any).__digiCleanup();
+        delete (el as any).__digiCleanup;
+      }
+    };
+  }, [isOpen]);
+
 
   // ── Helper: strip [SHOW_FORM] ακόμη κι αν σπάσει σε 2 tokens ──
   const stripFormToken = (t: string) =>
@@ -537,13 +565,15 @@ export default function DigiChat() {
               ))}
               {(agentState === "reading" || agentState === "analyzing") && <TypingIndicator />}
               <div ref={messagesEndRef} />
-
-              <AnimatePresence>
-                {showLeadForm && !leadSubmitted && (
-                  <DigiLeadForm onSubmit={handleLeadSubmit} onSkip={() => setShowLeadForm(false)} />
-                )}
-              </AnimatePresence>
             </div>
+
+            {/* Η φόρμα πρέπει να είναι ΕΚΤΟΣ του digi-scroll ώστε το absolute inset-0 
+                να καλύψει όλο το παράθυρο και να μην εξαφανίζεται πάνω ψηλά στο scroll container */}
+            <AnimatePresence>
+              {showLeadForm && !leadSubmitted && (
+                <DigiLeadForm onSubmit={handleLeadSubmit} onSkip={() => setShowLeadForm(false)} />
+              )}
+            </AnimatePresence>
 
             {/* Quick replies */}
             {!showLeadForm && (
