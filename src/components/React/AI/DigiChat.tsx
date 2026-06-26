@@ -60,6 +60,7 @@ export default function DigiChat() {
   const [showNotification, setShowNotification] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);  // ← scroll isolation
   const [isInitialized, setIsInitialized] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const recognitionRef = useRef<any>(null);
@@ -225,6 +226,46 @@ export default function DigiChat() {
       abortControllerRef.current?.abort();
       readerRef.current?.cancel().catch(() => {});
     }
+  }, [isOpen]);
+
+  // ── JS Scroll Isolation — αποτρέπει scroll propagation στη σελίδα ──
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const timer = setTimeout(() => {
+      const el = scrollRef.current;
+      if (!el) return;
+
+      // Κλειδώνει το body scroll όταν το ποντίκι μπαίνει στο chat
+      const lockBody = () => { document.body.style.overflow = 'hidden'; };
+      // Ξεκλειδώνει όταν βγαίνει
+      const unlockBody = () => { document.body.style.overflow = ''; };
+
+      el.addEventListener('mouseenter', lockBody);
+      el.addEventListener('mouseleave', unlockBody);
+      el.addEventListener('touchstart', lockBody, { passive: true });
+      el.addEventListener('touchend', unlockBody, { passive: true });
+
+      (el as any).__digiCleanup = () => {
+        el.removeEventListener('mouseenter', lockBody);
+        el.removeEventListener('mouseleave', unlockBody);
+        el.removeEventListener('touchstart', lockBody);
+        el.removeEventListener('touchend', unlockBody);
+        unlockBody(); // Επαναφορά όταν κλείνει
+      };
+    }, 50);
+
+    return () => {
+      clearTimeout(timer);
+      const el = scrollRef.current;
+      if (el && (el as any).__digiCleanup) {
+        (el as any).__digiCleanup();
+        delete (el as any).__digiCleanup;
+      } else {
+        // Fallback επαναφοράς αν κλείσει το chat πολύ γρήγορα
+        document.body.style.overflow = '';
+      }
+    };
   }, [isOpen]);
 
   // ── Helper: strip [SHOW_FORM] ακόμη κι αν σπάσει σε 2 tokens ──
@@ -498,8 +539,12 @@ export default function DigiChat() {
               )}
             </div>
 
-            {/* Messages */}
-            <div className="digi-scroll" style={{ flex: 1, overflowY: "auto", padding: "16px", position: "relative", overscrollBehavior: "contain" }}>
+            {/* Messages — scrollRef για JS scroll isolation */}
+            <div
+              ref={scrollRef}
+              className="digi-scroll"
+              style={{ flex: 1, overflowY: "auto", padding: "16px", position: "relative", overscrollBehavior: "contain" }}
+            >
               {messages.map((msg) => (
                 <div key={msg.id} style={{ display: "flex", alignItems: "flex-end", gap: "10px", marginBottom: "12px", flexDirection: msg.role === "user" ? "row-reverse" : "row" }}>
                   {msg.role === "assistant" && (
