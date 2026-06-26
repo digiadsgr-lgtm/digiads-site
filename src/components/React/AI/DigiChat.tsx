@@ -236,10 +236,16 @@ export default function DigiChat() {
       const el = scrollRef.current;
       if (!el) return;
 
-      // Κλειδώνει το body scroll όταν το ποντίκι μπαίνει στο chat
-      const lockBody = () => { document.body.style.overflow = 'hidden'; };
-      // Ξεκλειδώνει όταν βγαίνει
-      const unlockBody = () => { document.body.style.overflow = ''; };
+      // Κλειδώνει το scroll ΚΑΙ στο html ΚΑΙ στο body
+      const lockBody = () => { 
+        document.body.style.overflow = 'hidden'; 
+        document.documentElement.style.overflow = 'hidden'; 
+      };
+      // Ξεκλειδώνει
+      const unlockBody = () => { 
+        document.body.style.overflow = ''; 
+        document.documentElement.style.overflow = ''; 
+      };
 
       el.addEventListener('mouseenter', lockBody);
       el.addEventListener('mouseleave', unlockBody);
@@ -251,7 +257,7 @@ export default function DigiChat() {
         el.removeEventListener('mouseleave', unlockBody);
         el.removeEventListener('touchstart', lockBody);
         el.removeEventListener('touchend', unlockBody);
-        unlockBody(); // Επαναφορά όταν κλείνει
+        unlockBody(); 
       };
     }, 50);
 
@@ -262,8 +268,8 @@ export default function DigiChat() {
         (el as any).__digiCleanup();
         delete (el as any).__digiCleanup;
       } else {
-        // Fallback επαναφοράς αν κλείσει το chat πολύ γρήγορα
         document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
       }
     };
   }, [isOpen]);
