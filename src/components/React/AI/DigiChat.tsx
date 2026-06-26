@@ -499,7 +499,7 @@ export default function DigiChat() {
             </div>
 
             {/* Messages */}
-            <div className="digi-scroll" style={{ flex: 1, overflowY: "auto", padding: "16px", position: "relative" }}>
+            <div className="digi-scroll" style={{ flex: 1, overflowY: "auto", padding: "16px", position: "relative", overscrollBehavior: "contain" }}>
               {messages.map((msg) => (
                 <div key={msg.id} style={{ display: "flex", alignItems: "flex-end", gap: "10px", marginBottom: "12px", flexDirection: msg.role === "user" ? "row-reverse" : "row" }}>
                   {msg.role === "assistant" && (
@@ -612,6 +612,11 @@ export default function DigiChat() {
         }
         .digi-scroll::-webkit-scrollbar-thumb:hover {
           background: rgba(255, 255, 255, 0.2);
+        }
+        .digi-scroll {
+          overscroll-behavior: contain;
+          touch-action: pan-y;
+          -webkit-overflow-scrolling: touch;
         }
         
         .digi-chat-window {
