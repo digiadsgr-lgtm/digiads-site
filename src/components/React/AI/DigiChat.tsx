@@ -64,6 +64,15 @@ export default function DigiChat() {
   const [isListening, setIsListening] = useState(false);
   const recognitionRef = useRef<any>(null);
 
+  // ── Refs για stable guards & stream control ──
+  const leadSubmittedRef = useRef(false);
+  const showLeadFormRef = useRef(false);
+  const abortControllerRef = useRef<AbortController | null>(null);
+  const readerRef = useRef<ReadableStreamDefaultReader<Uint8Array> | null>(null);
+  const rafRef = useRef<number | null>(null);
+  const pendingContentRef = useRef<string>("");
+  const botMsgIdRef = useRef<string>("");
+
   const playPopSound = useCallback(() => {
     try {
       const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
@@ -197,22 +206,65 @@ export default function DigiChat() {
     }
   }, [isOpen, showLeadForm]);
 
+  // ── Sync refs with state (stale-closure guard) ──
+  useEffect(() => { leadSubmittedRef.current = leadSubmitted; }, [leadSubmitted]);
+  useEffect(() => { showLeadFormRef.current = showLeadForm; }, [showLeadForm]);
+
+  // ── Cleanup on unmount ──
+  useEffect(() => {
+    return () => {
+      abortControllerRef.current?.abort();
+      readerRef.current?.cancel().catch(() => {});
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
+
+  // ── Abort ενεργού stream όταν κλείνει το chat ──
+  useEffect(() => {
+    if (!isOpen) {
+      abortControllerRef.current?.abort();
+      readerRef.current?.cancel().catch(() => {});
+    }
+  }, [isOpen]);
+
+  // ── Helper: strip [SHOW_FORM] ακόμη κι αν σπάσει σε 2 tokens ──
+  const stripFormToken = (t: string) =>
+    t.replace(/\[SHOW_FORM\]/g, "").replace(/\[SHOW_?F?O?R?M?\]?$/i, "");
+
+  // ── Helper: flush buffered κείμενο στο state (1 φορά/frame) ──
+  const flushPending = useCallback(() => {
+    rafRef.current = null;
+    const id = botMsgIdRef.current;
+    const content = pendingContentRef.current;
+    if (!id) return;
+    setMessages(prev => prev.map(m => (m.id === id ? { ...m, content } : m)));
+  }, []);
+
+  const scheduleFlush = useCallback(() => {
+    if (rafRef.current != null) return; // ήδη scheduled για αυτό το frame
+    rafRef.current = requestAnimationFrame(flushPending);
+  }, [flushPending]);
+
   const sendMessage = useCallback(async (content: string) => {
     if (!content.trim() || isTyping) return;
+
+    // Ακύρωσε τυχόν προηγούμενο ενεργό stream
+    abortControllerRef.current?.abort();
+    readerRef.current?.cancel().catch(() => {});
 
     const userMsg: Message = { id: `u-${Date.now()}`, role: "user", content };
     const newMessages = [...messages, userMsg];
     setMessages(newMessages);
     setInput("");
-    
     setAgentState("reading");
     const newCount = exchangeCount + 1;
     setExchangeCount(newCount);
 
-    try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 45000); // 45s max duration
+    const controller = new AbortController();
+    abortControllerRef.current = controller;
+    const timeoutId = setTimeout(() => controller.abort(), 45000);
 
+    try {
       setAgentState("analyzing");
 
       const res = await fetch("/api/digi-chat", {
@@ -221,93 +273,115 @@ export default function DigiChat() {
         body: JSON.stringify({
           messages: newMessages.map((m) => ({ role: m.role, content: m.content })),
           exchangeCount: newCount,
-          currentPage: window.location.pathname
+          currentPage: window.location.pathname,
         }),
         signal: controller.signal,
       });
 
-      setAgentState("typing"); // begin streaming!
+      setAgentState("typing");
 
-      const contentType = res.headers.get("content-type");
-      if (contentType && contentType.includes("application/json")) {
+      // Fallback JSON path
+      if (res.headers.get("content-type")?.includes("application/json")) {
         const data = await res.json();
         setMessages((prev) => [
           ...prev,
           { id: `b-${Date.now()}`, role: "assistant", content: data.message || "Συγγνώμη, κάτι πήγε στραβά." },
         ]);
+        if (data.captureLeads && !leadSubmittedRef.current) setShowLeadForm(true);
         setAgentState("online");
         return;
       }
 
+      // SSE streaming με throttled rAF rendering
       const reader = res.body?.getReader();
+      readerRef.current = reader ?? null;
       const decoder = new TextDecoder("utf-8");
       let done = false;
       let buffer = "";
       let botMessage = "";
-      const botMsgId = `b-${Date.now()}`;
+      let formTriggered = false;
 
-      // Initial empty message to stream into
-      setMessages((prev) => [
-        ...prev,
-        { id: botMsgId, role: "assistant", content: "" },
-      ]);
+      const botMsgId = `b-${Date.now()}`;
+      botMsgIdRef.current = botMsgId;
+      pendingContentRef.current = "";
+      setMessages((prev) => [...prev, { id: botMsgId, role: "assistant", content: "" }]);
       playPopSound();
 
       if (reader) {
         while (!done) {
           const { value, done: readerDone } = await reader.read();
           done = readerDone;
-          if (value) {
-            buffer += decoder.decode(value, { stream: true });
-            const lines = buffer.split("\n");
-            buffer = lines.pop() || ""; // Keep the last incomplete line
-            
-            for (const line of lines) {
-              if (line.trim().startsWith("data: ")) {
-                const dataStr = line.replace("data: ", "").trim();
-                if (!dataStr || dataStr === "[DONE]") continue;
-                try {
-                  const data = JSON.parse(dataStr);
-                  const textPart = data.candidates?.[0]?.content?.parts?.[0]?.text;
-                  if (textPart) {
-                    botMessage += textPart;
-                    if (botMessage.includes("[SHOW_FORM]") && !showLeadForm && !leadSubmitted) {
-                      setShowLeadForm(true);
-                    }
-                    setMessages((prev) =>
-                      prev.map((m) =>
-                        m.id === botMsgId ? { ...m, content: botMessage } : m
-                      )
-                    );
-                  }
-                } catch (e) {}
+          if (!value) continue;
+
+          buffer += decoder.decode(value, { stream: true });
+          const lines = buffer.split("\n");
+          buffer = lines.pop() || "";
+
+          for (const line of lines) {
+            if (!line.trim().startsWith("data: ")) continue;
+            const dataStr = line.replace("data: ", "").trim();
+            if (!dataStr || dataStr === "[DONE]") continue;
+            try {
+              const textPart = JSON.parse(dataStr).candidates?.[0]?.content?.parts?.[0]?.text;
+              if (textPart) {
+                botMessage += textPart;
+
+                // Trigger form μόλις φτάσει το token (μία φορά, με ref guard)
+                if (
+                  !formTriggered &&
+                  botMessage.includes("[SHOW_FORM]") &&
+                  !showLeadFormRef.current &&
+                  !leadSubmittedRef.current
+                ) {
+                  formTriggered = true;
+                  setShowLeadForm(true);
+                }
+
+                // Buffer + throttle: 1 DOM update ανά animation frame
+                pendingContentRef.current = stripFormToken(botMessage);
+                scheduleFlush();
               }
-            }
+            } catch {}
           }
         }
       }
-      
+
+      // Τελικό flush ώστε να μη χαθεί το τελευταίο frame
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+      }
+      pendingContentRef.current = stripFormToken(botMessage);
+      flushPending();
+
       clearTimeout(timeoutId);
 
-      // Fallback: Show lead form after 4 exchanges if it hasn't popped up yet
-      if (newCount >= 4 && !showLeadForm && !leadSubmitted) {
-        setTimeout(() => setShowLeadForm(true), 2500);
+      if (newCount >= 4 && !showLeadFormRef.current && !leadSubmittedRef.current) {
+        setTimeout(() => {
+          if (!showLeadFormRef.current && !leadSubmittedRef.current) setShowLeadForm(true);
+        }, 2500);
       }
-    } catch {
-      setMessages((prev) => [...prev, { 
-        id: `err-${Date.now()}`, 
-        role: "assistant", 
-        content: "Υπάρχει μια μικρή καθυστέρηση στο δίκτυο. Κανένα πρόβλημα όμως — συμπλήρωσε τα στοιχεία σου για να επικοινωνήσουμε εμείς μαζί σου! [SHOW_FORM]" 
+    } catch (err: any) {
+      // Σκόπιμο abort (νέο μήνυμα / κλείσιμο chat) — δεν δείχνει error
+      if (err?.name === "AbortError") {
+        setAgentState("online");
+        return;
+      }
+      setMessages((prev) => [...prev, {
+        id: `err-${Date.now()}`,
+        role: "assistant",
+        content: "Υπάρχει μια μικρή καθυστέρηση στο δίκτυο. Κανένα πρόβλημα όμως — συμπλήρωσε τα στοιχεία σου για να επικοινωνήσουμε εμείς μαζί σου! [SHOW_FORM]",
       }]);
-      if (!leadSubmitted) {
-        setShowLeadForm(true);
-      }
+      if (!leadSubmittedRef.current) setShowLeadForm(true);
     } finally {
+      clearTimeout(timeoutId);
+      readerRef.current = null;
       setAgentState("online");
     }
-  }, [messages, isTyping, exchangeCount, showLeadForm, leadSubmitted]);
+  }, [messages, isTyping, exchangeCount, playPopSound, scheduleFlush, flushPending]);
 
   const handleLeadSubmit = async (data: { name: string; email: string; phone: string; service: string }) => {
+    leadSubmittedRef.current = true; // Ref guard — αποτρέπει duplicate triggers
     const summary = messages.slice(-6).map((m) => `${m.role === "user" ? "Πελάτης" : "DIGI"}: ${m.content}`).join("\n");
     try {
       const res = await fetch("/api/send-lead", {

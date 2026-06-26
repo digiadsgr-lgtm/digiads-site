@@ -57,7 +57,7 @@ export const POST: APIRoute = async ({ request }) => {
           system_instruction: { parts: [{ text: systemPrompt }] },
           contents: normalizedContents,
           generationConfig: {
-            temperature: 0.85,
+            temperature: 0.65,   // 0.85 → 0.65: πιο συνεπές SPIN flow & [SHOW_FORM]
             maxOutputTokens: 1500,
             topP: 0.9,
           },
