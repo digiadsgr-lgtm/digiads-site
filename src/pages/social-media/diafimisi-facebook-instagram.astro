@@ -2,51 +2,295 @@
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Astro/Navbar.astro';
 import Footer from '../../components/Astro/Footer.astro';
-import ServiceSchema from '../../components/schema/ServiceSchema.astro';
-import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
 
-const title = "Διαφήμιση Facebook & Instagram | Social Media Agency Κρήτη";
-const description = "Στοχευμένη διαφήμιση σε Facebook και Instagram. Αυξήστε τις πωλήσεις σας με conversion-focused καμπάνιες από τη DIGIADS.";
+const title = "Διαφήμιση Facebook & Instagram Ρέθυμνο | Meta Ads Κρήτη | DIGIADS";
+const description = "Στοχευμένη διαφήμιση Facebook & Instagram για επιχειρήσεις στο Ρέθυμνο & την Κρήτη. Retargeting, A/B testing, μετρήσιμο ROAS. Ζητήστε δωρεάν προσφορά!";
 
-const breadcrumbs = [
-  { name: "Αρχική", url: "https://www.digiads.gr/" },
-  { name: "Social Media", url: "https://www.digiads.gr/digital-marketing/social-media-management" },
-  { name: "Διαφήμιση Facebook & Instagram", url: "https://www.digiads.gr/social-media/diafimisi-facebook-instagram" }
-];
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Πόσο κοστίζει η διαφήμιση σε Facebook & Instagram;",
+      "acceptedAnswer": { "@type": "Answer", "text": "Το διαφημιστικό budget (ad spend) στη Meta ξεκινά από λίγα ευρώ την ημέρα, αλλά για ουσιαστικά αποτελέσματα προτείνουμε ρεαλιστικό μηνιαίο budget ανάλογα με τον κλάδο και τους στόχους σας. Ξεχωριστά υπολογίζεται η αμοιβή διαχείρισης της καμπάνιας. Ζητήστε δωρεάν προσφορά προσαρμοσμένη στην επιχείρησή σας." }},
+    { "@type": "Question", "name": "Ποια η διαφορά ανάμεσα σε Boost Post και πραγματική διαφημιστική καμπάνια;",
+      "acceptedAnswer": { "@type": "Answer", "text": "Το Boost Post είναι απλοϊκό και προσφέρει ελάχιστο έλεγχο σε στόχευση και βελτιστοποίηση. Μια πραγματική καμπάνια μέσω Ads Manager επιτρέπει ακριβή στόχευση κοινού, A/B testing, retargeting και μέτρηση πραγματικού ROAS." }},
+    { "@type": "Question", "name": "Πόσο γρήγορα βλέπω αποτελέσματα από τη διαφήμιση Meta;",
+      "acceptedAnswer": { "@type": "Answer", "text": "Η κίνηση ξεκινά άμεσα μόλις εγκριθεί η καμπάνια, συνήθως εντός 24 ωρών. Τα πρώτα αξιόπιστα δεδομένα βελτιστοποίησης χρειάζονται 1-2 εβδομάδες, ενώ η πλήρης απόδοση σταθεροποιείται σε 4-6 εβδομάδες." }},
+    { "@type": "Question", "name": "Χρειάζομαι ξεχωριστή στρατηγική για Facebook και για Instagram;",
+      "acceptedAnswer": { "@type": "Answer", "text": "Αν και διαχειρίζονται από το ίδιο σύστημα (Meta Ads Manager), το κοινό και η συμπεριφορά διαφέρουν. Το Instagram ευνοεί πιο οπτικό, νεανικό περιεχόμενο (Reels, Stories), ενώ το Facebook έχει ευρύτερο, ωριμότερο κοινό. Προσαρμόζουμε δημιουργικό και μήνυμα ανά πλατφόρμα εντός της ίδιας καμπάνιας." }},
+    { "@type": "Question", "name": "Τι είναι το retargeting και γιατί το χρειάζομαι;",
+      "acceptedAnswer": { "@type": "Answer", "text": "Το retargeting εμφανίζει ξανά τη διαφήμισή σας σε ανθρώπους που έχουν ήδη επισκεφθεί την ιστοσελίδα σας ή αλληλεπιδράσει με το προϊόν σας. Είναι το κοινό με τη μεγαλύτερη πιθανότητα μετατροπής, καθιστώντας το από τα πιο αποδοτικά κομμάτια μιας καμπάνιας." }},
+    { "@type": "Question", "name": "Αναλαμβάνετε διαφήμιση Facebook/Instagram για τουριστικές επιχειρήσεις στην Κρήτη;",
+      "acceptedAnswer": { "@type": "Answer", "text": "Ναι, είναι μία από τις βασικές μας ειδικεύσεις. Σχεδιάζουμε καμπάνιες που στοχεύουν υποψήφιους επισκέπτες πριν και κατά τη διάρκεια του σχεδιασμού του ταξιδιού τους, οδηγώντας σε direct bookings για ξενοδοχεία και βίλες." }}
+  ]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Διαφήμιση Facebook & Instagram (Meta Ads)",
+  "provider": { "@id": "https://www.digiads.gr/#organization" },
+  "areaServed": [
+    { "@type": "City", "name": "Ρέθυμνο" },
+    { "@type": "City", "name": "Χανιά" },
+    { "@type": "City", "name": "Ηράκλειο" },
+    { "@type": "AdministrativeArea", "name": "Κρήτη" }
+  ],
+  "description": "Στοχευμένη, conversion-focused διαφήμιση σε Facebook & Instagram με custom audiences, retargeting και A/B testing, για επιχειρήσεις στην Κρήτη.",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog", "name": "Υπηρεσίες Meta Ads",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Καμπάνιες Αναγνωρισιμότητας (Awareness)" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Καμπάνιες Μετατροπών (Conversions)" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Retargeting & Custom Audiences" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dynamic Product Ads για E-shop" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Instagram & Facebook Ads για Τουρισμό" }}
+    ]
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org", "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Αρχική", "item": "https://www.digiads.gr/" },
+    { "@type": "ListItem", "position": 2, "name": "Social Media", "item": "https://www.digiads.gr/digital-marketing/social-media-management" },
+    { "@type": "ListItem", "position": 3, "name": "Διαφήμιση Facebook & Instagram", "item": "https://www.digiads.gr/social-media/diafimisi-facebook-instagram" }
+  ]
+};
 ---
 
 <Layout title={title} description={description} lang="el">
-    <ServiceSchema serviceType="Social Media Marketing" description={description} />
-    <BreadcrumbSchema items={breadcrumbs} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     <Navbar />
 
-    <section class="relative pt-40 pb-20 overflow-hidden bg-[#010205]">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(168,85,247,0.15)_0%,transparent_70%)] pointer-events-none" />
-        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
-            <h1 class="text-4xl md:text-6xl font-black text-white font-montserrat tracking-tight mb-8">
+    <!-- SEO Hero Section -->
+    <section class="relative pt-40 pb-24 overflow-hidden bg-[#010205]">
+        <!-- Precision/Targeting Motif Background -->
+        <div class="absolute inset-0 z-0 flex items-center justify-center opacity-10 pointer-events-none">
+            <!-- Concentric Circles mimicking a target/radar -->
+            <div class="absolute w-[800px] h-[800px] border border-blue-500 rounded-full"></div>
+            <div class="absolute w-[600px] h-[600px] border border-purple-500 rounded-full"></div>
+            <div class="absolute w-[400px] h-[400px] border border-blue-400 rounded-full"></div>
+            <!-- Crosshairs -->
+            <div class="absolute w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+            <div class="absolute h-full w-[1px] bg-gradient-to-b from-transparent via-purple-500/50 to-transparent"></div>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center">
+            <span class="text-blue-400 font-mono tracking-[0.2em] uppercase text-sm mb-6 inline-block font-bold">Meta Ads Agency Crete</span>
+            
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white font-montserrat tracking-tight leading-tight mb-6">
                 Διαφήμιση <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">Facebook & Instagram</span>
             </h1>
-            <p class="text-xl text-slate-300 font-light mb-10">
-                Performance Marketing που φέρνει μετρήσιμα αποτελέσματα. ROAS που δικαιολογεί κάθε ευρώ της επένδυσής σας.
-            </p>
-            <a href="/contact" class="px-8 py-4 bg-purple-500 text-white rounded-full font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-all">
-                Αυξηστε τις Πωλησεις σας
-            </a>
+
+            <div class="flex flex-wrap justify-center gap-3 mb-8">
+                <span class="px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/5 text-blue-400 text-xs font-mono font-bold tracking-wide backdrop-blur-sm">ROAS-Driven</span>
+                <span class="px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/5 text-purple-400 text-xs font-mono font-bold tracking-wide backdrop-blur-sm">Pixel & Conversion Tracking</span>
+                <span class="px-4 py-1.5 rounded-full border border-blue-400/30 bg-blue-400/5 text-blue-300 text-xs font-mono font-bold tracking-wide backdrop-blur-sm">Retargeting Experts</span>
+            </div>
+            
+            <h2 class="text-xl md:text-2xl text-slate-300 font-light max-w-3xl mx-auto leading-relaxed mb-10">
+                Performance Marketing που φέρνει μετρήσιμα αποτελέσματα. Ξεχάστε το απλό "Boost Post". Εφαρμόζουμε την επιστήμη της στόχευσης για <strong>μέγιστο ROAS</strong>.
+            </h2>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                 <a href="/contact" class="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-bold uppercase tracking-wider hover:from-blue-500 hover:to-purple-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] transition-all duration-300 hover:-translate-y-1">
+                    Αυξησε τις Πωλησεις σου
+                 </a>
+            </div>
         </div>
     </section>
 
-    <section class="py-24 bg-[#02040A]">
-        <div class="max-w-4xl mx-auto px-6 prose prose-invert prose-lg">
-            <h2>Social Media Advertising (Meta Ads)</h2>
-            <p>
-                Η διαφήμιση στο Facebook και το Instagram δεν είναι απλά ένα boost post. Είναι η επιστήμη της στόχευσης, του retargeting και του copywriting.
+    <!-- NEW SECTION 1: Local Angle (Ρέθυμνο & Κρήτη) -->
+    <section class="py-24 bg-[#02040A] relative border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-6 prose prose-invert prose-lg prose-headings:font-montserrat leading-[1.7]">
+            <h2 class="text-3xl font-bold text-white mb-6">Meta Ads για Επιχειρήσεις στο Ρέθυμνο & Όλη την Κρήτη</h2>
+            <p class="text-slate-300 mb-6">
+                Ως ένα <strong>social media agency με έδρα το Ρέθυμνο</strong>, σχεδιάζουμε καμπάνιες <strong>διαφήμισης Facebook & Instagram</strong> προσαρμοσμένες στην πραγματική αγορά της Κρήτης. Κατανοούμε τις ιδιαιτερότητες του νησιού: από τοπικές επιχειρήσεις λιανεμπορίου και <a href="/blog/kataskevi-eshop" class="text-blue-400 hover:underline">e-shops</a>, μέχρι ξενοδοχεία και βίλες που στοχεύουν διεθνές κοινό.
             </p>
-            <h3>Πώς δουλεύουμε:</h3>
-            <ul>
-                <li><strong>Custom Audiences:</strong> Στοχεύουμε χρήστες με βάση τη συμπεριφορά τους στην <a href="/kataskevi-istoselidon" class="text-purple-400">ιστοσελίδα</a> σας (Pixel Tracking).</li>
-                <li><strong>A/B Testing:</strong> Συνεχής δοκιμή εικαστικών και λεκτικών για μέγιστη απόδοση.</li>
-                <li><strong>Dynamic Product Ads:</strong> Ιδανικό για e-commerce, προβάλλει τα προϊόντα που είδε ο χρήστης αλλά δεν αγόρασε (cart abandonment).</li>
-            </ul>
+            <p class="text-slate-300">
+                Η στρατηγική μας προσαρμόζεται στην εποχικότητα του <a href="/touristiko-marketing" class="text-purple-400 hover:underline">τουριστικού marketing</a>, εξασφαλίζοντας ότι το μήνυμά σας φτάνει στους σωστούς ανθρώπους. Είτε απευθύνεστε σε κατοίκους στο Ρέθυμνο, τα Χανιά και το Ηράκλειο, είτε σε υποψήφιους επισκέπτες σε όλη την Ευρώπη, το σύστημα της Meta μας επιτρέπει ακραία ακρίβεια (precision targeting).
+            </p>
+        </div>
+    </section>
+
+    <!-- NEW SECTION 2: Cost Transparency (Highlighted Callout) -->
+    <section class="py-20 bg-[#010205] relative border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="bg-gradient-to-br from-[#050814] to-[#0a0f25] p-10 md:p-14 rounded-[2rem] border border-blue-500/20 shadow-[0_20px_60px_-15px_rgba(59,130,246,0.1)] relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-8 opacity-10 text-blue-500">
+                    <svg class="w-32 h-32" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z"/></svg>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 relative z-10">Πόσο Κοστίζει η Διαφήμιση σε Facebook & Instagram;</h2>
+                <p class="text-slate-300 text-lg mb-6 leading-relaxed relative z-10">
+                    Το κόστος μιας καμπάνιας Meta Ads (Facebook Ads κόστος) χωρίζεται σε δύο μέρη: το <strong>διαφημιστικό budget (ad spend)</strong> που καταβάλλεται απευθείας στη Meta, και την <strong>αμοιβή διαχείρισης (agency fee)</strong> που αφορά τη στρατηγική, το creative, το A/B testing και τη συνεχή βελτιστοποίηση.
+                </p>
+                <p class="text-slate-300 text-lg mb-8 leading-relaxed relative z-10">
+                    Δεν πιστεύουμε στα γενικόλογα «πακέτα τιμών». Το ελάχιστο budget εξαρτάται από τον κλάδο, τον ανταγωνισμό σας και τον τελικό στόχο (πωλήσεις, leads, awareness). 
+                </p>
+                <a href="/contact" class="inline-flex items-center gap-2 text-blue-400 font-bold hover:text-white transition-colors relative z-10 group">
+                    <span>Ζητήστε ρεαλιστική εκτίμηση κόστους</span>
+                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ΠΩΣ ΔΟΥΛΕΥΟΥΜΕ (Upgraded to Glass Cards with Targeting Theme) -->
+    <section class="py-24 bg-[#02040A] relative z-10 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-black text-white font-montserrat text-center mb-6">Όχι "Boost Post". Αληθινό Performance.</h2>
+            <p class="text-center text-slate-400 max-w-3xl mx-auto mb-16 text-lg">
+                Η διαφήμιση στα social media είναι η επιστήμη της στόχευσης και του copywriting. <a href="/blog/diafimisi-facebook-instagram-odigos" class="text-blue-400 hover:underline">Δείτε πώς δουλεύουμε</a>:
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1: Custom Audiences -->
+                <div class="bg-[#050814]/80 backdrop-blur-lg p-8 rounded-3xl border border-blue-500/15 hover:border-blue-500/50 hover:-translate-y-2 hover:shadow-[0_10px_40px_-10px_rgba(59,130,246,0.2)] transition-all duration-300 group">
+                    <div class="w-12 h-12 mb-6 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Custom Audiences & Pixel</h3>
+                    <p class="text-slate-400 leading-relaxed">Στοχεύουμε χρήστες με βάση τη συμπεριφορά τους (lookalike audiences) και εφαρμόζουμε <strong>Pixel Tracking</strong> για να μετράμε ακριβώς τι γίνεται στην ιστοσελίδα σας.</p>
+                </div>
+                <!-- Card 2: A/B Testing -->
+                <div class="bg-[#050814]/80 backdrop-blur-lg p-8 rounded-3xl border border-purple-500/15 hover:border-purple-500/50 hover:-translate-y-2 hover:shadow-[0_10px_40px_-10px_rgba(168,85,247,0.2)] transition-all duration-300 group">
+                    <div class="w-12 h-12 mb-6 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">A/B Testing</h3>
+                    <p class="text-slate-400 leading-relaxed">Τίποτα δεν αφήνεται στην τύχη. Τρέχουμε συνεχείς δοκιμές σε εικαστικά, βίντεο και λεκτικά (copywriting) για να βρίσκουμε τα "winning ads" που φέρνουν μέγιστη απόδοση.</p>
+                </div>
+                <!-- Card 3: Dynamic Ads -->
+                <div class="bg-[#050814]/80 backdrop-blur-lg p-8 rounded-3xl border border-[#00f2fe]/15 hover:border-[#00f2fe]/50 hover:-translate-y-2 hover:shadow-[0_10px_40px_-10px_rgba(0,242,254,0.2)] transition-all duration-300 group">
+                    <div class="w-12 h-12 mb-6 rounded-2xl bg-[#00f2fe]/10 flex items-center justify-center text-[#00f2fe] group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Dynamic Product Ads</h3>
+                    <p class="text-slate-400 leading-relaxed">Η απόλυτη στρατηγική για E-commerce. Προβάλλουμε δυναμικά στους χρήστες ακριβώς τα προϊόντα που είδαν ή πρόσθεσαν στο καλάθι (cart abandonment), πολλαπλασιάζοντας το conversion rate.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION 3: Facebook vs Instagram (2-Column Layout) -->
+    <section class="py-24 bg-[#010205] border-t border-white/5 relative z-10">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white text-center mb-16">Facebook & Instagram: Μία Πλατφόρμα, Δύο Διαφορετικά Κοινά</h2>
+            
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Facebook Column -->
+                <div class="flex-1 bg-gradient-to-b from-[#1877F2]/10 to-transparent p-8 rounded-[2rem] border border-[#1877F2]/20 relative overflow-hidden">
+                    <div class="absolute top-4 right-4 text-[#1877F2]/20">
+                        <svg class="w-16 h-16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#1877F2] mb-4">Διαφήμιση Facebook</h3>
+                    <p class="text-slate-300 leading-relaxed relative z-10">
+                        Ευρύτερο και συχνά πιο ώριμο ηλικιακά κοινό. Διαθέτει τα πιο ισχυρά εργαλεία στόχευσης βάσει σύνθετων ενδιαφερόντων, συμπεριφοράς και δημογραφικών. Ιδανικό για Lead Generation, άρθρα, events και κλασικό <a href="/blog/google-ads-i-facebook-ads" class="text-blue-400 underline hover:text-white transition-colors">Performance Marketing</a>.
+                    </p>
+                </div>
+                
+                <!-- Instagram Column -->
+                <div class="flex-1 bg-gradient-to-b from-[#E1306C]/10 to-transparent p-8 rounded-[2rem] border border-[#E1306C]/20 relative overflow-hidden">
+                    <div class="absolute top-4 right-4 text-[#E1306C]/20">
+                        <svg class="w-16 h-16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.88z"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#E1306C] mb-4">Διαφήμιση Instagram</h3>
+                    <p class="text-slate-300 leading-relaxed relative z-10">
+                        Ευνοεί το highly visual, γρήγορο και αισθητικό περιεχόμενο. Μέσα από <a href="/social-media/tiktok-reels" class="text-pink-400 underline hover:text-white transition-colors">Instagram Reels</a>, Stories και Shopping ads, προσεγγίζουμε ένα εξαιρετικά ενεργό, younger-skewing κοινό. Είναι η καρδιά της <a href="/blog/instagram-strategy-epicheiriseis" class="text-pink-400 underline hover:text-white transition-colors">οργανικής στρατηγικής Instagram</a> σε συνδυασμό με Paid Ads.
+                    </p>
+                </div>
+            </div>
+            <p class="text-center text-slate-400 mt-8">Διαχειριζόμαστε και τις δύο πλατφόρμες μέσα από τον ενιαίο <strong>Meta Ads Manager</strong>, κατανέμοντας δυναμικά το budget εκεί που φέρνει τις περισσότερες πωλήσεις.</p>
+        </div>
+    </section>
+
+    <!-- NEW SECTION 4: Πλήρες Funnel -->
+    <section class="py-24 bg-[#02040A] relative border-t border-white/5 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <h2 class="text-3xl md:text-4xl font-black text-white font-montserrat text-center mb-16">Η Στρατηγική μας: Πλήρες Funnel, Όχι Μεμονωμένες Διαφημίσεις</h2>
+
+            <div class="relative flex flex-col md:flex-row justify-between gap-10 md:gap-4">
+                <!-- Connecting Line (Desktop) -->
+                <div class="hidden md:block absolute top-[28px] left-[16%] right-[16%] h-[2px] bg-gradient-to-r from-blue-500/10 via-purple-500/40 to-blue-500/10">
+                    <div class="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 border-t-2 border-r-2 border-purple-500 rotate-45"></div>
+                </div>
+                <!-- Connecting Line (Mobile) -->
+                <div class="md:hidden absolute left-[28px] top-[10%] bottom-[10%] w-[2px] bg-gradient-to-b from-blue-500/10 via-purple-500/40 to-blue-500/10">
+                    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 border-b-2 border-r-2 border-purple-500 rotate-45"></div>
+                </div>
+
+                <!-- Funnel Step 1 -->
+                <div class="relative flex-1 md:text-center flex md:flex-col items-start md:items-center gap-6 group">
+                    <div class="w-14 h-14 rounded-full bg-[#050814] border-2 border-blue-500 text-blue-500 flex items-center justify-center z-10 shrink-0 shadow-[0_0_20px_rgba(59,130,246,0.1)] group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                    </div>
+                    <div>
+                        <span class="text-blue-500 font-mono text-xs font-bold tracking-wider uppercase mb-2 block">1. Top of Funnel</span>
+                        <h3 class="text-xl font-bold text-white mb-2">Awareness & Prospecting</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Καμπάνιες αναγνωρισιμότητας που σας συστήνουν σε νέο, ευρύ κοινό με βάση ακριβή ενδιαφέροντα, δημογραφικά και Lookalike Audiences.</p>
+                    </div>
+                </div>
+
+                <!-- Funnel Step 2 -->
+                <div class="relative flex-1 md:text-center flex md:flex-col items-start md:items-center gap-6 group">
+                    <div class="w-14 h-14 rounded-full bg-[#050814] border-2 border-purple-500 text-purple-500 flex items-center justify-center z-10 shrink-0 shadow-[0_0_20px_rgba(168,85,247,0.1)] group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <div>
+                        <span class="text-purple-500 font-mono text-xs font-bold tracking-wider uppercase mb-2 block">2. Middle of Funnel</span>
+                        <h3 class="text-xl font-bold text-white mb-2">Consideration & Engagement</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Δέσμευση ενδιάμεσου κοινού μέσω social video, carousels και storytelling. Χτίζουμε εμπιστοσύνη και «ζεσταίνουμε» το κοινό.</p>
+                    </div>
+                </div>
+
+                <!-- Funnel Step 3 -->
+                <div class="relative flex-1 md:text-center flex md:flex-col items-start md:items-center gap-6 group">
+                    <div class="w-14 h-14 rounded-full bg-[#050814] border-2 border-[#00f2fe] text-[#00f2fe] flex items-center justify-center z-10 shrink-0 shadow-[0_0_20px_rgba(0,242,254,0.1)] group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                    </div>
+                    <div>
+                        <span class="text-[#00f2fe] font-mono text-xs font-bold tracking-wider uppercase mb-2 block">3. Bottom of Funnel</span>
+                        <h3 class="text-xl font-bold text-white mb-2">Conversion & Retargeting</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Στοχευμένες καμπάνιες σε «ζεστό» κοινό (επισκέπτες site, εγκαταλείψεις καλαθιού) με σαφές Call-to-Action προς πώληση ή κράτηση.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 bg-[#010205] relative border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-black text-white font-montserrat mb-12 text-center">Συχνές Ερωτήσεις (FAQ)</h2>
+            <div class="space-y-6">
+                <div class="bg-[#050814]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-blue-500/30 transition-colors">
+                    <h3 class="text-xl font-bold text-blue-400 mb-3">Πόσο κοστίζει η διαφήμιση σε Facebook & Instagram;</h3>
+                    <p class="text-slate-400">Το διαφημιστικό budget (ad spend) στη Meta ξεκινά από λίγα ευρώ την ημέρα, αλλά για ουσιαστικά αποτελέσματα προτείνουμε ρεαλιστικό μηνιαίο budget ανάλογα με τον κλάδο και τους στόχους σας. Ξεχωριστά υπολογίζεται η αμοιβή διαχείρισης της καμπάνιας. Ζητήστε δωρεάν προσφορά προσαρμοσμένη στην επιχείρησή σας.</p>
+                </div>
+                <div class="bg-[#050814]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-blue-500/30 transition-colors">
+                    <h3 class="text-xl font-bold text-blue-400 mb-3">Ποια η διαφορά ανάμεσα σε Boost Post και πραγματική διαφημιστική καμπάνια;</h3>
+                    <p class="text-slate-400">Το Boost Post είναι απλοϊκό και προσφέρει ελάχιστο έλεγχο σε στόχευση και βελτιστοποίηση. Μια πραγματική καμπάνια μέσω Ads Manager επιτρέπει ακριβή στόχευση κοινού, A/B testing, retargeting και μέτρηση πραγματικού ROAS.</p>
+                </div>
+                <div class="bg-[#050814]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-blue-500/30 transition-colors">
+                    <h3 class="text-xl font-bold text-blue-400 mb-3">Πόσο γρήγορα βλέπω αποτελέσματα από τη διαφήμιση Meta;</h3>
+                    <p class="text-slate-400">Η κίνηση ξεκινά άμεσα μόλις εγκριθεί η καμπάνια, συνήθως εντός 24 ωρών. Τα πρώτα αξιόπιστα δεδομένα βελτιστοποίησης χρειάζονται 1-2 εβδομάδες, ενώ η πλήρης απόδοση σταθεροποιείται σε 4-6 εβδομάδες.</p>
+                </div>
+                <div class="bg-[#050814]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-blue-500/30 transition-colors">
+                    <h3 class="text-xl font-bold text-blue-400 mb-3">Χρειάζομαι ξεχωριστή στρατηγική για Facebook και για Instagram;</h3>
+                    <p class="text-slate-400">Αν και διαχειρίζονται από το ίδιο σύστημα (Meta Ads Manager), το κοινό και η συμπεριφορά διαφέρουν. Το Instagram ευνοεί πιο οπτικό, νεανικό περιεχόμενο (Reels, Stories), ενώ το Facebook έχει ευρύτερο, ωριμότερο κοινό. Προσαρμόζουμε δημιουργικό και μήνυμα ανά πλατφόρμα εντός της ίδιας καμπάνιας.</p>
+                </div>
+                <div class="bg-[#050814]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-blue-500/30 transition-colors">
+                    <h3 class="text-xl font-bold text-blue-400 mb-3">Τι είναι το retargeting και γιατί το χρειάζομαι;</h3>
+                    <p class="text-slate-400">Το retargeting εμφανίζει ξανά τη διαφήμισή σας σε ανθρώπους που έχουν ήδη επισκεφθεί την ιστοσελίδα σας ή αλληλεπιδράσει με το προϊόν σας. Είναι το κοινό με τη μεγαλύτερη πιθανότητα μετατροπής, καθιστώντας το από τα πιο αποδοτικά κομμάτια μιας καμπάνιας.</p>
+                </div>
+                <div class="bg-[#050814]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-blue-500/30 transition-colors">
+                    <h3 class="text-xl font-bold text-blue-400 mb-3">Αναλαμβάνετε διαφήμιση Facebook/Instagram για τουριστικές επιχειρήσεις στην Κρήτη;</h3>
+                    <p class="text-slate-400">Ναι, είναι μία από τις βασικές μας ειδικεύσεις. Σχεδιάζουμε καμπάνιες που στοχεύουν υποψήφιους επισκέπτες πριν και κατά τη διάρκεια του σχεδιασμού του ταξιδιού τους, οδηγώντας σε direct bookings για ξενοδοχεία και βίλες.</p>
+                </div>
+            </div>
         </div>
     </section>
 
