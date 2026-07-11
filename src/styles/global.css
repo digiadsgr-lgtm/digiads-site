@@ -3,12 +3,18 @@
 @theme {
   --font-sans: var(--font-inter);
   --font-montserrat: var(--font-montserrat);
+  
+  --color-navy: #1B1F3B;
+  --color-navy-deep: #14172E;
+  --color-gold: #FFBF00;
+  --color-gold-soft: #FFD966;
+  --color-charcoal: #333333;
 }
 
 :root {
-  --hp-bg: #010205;
-  --accent: #00d9ff;
-  --accent-rgb: 0, 217, 255;
+  --hp-bg: var(--color-navy);
+  --accent: var(--color-gold);
+  --accent-rgb: 255, 191, 0;
 }
 
 * {

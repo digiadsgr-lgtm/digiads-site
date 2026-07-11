@@ -17,9 +17,9 @@ const servicesData = {
         ),
         title: "Performance Ads",
         subtitle: "Google · Meta · TikTok",
-        description: "Απόλυτη κυριαρχία μέσω data-driven καμπανιών. Retargeting funnels, lookalike audiences και AI-optimized bidding strategies που συνθλίβουν τον ανταγωνισμό.",
+        description: "Απόλυτη κυριαρχία μέσω data-driven καμπανιών. Retargeting funnels, lookalike audiences και AI-optimized bidding strategies που ξεπερνούν σταθερά τον ανταγωνισμό.",
         metrics: ["+127%", "Μέσος ROI"],
-        color: "#00d9ff",
+        color: "#FFBF00",
         href: "/digital-marketing/performance-marketing",
       },
       {
@@ -31,9 +31,9 @@ const servicesData = {
         ),
         title: "Web Design & E-shop",
         subtitle: "Next.js · Astro · Headless",
-        description: "Ψηφιακά αρχιτεκτονικά αριστουργήματα. Κατασκευή ιστοσελίδων με 100/100 Lighthouse, CRO optimization και cinematic UX/UI που μετατρέπει επισκέπτες σε πελάτες.",
+        description: "Ψηφιακή αρχιτεκτονική υψηλής ακρίβειας. Κατασκευή ιστοσελίδων με 100/100 Lighthouse, CRO optimization και cinematic UX/UI που μετατρέπει επισκέπτες σε πελάτες.",
         metrics: ["100/100", "Lighthouse"],
-        color: "#a855f7",
+        color: "#FFBF00",
         href: "/kataskevi-istoselidon",
       },
       {
@@ -76,7 +76,7 @@ const servicesData = {
         subtitle: "Short-form Video Production",
         description: "Δημιουργία viral περιεχομένου με AI-powered διαδικασία (Gemini/Veo). Χτίστε engagement και πωλήσεις μέσα από αυθεντικό video content.",
         metrics: ["1M+", "Views"],
-        color: "#ff0050",
+        color: "#FFBF00",
         href: "/social-media/tiktok-reels",
       },
       {
@@ -125,9 +125,9 @@ const servicesData = {
         ),
         title: "Performance Ads",
         subtitle: "Google · Meta · TikTok",
-        description: "Absolute dominance through data-driven campaigns. Retargeting funnels, lookalike audiences, and AI-optimized bidding strategies that crush the competition.",
+        description: "Absolute dominance through data-driven campaigns. Retargeting funnels, lookalike audiences, and AI-optimized bidding strategies that consistently outperform the competition.",
         metrics: ["+127%", "Avg ROI"],
-        color: "#00d9ff",
+        color: "#FFBF00",
         href: "/en/performance-marketing",
       },
       {
@@ -139,9 +139,9 @@ const servicesData = {
         ),
         title: "Web Design & E-shop",
         subtitle: "Next.js · Astro · Headless",
-        description: "Digital architectural masterpieces. Building websites with 100/100 Lighthouse, CRO optimization, and cinematic UX/UI that turns visitors into clients.",
+        description: "High-precision digital architecture. Building websites with 100/100 Lighthouse, CRO optimization, and cinematic UX/UI that turns visitors into clients.",
         metrics: ["100/100", "Lighthouse"],
-        color: "#a855f7",
+        color: "#FFBF00",
         href: "/en/web-design",
       },
       {
@@ -184,7 +184,7 @@ const servicesData = {
         subtitle: "Short-form Video Production",
         description: "Creation of viral content with AI-powered process (Gemini/Veo). Build engagement and sales through authentic video content.",
         metrics: ["1M+", "Views"],
-        color: "#ff0050",
+        color: "#FFBF00",
         href: "/social-media/tiktok-reels",
       },
       {
@@ -240,7 +240,7 @@ function ServiceCard({ service, index }: { service: any; index: number }) {
         className="absolute -inset-[1px] rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"
         style={{ background: `linear-gradient(135deg, ${service.color}30, transparent 50%, ${service.color}15)` }}
       />
-      <div className="relative bg-[#050814] border border-white/5 rounded-3xl p-8 md:p-10 h-full group-hover:border-transparent transition-colors duration-500">
+      <div className="relative bg-[#14172E] border border-white/5 rounded-3xl p-8 md:p-10 h-full group-hover:border-transparent transition-colors duration-500">
         <div
           className="absolute -top-20 -right-20 w-40 h-40 rounded-full blur-[80px] opacity-0 group-hover:opacity-40 transition-all duration-700 pointer-events-none"
           style={{ backgroundColor: service.color }}
@@ -276,7 +276,7 @@ export default function Services({ lang = 'el' }: { lang?: 'el' | 'en' }) {
   const data = servicesData[lang];
 
   return (
-    <section id="services" className="py-32 relative bg-[#010205] overflow-hidden" ref={sectionRef}>
+    <section id="services" className="py-32 relative bg-[#1B1F3B] overflow-hidden" ref={sectionRef}>
       <div className="absolute inset-0 opacity-[0.03]">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.3)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.3)_1px,transparent_1px)] bg-[size:60px_60px]" />
       </div>
@@ -288,13 +288,13 @@ export default function Services({ lang = 'el' }: { lang?: 'el' | 'en' }) {
           transition={{ duration: 0.8 }}
         >
           <div className="inline-flex items-center gap-4 mb-6">
-            <span className="w-12 h-[1px] bg-gradient-to-r from-transparent to-[#00d9ff]" />
-            <h2 className="text-[#00d9ff] font-mono text-sm tracking-[0.4em] uppercase">{data.badge}</h2>
-            <span className="w-12 h-[1px] bg-gradient-to-l from-transparent to-[#00d9ff]" />
+            <span className="w-12 h-[1px] bg-gradient-to-r from-transparent to-[#FFBF00]" />
+            <h2 className="text-[#FFBF00] font-mono text-sm tracking-[0.4em] uppercase">{data.badge}</h2>
+            <span className="w-12 h-[1px] bg-gradient-to-l from-transparent to-[#FFBF00]" />
           </div>
           <h2 className="text-4xl md:text-6xl font-black text-white font-montserrat tracking-tight leading-tight mb-6">
             {data.titleStart} <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00d9ff] to-purple-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFBF00] to-[#FFBF00]">
               {data.titleEnd}
             </span>
           </h2>

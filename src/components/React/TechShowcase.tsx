@@ -33,7 +33,7 @@ export default function TechShowcase({ lang = 'el' }: { lang?: 'el' | 'en' }) {
   const t = content[lang];
 
   return (
-    <section id="tech" className="py-40 relative bg-[#010205] overflow-hidden border-t border-[#00d9ff]/10">
+    <section id="tech" className="py-40 relative bg-[#1B1F3B] overflow-hidden border-t border-[#FFBF00]/10">
       {/* Background Zen Grid */}
       <div className="absolute inset-0 z-0 opacity-10">
          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:4rem_4rem] [perspective:1000px] [transform:rotateX(70deg)_translateY(-50px)_scale(3)] [transform-origin:top_center]" />
@@ -44,9 +44,9 @@ export default function TechShowcase({ lang = 'el' }: { lang?: 'el' | 'en' }) {
         {/* Sophisticated Header - No Catchphrases, Just Quality */}
         <div className="text-center mb-24 flex flex-col items-center">
           <div className="inline-flex items-center gap-4 mb-6">
-             <span className="w-12 h-[1px] bg-gradient-to-r from-transparent to-[#00d9ff]" />
-             <h2 className="text-[#00d9ff] font-mono text-sm tracking-[0.4em] uppercase">{t.cat}</h2>
-             <span className="w-12 h-[1px] bg-gradient-to-l from-transparent to-[#00d9ff]" />
+             <span className="w-12 h-[1px] bg-gradient-to-r from-transparent to-[#FFBF00]" />
+             <h2 className="text-[#FFBF00] font-mono text-sm tracking-[0.4em] uppercase">{t.cat}</h2>
+             <span className="w-12 h-[1px] bg-gradient-to-l from-transparent to-[#FFBF00]" />
           </div>
           <h3 className="text-4xl md:text-6xl font-light text-white font-montserrat tracking-tight leading-tight max-w-3xl">
             {t.title1}<br/>
@@ -64,10 +64,10 @@ export default function TechShowcase({ lang = 'el' }: { lang?: 'el' | 'en' }) {
           
           {/* Card 1 */}
           <div className={`group relative p-[1px] rounded-3xl overflow-hidden bg-gradient-to-b from-white/10 to-transparent transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '100ms' }}>
-            <div className="absolute inset-0 bg-gradient-to-br from-[#00d9ff]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#FFBF00]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             <div className="relative h-full bg-[#030509] p-10 rounded-[23px] overflow-hidden">
                {/* Hover Glow */}
-               <div className="absolute top-0 right-0 -mr-16 -mt-16 w-32 h-32 bg-[#00d9ff] rounded-full blur-[60px] opacity-0 group-hover:opacity-30 transition-all duration-700" />
+               <div className="absolute top-0 right-0 -mr-16 -mt-16 w-32 h-32 bg-[#FFBF00] rounded-full blur-[60px] opacity-0 group-hover:opacity-30 transition-all duration-700" />
                
                <div className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-500 mb-6 font-montserrat">
                  100<span className="text-xl font-light">/100</span>
@@ -81,10 +81,10 @@ export default function TechShowcase({ lang = 'el' }: { lang?: 'el' | 'en' }) {
 
           {/* Card 2 */}
           <div className={`group relative p-[1px] rounded-3xl overflow-hidden bg-gradient-to-b from-white/10 to-transparent transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '300ms' }}>
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#FFBF00]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             <div className="relative h-full bg-[#030509] p-10 rounded-[23px] overflow-hidden">
                {/* Hover Glow */}
-               <div className="absolute top-0 right-0 -mr-16 -mt-16 w-32 h-32 bg-purple-500 rounded-full blur-[60px] opacity-0 group-hover:opacity-30 transition-all duration-700" />
+               <div className="absolute top-0 right-0 -mr-16 -mt-16 w-32 h-32 bg-[#FFBF00] rounded-full blur-[60px] opacity-0 group-hover:opacity-30 transition-all duration-700" />
                
                <div className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-500 mb-6 font-montserrat">
                   &lt;1s

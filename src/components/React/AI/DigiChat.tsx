@@ -30,8 +30,8 @@ function renderText(text: string) {
 function TypingIndicator() {
   return (
     <div style={{ display: "flex", alignItems: "flex-end", gap: "10px", marginBottom: "12px" }}>
-      <div style={{ width: "28px", height: "28px", borderRadius: "50%", background: "linear-gradient(135deg,#00d9ff,#0055ff)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-        <span style={{ color: "#010205", fontWeight: 900, fontSize: "10px" }}>D</span>
+      <div style={{ width: "28px", height: "28px", borderRadius: "50%", background: "linear-gradient(135deg,#FFBF00,#FFD966)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+        <span style={{ color: "#1B1F3B", fontWeight: 900, fontSize: "10px" }}>D</span>
       </div>
       <div style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "16px", borderBottomLeftRadius: "4px", padding: "12px 16px" }}>
         <div style={{ display: "flex", gap: "6px", alignItems: "center", height: "16px" }}>
@@ -39,7 +39,7 @@ function TypingIndicator() {
             <span
               key={i}
               className="animate-bounce"
-              style={{ width: "6px", height: "6px", background: "#00d9ff", borderRadius: "50%", display: "inline-block", animationDelay: `${i * 0.15}s`, animationDuration: "0.8s" }}
+              style={{ width: "6px", height: "6px", background: "#FFBF00", borderRadius: "50%", display: "inline-block", animationDelay: `${i * 0.15}s`, animationDuration: "0.8s" }}
             />
           ))}
         </div>
@@ -450,10 +450,10 @@ export default function DigiChat() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.8, y: 10 }}
               onClick={() => setIsOpen(true)}
-              style={{ background: "#060b1a", border: "1px solid rgba(0,217,255,0.2)", borderRadius: "16px", borderBottomRightRadius: "4px", padding: "12px 16px", maxWidth: "220px", cursor: "pointer", boxShadow: "0 20px 40px rgba(0,0,0,0.4)" }}
+              style={{ background: "#060b1a", border: "1px solid rgba(255, 191, 0,0.2)", borderRadius: "16px", borderBottomRightRadius: "4px", padding: "12px 16px", maxWidth: "220px", cursor: "pointer", boxShadow: "0 20px 40px rgba(0,0,0,0.4)" }}
             >
               <p style={{ color: "white", fontSize: "12px", fontWeight: 500, lineHeight: 1.5, margin: 0 }}>
-                👋 Γεια! Είμαι ο <strong style={{ color: "#00d9ff" }}>DIGI</strong>. Μπορώ να σε βοηθήσω να βρεις τη σωστή λύση!
+                👋 Γεια! Είμαι ο <strong style={{ color: "#FFBF00" }}>DIGI</strong>. Μπορώ να σε βοηθήσω να βρεις τη σωστή λύση!
               </p>
             </motion.div>
           )}
@@ -464,16 +464,16 @@ export default function DigiChat() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           aria-label="Άνοιξε τον DIGI chat"
-          style={{ width: "56px", height: "56px", borderRadius: "50%", background: "linear-gradient(135deg,#00d9ff,#0055ff)", border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 8px 24px rgba(0,217,255,0.3)", position: "relative" }}
+          style={{ width: "56px", height: "56px", borderRadius: "50%", background: "linear-gradient(135deg,#FFBF00,#FFD966)", border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 8px 24px rgba(255, 191, 0,0.3)", position: "relative" }}
         >
-          {!isOpen && <span style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "rgba(0,217,255,0.3)", animation: "ping 1.5s cubic-bezier(0,0,0.2,1) infinite" }} />}
+          {!isOpen && <span style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "rgba(255, 191, 0,0.3)", animation: "ping 1.5s cubic-bezier(0,0,0.2,1) infinite" }} />}
           <AnimatePresence mode="wait">
             {isOpen ? (
-              <motion.svg key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }} width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#010205" strokeWidth="2.5">
+              <motion.svg key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }} width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#1B1F3B" strokeWidth="2.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </motion.svg>
             ) : (
-              <motion.svg key="chat" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }} width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#010205" strokeWidth="2">
+              <motion.svg key="chat" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }} width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#1B1F3B" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
               </motion.svg>
             )}
@@ -494,21 +494,21 @@ export default function DigiChat() {
               display: "flex", flexDirection: "column",
               background: "rgba(6,11,26,0.97)", backdropFilter: "blur(20px)",
               border: "1px solid rgba(255,255,255,0.08)",
-              boxShadow: "0 25px 60px -15px rgba(0,0,0,0.8), 0 0 0 1px rgba(0,217,255,0.05)",
+              boxShadow: "0 25px 60px -15px rgba(0,0,0,0.8), 0 0 0 1px rgba(255, 191, 0,0.05)",
               overflow: "hidden",
             }}
           >
             {/* Header */}
             <div style={{ display: "flex", alignItems: "center", gap: "12px", padding: "16px 20px", borderBottom: "1px solid rgba(255,255,255,0.05)", background: "rgba(255,255,255,0.02)", flexShrink: 0 }}>
               <div style={{ position: "relative" }}>
-                <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "linear-gradient(135deg,#00d9ff,#0055ff)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 12px rgba(0,217,255,0.2)" }}>
-                  <span style={{ color: "#010205", fontWeight: 900, fontSize: "14px" }}>D</span>
+                <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "linear-gradient(135deg,#FFBF00,#FFD966)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 12px rgba(255, 191, 0,0.2)" }}>
+                  <span style={{ color: "#1B1F3B", fontWeight: 900, fontSize: "14px" }}>D</span>
                 </div>
                 <span style={{ position: "absolute", bottom: 0, right: 0, width: "12px", height: "12px", background: "#22c55e", borderRadius: "50%", border: "2px solid #060b1a" }} />
               </div>
               <div style={{ flex: 1 }}>
                 <p style={{ color: "white", fontWeight: 700, fontSize: "14px", margin: 0 }}>DIGI</p>
-                <p style={{ color: "#00d9ff", fontSize: "11px", fontFamily: "monospace", letterSpacing: "0.1em", margin: 0 }}>
+                <p style={{ color: "#FFBF00", fontSize: "11px", fontFamily: "monospace", letterSpacing: "0.1em", margin: 0 }}>
                   {agentState === "online" ? "Virtual Sales Agent · Online" : 
                    agentState === "reading" ? "Virtual Sales Agent · διαβάζει..." : 
                    agentState === "analyzing" ? "Virtual Sales Agent · σκέφτεται..." : 
@@ -519,9 +519,9 @@ export default function DigiChat() {
                 <button
                   onClick={() => setShowLeadForm((v) => !v)}
                   title="Αίτηση πρότασης"
-                  style={{ width: "32px", height: "32px", borderRadius: "50%", background: "rgba(0,217,255,0.1)", border: "1px solid rgba(0,217,255,0.2)", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}
+                  style={{ width: "32px", height: "32px", borderRadius: "50%", background: "rgba(255, 191, 0,0.1)", border: "1px solid rgba(255, 191, 0,0.2)", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}
                 >
-                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#00d9ff" strokeWidth="2">
+                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#FFBF00" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
                 </button>
@@ -538,8 +538,8 @@ export default function DigiChat() {
               {messages.map((msg) => (
                 <div key={msg.id} style={{ display: "flex", alignItems: "flex-end", gap: "10px", marginBottom: "12px", flexDirection: msg.role === "user" ? "row-reverse" : "row" }}>
                   {msg.role === "assistant" && (
-                    <div style={{ width: "28px", height: "28px", borderRadius: "50%", background: "linear-gradient(135deg,#00d9ff,#0055ff)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginBottom: "2px" }}>
-                      <span style={{ color: "#010205", fontWeight: 900, fontSize: "10px" }}>D</span>
+                    <div style={{ width: "28px", height: "28px", borderRadius: "50%", background: "linear-gradient(135deg,#FFBF00,#FFD966)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginBottom: "2px" }}>
+                      <span style={{ color: "#1B1F3B", fontWeight: 900, fontSize: "10px" }}>D</span>
                     </div>
                   )}
                   <motion.div
@@ -554,8 +554,8 @@ export default function DigiChat() {
                       borderBottomLeftRadius: msg.role === "assistant" ? "4px" : "16px",
                       fontSize: "13px",
                       lineHeight: 1.6,
-                      background: msg.role === "user" ? "rgba(0,217,255,0.12)" : "rgba(255,255,255,0.05)",
-                      border: msg.role === "user" ? "1px solid rgba(0,217,255,0.2)" : "1px solid rgba(255,255,255,0.07)",
+                      background: msg.role === "user" ? "rgba(255, 191, 0,0.12)" : "rgba(255,255,255,0.05)",
+                      border: msg.role === "user" ? "1px solid rgba(255, 191, 0,0.2)" : "1px solid rgba(255,255,255,0.07)",
                       color: msg.role === "user" ? "white" : "rgba(255,255,255,0.85)",
                     }}
                   >
@@ -617,9 +617,9 @@ export default function DigiChat() {
                   disabled={isTyping || !input.trim()}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  style={{ width: "40px", height: "40px", flexShrink: 0, background: "linear-gradient(135deg,#00d9ff,#0055ff)", border: "none", borderRadius: "12px", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", opacity: (isTyping || !input.trim()) ? 0.4 : 1 }}
+                  style={{ width: "40px", height: "40px", flexShrink: 0, background: "linear-gradient(135deg,#FFBF00,#FFD966)", border: "none", borderRadius: "12px", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", opacity: (isTyping || !input.trim()) ? 0.4 : 1 }}
                 >
-                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#010205" strokeWidth="2.5">
+                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#1B1F3B" strokeWidth="2.5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                   </svg>
                 </motion.button>

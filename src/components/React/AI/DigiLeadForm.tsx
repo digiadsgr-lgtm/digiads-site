@@ -47,16 +47,16 @@ export default function DigiLeadForm({ onSubmit, onSkip }: DigiLeadFormProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
-      className="absolute inset-0 z-10 flex flex-col bg-[#060b1a]/95 backdrop-blur-xl rounded-2xl overflow-hidden"
+      className="absolute inset-0 z-10 flex flex-col bg-[#14172E]/95 backdrop-blur-xl rounded-2xl overflow-hidden"
     >
       <div className="px-6 pt-6 pb-4 border-b border-white/5">
         <div className="flex items-center gap-3 mb-1">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#00d9ff] to-blue-500 flex items-center justify-center flex-shrink-0">
+          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#FFBF00] to-[#FFBF00] flex items-center justify-center flex-shrink-0">
             <span className="text-white font-black text-xs">D</span>
           </div>
           <div>
             <p className="text-white font-bold text-sm">Εξατομικευμένη Πρόταση</p>
-            <p className="text-[#00d9ff] text-xs font-mono">δωρεάν · 0 δεσμεύσεις</p>
+            <p className="text-[#FFBF00] text-xs font-mono">δωρεάν · 0 δεσμεύσεις</p>
           </div>
         </div>
         <p className="text-slate-400 text-xs mt-3 leading-relaxed">
@@ -72,7 +72,7 @@ export default function DigiLeadForm({ onSubmit, onSkip }: DigiLeadFormProps) {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="π.χ. Γιώργης Παπαδάκης"
-            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-slate-600 focus:outline-none focus:border-[#00d9ff]/50 transition-all"
+            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-slate-600 focus:outline-none focus:border-[#FFBF00]/50 transition-all"
             required
           />
         </div>
@@ -84,7 +84,7 @@ export default function DigiLeadForm({ onSubmit, onSkip }: DigiLeadFormProps) {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="giorgis@example.com"
-            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-slate-600 focus:outline-none focus:border-[#00d9ff]/50 transition-all"
+            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-slate-600 focus:outline-none focus:border-[#FFBF00]/50 transition-all"
             required
           />
         </div>
@@ -96,7 +96,7 @@ export default function DigiLeadForm({ onSubmit, onSkip }: DigiLeadFormProps) {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="π.χ. 6944 123456"
-            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-slate-600 focus:outline-none focus:border-[#00d9ff]/50 transition-all"
+            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-slate-600 focus:outline-none focus:border-[#FFBF00]/50 transition-all"
           />
         </div>
 
@@ -105,7 +105,7 @@ export default function DigiLeadForm({ onSubmit, onSkip }: DigiLeadFormProps) {
           <select
             value={service}
             onChange={(e) => setService(e.target.value)}
-            className="w-full bg-[#0a1628] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#00d9ff]/50 transition-all appearance-none cursor-pointer"
+            className="w-full bg-[#0a1628] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#FFBF00]/50 transition-all appearance-none cursor-pointer"
           >
             <option value="">Επίλεξε υπηρεσία...</option>
             {SERVICES.map((s) => (
@@ -130,11 +130,11 @@ export default function DigiLeadForm({ onSubmit, onSkip }: DigiLeadFormProps) {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-gradient-to-r from-[#00d9ff] to-blue-500 rounded-xl py-3.5 text-sm font-bold text-[#010205] hover:opacity-90 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+          className="w-full bg-gradient-to-r from-[#FFBF00] to-[#FFBF00] rounded-xl py-3.5 text-sm font-bold text-[#1B1F3B] hover:opacity-90 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {loading ? (
             <span className="flex items-center justify-center gap-2">
-              <span className="w-4 h-4 border-2 border-[#010205]/30 border-t-[#010205] rounded-full animate-spin" />
+              <span className="w-4 h-4 border-2 border-[#1B1F3B]/30 border-t-[#1B1F3B] rounded-full animate-spin" />
               Αποστολή...
             </span>
           ) : (

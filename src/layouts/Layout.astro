@@ -15,7 +15,7 @@ const {
     title = "Digital Marketing | Ψηφιακή Διαφήμιση | Ιστοσελίδες | Διαφήμιση Internet | Κρήτη - Χανιά - Ρέθυμνο - Ηράκλειο", 
     description = "Digital Marketing Agency - Υπηρεσίες Ψηφιακού Marketing - Κατασκευή Ιστοσελίδων - Δημιουργία eshop - Προώθηση Επιχειρήσεων - Facebook & Instagram Ads στην Κρήτη.", 
     lang = 'el',
-    ogImage = "/logo/Digiads-Logo-1024x286.png",
+    ogImage = "/logo/digiads-logo-navy-gold.png",
 } = Astro.props;
 
 const SITE_URL = "https://www.digiads.gr";
@@ -30,8 +30,8 @@ const structuredData = {
     "name": "DIGIADS Digital Marketing Agency",
     "alternateName": ["DIGIADS", "DigiAds Κρήτη", "Digital Marketing Ρέθυμνο"],
     "url": "https://www.digiads.gr",
-    "logo": "https://www.digiads.gr/logo/Digiads-Logo-1024x286.png",
-    "image": "https://www.digiads.gr/logo/Digiads-Logo-1024x286.png",
+    "logo": "https://www.digiads.gr/logo/digiads-logo-navy-gold.png",
+    "image": "https://www.digiads.gr/logo/digiads-logo-navy-gold.png",
     "description": description,
     "address": {
       "@type": "PostalAddress",
@@ -51,7 +51,7 @@ const structuredData = {
 ---
 
 <!doctype html>
-<html lang={lang} class="scroll-smooth bg-[#010205] text-white">
+<html lang={lang} class="scroll-smooth bg-[#1B1F3B] text-white">
 	<head>
         <!-- Script for declaring dataLayer before GTM loads -->
         <script is:inline>
@@ -103,7 +103,7 @@ const structuredData = {
         <!-- Schema.org -->
         <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 	</head>
-	<body class="bg-[#010205] text-white font-inter flex flex-col min-h-screen film-grain overflow-x-hidden border-none m-0 p-0" style="cursor: none;">
+	<body class="bg-[#1B1F3B] text-white font-inter flex flex-col min-h-screen film-grain overflow-x-hidden border-none m-0 p-0" style="cursor: none;">
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MGJQ8PZ"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -240,7 +240,7 @@ const structuredData = {
                             // Cyan/blue outer glow
                             ctx.beginPath();
                             ctx.arc(x, y, radius * 1.5, 0, Math.PI * 2);
-                            ctx.fillStyle = `rgba(0, 217, 255, ${alpha * 0.5})`; 
+                            ctx.fillStyle = `rgba(255, 191, 0, ${alpha * 0.5})`; 
                             ctx.fill();
                             
                             // Bright white inner core

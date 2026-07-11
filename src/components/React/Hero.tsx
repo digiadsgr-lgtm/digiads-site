@@ -42,9 +42,9 @@ export default function Hero({ lang = 'el' }: HeroProps) {
     <section className="relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden bg-[#000000]">
       {/* Ultra-High Performance Cyber Background (Zero GPU Overhead) */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-         <div className="absolute inset-0 bg-[#00d9ff]/[0.015] bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+         <div className="absolute inset-0 bg-[#FFBF00]/[0.015] bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
          {/* Replaced heavy blur filters with static gradients mapping to the same visual effect */}
-         <div className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle_at_center,rgba(0,217,255,0.08)_0%,transparent_70%)] opacity-80" />
+         <div className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle_at_center,rgba(255, 191, 0,0.08)_0%,transparent_70%)] opacity-80" />
          <div className="absolute bottom-[-100px] right-1/4 w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.08)_0%,transparent_70%)] opacity-80" />
       </div>
 
@@ -59,16 +59,16 @@ export default function Hero({ lang = 'el' }: HeroProps) {
           
           {/* Badge */}
           <motion.div 
-            className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full border border-[#00d9ff]/20 bg-[#00d9ff]/10 backdrop-blur-xl saturate-[1.5] mb-12 shadow-[0_0_30px_rgba(0,217,255,0.1)]"
+            className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full border border-[#FFBF00]/20 bg-[#FFBF00]/10 backdrop-blur-xl saturate-[1.5] mb-12 shadow-[0_0_30px_rgba(255, 191, 0,0.1)]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00d9ff]" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFBF00]" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
             </span>
-            <span className="text-[10px] md:text-xs font-mono tracking-[0.3em] text-[#00d9ff] font-bold uppercase">{data.badge}</span>
+            <span className="text-[10px] md:text-xs font-mono tracking-[0.3em] text-[#FFBF00] font-bold uppercase">{data.badge}</span>
           </motion.div>
 
           {/* Staggered Text Reveal (Kinetic Mask) */}
@@ -98,6 +98,18 @@ export default function Hero({ lang = 'el' }: HeroProps) {
               </motion.div>
             </div>
             
+            {/* Proof point badge */}
+            <motion.a
+              href="#audit"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.5, duration: 0.8 }}
+              className="mt-2 mb-4 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-colors text-xs text-slate-300 font-mono tracking-wide flex items-center gap-2"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FFBF00] animate-pulse"></span>
+              Live AI-Powered Analysis Tool
+            </motion.a>
+            
             {/* Animated Morphing Keyword */}
             <div className="h-[50px] sm:h-[80px] md:h-[100px] lg:h-[140px] overflow-hidden relative w-full flex justify-center pb-2">
               <motion.h2
@@ -106,7 +118,7 @@ export default function Hero({ lang = 'el' }: HeroProps) {
                 animate={{ y: "0%", rotateX: 0 }}
                 exit={{ y: "-110%", rotateX: -25, opacity: 0 }}
                 transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
-                className="text-4xl sm:text-6xl md:text-8xl lg:text-[130px] font-black tracking-tighter leading-[0.85] font-montserrat text-[#00d9ff] drop-shadow-[0_0_40px_rgba(0,217,255,0.4)] absolute"
+                className="text-4xl sm:text-6xl md:text-8xl lg:text-[130px] font-black tracking-tighter leading-[0.85] font-montserrat text-[#FFBF00] drop-shadow-[0_0_40px_rgba(255, 191, 0,0.4)] absolute"
                 style={{ transformOrigin: "bottom center" }}
               >
                 {data.headlines[headlineIndex]}
@@ -134,7 +146,7 @@ export default function Hero({ lang = 'el' }: HeroProps) {
             <Magnetic strength={0.4}>
               <a
                 href="#services"
-                className="group relative px-10 py-5 bg-gradient-to-r from-[#00d9ff] to-blue-500 text-black rounded-full font-black text-sm tracking-[0.2em] uppercase overflow-hidden hover:shadow-[0_0_50px_rgba(0,217,255,0.6)] hover:scale-[1.05] transition-all duration-500 w-full sm:w-auto text-center"
+                className="group relative px-10 py-5 bg-gradient-to-r from-[#FFBF00] to-[#FFBF00] text-black rounded-full font-black text-sm tracking-[0.2em] uppercase overflow-hidden hover:shadow-[0_0_50px_rgba(255, 191, 0,0.6)] hover:scale-[1.05] transition-all duration-500 w-full sm:w-auto text-center"
               >
                 <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
                 <span className="relative z-10 mix-blend-difference text-white group-hover:text-black transition-colors duration-500">{data.ctaPrimary}</span>

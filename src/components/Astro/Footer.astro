@@ -53,7 +53,7 @@ const t = {
 ---
 <footer class="relative bg-[#000000] text-white overflow-hidden border-t border-white/5 pt-32 pb-10 z-10">
 	{/* Subtle background glow */}
-	<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(0,217,255,0.03)_0%,transparent_70%)] pointer-events-none rounded-full" />
+	<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(255, 191, 0,0.03)_0%,transparent_70%)] pointer-events-none rounded-full" />
 	
 	<div class="max-w-[1400px] mx-auto px-6 relative z-10 flex flex-col md:flex-row justify-between mb-32 gap-16 md:gap-8">
 		
@@ -66,7 +66,7 @@ const t = {
             {/* Needs client:load since React component is running inside Astro static context */}
 			<div class="inline-block" data-cursor-text="START">
                 {/* Notice: since Magnetic requires React, we must wrap the a tag logic properly or use standard hover. But Magnetic requires children. Let's use it as a React wrapper if possible. Wait, Astro can't pass Astro HTML into a React component as children easily unless it's a solid node, but simple HTML elements work. Let's just create a quick React CTA that includes Magnetic to avoid Astro/React children hydration mismatch entirely. */}
-                <a href={t.contactHref} class="group inline-flex items-center gap-4 px-8 py-4 bg-[#00d9ff] text-black rounded-full font-bold uppercase tracking-widest text-sm hover:scale-105 hover:shadow-[0_0_40px_rgba(0,217,255,0.4)] transition-all duration-500" data-magnetic="true">
+                <a href={t.contactHref} class="group inline-flex items-center gap-4 px-8 py-4 bg-[#FFBF00] text-black rounded-full font-bold uppercase tracking-widest text-sm hover:scale-105 hover:shadow-[0_0_40px_rgba(255, 191, 0,0.4)] transition-all duration-500" data-magnetic="true">
                     {t.cta}
                     <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                 </a>
@@ -76,7 +76,7 @@ const t = {
 		{/* Right Side: SEO Links Matrix */}
 		<div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-12 sm:gap-6 pt-4">
 			<div>
-				<h3 class="text-[#00d9ff] font-mono text-xs uppercase tracking-[0.2em] mb-6">{t.servicesTitle}</h3>
+				<h3 class="text-[#FFBF00] font-mono text-xs uppercase tracking-[0.2em] mb-6">{t.servicesTitle}</h3>
 				<ul class="flex flex-col gap-4">
 					{t.services.map(link => (
 						<li>
@@ -88,7 +88,7 @@ const t = {
 				</ul>
 			</div>
 			<div>
-				<h3 class="text-[#00d9ff] font-mono text-xs uppercase tracking-[0.2em] mb-6">{t.companyTitle}</h3>
+				<h3 class="text-[#FFBF00] font-mono text-xs uppercase tracking-[0.2em] mb-6">{t.companyTitle}</h3>
 				<ul class="flex flex-col gap-4">
 					{t.company.map(link => (
 						<li>
@@ -105,10 +105,10 @@ const t = {
 					{/* Custom DIGI Trigger */}
 					<button 
 						onclick="window.dispatchEvent(new CustomEvent('open-digi-chat'))"
-						class="w-full text-left bg-gradient-to-tr from-[#00d9ff]/10 to-blue-500/10 border border-[#00d9ff]/20 hover:border-[#00d9ff]/50 rounded-xl p-4 transition-all duration-300 group hover:shadow-[0_0_20px_rgba(0,217,255,0.15)]"
+						class="w-full text-left bg-gradient-to-tr from-[#FFBF00]/10 to-[#FFBF00]/10 border border-[#FFBF00]/20 hover:border-[#FFBF00]/50 rounded-xl p-4 transition-all duration-300 group hover:shadow-[0_0_20px_rgba(255, 191, 0,0.15)]"
 					>
-						<p class="text-white font-bold text-sm mb-1.5 flex items-center gap-2 group-hover:text-[#00d9ff] transition-colors">
-							<span class="w-2 h-2 bg-[#00d9ff] rounded-full animate-pulse shadow-[0_0_8px_#00d9ff]"></span>
+						<p class="text-white font-bold text-sm mb-1.5 flex items-center gap-2 group-hover:text-[#FFBF00] transition-colors">
+							<span class="w-2 h-2 bg-[#FFBF00] rounded-full animate-pulse shadow-[0_0_8px_#FFBF00]"></span>
 							{lang === 'el' ? "Μίλησε με τον DIGI" : "Chat with DIGI"}
 						</p>
 						<p class="text-slate-400 text-xs leading-relaxed">

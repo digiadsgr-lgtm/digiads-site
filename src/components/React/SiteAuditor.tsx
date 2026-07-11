@@ -173,23 +173,23 @@ export default function SiteAuditor({ lang = 'el' }: { lang?: 'el' | 'en' }) {
   };
 
   return (
-    <section className="py-32 relative bg-[#010205] overflow-hidden">
+    <section className="py-32 relative bg-[#1B1F3B] overflow-hidden">
       {/* Ambient glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#00d9ff] rounded-full blur-[300px] opacity-[0.03] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#FFBF00] rounded-full blur-[300px] opacity-[0.03] pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-[#00d9ff]/20 bg-[#00d9ff]/5 backdrop-blur-md mb-8">
+          <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-[#FFBF00]/20 bg-[#FFBF00]/5 backdrop-blur-md mb-8">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00d9ff] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00d9ff]" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFBF00] opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FFBF00]" />
             </span>
-            <span className="text-[11px] font-mono tracking-[0.3em] text-[#00d9ff] uppercase">{content.badge}</span>
+            <span className="text-[11px] font-mono tracking-[0.3em] text-[#FFBF00] uppercase">{content.badge}</span>
           </div>
           <h2 className="text-4xl md:text-6xl font-black text-white font-montserrat tracking-tight mb-6">
             {content.titleStart} <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00d9ff] to-blue-500">{content.titleEnd}</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFBF00] to-[#FFBF00]">{content.titleEnd}</span>
           </h2>
           <p className="text-lg text-slate-400 font-light max-w-2xl mx-auto">
             {content.subhead}
@@ -199,8 +199,8 @@ export default function SiteAuditor({ lang = 'el' }: { lang?: 'el' | 'en' }) {
         {/* Input Area */}
         <div className="relative max-w-2xl mx-auto mb-16">
           <div className="relative group">
-            <div className="absolute -inset-[1px] bg-gradient-to-r from-[#00d9ff]/50 via-blue-500/50 to-purple-500/50 rounded-2xl opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-500 blur-[1px]" />
-            <div className="relative flex items-center bg-[#050814] rounded-2xl border border-white/10 overflow-hidden flex-col sm:flex-row">
+            <div className="absolute -inset-[1px] bg-gradient-to-r from-[#FFBF00]/50 via-[#FFBF00]/50 to-[#FFBF00]/50 rounded-2xl opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-500 blur-[1px]" />
+            <div className="relative flex items-center bg-[#14172E] rounded-2xl border border-white/10 overflow-hidden flex-col sm:flex-row">
               <div className="pl-5 text-slate-500 hidden sm:block">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
               </div>
@@ -216,7 +216,7 @@ export default function SiteAuditor({ lang = 'el' }: { lang?: 'el' | 'en' }) {
               <button
                 onClick={runAudit}
                 disabled={isAuditing || !url.trim()}
-                className="w-full sm:w-auto px-8 py-4 sm:mr-2 sm:my-2 bg-[#00d9ff] text-black font-bold text-sm tracking-wider sm:rounded-xl hover:bg-white transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed uppercase"
+                className="w-full sm:w-auto px-8 py-4 sm:mr-2 sm:my-2 bg-[#FFBF00] text-black font-bold text-sm tracking-wider sm:rounded-xl hover:bg-white transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed uppercase"
               >
                 {isAuditing ? content.btnScanning : content.btnAudit}
               </button>
@@ -235,7 +235,7 @@ export default function SiteAuditor({ lang = 'el' }: { lang?: 'el' | 'en' }) {
             >
               <div className="h-1 bg-white/5 rounded-full overflow-hidden">
                 <motion.div
-                  className="h-full bg-gradient-to-r from-[#00d9ff] to-blue-500 rounded-full"
+                  className="h-full bg-gradient-to-r from-[#FFBF00] to-[#FFBF00] rounded-full"
                   initial={{ width: "0%" }}
                   animate={{ width: `${progress}%` }}
                   transition={{ duration: 0.3 }}
@@ -257,7 +257,7 @@ export default function SiteAuditor({ lang = 'el' }: { lang?: 'el' | 'en' }) {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Score Cards */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 p-8 bg-[#050814]/50 border border-white/5 rounded-3xl backdrop-blur-sm">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 p-8 bg-[#14172E]/50 border border-white/5 rounded-3xl backdrop-blur-sm">
                 <CircularScore score={result.performance} label="Performance" color="#ef4444" delay={0} />
                 <CircularScore score={result.seo} label="SEO" color="#eab308" delay={200} />
                 <CircularScore score={result.security} label="Security" color="#ef4444" delay={400} />
@@ -266,7 +266,7 @@ export default function SiteAuditor({ lang = 'el' }: { lang?: 'el' | 'en' }) {
 
               {/* Issues & Opportunities */}
               <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-[#050814] border border-red-500/10 rounded-3xl p-8">
+                <div className="bg-[#14172E] border border-red-500/10 rounded-3xl p-8">
                   <h3 className="text-lg font-bold text-red-400 mb-6 flex items-center gap-3">
                     <span className="w-2 h-2 rounded-full bg-red-500" />
                     {content.resultsTitleIssues}
@@ -287,9 +287,9 @@ export default function SiteAuditor({ lang = 'el' }: { lang?: 'el' | 'en' }) {
                   </ul>
                 </div>
 
-                <div className="bg-[#050814] border border-[#00d9ff]/10 rounded-3xl p-8">
-                  <h3 className="text-lg font-bold text-[#00d9ff] mb-6 flex items-center gap-3">
-                    <span className="w-2 h-2 rounded-full bg-[#00d9ff]" />
+                <div className="bg-[#14172E] border border-[#FFBF00]/10 rounded-3xl p-8">
+                  <h3 className="text-lg font-bold text-[#FFBF00] mb-6 flex items-center gap-3">
+                    <span className="w-2 h-2 rounded-full bg-[#FFBF00]" />
                     {content.resultsTitleOpp}
                   </h3>
                   <ul className="space-y-4">
@@ -301,7 +301,7 @@ export default function SiteAuditor({ lang = 'el' }: { lang?: 'el' | 'en' }) {
                         transition={{ delay: 1.0 + i * 0.1 }}
                         className="text-sm text-slate-400 flex items-start gap-3"
                       >
-                        <span className="text-[#00d9ff] mt-0.5">→</span>
+                        <span className="text-[#FFBF00] mt-0.5">→</span>
                         {opp}
                       </motion.li>
                     ))}
@@ -321,7 +321,7 @@ export default function SiteAuditor({ lang = 'el' }: { lang?: 'el' | 'en' }) {
                 </p>
                 <a
                   href="mailto:info@digiads.gr"
-                  className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-[#00d9ff] to-blue-500 text-black font-bold rounded-full hover:shadow-[0_10px_40px_rgba(0,217,255,0.3)] hover:scale-105 transition-all duration-500 text-sm tracking-wider uppercase"
+                  className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-[#FFBF00] to-[#FFBF00] text-black font-bold rounded-full hover:shadow-[0_10px_40px_rgba(255, 191, 0,0.3)] hover:scale-105 transition-all duration-500 text-sm tracking-wider uppercase"
                 >
                   {content.ctaBtn}
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>

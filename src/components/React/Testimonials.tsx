@@ -80,9 +80,9 @@ export default function Testimonials({ lang = 'el' }: { lang?: 'el' | 'en' }) {
   }, [data.items.length]);
 
   return (
-    <section className="py-32 relative bg-[#010205] overflow-hidden" ref={sectionRef}>
+    <section className="py-32 relative bg-[#1B1F3B] overflow-hidden" ref={sectionRef}>
       {/* Ambient glow */}
-      <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-[200px] pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-[#FFBF00]/5 rounded-full blur-[200px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <motion.div
@@ -91,7 +91,7 @@ export default function Testimonials({ lang = 'el' }: { lang?: 'el' | 'en' }) {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-[#00d9ff] font-mono text-sm tracking-[0.4em] uppercase mb-4">{data.badge}</h2>
+          <h2 className="text-[#FFBF00] font-mono text-sm tracking-[0.4em] uppercase mb-4">{data.badge}</h2>
           <p className="text-4xl md:text-5xl font-black text-white font-montserrat tracking-tight">
             {data.titleStart} <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-300 to-slate-500">{data.titleHighlight}</span>
           </p>
@@ -142,7 +142,7 @@ export default function Testimonials({ lang = 'el' }: { lang?: 'el' | 'en' }) {
             >
               <div 
                 className={`h-2 rounded-full transition-all duration-500 ${
-                  i === current ? "w-8 bg-[#00d9ff]" : "w-2 bg-white/20 hover:bg-white/40"
+                  i === current ? "w-8 bg-[#FFBF00]" : "w-2 bg-white/20 hover:bg-white/40"
                 }`}
               />
             </button>

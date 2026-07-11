@@ -45,15 +45,15 @@ export default function BentoGrid() {
   }, []);
 
   return (
-    <section id="portfolio" className="py-32 bg-[#02040A] relative z-10 w-full overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[#00d9ff] rounded-[100%] blur-[200px] opacity-[0.02] pointer-events-none" />
+    <section id="portfolio" className="py-32 bg-[#1B1F3B] relative z-10 w-full overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[#FFBF00] rounded-[100%] blur-[200px] opacity-[0.02] pointer-events-none" />
       
       <div className="max-w-[1400px] mx-auto px-6">
         
         {/* Section Header */}
         <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
-            <h2 className="text-sm font-mono tracking-[0.3em] text-[#00d9ff] uppercase mb-4">{data.badge}</h2>
+            <h2 className="text-sm font-mono tracking-[0.3em] text-[#FFBF00] uppercase mb-4">{data.badge}</h2>
             <h2 className="text-4xl md:text-6xl font-black text-white font-montserrat max-w-2xl leading-tight tracking-tight">
               {data.titleStart} <br className="hidden md:block"/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-400 to-slate-600">{data.titleEnd}</span>
@@ -89,7 +89,7 @@ export default function BentoGrid() {
                             ))}
                         </div>
                         <div>
-                            <p className="text-[#00d9ff] font-mono text-sm mb-1">{project.client}</p>
+                            <p className="text-[#FFBF00] font-mono text-sm mb-1">{project.client}</p>
                             <h3 className="text-white text-3xl font-black tracking-tight">{project.name}</h3>
                         </div>
                     </div>

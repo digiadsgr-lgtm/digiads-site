@@ -44,7 +44,7 @@ export default function StatsBar({ lang = 'el' }: { lang?: 'el' | 'en' }) {
 
   return (
     <section className="relative z-20 -mt-1" ref={ref}>
-      <div className="border-y border-white/5 bg-[#02040A]/80 backdrop-blur-xl">
+      <div className="border-y border-white/5 bg-[#1B1F3B]/80 backdrop-blur-xl">
         <div className="max-w-[1400px] mx-auto px-6">
           <motion.div
             className="grid grid-cols-2 md:grid-cols-4 gap-0 divide-x divide-white/5"
@@ -63,7 +63,7 @@ export default function StatsBar({ lang = 'el' }: { lang?: 'el' | 'en' }) {
                 <span className="text-3xl md:text-4xl lg:text-5xl font-black font-montserrat text-white mb-2 tracking-tight">
                   {isInView ? <AnimatedCounter end={stat.value} suffix={stat.suffix} /> : `${stat.value}${stat.suffix}`}
                 </span>
-                <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#00d9ff] font-mono text-center px-2">
+                <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#FFBF00] font-mono text-center px-2">
                   {stat.label}
                 </span>
               </div>

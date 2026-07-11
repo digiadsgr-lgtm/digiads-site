@@ -25,6 +25,10 @@ import Footer from '../components/Astro/Footer.astro';
     <!-- Hero Canvas uses client:load to ensure 3D mounts immediately -->
     <Hero lang="el" client:load />
 
+    <div id="audit">
+        <SiteAuditor lang="el" client:visible />
+    </div>
+
     <section class="intro-seo max-w-7xl mx-auto px-6 py-12 text-white/80">
       <h2 class="text-3xl font-bold text-white mb-4">Digital Marketing Agency στο Ρέθυμνο, Κρήτη</h2>
       <p class="mb-4 text-lg">
@@ -32,7 +36,7 @@ import Footer from '../components/Astro/Footer.astro';
         μετατρέπει τις τοπικές επιχειρήσεις της Κρήτης σε ψηφιακούς ηγέτες. Από την
         <strong>κατασκευή ιστοσελίδων</strong> και e-shop με τεχνολογία Next.js/Astro,
         μέχρι τη <strong>διαφήμιση σε Google, Facebook και Instagram</strong>, την
-        παραγωγή περιεχομένου για <strong>TikTok και Reels</strong> και τις καμπάνιες <strong><a href="/social-media/influencer-marketing" class="text-[#00d9ff] hover:underline">Influencer Marketing</a></strong>, χτίζουμε ολοκληρωμένα
+        παραγωγή περιεχομένου για <strong>TikTok και Reels</strong> και τις καμπάνιες <strong><a href="/social-media/influencer-marketing" class="text-[#FFBF00] hover:underline">Influencer Marketing</a></strong>, χτίζουμε ολοκληρωμένα
         συστήματα ανάπτυξης.
       </p>
       <p class="text-lg">
@@ -48,10 +52,6 @@ import Footer from '../components/Astro/Footer.astro';
     <Services lang="el" client:visible />
 
     <BentoGrid lang="el" client:visible />
-
-    <div id="audit">
-        <SiteAuditor lang="el" client:visible />
-    </div>
 
     <div id="testimonials">
         <Testimonials lang="el" client:visible />

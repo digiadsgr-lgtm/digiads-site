@@ -55,9 +55,9 @@ export default function CustomCursor() {
         
         if (isHovering) {
             cursorRef.current.style.backgroundColor = 'transparent';
-            cursorRef.current.style.border = '1px solid #00d9ff';
+            cursorRef.current.style.border = '1px solid #FFBF00';
         } else {
-            cursorRef.current.style.backgroundColor = '#00d9ff';
+            cursorRef.current.style.backgroundColor = '#FFBF00';
             cursorRef.current.style.border = 'none';
         }
       }
