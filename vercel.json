@@ -2,54 +2,43 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-
-    {
-      "source": "/digital-marketing/google-ads-management",
-      "destination": "/digital-marketing/performance-marketing",
-      "permanent": true
-    },
-    {
-      "source": "/touristiko-marketing-epitixias",
-      "destination": "/touristiko-marketing",
-      "permanent": true
-    },
-    {
-      "source": "/digital-marketing/villa-hotel-promotion",
-      "destination": "/touristiko-marketing",
-      "permanent": true
-    },
-    {
-      "source": "/(about|about-us)",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/services/(.*)",
-      "destination": "/#services",
-      "permanent": true
-    },
-    {
-      "source": "/wp-content/uploads/(.*)",
-      "destination": "/",
-      "permanent": true
-    }
+    { "source": "/digital-marketing/google-ads-management", "destination": "/digital-marketing/performance-marketing", "permanent": true },
+    { "source": "/(about|about-us)", "destination": "/", "permanent": true },
+    { "source": "/services/(.*)", "destination": "/#services", "permanent": true },
+    { "source": "/wp-content/uploads/(.*)", "destination": "/", "permanent": true },
+    { "source": "/touristiko-marketing-epitixias", "destination": "/touristiko-marketing", "permanent": true },
+    { "source": "/digital-marketing/villa-hotel-promotion", "destination": "/touristiko-marketing", "permanent": true },
+    { "source": "/touristiko-marketing-to-kleidi-gia-tin-epitychia-tou-katalymatos-sas", "destination": "/touristiko-marketing", "permanent": true },
+    { "source": "/villa-hotel-promotion", "destination": "/touristiko-marketing", "permanent": true },
+    { "source": "/diafimisi-xenodocheiou-sto-diadiktyo", "destination": "/touristiko-marketing", "permanent": true },
+    { "source": "/kataskevi-istoselidas-to-kleidi-gia-tin-epitychia-tis-epicheirisis-sas", "destination": "/kataskevi-istoselidon", "permanent": true },
+    { "source": "/istoselida-webdesign", "destination": "/kataskevi-istoselidon", "permanent": true },
+    { "source": "/schediasmos-istoselidas-diadikasia-kai-vimata", "destination": "/blog/poso-kostizei-kataskevi-istoselidas", "permanent": true },
+    { "source": "/seo-ti-einai-kai-giati-einai-simantiko", "destination": "/digital-marketing/seo-local-seo", "permanent": true },
+    { "source": "/ti-einai-psifiako-marketingk-kai-poso-kostizei-digital-marketing", "destination": "/digital-marketing-rethymno", "permanent": true },
+    { "source": "/poio-einai-to-proto-vima-gia-to-psifiako-marketing", "destination": "/digital-marketing-rethymno", "permanent": true },
+    { "source": "/petychimeno-marketing", "destination": "/digital-marketing-rethymno", "permanent": true },
+    { "source": "/email-marketing", "destination": "/blog/email-marketing", "permanent": true },
+    { "source": "/axiopoiisi-ton-meson-koinonikis-diktyosis-gia-tin-epitychia-tou-psifiakou-marketingk", "destination": "/digital-marketing/social-media-management", "permanent": true },
+    { "source": "/giati-chreiazomai-ta-social-media", "destination": "/digital-marketing/social-media-management", "permanent": true },
+    { "source": "/giati-chreiazomai-to-social-media-marketing", "destination": "/digital-marketing/social-media-management", "permanent": true },
+    { "source": "/fotografisi-proionton-kai-i-athoa-paid", "destination": "/photo-services", "permanent": true },
+    { "source": "/appointment", "destination": "/contact", "permanent": true },
+    { "source": "/contact-us", "destination": "/contact", "permanent": true },
+    { "source": "/arthra", "destination": "/blog", "permanent": true },
+    { "source": "/category/psifiaki-diafimisi", "destination": "/blog", "permanent": true },
+    { "source": "/category/digital-marketing", "destination": "/blog", "permanent": true },
+    { "source": "/category/uncategorized", "destination": "/blog", "permanent": true },
+    { "source": "/category/epidotiseis-espa", "destination": "/blog", "permanent": true },
+    { "source": "/to-marketing-den-einai-poker", "destination": "/blog", "permanent": true }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
-        }
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-XSS-Protection", "value": "0" }
       ]
     }
   ]
