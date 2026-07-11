@@ -57,9 +57,14 @@ const nav = data[lang];
 <nav class="absolute top-0 left-0 w-full z-50 px-6 py-6 border-b border-white/5 glass">
     <div class="max-w-[1400px] mx-auto flex justify-between items-center">
         
-        {/* Graphic Logo */}
-        <a href={lang === 'el' ? '/' : '/en'} class="hover:scale-105 transition-transform flex items-center gap-1 group">
-            <img src="/logo/digiads-logo-navy-gold.png" alt="DIGIADS Digital Marketing Agency" class="h-8 md:h-10 w-auto" />
+        {/* Graphic Typographic Logo */}
+        <a href={lang === 'el' ? '/' : '/en'} class="hover:scale-105 transition-transform flex flex-col group">
+            <div class="text-3xl md:text-4xl font-black tracking-widest font-montserrat leading-none flex items-center">
+                <span class="text-[#FFBF00]">DIGI</span><span class="text-white">ADS</span>
+            </div>
+            <span class="text-[10px] md:text-[11px] text-white/80 tracking-[0.15em] font-medium mt-1 uppercase text-center md:text-left">
+                Digital Marketing Agency
+            </span>
         </a>
 
         {/* Mega Menu */}
