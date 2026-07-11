@@ -69,7 +69,7 @@ export default function BentoGrid() {
         {/* Featured Massive Projects */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
             {featuredProjects.map((project) => (
-                <a href={project.url} key={project.id} className="group relative block rounded-[2rem] overflow-hidden bg-[#090b14] border border-white/5 aspect-[4/3] md:aspect-square lg:aspect-[4/3]">
+                <a href={project.url} key={project.id} className="group relative block rounded-[2rem] overflow-hidden bg-[#14172E] border border-white/5 aspect-[4/3] md:aspect-square lg:aspect-[4/3]">
                     <div className="absolute inset-0">
                         <img 
                             src={project.image} 
