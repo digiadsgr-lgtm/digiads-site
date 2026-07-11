@@ -178,10 +178,10 @@ export function buildLeadConfirmationEmail(data: {
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Επιβεβαίωση Αίτησης — DIGIADS</title>
 </head>
-<body style="margin:0;padding:0;background:#010205;font-family:'Inter',Arial,sans-serif;">
+<body style="margin:0;padding:0;background:#1B1F3B;font-family:'Inter',Arial,sans-serif;">
 
 <!-- Outer wrapper -->
-<table width="100%" cellpadding="0" cellspacing="0" style="background:#010205;padding:40px 20px;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#1B1F3B;padding:40px 20px;">
 <tr><td align="center">
 
 <!-- Card -->
@@ -189,15 +189,15 @@ export function buildLeadConfirmationEmail(data: {
 
   <!-- Header gradient bar -->
   <tr>
-    <td style="background:linear-gradient(135deg,#00d9ff,#0055ff);padding:4px 0;"></td>
+    <td style="background:linear-gradient(135deg,#FFBF00,#FFD966);padding:4px 0;"></td>
   </tr>
 
   <!-- Logo / Brand -->
   <tr>
     <td style="padding:40px 48px 32px;text-align:center;">
       <div style="display:inline-flex;align-items:center;gap:12px;">
-        <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#00d9ff,#0055ff);display:inline-flex;align-items:center;justify-content:center;">
-          <span style="color:#010205;font-weight:900;font-size:18px;line-height:1;">D</span>
+        <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#FFBF00,#FFD966);display:inline-flex;align-items:center;justify-content:center;">
+          <span style="color:#1B1F3B;font-weight:900;font-size:18px;line-height:1;">D</span>
         </div>
         <span style="color:#ffffff;font-size:22px;font-weight:800;letter-spacing:0.08em;">DIGIADS</span>
       </div>
@@ -213,7 +213,7 @@ export function buildLeadConfirmationEmail(data: {
       </h1>
       <p style="color:rgba(255,255,255,0.65);font-size:16px;line-height:1.6;margin:0;">
         Γεια σου <strong style="color:#ffffff;">${name}</strong>, ευχαριστούμε για την εμπιστοσύνη σου στη DIGIADS. 
-        Η ομάδα μας θα επικοινωνήσει μαζί σου <strong style="color:#00d9ff;">το συντομότερο</strong> με μια εξατομικευμένη πρόταση.
+        Η ομάδα μας θα επικοινωνήσει μαζί σου <strong style="color:#FFBF00;">το συντομότερο</strong> με μια εξατομικευμένη πρόταση.
       </p>
     </td>
   </tr>
@@ -284,7 +284,7 @@ export function buildLeadConfirmationEmail(data: {
               <tr>
                 <td style="width:36px;vertical-align:top;padding-top:2px;">
                   <div style="width:28px;height:28px;border-radius:8px;background:rgba(0,217,255,0.1);border:1px solid rgba(0,217,255,0.2);text-align:center;line-height:28px;">
-                    <span style="color:#00d9ff;font-size:11px;font-weight:800;">${num}</span>
+                    <span style="color:#FFBF00;font-size:11px;font-weight:800;">${num}</span>
                   </div>
                 </td>
                 <td style="padding-left:14px;">
@@ -302,7 +302,7 @@ export function buildLeadConfirmationEmail(data: {
   <!-- CTA -->
   <tr>
     <td style="padding:0 48px 40px;text-align:center;">
-      <a href="mailto:info@digiads.gr" style="display:inline-block;background:linear-gradient(135deg,#00d9ff,#0055ff);color:#010205;font-size:14px;font-weight:800;padding:16px 36px;border-radius:50px;text-decoration:none;letter-spacing:0.05em;">
+      <a href="mailto:info@digiads.gr" style="display:inline-block;background:linear-gradient(135deg,#FFBF00,#FFD966);color:#1B1F3B;font-size:14px;font-weight:800;padding:16px 36px;border-radius:50px;text-decoration:none;letter-spacing:0.05em;">
         Επικοινωνία — info@digiads.gr
       </a>
     </td>
@@ -346,13 +346,13 @@ export function buildOwnerNotificationEmail(data: {
   return `<!DOCTYPE html>
 <html lang="el">
 <head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/></head>
-<body style="margin:0;padding:0;background:#010205;font-family:'Inter',Arial,sans-serif;">
-<table width="100%" cellpadding="0" cellspacing="0" style="background:#010205;padding:40px 20px;">
+<body style="margin:0;padding:0;background:#1B1F3B;font-family:'Inter',Arial,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#1B1F3B;padding:40px 20px;">
 <tr><td align="center">
 <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#060b1a;border-radius:20px;border:1px solid rgba(168,85,247,0.2);overflow:hidden;">
 
   <!-- Header -->
-  <tr><td style="background:linear-gradient(135deg,#a855f7,#7c3aed);padding:4px 0;"></td></tr>
+  <tr><td style="background:linear-gradient(135deg,#FFBF00,#FFD966);padding:4px 0;"></td></tr>
 
   <tr>
     <td style="padding:36px 48px 28px;">
@@ -369,7 +369,7 @@ export function buildOwnerNotificationEmail(data: {
           <table width="100%" cellpadding="0" cellspacing="0">
             ${[
               ["👤 Όνομα", name],
-              ["📧 Email", `<a href="mailto:${email}" style="color:#a855f7;text-decoration:none;">${email}</a>`],
+              ["📧 Email", `<a href="mailto:${email}" style="color:#FFBF00;text-decoration:none;">${email}</a>`],
               ["📱 Τηλέφωνο", phone || "—"],
               ["🎯 Υπηρεσία", service || "Γενική πληροφόρηση"],
             ].map(([label, value]) => `
@@ -394,7 +394,7 @@ export function buildOwnerNotificationEmail(data: {
 
   <tr>
     <td style="padding:0 48px 40px;text-align:center;">
-      <a href="mailto:${email}" style="display:inline-block;background:linear-gradient(135deg,#a855f7,#7c3aed);color:#fff;font-size:14px;font-weight:800;padding:16px 36px;border-radius:50px;text-decoration:none;letter-spacing:0.05em;">
+      <a href="mailto:${email}" style="display:inline-block;background:linear-gradient(135deg,#FFBF00,#FFD966);color:#fff;font-size:14px;font-weight:800;padding:16px 36px;border-radius:50px;text-decoration:none;letter-spacing:0.05em;">
         Απάντηση στον ${name} →
       </a>
     </td>

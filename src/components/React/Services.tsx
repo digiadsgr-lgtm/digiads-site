@@ -91,7 +91,7 @@ const servicesData = {
         description: "Κυριαρχία στα οργανικά αποτελέσματα. Technical SEO, Local SEO mastery, Schema markup και LLM optimization για AI-ready παρουσία στα SERPs.",
         metrics: ["#1", "Rankings"],
         color: "#ec4899",
-        href: "/digital-marketing-rethymno",
+        href: "/digital-marketing/seo-local-seo",
       },
       {
         id: "photo-drone",
@@ -199,7 +199,7 @@ const servicesData = {
         description: "Dominance in organic results. Technical SEO, Local SEO mastery, Schema markup, and LLM optimization for AI-ready presence in SERPs.",
         metrics: ["#1", "Rankings"],
         color: "#ec4899",
-        href: "/digital-marketing/seo",
+        href: "/en/digital-marketing/seo-local-seo",
       },
       {
         id: "photo-drone",

@@ -31,7 +31,7 @@ export default function DigiQuickReplies({ onSelect, onOpenForm, disabled, excha
       <button
         onClick={onOpenForm}
         disabled={disabled}
-        className="text-xs bg-gradient-to-r from-[#FFBF00]/20 to-[#FFD966]/20 hover:from-[#FFBF00]/40 hover:to-[#FFD966]/40 border border-[#FFBF00]/40 text-white rounded-full px-3 py-1.5 font-bold transition-all duration-200 shadow-[0_0_10px_rgba(255, 191, 0,0.15)] disabled:opacity-40 whitespace-nowrap"
+        className="text-xs bg-gradient-to-r from-[#FFBF00]/20 to-[#FFD966]/20 hover:from-[#FFBF00]/40 hover:to-[#FFD966]/40 border border-[#FFBF00]/40 text-black rounded-full px-3 py-1.5 font-bold transition-all duration-200 shadow-[0_0_10px_rgba(255, 191, 0,0.15)] disabled:opacity-40 whitespace-nowrap"
       >
         📝 Αίτηση Προσφοράς
       </button>

@@ -99,8 +99,8 @@ export default function BentoGrid() {
 
         {/* Infinite Client Ticker */}
         <div className="border-t border-b border-white/5 py-12 relative overflow-hidden flex bg-white/[0.01]">
-            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#02040A] to-transparent z-10 pointer-events-none"></div>
-            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#02040A] to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#1B1F3B] to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#1B1F3B] to-transparent z-10 pointer-events-none"></div>
             
             {/* Ticker Animation Container */}
             <div className="flex gap-8 items-center px-8 w-max relative animate-marquee hover:[animation-play-state:paused]">

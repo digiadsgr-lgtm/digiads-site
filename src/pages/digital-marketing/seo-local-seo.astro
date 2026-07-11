@@ -1,0 +1,253 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Astro/Navbar.astro';
+import Footer from '../../components/Astro/Footer.astro';
+
+const title = "SEO & Local SEO Κρήτη | 1η Σελίδα στην Google | DIGIADS";
+const description = "Υπηρεσίες SEO & Local SEO για επιχειρήσεις στο Ρέθυμνο, Χανιά, Ηράκλειο. Ανεβείτε οργανικά στην Google, κυριαρχήστε στα Google Maps και αυξήστε τις πωλήσεις σας.";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Πόσος χρόνος χρειάζεται για να δω αποτελέσματα από το SEO;",
+      "acceptedAnswer": { "@type": "Answer", "text": "Το SEO είναι μια μακροπρόθεσμη στρατηγική. Συνήθως τα πρώτα σημαντικά αποτελέσματα στην κατάταξη και την οργανική επισκεψιμότητα φαίνονται μέσα σε 3 με 6 μήνες, ανάλογα με τον ανταγωνισμό του κλάδου σας." }},
+    { "@type": "Question", "name": "Τι είναι το Local SEO και γιατί το χρειάζομαι;",
+      "acceptedAnswer": { "@type": "Answer", "text": "Το Local SEO βοηθά την επιχείρησή σας να εμφανίζεται σε τοπικές αναζητήσεις (π.χ. 'ξενοδοχείο Ρέθυμνο' ή 'εστιατόριο Χανιά'). Είναι κρίσιμο για να σας βρίσκουν τουρίστες και ντόπιοι στα Google Maps τη στιγμή που αναζητούν τις υπηρεσίες σας." }},
+    { "@type": "Question", "name": "Μπορείτε να εγγυηθείτε την 1η θέση στην Google;",
+      "acceptedAnswer": { "@type": "Answer", "text": "Καμία σοβαρή εταιρεία δεν μπορεί να εγγυηθεί την 1η θέση, καθώς ο αλγόριθμος της Google αλλάζει συνεχώς. Εγγυόμαστε όμως τεκμηριωμένες, data-driven στρατηγικές που ακολουθούν τα guidelines της Google και αποδεδειγμένα αυξάνουν την οργανική ορατότητα." }},
+    { "@type": "Question", "name": "Χρειάζομαι νέο website για να κάνω SEO;",
+      "acceptedAnswer": { "@type": "Answer", "text": "Όχι απαραίτητα, αλλά εξαρτάται από την τεχνική κατάσταση του τρέχοντος site σας. Αν το site είναι πολύ αργό, μη φιλικό προς κινητά, ή αρχιτεκτονικά προβληματικό, συχνά προτείνουμε ανακατασκευή για να έχει νόημα η επένδυση στο SEO." }}
+  ]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "SEO & Local SEO",
+  "provider": { "@id": "https://www.digiads.gr/#organization" },
+  "areaServed": [
+    { "@type": "City", "name": "Ρέθυμνο" },
+    { "@type": "City", "name": "Χανιά" },
+    { "@type": "City", "name": "Ηράκλειο" },
+    { "@type": "AdministrativeArea", "name": "Κρήτη" },
+    { "@type": "Country", "name": "Ελλάδα" }
+  ],
+  "description": "Βελτιστοποίηση ιστοσελίδων για τις μηχανές αναζήτησης (SEO) και κυριαρχία στα Google Maps (Local SEO) για επιχειρήσεις στην Κρήτη.",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog", "name": "Υπηρεσίες SEO",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "On-Page SEO Optimization" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Technical SEO & Speed Optimization" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Local SEO & Google Business Profile" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Content Strategy & Keyword Research" }}
+    ]
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org", "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Αρχική", "item": "https://www.digiads.gr/" },
+    { "@type": "ListItem", "position": 2, "name": "Digital Marketing", "item": "https://www.digiads.gr/digital-marketing-rethymno" },
+    { "@type": "ListItem", "position": 3, "name": "SEO & Local SEO", "item": "https://www.digiads.gr/digital-marketing/seo-local-seo" }
+  ]
+};
+---
+
+<Layout title={title} description={description} lang="el">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <Navbar />
+
+    <!-- SEO Hero Section -->
+    <section class="relative pt-40 pb-24 overflow-hidden bg-[#1B1F3B] min-h-[85vh] flex items-center">
+        <!-- Abstract Network/Connection Motif Background -->
+        <div class="absolute inset-0 z-0 flex items-center justify-center opacity-10 pointer-events-none">
+            <svg class="absolute w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <circle cx="20" cy="30" r="1.5" fill="#FFBF00" />
+                <circle cx="50" cy="50" r="2" fill="#3b82f6" />
+                <circle cx="80" cy="40" r="1.5" fill="#FFBF00" />
+                <circle cx="30" cy="70" r="1" fill="#3b82f6" />
+                <circle cx="70" cy="80" r="1.5" fill="#FFBF00" />
+                <line x1="20" y1="30" x2="50" y2="50" stroke="url(#grad)" stroke-width="0.2" />
+                <line x1="50" y1="50" x2="80" y2="40" stroke="url(#grad)" stroke-width="0.2" />
+                <line x1="20" y1="30" x2="30" y2="70" stroke="url(#grad)" stroke-width="0.2" />
+                <line x1="30" y1="70" x2="50" y2="50" stroke="url(#grad)" stroke-width="0.2" />
+                <line x1="50" y1="50" x2="70" y2="80" stroke="url(#grad)" stroke-width="0.2" />
+                <line x1="80" y1="40" x2="70" y2="80" stroke="url(#grad)" stroke-width="0.2" />
+                <defs>
+                    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#FFBF00;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+            </svg>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1B1F3B] to-transparent"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.05)_0%,transparent_70%)]"></div>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center">
+            <span class="text-[#FFBF00] font-mono tracking-[0.2em] uppercase text-sm mb-6 inline-block font-bold">1η Σελίδα στην Google</span>
+            
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white font-montserrat tracking-tight leading-[1.1] mb-6">
+                SEO & <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FFBF00] to-[#FFBF00]">Local SEO.</span>
+            </h1>
+
+            <div class="flex flex-wrap justify-center gap-3 mb-8">
+                <span class="px-4 py-1.5 rounded-full border border-[#FFBF00]/30 bg-[#FFBF00]/5 text-blue-300 text-xs font-mono font-bold tracking-wide backdrop-blur-sm">Keyword Research</span>
+                <span class="px-4 py-1.5 rounded-full border border-[#FFBF00]/30 bg-[#FFBF00]/5 text-[#FFD966] text-xs font-mono font-bold tracking-wide backdrop-blur-sm">Google Maps</span>
+                <span class="px-4 py-1.5 rounded-full border border-blue-400/30 bg-blue-400/5 text-blue-200 text-xs font-mono font-bold tracking-wide backdrop-blur-sm">Technical Audits</span>
+            </div>
+            
+            <h2 class="text-xl md:text-2xl text-slate-300 font-light max-w-3xl mx-auto leading-relaxed mb-10">
+                Κατακτήστε την 1η σελίδα. Μετατρέψτε τις αναζητήσεις στην Google και τα <strong>Google Maps</strong> σε πελάτες για την επιχείρησή σας.
+            </h2>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                 <a href="/contact" class="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-bold uppercase tracking-wider hover:from-[#FFBF00] hover:to-[#FFBF00] hover:text-black hover:shadow-[0_0_30px_rgba(255, 191, 0,0.4)] transition-all duration-300 hover:-translate-y-1">
+                    ΞΕΚΙΝΑ ΤΟ GROWTH
+                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: Γιατί SEO -->
+    <section class="py-24 bg-[#1B1F3B] relative border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">Η Αξία της Οργανικής Επισκεψιμότητας</h2>
+            <p class="text-slate-300 text-lg leading-[1.8] font-light">
+                Κάθε μέρα, χιλιάδες άνθρωποι ψάχνουν για τις υπηρεσίες σας στο Google. Το <strong>Search Engine Optimization (SEO)</strong> διασφαλίζει ότι θα βρουν τη δική σας επιχείρηση και όχι τον ανταγωνιστή σας. Με οργανική παρουσία δεν πληρώνετε για κάθε κλικ (όπως στις διαφημίσεις), χτίζοντας ένα μόνιμο κανάλι δωρεάν επισκεπτών υψηλής ποιότητας. Δείτε περισσότερα για τη δύναμη του <a href="/blog/seo-odigos-google" class="text-[#FFBF00] hover:underline">SEO σε αυτόν τον οδηγό</a>.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Τι Αναλαμβάνουμε (Service Description) -->
+    <section class="py-24 bg-[#1B1F3B] relative z-10 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-black text-white font-montserrat text-center mb-16">Τι Περιλαμβάνει η Υπηρεσία SEO</h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-[#14172E]/80 backdrop-blur-lg p-8 rounded-3xl border border-white/5 hover:border-[#FFBF00]/30 transition-colors duration-300">
+                    <div class="w-12 h-12 mb-6 rounded-2xl bg-[#FFBF00]/10 flex items-center justify-center text-[#FFBF00]">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">On-Page SEO & Content</h3>
+                    <p class="text-slate-400 leading-relaxed font-light text-sm">Βελτιστοποιούμε το περιεχόμενο, τους τίτλους (H1, H2), τα meta descriptions και τα keywords (έρευνα λέξεων-κλειδιών) ώστε η σελίδα σας να είναι 100% κατανοητή από τη Google.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-[#14172E]/80 backdrop-blur-lg p-8 rounded-3xl border border-white/5 hover:border-[#FFBF00]/30 transition-colors duration-300">
+                    <div class="w-12 h-12 mb-6 rounded-2xl bg-[#FFBF00]/10 flex items-center justify-center text-[#FFBF00]">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Technical & Speed SEO</h3>
+                    <p class="text-slate-400 leading-relaxed font-light text-sm">Διορθώνουμε errors, βελτιώνουμε το PageSpeed (Core Web Vitals), προσθέτουμε Structured Data (Schema) και δομούμε σωστά το URL structure.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-[#14172E]/80 backdrop-blur-lg p-8 rounded-3xl border border-white/5 hover:border-[#FFBF00]/30 transition-colors duration-300">
+                    <div class="w-12 h-12 mb-6 rounded-2xl bg-[#FFBF00]/10 flex items-center justify-center text-[#FFBF00]">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Local SEO & Google Maps</h3>
+                    <p class="text-slate-400 leading-relaxed font-light text-sm">Κατακτούμε την τοπική αγορά (Local SEO) βελτιστοποιώντας το Google Business Profile (My Business) σας για τις τοπικές αναζητήσεις.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Tiers / Ο Οδηγός Επιλογής -->
+    <section class="py-24 bg-[#1B1F3B] relative border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-6">Local SEO: Κλειδί για τις Τοπικές Επιχειρήσεις</h2>
+            <p class="text-center text-slate-400 mb-16 max-w-3xl mx-auto font-light text-lg">Όταν κάποιος αναζητά "καφέ κοντά μου" ή "ξενοδοχείο στο Ρέθυμνο", το Local SEO αποφασίζει αν θα εμφανιστείτε εσείς ή οι ανταγωνιστές σας.</p>
+            
+            <div class="mt-12 bg-gradient-to-r from-[#14172E] to-[#0a0f25] border border-[#FFBF00]/20 p-6 rounded-2xl text-center shadow-[0_10px_30px_rgba(59,130,246,0.1)]">
+                <p class="text-slate-300 font-light">
+                    <strong class="text-white">Γιατί είναι απαραίτητο:</strong> Διαβάστε πώς το Local SEO μπορεί να κυριαρχήσει στην αγορά σας, στο ειδικό άρθρο μας για το <a href="/blog/local-seo-rethymno" class="text-[#FFBF00] hover:underline">Local SEO στο Ρέθυμνο & την Κρήτη</a>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: Η Διαδικασία (Process) -->
+    <section class="py-24 bg-[#1B1F3B] relative border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-black text-white font-montserrat text-center mb-16">Η Μεθοδολογία μας στο SEO</h2>
+            
+            <div class="space-y-8">
+                <!-- Step 1 -->
+                <div class="flex gap-6 group">
+                    <div class="flex flex-col items-center">
+                        <div class="w-10 h-10 rounded-full border border-white/10 bg-[#14172E] flex items-center justify-center text-white font-mono font-bold group-hover:border-[#FFBF00] group-hover:text-[#FFBF00] transition-colors z-10 text-sm">1</div>
+                        <div class="w-[1px] h-full bg-gradient-to-b from-white/10 to-transparent mt-2 group-hover:from-[#FFBF00]/50 transition-colors"></div>
+                    </div>
+                    <div class="pb-8 pt-1">
+                        <h3 class="text-xl font-bold text-white mb-2">SEO Audit</h3>
+                        <p class="text-slate-400 font-light leading-relaxed text-sm">Πραγματοποιούμε έναν πλήρη τεχνικό έλεγχο της σελίδας σας για να εντοπίσουμε τι σας κρατάει πίσω.</p>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="flex gap-6 group">
+                    <div class="flex flex-col items-center">
+                        <div class="w-10 h-10 rounded-full border border-white/10 bg-[#14172E] flex items-center justify-center text-white font-mono font-bold group-hover:border-[#FFBF00] group-hover:text-[#FFBF00] transition-colors z-10 text-sm">2</div>
+                        <div class="w-[1px] h-full bg-gradient-to-b from-white/10 to-transparent mt-2 group-hover:from-[#FFBF00]/50 transition-colors"></div>
+                    </div>
+                    <div class="pb-8 pt-1">
+                        <h3 class="text-xl font-bold text-white mb-2">Keyword Strategy</h3>
+                        <p class="text-slate-400 font-light leading-relaxed text-sm">Βρίσκουμε ποιες λέξεις αναζητά το κοινό σας (High Intent Keywords) και πόσο ανταγωνιστικές είναι.</p>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="flex gap-6 group">
+                    <div class="flex flex-col items-center">
+                        <div class="w-10 h-10 rounded-full border border-white/10 bg-[#14172E] flex items-center justify-center text-white font-mono font-bold group-hover:border-[#FFBF00] group-hover:text-[#FFBF00] transition-colors z-10 text-sm">3</div>
+                        <div class="w-[1px] h-full bg-gradient-to-b from-white/10 to-transparent mt-2 group-hover:from-[#FFBF00]/50 transition-colors"></div>
+                    </div>
+                    <div class="pb-8 pt-1">
+                        <h3 class="text-xl font-bold text-white mb-2">On-Page & Technical Fixes</h3>
+                        <p class="text-slate-400 font-light leading-relaxed text-sm">Διορθώνουμε την ταχύτητα, τη δομή URL και βελτιστοποιούμε το περιεχόμενο της κάθε σελίδας.</p>
+                    </div>
+                </div>
+                <!-- Step 4 -->
+                <div class="flex gap-6 group">
+                    <div class="flex flex-col items-center">
+                        <div class="w-10 h-10 rounded-full border border-[#FFBF00] bg-[#FFBF00]/10 flex items-center justify-center text-blue-400 font-mono font-bold shadow-[0_0_15px_rgba(59,130,246,0.3)] z-10 text-sm">4</div>
+                    </div>
+                    <div class="pt-1">
+                        <h3 class="text-xl font-bold text-white mb-2">Μέτρηση & Reports</h3>
+                        <p class="text-slate-400 font-light leading-relaxed text-sm">Παρακολουθούμε στενά την άνοδο στις κατατάξεις και σας παραδίδουμε ξεκάθαρα, μηνιαία reports.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 bg-[#1B1F3B] relative border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-black text-white font-montserrat mb-12 text-center">Συχνές Ερωτήσεις (FAQ)</h2>
+            <div class="space-y-6">
+                <div class="bg-[#14172E]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-[#FFBF00]/30 transition-colors">
+                    <h3 class="text-xl font-bold text-white mb-3">Πόσος χρόνος χρειάζεται για να δω αποτελέσματα από το SEO;</h3>
+                    <p class="text-slate-400 font-light">Το SEO είναι μια μακροπρόθεσμη στρατηγική. Συνήθως τα πρώτα σημαντικά αποτελέσματα στην κατάταξη και την οργανική επισκεψιμότητα φαίνονται μέσα σε 3 με 6 μήνες, ανάλογα με τον ανταγωνισμό του κλάδου σας.</p>
+                </div>
+                <div class="bg-[#14172E]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-[#FFBF00]/30 transition-colors">
+                    <h3 class="text-xl font-bold text-white mb-3">Τι είναι το Local SEO και γιατί το χρειάζομαι;</h3>
+                    <p class="text-slate-400 font-light">Το Local SEO βοηθά την επιχείρησή σας να εμφανίζεται σε τοπικές αναζητήσεις (π.χ. 'ξενοδοχείο Ρέθυμνο' ή 'εστιατόριο Χανιά'). Είναι κρίσιμο για να σας βρίσκουν τουρίστες και ντόπιοι στα Google Maps τη στιγμή που αναζητούν τις υπηρεσίες σας.</p>
+                </div>
+                <div class="bg-[#14172E]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-[#FFBF00]/30 transition-colors">
+                    <h3 class="text-xl font-bold text-white mb-3">Μπορείτε να εγγυηθείτε την 1η θέση στην Google;</h3>
+                    <p class="text-slate-400 font-light">Καμία σοβαρή εταιρεία δεν μπορεί να εγγυηθεί την 1η θέση, καθώς ο αλγόριθμος της Google αλλάζει συνεχώς. Εγγυόμαστε όμως τεκμηριωμένες, data-driven στρατηγικές που ακολουθούν τα guidelines της Google και αποδεδειγμένα αυξάνουν την οργανική ορατότητα.</p>
+                </div>
+                <div class="bg-[#14172E]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-[#FFBF00]/30 transition-colors">
+                    <h3 class="text-xl font-bold text-white mb-3">Χρειάζομαι νέο website για να κάνω SEO;</h3>
+                    <p class="text-slate-400 font-light">Όχι απαραίτητα, αλλά εξαρτάται από την τεχνική κατάσταση του τρέχοντος site σας. Αν το site είναι πολύ αργό, μη φιλικό προς κινητά, ή αρχιτεκτονικά προβληματικό, συχνά προτείνουμε ανακατασκευή για να έχει νόημα η επένδυση στο SEO.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>
