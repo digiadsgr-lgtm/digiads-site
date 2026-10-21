@@ -14,14 +14,16 @@ const TicketAnalysisSchema = z.object({
   tasks: z.array(
     z.object({
       executionOrder: z.number(),
-      title: z.string(),
-      technicalCategory: z.string(),
-      technicalDescription: z.string(),
-      estimatedHours: z.number(),
-      dependencyReason: z.string(),
+      title: z.string().describe('Τίτλος τεχνικής εργασίας στα Ελληνικά'),
+      technicalCategory: z.string().describe('Κατηγορία: Backend, Pricing, Frontend, ή QA'),
+      technicalDescription: z.string().describe('Αναλυτική τεχνική περιγραφή στα Ελληνικά'),
+      estimatedHours: z.number().describe('Εκτιμώμενες ώρες σε βήματα του 0.25'),
+      dependencyReason: z.string().describe('Αιτιολόγηση σειράς εκτέλεσης στα Ελληνικά'),
     })
   ),
-  missingInformationWarnings: z.array(z.string()),
+  missingInformationWarnings: z
+    .array(z.string().describe('Προειδοποίηση/έλλειψη πληροφορίας στα Ελληνικά'))
+    .describe('Λίστα ελλείψεων στα Ελληνικά'),
   riskLevel: z.enum(['LOW', 'MEDIUM', 'HIGH']),
 });
 

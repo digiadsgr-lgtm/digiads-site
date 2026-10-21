@@ -106,13 +106,19 @@ export async function sendPaidTicketNotification(
   const amountPaid = ((session.amount_total || 0) / 100).toFixed(2);
   const customerEmail = session.customer_details?.email || '';
 
-  const user = (import.meta.env.SMTP_EMAIL || process.env.SMTP_EMAIL || '').trim();
-  const pass = (import.meta.env.SMTP_PASSWORD || process.env.SMTP_PASSWORD || '').trim();
+  const user = (import.meta.env.SMTP_EMAIL || process.env.SMTP_EMAIL || '')
+    .trim()
+    .replace(/^["']|["']$/g, '');
+  const pass = (import.meta.env.SMTP_PASSWORD || process.env.SMTP_PASSWORD || '')
+    .trim()
+    .replace(/^["']|["']$/g, '');
   const notificationEmail = (
     import.meta.env.NOTIFICATION_EMAIL ||
     process.env.NOTIFICATION_EMAIL ||
     'digiadsgr@gmail.com'
-  ).trim();
+  )
+    .trim()
+    .replace(/^["']|["']$/g, '');
 
   if (!user || !pass) {
     console.warn('[Ticket Notification] Missing SMTP credentials, logging ticket only.');
