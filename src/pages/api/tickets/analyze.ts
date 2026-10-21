@@ -5,7 +5,6 @@ import { z } from 'zod';
 
 export const prerender = false;
 
-const HOURLY_RATE = 45;
 const BASE_FEE = 50;
 const URGENT_SURCHARGE = 120;
 const DAILY_CAPACITY_STANDARD = 5;
@@ -80,7 +79,7 @@ export const POST: APIRoute = async ({ request }) => {
       Ανάλυσε το αίτημα πελάτη για το ${websiteUrl}: """${rawRequest}"""
       1. Διαχώρισε σε τεχνικές εργασίες WordPress.
       2. Ιεράρχησε αυστηρά (Backend -> Pricing -> Frontend -> QA).
-      3. Υπολόγισε ρεαλιστικές ώρες (βήματα του 0.25).
+      3. Υπολόγισε ρεαλιστικές και σφιχτές ώρες για έμπειρο developer (σε βήματα του 0.25h, π.χ. απλές αλλαγές CSS/κειμένων/τιμών 0.25h-0.5h, ρυθμίσεις booking/woo 0.5h-1.25h).
       4. Εντόπισε κρίσιμες ελλείψεις δεδομένων (missingInformationWarnings).
       Απάντησε αποκλειστικά στα Ελληνικά για τα πεδία title, technicalDescription, dependencyReason και missingInformationWarnings.
     `;
@@ -109,17 +108,27 @@ export const POST: APIRoute = async ({ request }) => {
     const rawTotalHours = aiAnalysis.tasks.reduce((sum, task) => sum + task.estimatedHours, 0);
     const totalHours = Math.max(0.25, +rawTotalHours.toFixed(2));
 
-    // Υπολογισμός Προσαύξησης με Πολλαπλασιασμό
-    let markupMultiplier = 1.0;
+    // Κλιμακωτή Ωριαία Χρέωση & Κρυφός Συντελεστής Προσαύξησης (Multiplier)
+    // - Έως <5 ώρες: 40€/ώρα + multiplier 1.15
+    // - Από 5 έως 8 ώρες: 36€/ώρα (-10% από τα 40€) + multiplier 1.05
+    // - Πάνω από 8 ώρες: 30€/ώρα + multiplier 1.00
+    let hourlyRate = 40;
+    let markupMultiplier = 1.15;
+
     if (totalHours < 5) {
+      hourlyRate = 40;
       markupMultiplier = 1.15;
     } else if (totalHours <= 8) {
+      hourlyRate = 36; // 40€ - 10%
       markupMultiplier = 1.05;
+    } else {
+      hourlyRate = 30;
+      markupMultiplier = 1.0;
     }
 
     const baseFeeTotal = BASE_FEE;
     const urgentFeeTotal = isUrgent ? URGENT_SURCHARGE : 0;
-    const rawLaborCost = totalHours * HOURLY_RATE;
+    const rawLaborCost = totalHours * hourlyRate;
     const laborCostWithMarkup = Math.ceil(rawLaborCost * markupMultiplier);
 
     const totalCostNet = baseFeeTotal + urgentFeeTotal + laborCostWithMarkup;
@@ -149,7 +158,7 @@ export const POST: APIRoute = async ({ request }) => {
         pricing: {
           baseFee: baseFeeTotal,
           urgentSurcharge: urgentFeeTotal,
-          hourlyRate: HOURLY_RATE,
+          hourlyRate,
           totalHours,
           markupMultiplier,
           laborCost: laborCostWithMarkup,
