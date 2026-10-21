@@ -190,44 +190,9 @@ const structuredData = {
         {/* DIGI — Virtual Sales Agent (global, client-side only) */}
         <DigiChat client:only="react" />
 
-        <!-- Sensory UX: Zero-Dependency Cyberpunk UI Synth & Smooth Scroll -->
+        <!-- Smooth Scroll & Space Background -->
         <script>
             import Lenis from 'lenis';
-            
-            // Audio Synthesizer for Awwwards-style UI sounds
-            let audioCtx: AudioContext | null = null;
-            
-            const playHoverTick = () => {
-                try {
-                    if (!audioCtx) audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
-                    if (audioCtx.state === 'suspended') audioCtx.resume();
-                    
-                    const osc = audioCtx.createOscillator();
-                    const gain = audioCtx.createGain();
-                    
-                    osc.connect(gain);
-                    gain.connect(audioCtx.destination);
-                    
-                    osc.type = 'sine';
-                    osc.frequency.setValueAtTime(800, audioCtx.currentTime);
-                    osc.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + 0.05);
-                    
-                    gain.gain.setValueAtTime(0.015, audioCtx.currentTime);
-                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
-                    
-                    osc.start(audioCtx.currentTime);
-                    osc.stop(audioCtx.currentTime + 0.05);
-                } catch(e) {}
-            };
-
-            document.addEventListener('mouseover', (e) => {
-                const target = (e.target as HTMLElement).closest('a, button');
-                if (target && !target.hasAttribute('data-hovered')) {
-                     target.setAttribute('data-hovered', 'true');
-                     playHoverTick();
-                     target.addEventListener('mouseleave', () => target.removeAttribute('data-hovered'), { once: true });
-                }
-            });
 
             // Initialize High-Performance Crisp Lenis Scroll
             const lenis = new Lenis({
