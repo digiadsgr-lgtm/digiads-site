@@ -1,0 +1,26 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Astro/Navbar.astro';
+import Footer from '../../components/Astro/Footer.astro';
+import TicketSystem from '../../components/React/TicketSystem';
+
+export const prerender = false;
+Astro.response.headers.set('X-Robots-Tag', 'noindex, nofollow, noarchive, nosnippet, noimageindex');
+---
+
+<Layout
+    title="Client Ticketing System | DIGIADS"
+    description="Περιβάλλον Τεχνικών Αιτημάτων Πελατών DIGIADS"
+    noindex={true}
+>
+    <Navbar />
+
+    <section class="pt-36 pb-24 px-6 relative overflow-hidden bg-[#1B1F3B] min-h-screen">
+        <div class="absolute top-[15%] left-[15%] w-[500px] h-[500px] bg-[#FFBF00] rounded-full blur-[220px] opacity-[0.04] pointer-events-none" />
+        <div class="relative z-10 max-w-5xl mx-auto">
+            <TicketSystem client:load />
+        </div>
+    </section>
+
+    <Footer />
+</Layout>

@@ -24,6 +24,7 @@ const data = {
 				]
 			},
 			{ name: "Blog", href: "/blog" },
+			{ name: "Ticketing System", href: "/support-ticket", nofollow: true },
 		],
 		contact: { name: "Ξεκλείδωσε το Growth Σου", href: "/contact" },
 		switcher: { name: "EN", href: "/en", flag: "🇬🇧" }
@@ -47,6 +48,7 @@ const data = {
 				]
 			},
 			{ name: "Blog", href: "/blog" },
+			{ name: "Ticketing System", href: "/support-ticket", nofollow: true },
 		],
 		contact: { name: "Unlock Your Growth", href: "/en/contact" },
 		switcher: { name: "EL", href: "/", flag: "🇬🇷" }
@@ -72,7 +74,7 @@ const nav = data[lang];
         <div class="hidden lg:flex gap-6 text-sm font-medium text-slate-300 items-center">
             {nav.items.map(item => (
                 <div class="relative group">
-                    <a href={item.href} class="hover:text-[#FFBF00] transition-colors py-4 flex items-center gap-1">
+                    <a href={item.href} rel={(item as any).nofollow ? "nofollow noopener" : undefined} class="hover:text-[#FFBF00] transition-colors py-4 flex items-center gap-1">
                         {item.name}
                         {item.dropdown && (
                             <svg class="w-3 h-3 group-hover:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
@@ -130,7 +132,7 @@ const nav = data[lang];
         <div class="flex flex-col gap-4">
             {nav.items.map(item => (
                 <div class="w-full">
-                    <a href={item.href} class="text-xl font-bold text-white block py-3 border-b border-white/5 active:text-[#FFBF00]">{item.name}</a>
+                    <a href={item.href} rel={(item as any).nofollow ? "nofollow noopener" : undefined} class="text-xl font-bold text-white block py-3 border-b border-white/5 active:text-[#FFBF00]">{item.name}</a>
                     {item.dropdown && (
                         <div class="pl-4 mt-2 mb-2 flex flex-col gap-3 border-l border-white/10">
                             {item.dropdown.map(drop => (

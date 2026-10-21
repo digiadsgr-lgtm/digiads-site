@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /support-ticket
+Disallow: /support-ticket/
+Disallow: /api/
 
 Sitemap: https://www.digiads.gr/sitemap-index.xml

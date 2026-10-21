@@ -9,7 +9,12 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
   site: 'https://www.digiads.gr',
   adapter: vercel(),
-  integrations: [react(), sitemap()],
+  integrations: [
+    react(),
+    sitemap({
+      filter: (page) => !page.includes('/support-ticket'),
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()]
   }
