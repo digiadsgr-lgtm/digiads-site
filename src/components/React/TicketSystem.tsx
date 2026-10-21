@@ -194,6 +194,29 @@ export default function TicketSystem() {
               </div>
 
               <div className="space-y-3">
+                {/* Πρώτη εγγραφή ουράς: Έργο σε εξέλιξη */}
+                <div className="p-3.5 rounded-lg bg-amber-950/20 border border-amber-700/50 flex flex-col md:flex-row md:items-center justify-between gap-3">
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <span className="inline-flex items-center gap-1.5 px-2 py-0.5 text-xs font-mono font-bold rounded bg-amber-950 text-amber-400 border border-amber-700">
+                        <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                        ΣΕ ΕΞΕΛΙΞΗ
+                      </span>
+                      <h4 className="font-semibold text-amber-200 text-sm">
+                        Έργο σε εξέλιξη (Τρέχουσα Ουρά Παραγωγής)
+                      </h4>
+                    </div>
+                    <p className="text-xs text-slate-400">
+                      Προγραμματισμένη ολοκλήρωση τρέχοντος έργου πριν την έναρξη του αιτήματός σας.
+                    </p>
+                  </div>
+                  <div className="text-right shrink-0">
+                    <span className="inline-block px-3 py-1 rounded-md bg-amber-950/80 border border-amber-800/70 text-amber-300 font-mono text-xs font-bold">
+                      Λήξη σε 3 ημέρες
+                    </span>
+                  </div>
+                </div>
+
                 {result.analysis.tasks.map((task: any, idx: number) => (
                   <div
                     key={idx}
@@ -245,13 +268,7 @@ export default function TicketSystem() {
           <div className="bg-slate-950 p-5 rounded-lg border border-slate-800">
             <h3 className="text-lg font-bold text-white mb-4">Οικονομική Προσφορά & Χρόνος</h3>
             <div className="flex justify-between text-sm text-slate-300 mb-2">
-              <span>
-                Εργατοώρες ({result.pricing.totalHours}h){' '}
-                {result.pricing.markupMultiplier > 1
-                  ? `[Συντελεστής ×${result.pricing.markupMultiplier}]`
-                  : ''}
-                :
-              </span>
+              <span>Εργατοώρες ({result.pricing.totalHours}h):</span>
               <span>{result.pricing.laborCost}€</span>
             </div>
             <div className="flex justify-between text-sm text-slate-300 mb-2">
@@ -277,8 +294,7 @@ export default function TicketSystem() {
               <span className="text-[#FFBF00]">{result.pricing.totalCostGross}€</span>
             </div>
             <div className="mt-4 p-3 bg-emerald-950/30 border border-emerald-800/50 rounded text-emerald-400 text-sm font-bold text-center">
-              Παράδοση (ETD): {result.schedule.etdFormatted} ({result.schedule.estimatedBusinessDays}{' '}
-              εργάσιμες ημέρες)
+              Παράδοση (ETD): {result.schedule.etdFormatted}
             </div>
 
             <button

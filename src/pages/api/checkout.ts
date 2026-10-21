@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import Stripe from 'stripe';
+import { buildStripeTicketMetadata } from '../../lib/ticketNotification';
 
 export const prerender = false;
 
@@ -30,6 +31,8 @@ export const POST: APIRoute = async ({ request, url }) => {
       url.origin ||
       'https://www.digiads.gr';
 
+    const metadata = buildStripeTicketMetadata(formData, result);
+
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: [
@@ -48,15 +51,7 @@ export const POST: APIRoute = async ({ request, url }) => {
       mode: 'payment',
       success_url: `${baseUrl}/support-ticket/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${baseUrl}/support-ticket/cancel`,
-      metadata: {
-        fullName: String(formData.fullName || '').slice(0, 500),
-        afm: String(formData.afm || ''),
-        companyDetails: String(formData.companyDetails || '').slice(0, 500),
-        website: String(formData.websiteUrl || '').slice(0, 500),
-        ticketType: String(result.ticketType || 'STANDARD'),
-        hours: String(result.pricing.totalHours || 0),
-        etd: String(result.schedule.etdFormatted || ''),
-      },
+      metadata,
     });
 
     return new Response(JSON.stringify({ url: session.url }), {

@@ -127,14 +127,17 @@ export const POST: APIRoute = async ({ request }) => {
     const totalCostGross = +(totalCostNet + vatAmount).toFixed(2);
 
     const queue = await getCurrentQueueWorkload();
+    const IN_PROGRESS_PROJECT_DAYS = 3; // Έργο σε εξέλιξη (λήξη σε 3 ημέρες)
     let estimatedBusinessDays = 1;
 
     if (isUrgent) {
       const effectiveHours = queue.urgentQueueHours + totalHours;
-      estimatedBusinessDays = Math.max(1, Math.ceil(effectiveHours / DAILY_CAPACITY_URGENT));
+      estimatedBusinessDays =
+        Math.max(1, Math.ceil(effectiveHours / DAILY_CAPACITY_URGENT)) + IN_PROGRESS_PROJECT_DAYS;
     } else {
       const effectiveHours = queue.urgentQueueHours + queue.standardQueueHours + totalHours;
-      estimatedBusinessDays = Math.ceil(effectiveHours / DAILY_CAPACITY_STANDARD) + 1;
+      estimatedBusinessDays =
+        Math.ceil(effectiveHours / DAILY_CAPACITY_STANDARD) + 1 + IN_PROGRESS_PROJECT_DAYS;
     }
 
     const etdDate = addBusinessDays(new Date(), estimatedBusinessDays);
