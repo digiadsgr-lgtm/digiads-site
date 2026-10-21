@@ -4,10 +4,15 @@ import nodemailer from 'nodemailer';
 const CHUNK_SIZE = 480;
 
 export function buildStripeTicketMetadata(formData: any, result: any): Record<string, string> {
+  const isBusiness = formData.customerType === 'BUSINESS';
   const meta: Record<string, string> = {
+    customerType: isBusiness ? 'BUSINESS' : 'INDIVIDUAL',
     fullName: String(formData.fullName || '').slice(0, 480),
-    afm: String(formData.afm || '').slice(0, 50),
-    companyDetails: String(formData.companyDetails || '').slice(0, 480),
+    email: String(formData.email || '').slice(0, 480),
+    phone: String(formData.phone || '').slice(0, 100),
+    afm: isBusiness ? String(formData.afm || '').slice(0, 50) : '-',
+    companyDetails: isBusiness ? String(formData.companyDetails || '').slice(0, 480) : 'Ιδιώτης',
+    doyAddress: isBusiness ? String(formData.doyAddress || '').slice(0, 480) : '-',
     website: String(formData.websiteUrl || '').slice(0, 480),
     ticketType: String(result.ticketType || 'STANDARD'),
     hours: String(result.pricing?.totalHours || 0),
@@ -20,6 +25,15 @@ export function buildStripeTicketMetadata(formData: any, result: any): Record<st
     etd: String(result.schedule?.etdFormatted || '').slice(0, 480),
     riskLevel: String(result.analysis?.riskLevel || 'LOW'),
   };
+
+  // Encode clarificationNotes (customer's answers to AI warnings)
+  const notes = String(formData.clarificationNotes || '').trim();
+  if (notes) {
+    meta.clarification_0 = notes.slice(0, 480);
+    if (notes.length > 480) {
+      meta.clarification_1 = notes.slice(480, 960);
+    }
+  }
 
   // Encode rawRequest in chunks of 480 chars (up to 10 chunks = 4800 chars)
   const rawReq = String(formData.rawRequest || '');
@@ -64,10 +78,17 @@ export function reconstructFromMetadata(meta: Record<string, string>) {
     tasksText += meta[`tasks_${i}`] || '';
   }
 
+  const clarificationNotes =
+    (meta.clarification_0 || '') + (meta.clarification_1 || '');
+
   return {
+    customerType: meta.customerType || 'BUSINESS',
     fullName: meta.fullName || '-',
+    email: meta.email || '',
+    phone: meta.phone || '-',
     afm: meta.afm || '-',
     companyDetails: meta.companyDetails || '-',
+    doyAddress: meta.doyAddress || '-',
     website: meta.website || '-',
     ticketType: meta.ticketType || 'STANDARD',
     hours: meta.hours || '0',
@@ -80,6 +101,7 @@ export function reconstructFromMetadata(meta: Record<string, string>) {
     etd: meta.etd || '-',
     riskLevel: meta.riskLevel || '-',
     rawRequest: rawRequest || '-',
+    clarificationNotes: clarificationNotes || '',
     tasksList: tasksText ? tasksText.split('\n').filter(Boolean) : [],
     warnings: meta.warnings ? meta.warnings.split(' | ').filter(Boolean) : [],
   };
@@ -104,7 +126,8 @@ export async function sendPaidTicketNotification(
 
   const info = reconstructFromMetadata(meta);
   const amountPaid = ((session.amount_total || 0) / 100).toFixed(2);
-  const customerEmail = session.customer_details?.email || '';
+  const customerEmail = info.email || session.customer_details?.email || '';
+  const isBusiness = info.customerType === 'BUSINESS';
 
   const user = (import.meta.env.SMTP_EMAIL || process.env.SMTP_EMAIL || '')
     .trim()
@@ -146,40 +169,56 @@ export async function sendPaidTicketNotification(
   const warningsHtml =
     info.warnings.length > 0
       ? `<div style="background:#fffbeb;border-left:4px solid #f59e0b;padding:12px;margin-top:16px;">
-          <strong>Διευκρινίσεις που εντόπισε το AI:</strong>
+          <strong>Διευκρινίσεις που ζήτησε το AI:</strong>
           <ul style="margin:6px 0 0 0;padding-left:18px;">
             ${info.warnings.map((w) => `<li>${escapeHtml(w)}</li>`).join('')}
           </ul>
         </div>`
       : '';
 
-  const html = `
+  const clarificationHtml = info.clarificationNotes
+    ? `<div style="background:#ecfdf5;border-left:4px solid #10b981;padding:12px;margin-top:12px;">
+        <strong>✍️ Απάντηση / Διευκρινίσεις Πελάτη:</strong>
+        <p style="margin:6px 0 0 0;white-space:pre-wrap;color:#065f46;">${escapeHtml(info.clarificationNotes)}</p>
+      </div>`
+    : '';
+
+  // 1. EMAIL ΠΡΟΣ DIGIADS (ΔΙΑΧΕΙΡΙΣΤΗ)
+  const adminHtml = `
     <div style="font-family:Arial,sans-serif;max-width:680px;margin:0 auto;background:#ffffff;border:1px solid #e2e8f0;border-radius:10px;overflow:hidden;">
       <div style="background:#0f172a;color:#ffffff;padding:20px 24px;">
         <h2 style="margin:0;color:#FFBF00;">✅ Νέο Εξοφλημένο Ticket — DIGIADS</h2>
         <p style="margin:6px 0 0 0;font-size:13px;color:#cbd5e1;">
-          Τύπος: <strong>${escapeHtml(info.ticketType)}</strong> | Εξοφλημένο Ποσό: <strong>${amountPaid}€</strong> | ETD: <strong>${escapeHtml(info.etd)}</strong>
+          Τύπος: <strong>${escapeHtml(info.ticketType)}</strong> | Πελάτης: <strong>${isBusiness ? 'Επαγγελματίας (Τιμολόγιο)' : 'Ιδιώτης (Χωρίς ΦΠΑ)'}</strong> | Εξοφλημένο: <strong>${amountPaid}€</strong>
         </p>
       </div>
 
       <div style="padding:24px;">
         <h3 style="margin-top:0;color:#0f172a;border-bottom:1px solid #e2e8f0;padding-bottom:8px;">
-          1. Στοιχεία Πελάτη & Τιμολόγησης
+          1. Στοιχεία Πελάτη & Παραστατικού
         </h3>
         <table style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:20px;">
-          <tr><td style="padding:6px 0;color:#64748b;width:180px;">Ονοματεπώνυμο:</td><td style="padding:6px 0;font-weight:bold;">${escapeHtml(info.fullName)}</td></tr>
-          <tr><td style="padding:6px 0;color:#64748b;">ΑΦΜ:</td><td style="padding:6px 0;font-weight:bold;">${escapeHtml(info.afm)}</td></tr>
-          <tr><td style="padding:6px 0;color:#64748b;">Στοιχεία Επιχείρησης:</td><td style="padding:6px 0;font-weight:bold;">${escapeHtml(info.companyDetails)}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;width:190px;">Κατηγορία:</td><td style="padding:6px 0;font-weight:bold;">${isBusiness ? '🏢 Επαγγελματίας (Έκδοση Τιμολογίου)' : '👤 Ιδιώτης (Χωρίς Τιμολόγιο / Χωρίς ΦΠΑ)'}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;">Ονοματεπώνυμο:</td><td style="padding:6px 0;font-weight:bold;">${escapeHtml(info.fullName)}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;">Email:</td><td style="padding:6px 0;">${escapeHtml(customerEmail || '-')}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;">Τηλέφωνο:</td><td style="padding:6px 0;font-weight:bold;">${escapeHtml(info.phone)}</td></tr>
           <tr><td style="padding:6px 0;color:#64748b;">Ιστοσελίδα:</td><td style="padding:6px 0;"><a href="${escapeHtml(info.website)}">${escapeHtml(info.website)}</a></td></tr>
-          ${customerEmail ? `<tr><td style="padding:6px 0;color:#64748b;">Email Πληρωμής (Stripe):</td><td style="padding:6px 0;">${escapeHtml(customerEmail)}</td></tr>` : ''}
+          ${
+            isBusiness
+              ? `<tr><td style="padding:6px 0;color:#64748b;">ΑΦΜ:</td><td style="padding:6px 0;font-weight:bold;">${escapeHtml(info.afm)}</td></tr>
+                 <tr><td style="padding:6px 0;color:#64748b;">Επωνυμία Επιχείρησης:</td><td style="padding:6px 0;font-weight:bold;">${escapeHtml(info.companyDetails)}</td></tr>
+                 <tr><td style="padding:6px 0;color:#64748b;">ΔΟΥ & Έδρα:</td><td style="padding:6px 0;">${escapeHtml(info.doyAddress)}</td></tr>`
+              : ''
+          }
         </table>
 
         <h3 style="color:#0f172a;border-bottom:1px solid #e2e8f0;padding-bottom:8px;">
           2. Τι Ζήτησε ο Πελάτης (Αυτούσιο Αίτημα)
         </h3>
-        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px;white-space:pre-wrap;font-size:14px;line-height:1.6;color:#0f172a;margin-bottom:20px;">${escapeHtml(info.rawRequest)}</div>
+        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px;white-space:pre-wrap;font-size:14px;line-height:1.6;color:#0f172a;margin-bottom:16px;">${escapeHtml(info.rawRequest)}</div>
+        ${clarificationHtml}
 
-        <h3 style="color:#0f172a;border-bottom:1px solid #e2e8f0;padding-bottom:8px;">
+        <h3 style="color:#0f172a;border-bottom:1px solid #e2e8f0;padding-bottom:8px;margin-top:24px;">
           3. Τεχνική Ανάλυση & Ιεράρχηση Εργασιών (AI)
         </h3>
         <p style="font-size:13px;color:#475569;margin:4px 0 10px 0;">
@@ -192,11 +231,11 @@ export async function sendPaidTicketNotification(
           4. Οικονομική Ανάλυση & Παράδοση
         </h3>
         <table style="width:100%;border-collapse:collapse;font-size:14px;">
-          <tr><td style="padding:5px 0;color:#64748b;width:180px;">Κόστος Εργασιών (${escapeHtml(info.hours)}h):</td><td style="padding:5px 0;">${escapeHtml(info.laborCost)}€</td></tr>
+          <tr><td style="padding:5px 0;color:#64748b;width:190px;">Κόστος Εργασιών (${escapeHtml(info.hours)}h):</td><td style="padding:5px 0;">${escapeHtml(info.laborCost)}€</td></tr>
           <tr><td style="padding:5px 0;color:#64748b;">Πάγιο (Base Fee):</td><td style="padding:5px 0;">${escapeHtml(info.baseFee)}€</td></tr>
           ${info.ticketType === 'URGENT' ? `<tr><td style="padding:5px 0;color:#d97706;">Επείγουσα Προτεραιότητα:</td><td style="padding:5px 0;color:#d97706;">+${escapeHtml(info.urgentSurcharge)}€</td></tr>` : ''}
-          <tr><td style="padding:5px 0;color:#64748b;">Καθαρή Αξία (Net):</td><td style="padding:5px 0;">${escapeHtml(info.totalCostNet)}€</td></tr>
-          <tr><td style="padding:5px 0;color:#64748b;">ΦΠΑ (24%):</td><td style="padding:5px 0;">${escapeHtml(info.vatAmount)}€</td></tr>
+          <tr><td style="padding:5px 0;color:#64748b;">Καθαρή Αξία:</td><td style="padding:5px 0;">${escapeHtml(info.totalCostNet)}€</td></tr>
+          <tr><td style="padding:5px 0;color:#64748b;">ΦΠΑ (${isBusiness ? '24%' : '0% - Ιδιώτης'}):</td><td style="padding:5px 0;">${escapeHtml(info.vatAmount)}€</td></tr>
           <tr><td style="padding:8px 0;font-weight:bold;font-size:16px;color:#0f172a;">Τελικό Ποσό (Εξοφλήθηκε):</td><td style="padding:8px 0;font-weight:bold;font-size:16px;color:#059669;">${amountPaid}€</td></tr>
           <tr><td style="padding:5px 0;color:#64748b;">Εκτιμώμενη Παράδοση (ETD):</td><td style="padding:5px 0;font-weight:bold;">${escapeHtml(info.etd)}</td></tr>
           <tr><td style="padding:5px 0;color:#64748b;">Stripe Session ID:</td><td style="padding:5px 0;font-family:monospace;font-size:12px;">${escapeHtml(session.id)}</td></tr>
@@ -205,15 +244,89 @@ export async function sendPaidTicketNotification(
     </div>
   `;
 
-  await transporter.sendMail({
-    from: `"DIGIADS Ticketing System" <${user}>`,
-    to: notificationEmail,
-    replyTo: customerEmail || undefined,
-    subject: `✅ Νέο Εξοφλημένο Ticket (${info.ticketType}) - ${info.website} [${amountPaid}€]`,
-    html,
-  });
+  // 2. EMAIL ΕΠΙΒΕΒΑΙΩΣΗΣ ΠΡΟΣ ΤΟΝ ΠΕΛΑΤΗ
+  const clientTasksClean =
+    info.tasksList.length > 0
+      ? `<ol style="padding-left:20px;margin:8px 0;">${info.tasksList
+          .map((t) => {
+            // Αφαιρούμε τις επιμέρους ώρες (π.χ. "(0.75h)") από την προβολή του πελάτη για καθαρή παρουσίαση
+            const cleanTask = t.replace(/\s*\(\d+(\.\d+)?h\)/g, '');
+            return `<li style="margin-bottom:8px;line-height:1.5;color:#1e293b;">${escapeHtml(cleanTask)}</li>`;
+          })
+          .join('')}</ol>`
+      : '';
 
-  // Mark session metadata as emailSent = 'true' to avoid duplicate emails between webhook and success page
+  const customerHtml = `
+    <div style="font-family:Arial,sans-serif;max-width:650px;margin:0 auto;background:#ffffff;border:1px solid #e2e8f0;border-radius:10px;overflow:hidden;">
+      <div style="background:#1B1F3B;color:#ffffff;padding:24px;">
+        <h2 style="margin:0;color:#FFBF00;">DIGIADS | Επιβεβαίωση Κατοχύρωσης Ticket</h2>
+        <p style="margin:8px 0 0 0;font-size:14px;color:#e2e8f0;">
+          Αγαπητέ/ή <strong>${escapeHtml(info.fullName)}</strong>, το τεχνικό σας αίτημα για το <strong>${escapeHtml(info.website)}</strong> κατοχυρώθηκε επιτυχώς!
+        </p>
+      </div>
+
+      <div style="padding:24px;">
+        <div style="background:#ecfdf5;border:1px solid #10b981;border-radius:8px;padding:16px;text-align:center;margin-bottom:24px;">
+          <div style="font-size:12px;color:#047857;text-transform:uppercase;font-weight:bold;">Εκτιμωμενη Ημερομηνια Παραδοσης (ETD)</div>
+          <div style="font-size:20px;font-weight:bold;color:#065f46;margin-top:4px;">${escapeHtml(info.etd)}</div>
+        </div>
+
+        <h3 style="color:#0f172a;border-bottom:1px solid #e2e8f0;padding-bottom:8px;">
+          Σειρά Εκτέλεσης Εργασιών (AI Technical Roadmap)
+        </h3>
+        ${clientTasksClean}
+
+        ${
+          info.clarificationNotes
+            ? `<h3 style="color:#0f172a;border-bottom:1px solid #e2e8f0;padding-bottom:8px;margin-top:20px;">
+                 Οι Σημειώσεις / Διευκρινίσεις σας
+               </h3>
+               <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px;font-size:13px;color:#334155;white-space:pre-wrap;">${escapeHtml(info.clarificationNotes)}</div>`
+            : ''
+        }
+
+        <h3 style="color:#0f172a;border-bottom:1px solid #e2e8f0;padding-bottom:8px;margin-top:24px;">
+          Σύνοψη Συναλλαγής
+        </h3>
+        <table style="width:100%;border-collapse:collapse;font-size:14px;">
+          <tr><td style="padding:5px 0;color:#64748b;width:190px;">Προτεραιότητα Ticket:</td><td style="padding:5px 0;font-weight:bold;">${escapeHtml(info.ticketType)}</td></tr>
+          <tr><td style="padding:5px 0;color:#64748b;">Συνολικές Εργατοώρες:</td><td style="padding:5px 0;">${escapeHtml(info.hours)}h</td></tr>
+          <tr><td style="padding:5px 0;color:#64748b;">Τύπος Παραστατικού:</td><td style="padding:5px 0;">${isBusiness ? `Τιμολόγιο (ΑΦΜ: ${escapeHtml(info.afm)})` : 'Ιδιώτης (Χωρίς Τιμολόγιο)'}</td></tr>
+          <tr><td style="padding:8px 0;font-weight:bold;font-size:16px;color:#0f172a;">Ποσό Πληρωμής:</td><td style="padding:8px 0;font-weight:bold;font-size:16px;color:#059669;">${amountPaid}€</td></tr>
+        </table>
+
+        <p style="font-size:12px;color:#64748b;margin-top:24px;border-top:1px solid #e2e8f0;padding-top:14px;">
+          Για οποιαδήποτε επιπλέον πληροφορία, μπορείτε να απαντήσετε απευθείας σε αυτό το email.<br/>
+          <strong>DIGIADS Digital Marketing Agency</strong> — www.digiads.gr
+        </p>
+      </div>
+    </div>
+  `;
+
+  const emailPromises: Promise<any>[] = [
+    transporter.sendMail({
+      from: `"DIGIADS Ticketing System" <${user}>`,
+      to: notificationEmail,
+      replyTo: customerEmail || undefined,
+      subject: `✅ Νέο Εξοφλημένο Ticket (${info.ticketType}) - ${info.website} [${amountPaid}€]`,
+      html: adminHtml,
+    }),
+  ];
+
+  if (customerEmail) {
+    emailPromises.push(
+      transporter.sendMail({
+        from: `"DIGIADS Support" <${user}>`,
+        to: customerEmail,
+        replyTo: notificationEmail,
+        subject: `Επιβεβαίωση Κατοχύρωσης Ticket — ${info.website} | DIGIADS`,
+        html: customerHtml,
+      })
+    );
+  }
+
+  await Promise.allSettled(emailPromises);
+
   try {
     await stripe.checkout.sessions.update(session.id, {
       metadata: {

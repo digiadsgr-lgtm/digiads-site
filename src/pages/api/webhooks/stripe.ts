@@ -17,9 +17,7 @@ export const POST: APIRoute = async ({ request }) => {
     });
   }
 
-  const stripe = new Stripe(stripeSecretKey, {
-    apiVersion: '2023-10-16' as any,
-  });
+  const stripe = new Stripe(stripeSecretKey);
 
   try {
     const rawBody = await request.text();

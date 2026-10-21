@@ -19,9 +19,8 @@ export const POST: APIRoute = async ({ request, url }) => {
       );
     }
 
-    const stripe = new Stripe(stripeSecretKey, {
-      apiVersion: '2023-10-16' as any,
-    });
+    // Use default latest Stripe API version so Dynamic Payment Methods (Klarna, Google Pay, Apple Pay, Cards) work automatically
+    const stripe = new Stripe(stripeSecretKey);
 
     const { result, formData } = await request.json();
 
@@ -33,15 +32,23 @@ export const POST: APIRoute = async ({ request, url }) => {
 
     const metadata = buildStripeTicketMetadata(formData, result);
 
+    const isBusiness = formData.customerType === 'BUSINESS';
+    const descParts = [
+      `Εργατοώρες: ${result.pricing.totalHours}h`,
+      `ETD: ${result.schedule.etdFormatted}`,
+      isBusiness ? `Τιμολόγιο (ΑΦΜ: ${formData.afm})` : 'Ιδιώτης (Χωρίς Τιμολόγιο)',
+    ];
+
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
+      // Do NOT restrict payment_method_types to ['card'] so Stripe Dashboard methods (Klarna, Google Pay, Apple Pay, Card) appear automatically
+      customer_email: formData.email ? String(formData.email).trim() : undefined,
       line_items: [
         {
           price_data: {
             currency: 'eur',
             product_data: {
               name: `DIGIADS Ticket: ${formData.websiteUrl}`,
-              description: `Εργατοώρες: ${result.pricing.totalHours}h | ETD: ${result.schedule.etdFormatted} | ΑΦΜ: ${formData.afm}`,
+              description: descParts.join(' | '),
             },
             unit_amount: Math.round(result.pricing.totalCostGross * 100),
           },

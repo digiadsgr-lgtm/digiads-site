@@ -15,7 +15,7 @@ if (sessionId) {
     const stripeSecretKey = import.meta.env.STRIPE_SECRET_KEY || process.env.STRIPE_SECRET_KEY;
     if (stripeSecretKey && !stripeSecretKey.startsWith('sk_test_...')) {
         try {
-            const stripe = new Stripe(stripeSecretKey, { apiVersion: '2023-10-16' as any });
+            const stripe = new Stripe(stripeSecretKey);
             const session = await stripe.checkout.sessions.retrieve(sessionId);
             if (session && session.metadata) {
                 ticketDetails = reconstructFromMetadata(session.metadata);

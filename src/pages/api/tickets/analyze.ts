@@ -45,18 +45,35 @@ function addBusinessDays(startDate: Date, daysToAdd: number): Date {
 export const POST: APIRoute = async ({ request }) => {
   try {
     const body = await request.json();
-    const { fullName, afm, companyDetails, websiteUrl, rawRequest, isUrgent } = body;
+    const {
+      customerType = 'BUSINESS',
+      fullName,
+      email,
+      phone,
+      afm,
+      companyDetails,
+      doyAddress,
+      websiteUrl,
+      rawRequest,
+      isUrgent,
+    } = body;
 
-    if (
-      !fullName ||
-      !afm ||
-      !/^\d{9}$/.test(String(afm).trim()) ||
-      !companyDetails ||
-      !websiteUrl ||
-      !rawRequest
-    ) {
+    const isBusiness = customerType === 'BUSINESS';
+
+    if (!fullName || !email || !websiteUrl || !rawRequest) {
       return new Response(
-        JSON.stringify({ error: 'Απαιτούνται όλα τα υποχρεωτικά πεδία και έγκυρο ΑΦΜ (9 ψηφία).' }),
+        JSON.stringify({
+          error: 'Παρακαλώ συμπληρώστε όλα τα υποχρεωτικά πεδία (Ονοματεπώνυμο, Email, Ιστοσελίδα, Αίτημα).',
+        }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
+    if (isBusiness && (!afm || !/^\d{9}$/.test(String(afm).trim()) || !companyDetails)) {
+      return new Response(
+        JSON.stringify({
+          error: 'Για έκδοση τιμολογίου (Επαγγελματίας) απαιτείται έγκυρο ΑΦΜ (9 ψηφία) και Επωνυμία Επιχείρησης.',
+        }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
@@ -104,7 +121,6 @@ export const POST: APIRoute = async ({ request }) => {
       aiAnalysis = res.object;
     }
 
-    // Sort tasks by executionOrder
     aiAnalysis.tasks.sort((a, b) => a.executionOrder - b.executionOrder);
 
     const rawTotalHours = aiAnalysis.tasks.reduce((sum, task) => sum + task.estimatedHours, 0);
@@ -121,7 +137,7 @@ export const POST: APIRoute = async ({ request }) => {
       hourlyRate = 40;
       markupMultiplier = 1.15;
     } else if (totalHours <= 8) {
-      hourlyRate = 36; // 40€ - 10%
+      hourlyRate = 36;
       markupMultiplier = 1.05;
     } else {
       hourlyRate = 30;
@@ -134,7 +150,7 @@ export const POST: APIRoute = async ({ request }) => {
     const laborCostWithMarkup = Math.ceil(rawLaborCost * markupMultiplier);
 
     const totalCostNet = baseFeeTotal + urgentFeeTotal + laborCostWithMarkup;
-    const vatAmount = +(totalCostNet * 0.24).toFixed(2);
+    const vatAmount = isBusiness ? +(totalCostNet * 0.24).toFixed(2) : 0;
     const totalCostGross = +(totalCostNet + vatAmount).toFixed(2);
 
     const queue = await getCurrentQueueWorkload();
@@ -155,7 +171,16 @@ export const POST: APIRoute = async ({ request }) => {
 
     return new Response(
       JSON.stringify({
-        client: { fullName, afm, companyDetails, websiteUrl },
+        client: {
+          customerType: isBusiness ? 'BUSINESS' : 'INDIVIDUAL',
+          fullName,
+          email,
+          phone: phone || '',
+          afm: isBusiness ? afm : '',
+          companyDetails: isBusiness ? companyDetails : '',
+          doyAddress: isBusiness ? doyAddress || '' : '',
+          websiteUrl,
+        },
         ticketType: isUrgent ? 'URGENT' : 'STANDARD',
         pricing: {
           baseFee: baseFeeTotal,
@@ -166,6 +191,7 @@ export const POST: APIRoute = async ({ request }) => {
           laborCost: laborCostWithMarkup,
           totalCostNet,
           vatAmount,
+          hasVat: isBusiness,
           totalCostGross,
         },
         schedule: {
