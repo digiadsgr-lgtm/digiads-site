@@ -52,13 +52,15 @@ const hreflangEn = new URL("/en" + (basePath === '/' ? "" : basePath), SITE_URL)
 // Comprehensive Structured Data (Schema.org)
 const structuredData = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    "@type": ["ProfessionalService", "MarketingAgency"],
+    "@id": "https://www.digiads.gr/#organization",
     "name": "DIGIADS Digital Marketing Agency",
-    "alternateName": ["DIGIADS", "DigiAds Κρήτη", "Digital Marketing Ρέθυμνο"],
+    "alternateName": ["DIGIADS", "DigiAds Κρήτη", "Digital Marketing Ρέθυμνο", "Κατασκευή Ιστοσελίδων Ρέθυμνο"],
     "url": "https://www.digiads.gr",
     "logo": "https://www.digiads.gr/logo/digiads-logo-navy-gold.png",
     "image": "https://www.digiads.gr/logo/digiads-logo-navy-gold.png",
     "description": description,
+    "priceRange": "€€",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Κολοκοτρώνη 34",
@@ -81,7 +83,11 @@ const structuredData = {
         "name": "Ηράκλειο"
       },
       {
-        "@type": "State",
+        "@type": "City",
+        "name": "Άγιος Νικόλαος"
+      },
+      {
+        "@type": "AdministrativeArea",
         "name": "Κρήτη"
       }
     ],
@@ -91,7 +97,7 @@ const structuredData = {
       "longitude": 24.4731
     },
     "email": "info@digiads.gr",
-    "telephone": "+302831000000",
+    "telephone": "+306987602707",
     "sameAs": [
       "https://www.instagram.com/digiads.gr/",
       "https://www.facebook.com/digiads.gr"

@@ -4,13 +4,14 @@ const schema = {
   "@type": ["ProfessionalService", "MarketingAgency"],
   "@id": "https://www.digiads.gr/#organization",
   "name": "DIGIADS",
-  "alternateName": "DIGIADS Digital Marketing & Web Development",
+  "alternateName": ["DIGIADS Digital Marketing & Web Development", "DIGIADS Κρήτη", "Κατασκευή Ιστοσελίδων & Τουριστικό Marketing Ρέθυμνο"],
   "url": "https://www.digiads.gr",
-  "logo": "https://www.digiads.gr/logo/Digiads-Logo-1024x286.png",
-  "image": "https://www.digiads.gr/logo/Digiads-Logo-1024x286.png",
-  "description": "Digital Marketing Agency στο Ρέθυμνο, Κρήτη. Κατασκευή ιστοσελίδων, SEO, Google Ads, Social Media, διαφήμιση Facebook/Instagram/TikTok και τουριστικό marketing.",
+  "logo": "https://www.digiads.gr/logo/digiads-logo-navy-gold.png",
+  "image": "https://www.digiads.gr/logo/digiads-logo-navy-gold.png",
+  "description": "Digital Marketing Agency στο Ρέθυμνο, Κρήτη. Εξειδίκευση σε Τουριστικό Marketing (Ξενοδοχεία, Βίλες, Direct Bookings), Custom Κατασκευή Ιστοσελίδων & E-shop (Next.js/Astro), SEO, Google Ads και Social Media.",
   "priceRange": "€€",
-  "email": "hello@digiads.gr",
+  "email": "info@digiads.gr",
+  "telephone": "+306987602707",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Κολοκοτρώνη 34",
@@ -28,6 +29,7 @@ const schema = {
     { "@type": "City", "name": "Ρέθυμνο" },
     { "@type": "City", "name": "Χανιά" },
     { "@type": "City", "name": "Ηράκλειο" },
+    { "@type": "City", "name": "Άγιος Νικόλαος" },
     { "@type": "AdministrativeArea", "name": "Κρήτη" },
     { "@type": "Country", "name": "Ελλάδα" }
   ],
@@ -43,14 +45,14 @@ const schema = {
   }],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Υπηρεσίες Digital Marketing",
+    "name": "Υπηρεσίες Digital Marketing & Web Development Κρήτη",
     "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Κατασκευή Ιστοσελίδων & E-shop" }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Marketing & Performance Ads" }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Διαφήμιση Facebook & Instagram" }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "TikTok & Reels Content Production" }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO & Local SEO" }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Τουριστικό Marketing (Villas & Hotels)" }}
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Τουριστικό Marketing & Αύξηση Direct Bookings (Ξενοδοχεία & Βίλες)" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Κατασκευή Ιστοσελίδων & E-shop (Next.js / Astro)" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Κατασκευή Ιστοσελίδων Ξενοδοχείων, Βιλών & Rent a Car" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Marketing & Google Hotel / Performance Ads" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO, Local SEO & AI Search (GEO) Optimization" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media, TikTok/Reels & Drone Παραγωγές" }}
     ]
   }
 }

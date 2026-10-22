@@ -5,48 +5,98 @@ import Footer from '../components/Astro/Footer.astro';
 import LocalBusinessSchema from '../components/schema/LocalBusinessSchema.astro';
 import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
 
-const title = "Digital Marketing Ρέθυμνο | Κορυφαία Agency στην Κρήτη | DIGIADS";
-const description = "Η #1 Digital Marketing Agency στο Ρέθυμνο. Εξειδίκευση σε SEO, Google Ads, Social Media και Κατασκευή Ιστοσελίδων. Αυξήστε τις πωλήσεις σας σήμερα!";
+const title = "Digital Marketing Ρέθυμνο & Κρήτη | Κατασκευή Ιστοσελίδων & Τουριστικό Marketing | DIGIADS";
+const description = "Η #1 Digital Marketing Agency στο Ρέθυμνο (Κολοκοτρώνη 34). Εξειδίκευση σε Κατασκευή Ιστοσελίδων & E-shop, Τουριστικό Marketing (Ξενοδοχεία & Βίλες), SEO, Google Ads & Social Media σε όλη την Κρήτη.";
 
 const breadcrumbs = [
   { name: "Αρχική", url: "https://www.digiads.gr/" },
   { name: "Digital Marketing Ρέθυμνο", url: "https://www.digiads.gr/digital-marketing-rethymno" }
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Πού βρίσκονται τα γραφεία της DIGIADS στο Ρέθυμνο;",
+      "acceptedAnswer": { "@type": "Answer", "text": "Τα γραφεία μας βρίσκονται στην οδό Κολοκοτρώνη 34, στο Ρέθυμνο (Τ.Κ. 74132), ενώ εξυπηρετούμε επιχειρήσεις, ξενοδοχεία και βίλες σε όλη την Κρήτη (Ρέθυμνο, Χανιά, Ηράκλειο, Άγιο Νικόλαο)." }},
+    { "@type": "Question", "name": "Ποιες είναι οι βασικές υπηρεσίες σας για επιχειρήσεις στο Ρέθυμνο και την Κρήτη;",
+      "acceptedAnswer": { "@type": "Answer", "text": "Εξειδικευόμαστε στην κατασκευή ιστοσελίδων & e-shop υψηλής ταχύτητας (Next.js/Astro/WordPress), στο τουριστικό marketing για αύξηση direct κρατήσεων σε ξενοδοχεία και βίλες, στο Local SEO (Google Maps), στη διαφήμιση Google Ads & Meta Ads, καθώς και σε επαγγελματική φωτογράφιση, Drone και TikTok/Reels." }}
+  ]
+};
 ---
 
 <Layout title={title} description={description} lang="el">
     <LocalBusinessSchema />
     <BreadcrumbSchema items={breadcrumbs} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
     <Navbar />
 
-    <section class="relative pt-40 pb-20 overflow-hidden bg-[#1B1F3B]">
+    <section class="relative pt-40 pb-24 overflow-hidden bg-[#1B1F3B]">
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255, 191, 0,0.1)_0%,transparent_70%)] pointer-events-none" />
-        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center">
+            <span class="text-[#FFBF00] font-mono tracking-[0.2em] uppercase text-xs mb-4 inline-block font-bold">Κολοκοτρωνη 34 • Ρεθυμνο, Κρητη</span>
             <h1 class="text-4xl md:text-6xl font-black text-white font-montserrat tracking-tight mb-8">
-                Digital Marketing <span class="text-[#FFBF00]">Ρέθυμνο</span>
+                Digital Marketing, <span class="text-[#FFBF00]">Κατασκευή Ιστοσελίδων</span> & Τουριστικό Marketing στο Ρέθυμνο
             </h1>
-            <p class="text-xl text-slate-300 font-light mb-10">
-                Η τοπική σας επιχείρηση αξίζει παγκόσμια προβολή. Στη DIGIADS, την κορυφαία digital marketing εταιρεία στο Ρέθυμνο, μετατρέπουμε τα κλικ σε πελάτες.
+            <p class="text-xl text-slate-300 font-light max-w-3xl mx-auto mb-10 leading-relaxed">
+                Η τοπική σας επιχείρηση στην Κρήτη αξίζει κορυφαία τεχνολογική υποδομή και μετρήσιμη αύξηση τζίρου. Στη DIGIADS συνδυάζουμε την <strong>κατασκευή ταχύτατων ιστοσελίδων</strong> με εξειδικευμένο <strong>τουριστικό & εμπορικό performance marketing</strong>.
             </p>
-            <a href="/contact" class="px-8 py-4 bg-[#FFBF00] text-black rounded-full font-bold uppercase tracking-wider hover:bg-white transition-all">
-                Ξεκινηστε Σημερα
-            </a>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="/contact" class="px-8 py-4 bg-[#FFBF00] text-black rounded-full font-bold uppercase tracking-wider hover:bg-white transition-all">
+                    Κλειστε Ραντεβου στο Ρεθυμνο
+                </a>
+                <a href="/kataskevi-istoselidon" class="px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/15 rounded-full font-semibold transition-all">
+                    Κατασκευή Ιστοσελίδων & E-shop →
+                </a>
+            </div>
         </div>
     </section>
 
-    <section class="py-24 bg-[#1B1F3B]">
+    <!-- Core Pillars in Rethymno & Crete -->
+    <section class="py-20 bg-[#14172E]/60 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-black text-white font-montserrat text-center mb-14">
+                Οι 2 Ναυαρχίδες Ανάπτυξης για Επιχειρήσεις στην Κρήτη
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-[#1B1F3B] p-8 md:p-10 rounded-3xl border border-[#FFBF00]/30">
+                    <span class="text-[#FFBF00] font-mono text-xs uppercase tracking-widest block mb-2">Πυλώνας 01 • Hospitality</span>
+                    <h3 class="text-2xl font-bold text-white mb-4">Τουριστικό Marketing & Direct Bookings</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                        Το Ρέθυμνο και η Κρήτη αποτελούν έναν από τους πιο ανταγωνιστικούς τουριστικούς προορισμούς της Μεσογείου. Βοηθάμε <strong>πολυτελείς βίλες, boutique ξενοδοχεία, καταλύματα Airbnb και γραφεία Rent a Car</strong> να μειώσουν την προμήθεια 15-20% της Booking.com μέσω custom ιστοσελίδων κρατήσεων (WebHotelier, PrimalRes, Beds24), Google Hotel Ads και διαφήμισης σε Γερμανία, Αγγλία, Γαλλία και Σκανδιναβία.
+                    </p>
+                    <a href="/touristiko-marketing" class="text-[#FFBF00] font-bold text-sm hover:underline">
+                        Δείτε τη Στρατηγική Τουριστικού Marketing →
+                    </a>
+                </div>
+
+                <div class="bg-[#1B1F3B] p-8 md:p-10 rounded-3xl border border-[#FFBF00]/30">
+                    <span class="text-[#FFBF00] font-mono text-xs uppercase tracking-widest block mb-2">Πυλώνας 02 • Web Engineering</span>
+                    <h3 class="text-2xl font-bold text-white mb-4">Κατασκευή Ιστοσελίδων & E-shop (100/100 Speed)</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                        Ξεχάστε τα αργά, ευάλωτα έτοιμα templates. Σχεδιάζουμε και αναπτύσσουμε <strong>custom εταιρικές ιστοσελίδες, τουριστικά sites κρατήσεων και αυτοματοποιημένα e-shop</strong> (με σύνδεση ERP, Skroutz/BestPrice, Ελληνικές Τράπεζες, Stripe/IRIS και προδιαγραφές ΕΣΠΑ WCAG 2.1 AA) που πετυχαίνουν 100/100 στο Google PageSpeed.
+                    </p>
+                    <a href="/kataskevi-istoselidon" class="text-[#FFBF00] font-bold text-sm hover:underline">
+                        Δείτε τις Υπηρεσίες Κατασκευής Ιστοσελίδων →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[#1B1F3B] border-t border-white/5">
         <div class="max-w-4xl mx-auto px-6 prose prose-invert prose-lg">
-            <h2>Γιατί να επιλέξετε τη DIGIADS στο Ρέθυμνο;</h2>
+            <h2>Γιατί οι Επιχειρήσεις σε Ρέθυμνο, Χανιά & Ηράκλειο Επιλέγουν τη DIGIADS;</h2>
             <p>
-                Ο ανταγωνισμός στην Κρήτη, ειδικά στον τουρισμό και το λιανεμπόριο, είναι τεράστιος. Χρειάζεστε μια <a href="/kataskevi-istoselidon" class="text-[#FFBF00]">αξιόπιστη κατασκευή ιστοσελίδας</a> και στοχευμένη προώθηση.
+                Σε αντίθεση με τα παραδοσιακά γραφεία πληροφορικής ή τα απρόσωπα agencies εκτός Κρήτης, στη DIGIADS γνωρίζουμε σε βάθος την τοπική αγορά, την εποχικότητα του νησιού και τον τρόπο που αναζητούν υπηρεσίες τόσο οι μόνιμοι κάτοικοι όσο και οι εκατομμύρια επισκέπτες της Κρήτης.
             </p>
-            <h3>Υπηρεσίες που παρέχουμε στο Ρέθυμνο:</h3>
+            <h3>Πλήρες Οικοσύστημα Υπηρεσιών στο Ρέθυμνο:</h3>
             <ul>
-                <li><strong>Local SEO:</strong> Εμφανιστείτε πρώτοι όταν κάποιος ψάχνει για τις υπηρεσίες σας στο Ρέθυμνο.</li>
-                <li><strong>Google Ads (PPC):</strong> Άμεσα αποτελέσματα με στοχευμένες διαφημίσεις.</li>
-                <li><strong>Social Media Marketing:</strong> Διαχείριση Facebook, Instagram και TikTok.</li>
-                <li><strong><a href="/social-media/influencer-marketing" class="text-[#FFBF00] hover:underline">Influencer Marketing</a>:</strong> Στοχευμένες συνεργασίες με creators στην Κρήτη.</li>
-                <li><strong>Τουριστικό Marketing:</strong> Εξειδίκευση σε ξενοδοχεία και βίλες σε όλο το νομό Ρεθύμνης.</li>
+                <li><strong><a href="/kataskevi-istoselidon" class="text-[#FFBF00]">Κατασκευή Ιστοσελίδων & E-shop</a>:</strong> Custom σχεδιασμός, διασυνδέσεις ERP/Booking Engine και προδιαγραφές ΕΣΠΑ.</li>
+                <li><strong><a href="/touristiko-marketing" class="text-[#FFBF00]">Τουριστικό Marketing</a>:</strong> Εξειδίκευση σε ξενοδοχεία, βίλες, καταλύματα και rent a car σε όλο το νομό Ρεθύμνης, Χανίων, Ηρακλείου και Λασιθίου.</li>
+                <li><strong><a href="/digital-marketing/seo-local-seo" class="text-[#FFBF00]">SEO & Local SEO (Google Maps)</a>:</strong> Κυριαρχήστε στις τοπικές αναζητήσεις της Google και στις απαντήσεις AI (ChatGPT, Google AI Overviews).</li>
+                <li><strong><a href="/digital-marketing/performance-marketing" class="text-[#FFBF00]">Google Ads & Meta Ads</a>:</strong> Performance καμπάνιες με μετρήσιμο ROAS και διαφανή αναφορά αποτελεσμάτων.</li>
+                <li><strong><a href="/photo-services" class="text-[#FFBF00]">Φωτογραφία, Drone & TikTok/Reels</a>:</strong> Εσωτερική ομάδα παραγωγής οπτικοακουστικού υλικού σε όλη την Κρήτη.</li>
             </ul>
         </div>
     </section>

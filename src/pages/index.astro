@@ -14,11 +14,11 @@ import Footer from '../components/Astro/Footer.astro';
 
 <Layout 
     lang="el"
-    title="DIGIADS | Digital Marketing & Κατασκευή Ιστοσελίδων"
-    description="Η κορυφαία Digital Marketing Agency σε Κρήτη & Αθήνα. Υπηρεσίες προώθησης SEO, Google Ads, Social Media, δημιουργία E-shop & Κατασκευή Ιστοσελίδων."
+    title="DIGIADS | Κατασκευή Ιστοσελίδων, Τουριστικό Marketing & Digital Marketing Κρήτη"
+    description="Η κορυφαία εταιρεία Κατασκευής Ιστοσελίδων, E-shop & Τουριστικού Marketing σε Ρέθυμνο & Κρήτη. Αύξηση Direct Bookings σε ξενοδοχεία/βίλες, SEO 100/100, Google Ads & Social Media."
 >
     <!-- Hidden semantic H1 for SEO -->
-    <h1 class="sr-only">Digital Marketing στο Ρέθυμνο & Κατασκευή Ιστοσελίδων στην Κρήτη</h1>
+    <h1 class="sr-only">Κατασκευή Ιστοσελίδων, Τουριστικό Marketing & Digital Marketing στο Ρέθυμνο και την Κρήτη</h1>
     <LocalBusinessSchema />
     <WebSiteSchema />
     <Navbar />
@@ -29,22 +29,33 @@ import Footer from '../components/Astro/Footer.astro';
         <SiteAuditor lang="el" client:visible />
     </div>
 
-    <section class="intro-seo max-w-7xl mx-auto px-6 py-12 text-white/80">
-      <h2 class="text-3xl font-bold text-white mb-4">Digital Marketing Agency στο Ρέθυμνο, Κρήτη</h2>
-      <p class="mb-4 text-lg">
-        Η DIGIADS είναι η <strong>digital marketing εταιρεία στο Ρέθυμνο</strong> που
-        μετατρέπει τις τοπικές επιχειρήσεις της Κρήτης σε ψηφιακούς ηγέτες. Από την
-        <strong>κατασκευή ιστοσελίδων</strong> και e-shop με τεχνολογία Next.js/Astro,
-        μέχρι τη <strong>διαφήμιση σε Google, Facebook και Instagram</strong>, την
-        παραγωγή περιεχομένου για <strong>TikTok και Reels</strong> και τις καμπάνιες <strong><a href="/social-media/influencer-marketing" class="text-[#FFBF00] hover:underline">Influencer Marketing</a></strong>, χτίζουμε ολοκληρωμένα
-        συστήματα ανάπτυξης.
-      </p>
-      <p class="text-lg">
-        Με έδρα την Κολοκοτρώνη 34 στο <strong>Ρέθυμνο</strong>, εξυπηρετούμε επιχειρήσεις
-        σε <strong>Ρέθυμνο, Χανιά, Ηράκλειο</strong> και σε όλη την Κρήτη, με εξειδίκευση
-        στον τουρισμό (βίλες, ξενοδοχεία), το λιανεμπόριο και τις B2B υπηρεσίες. Στόχος μας
-        είναι μετρήσιμα αποτελέσματα: περισσότερες κρατήσεις, πωλήσεις και leads.
-      </p>
+    <section class="intro-seo max-w-7xl mx-auto px-6 py-16 text-white/80">
+      <div class="grid lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-7">
+          <span class="text-[#FFBF00] font-mono text-xs uppercase tracking-widest block mb-2">Ρεθυμνο • Χανια • Ηρακλειο • Αγιος Νικολαος</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-5 font-montserrat">
+            Κατασκευή Ιστοσελίδων & Τουριστικό Marketing στην Κρήτη
+          </h2>
+          <p class="mb-4 text-lg leading-relaxed">
+            Η <strong>DIGIADS</strong> είναι η εξειδικευμένη εταιρεία <strong><a href="/kataskevi-istoselidon" class="text-[#FFBF00] hover:underline">κατασκευής ιστοσελίδων & e-shop</a></strong> και <strong><a href="/touristiko-marketing" class="text-[#FFBF00] hover:underline">τουριστικού marketing</a></strong> με έδρα το <strong>Ρέθυμνο (Κολοκοτρώνη 34)</strong> που μετατρέπει τις επιχειρήσεις και τα καταλύματα της Κρήτης σε ψηφιακούς ηγέτες.
+          </p>
+          <p class="text-lg leading-relaxed">
+            Αναπτύσσουμε ταχύτατες ιστοσελίδες με <strong>100/100 Google PageSpeed</strong> (Next.js/Astro & Pro WordPress), συστήματα <strong>Direct Bookings για βίλες, ξενοδοχεία και rent a car</strong> (WebHotelier, PrimalRes, Beds24), αυτοματοποιημένα e-shop με ERP/Skroutz και στοχευμένες καμπάνιες <strong><a href="/digital-marketing/performance-marketing" class="text-[#FFBF00] hover:underline">Google Ads</a>, <a href="/digital-marketing/seo-local-seo" class="text-[#FFBF00] hover:underline">SEO / AI Search (GEO)</a>, <a href="/social-media/tiktok-reels" class="text-[#FFBF00] hover:underline">TikTok/Reels</a> και <a href="/photo-services/drone-services" class="text-[#FFBF00] hover:underline">Drone</a></strong> σε όλη την Κρήτη.
+          </p>
+        </div>
+        <div class="lg:col-span-5 grid sm:grid-cols-2 gap-4">
+          <a href="/touristiko-marketing" class="p-6 rounded-2xl bg-[#14172E] border border-white/10 hover:border-[#FFBF00]/50 transition-all group block">
+            <span class="text-xs font-mono text-[#FFBF00] uppercase">Hospitality Growth</span>
+            <h3 class="text-lg font-bold text-white mt-1 mb-2 group-hover:text-[#FFBF00] transition-colors">Τουριστικό Marketing →</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Αύξηση Direct Bookings σε Βίλες & Ξενοδοχεία, μείωση προμηθειών Booking/Airbnb & Google Hotel Ads.</p>
+          </a>
+          <a href="/kataskevi-istoselidon" class="p-6 rounded-2xl bg-[#14172E] border border-white/10 hover:border-[#FFBF00]/50 transition-all group block">
+            <span class="text-xs font-mono text-[#FFBF00] uppercase">100/100 Core Web Vitals</span>
+            <h3 class="text-lg font-bold text-white mt-1 mb-2 group-hover:text-[#FFBF00] transition-colors">Κατασκευή Ιστοσελίδων →</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Custom Websites, E-shop με ERP/Skroutz, Ξενοδοχειακά Sites, Rent a Car & προδιαγραφές ΕΣΠΑ WCAG 2.1 AA.</p>
+          </a>
+        </div>
+      </div>
     </section>
 
     <StatsBar lang="el" client:visible />

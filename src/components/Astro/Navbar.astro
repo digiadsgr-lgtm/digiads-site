@@ -4,17 +4,18 @@ const { lang = 'el' } = Astro.props;
 const data = {
 	el: {
 		items: [
-			{ name: "Digital Marketing", href: "/" },
-			{ name: "Κατασκευή Iστοσελίδας", href: "/kataskevi-istoselidon" },
+			{ name: "Κατασκευή Ιστοσελίδων", href: "/kataskevi-istoselidon" },
+			{ name: "Τουριστικό Marketing", href: "/touristiko-marketing" },
 			{
 				name: "Υπηρεσίες", href: "/#services", dropdown: [
+					{ name: "Προώθηση Βιλών & Ξενοδοχείων", href: "/touristiko-marketing" },
+					{ name: "Κατασκευή Ιστοσελίδων & E-shop", href: "/kataskevi-istoselidon" },
 					{ name: "Digital Marketing Ρέθυμνο", href: "/digital-marketing-rethymno" },
 					{ name: "SEO & Local SEO", href: "/digital-marketing/seo-local-seo" },
+					{ name: "Performance Marketing (Google Ads)", href: "/digital-marketing/performance-marketing" },
 					{ name: "Διαφήμιση Facebook & Instagram", href: "/social-media/diafimisi-facebook-instagram" },
 					{ name: "TikTok & Reels", href: "/social-media/tiktok-reels" },
 					{ name: "Influencer Marketing", href: "/social-media/influencer-marketing" },
-					{ name: "Performance Marketing", href: "/digital-marketing/performance-marketing" },
-					{ name: "Προώθηση Βιλών – Ξενοδοχείων", href: "/touristiko-marketing" },
 				]
 			},
             {

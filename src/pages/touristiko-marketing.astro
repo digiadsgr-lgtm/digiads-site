@@ -3,48 +3,51 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Astro/Navbar.astro';
 import Footer from '../components/Astro/Footer.astro';
 
-const title = "Τουριστικό Marketing Κρήτη | Direct Bookings για Βίλες & Ξενοδοχεία | DIGIADS";
-const description = "Η Νο1 εταιρεία Tourism Marketing στην Κρήτη. Μειώστε την εξάρτηση από Booking.com & Airbnb. Custom booking engines, στοχευμένη διαφήμιση, AI-search ready. Ζητήστε προσφορά!";
+const title = "Τουριστικό Marketing Κρήτη & Ρέθυμνο | Προώθηση Ξενοδοχείων & Βιλών | Direct Bookings | DIGIADS";
+const description = "Η #1 εταιρεία Τουριστικού Marketing στην Κρήτη (Ρέθυμνο, Χανιά, Ηράκλειο, Ελούντα). Αυξήστε τα Direct Bookings σε βίλες & ξενοδοχεία, μειώστε τις προμήθειες Booking/Airbnb, σύνδεση WebHotelier/Channel Manager & Google Hotel Ads.";
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     { "@type": "Question", "name": "Πώς μπορώ να μειώσω την εξάρτηση από Booking.com και Airbnb;",
-      "acceptedAnswer": { "@type": "Answer", "text": "Χτίζοντας ένα ισχυρό direct booking κανάλι: γρήγορη ιστοσελίδα με ενσωματωμένη μηχανή κρατήσεων, στοχευμένη διαφήμιση Google & Meta, και κίνητρα (καλύτερη τιμή, extras) που ωθούν τον επισκέπτη να κλείσει απευθείας αντί μέσω πλατφόρμας." }},
-    { "@type": "Question", "name": "Πόσο κοστίζει το τουριστικό marketing για μια βίλα ή ξενοδοχείο;",
-      "acceptedAnswer": { "@type": "Answer", "text": "Εξαρτάται από τον αριθμό καταλυμάτων, τον στόχο (νέα ιστοσελίδα, διαφήμιση, ή πλήρες πακέτο) και το επίπεδο διεθνούς στόχευσης. Ζητήστε δωρεάν αξιολόγηση για εξατομικευμένη προσφορά βάσει του καταλύματός σας." }},
-    { "@type": "Question", "name": "Αναλαμβάνετε και ξενοδοχειακές μονάδες, όχι μόνο βίλες;",
-      "acceptedAnswer": { "@type": "Answer", "text": "Ναι. Εξειδικευόμαστε σε boutique ξενοδοχεία, πολυτελείς βίλες, ενοικιαζόμενα δωμάτια και καταλύματα Airbnb, με στρατηγική προσαρμοσμένη στην κλίμακα και το προφίλ φιλοξενούμενων κάθε μονάδας." }},
+      "acceptedAnswer": { "@type": "Answer", "text": "Χτίζοντας ένα ισχυρό direct booking κανάλι: ταχύτατη ιστοσελίδα (100/100 Google PageSpeed) με ενσωματωμένη μηχανή κρατήσεων (WebHotelier, PrimalRes, Beds24, Hosthub), Google Hotel Ads, στοχευμένη διαφήμιση Google & Meta σε αγορές εξωτερικού (Γερμανία, Αγγλία, Γαλλία, Σκανδιναβία) και κίνητρα απευθείας κράτησης." }},
+    { "@type": "Question", "name": "Υποστηρίζετε διασύνδεση με WebHotelier, PrimalRes και Channel Managers (Beds24, Hosthub, Smoobu);",
+      "acceptedAnswer": { "@type": "Answer", "text": "Ναι. Ενσωματώνουμε απρόσκοπτα όλες τις κορυφαίες μηχανές κρατήσεων και Channel Managers (WebHotelier, PrimalRes, Beds24, Cloudbeds, Hosthub, Guesty, Smoobu) με πλήρες Google Analytics 4 (GA4) Cross-Domain eCommerce Tracking ώστε να μετράτε το ακριβές ROAS κάθε διαφημιστικής καμπάνιας." }},
+    { "@type": "Question", "name": "Πόσο κοστίζει το τουριστικό marketing για μια βίλα ή ξενοδοχείο στην Κρήτη;",
+      "acceptedAnswer": { "@type": "Answer", "text": "Εξαρτάται από τον αριθμό καταλυμάτων, τον στόχο (νέα custom ιστοσελίδα κρατήσεων, διαφήμιση Google/Meta, παραγωγή Drone/Reels ή πλήρες πακέτο 360°) και τις χώρες στόχευσης. Ζητήστε δωρεάν αξιολόγηση για εξατομικευμένη προσφορά." }},
+    { "@type": "Question", "name": "Αναλαμβάνετε και ξενοδοχειακές μονάδες, Rent a Car ή μόνο βίλες;",
+      "acceptedAnswer": { "@type": "Answer", "text": "Εξειδικευόμαστε σε πολυτελείς βίλες (Luxury Villas), boutique ξενοδοχεία, resort μονάδες, ενοικιαζόμενα δωμάτια (Airbnb), καθώς και επιχειρήσεις Rent a Car / Moto Rental, Yachting και Private Tours σε όλη την Κρήτη." }},
     { "@type": "Question", "name": "Τι διαφορά έχει το τουριστικό marketing από το γενικό digital marketing;",
-      "acceptedAnswer": { "@type": "Answer", "text": "Ο τουρισμός έχει έντονη εποχικότητα, διεθνές κοινό, μεγάλο κύκλο απόφασης (μήνες πριν την κράτηση) και ανταγωνισμό από OTA πλατφόρμες με τεράστια διαφημιστικά budget. Χρειάζεται στρατηγική που συνδυάζει branding, στοχευμένη διεθνή διαφήμιση και βελτιστοποιημένο booking funnel, ειδικά φτιαγμένη για αυτές τις ιδιαιτερότητες." }},
+      "acceptedAnswer": { "@type": "Answer", "text": "Ο τουρισμός στην Κρήτη έχει έντονη εποχικότητα, διεθνές κοινό από διαφορετικές αγορές (DACH, UK, Nordics, France), πρώιμο κύκλο απόφασης (Early Booking τον χειμώνα) και ανταγωνισμό από OTA πλατφόρμες. Χρειάζεται εξειδικευμένο hospitality funnel που συνδυάζει πολυγλωσσικό SEO, Google Hotel Ads, Meta Retargeting και υψηλής αισθητικής παραγωγή βίντεο/φωτογραφίας." }},
     { "@type": "Question", "name": "Πόσο νωρίς πρέπει να ξεκινήσω τη στρατηγική marketing πριν τη σεζόν;",
-      "acceptedAnswer": { "@type": "Answer", "text": "Ιδανικά 4-6 μήνες πριν, καθώς πολλοί ταξιδιώτες σχεδιάζουν και κλείνουν το κατάλυμά τους νωρίς. Η awareness καμπάνια τον χειμώνα χτίζει το κοινό που θα κάνει κράτηση την άνοιξη." }},
-    { "@type": "Question", "name": "Βοηθάτε το κατάλυμά μου να εμφανίζεται σε AI αναζητήσεις (ChatGPT, Google AI Overviews);",
-      "acceptedAnswer": { "@type": "Answer", "text": "Ναι. Όλο και περισσότεροι ταξιδιώτες ρωτούν AI εργαλεία για προτάσεις καταλυμάτων πριν καν ανοίξουν μια πλατφόρμα κράτησης. Εφαρμόζουμε structured data (Hotel/LodgingBusiness schema) και στρατηγική περιεχομένου ώστε το κατάλυμά σας να εμφανίζεται σε αυτές τις απαντήσεις." }}
+      "acceptedAnswer": { "@type": "Answer", "text": "Ιδανικά 4-6 μήνες πριν την έναρξη της σεζόν (Οκτώβριο - Ιανουάριο), ώστε να εκμεταλλευτείτε την περίοδο των Early Bookings από Γερμανία, Αγγλία και Σκανδιναβία με χαμηλότερο κόστος ανά κλικ (CPC) και υψηλότερη μέση διάρκεια διαμονής." }},
+    { "@type": "Question", "name": "Βοηθάτε το κατάλυμά μου να εμφανίζεται σε AI αναζητήσεις (ChatGPT, Google AI Overviews, Perplexity);",
+      "acceptedAnswer": { "@type": "Answer", "text": "Ναι. Εφαρμόζουμε Generative Engine Optimization (GEO) με εξειδικευμένο Hotel, VacationRental και LodgingBusiness Schema.org structured data, ώστε τα συστήματα AI να προτείνουν απευθείας το κατάλυμά σας σε ταξιδιώτες που αναζητούν διαμονή στην Κρήτη." }}
   ]
 };
 
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "serviceType": "Τουριστικό Marketing & Direct Booking Strategy",
+  "serviceType": "Τουριστικό Marketing, Προώθηση Ξενοδοχείων & Βιλών & Direct Booking Strategy",
   "provider": { "@id": "https://www.digiads.gr/#organization" },
   "areaServed": [
     { "@type": "AdministrativeArea", "name": "Κρήτη" },
     { "@type": "City", "name": "Ρέθυμνο" },
     { "@type": "City", "name": "Χανιά" },
-    { "@type": "City", "name": "Ηράκλειο" }
+    { "@type": "City", "name": "Ηράκλειο" },
+    { "@type": "City", "name": "Άγιος Νικόλαος" }
   ],
-  "description": "Ολοκληρωμένο τουριστικό digital marketing για βίλες, ξενοδοχεία και καταλύματα στην Κρήτη, με στόχο την αύξηση direct bookings και τη μείωση εξάρτησης από OTA πλατφόρμες.",
+  "description": "Ολοκληρωμένο τουριστικό digital marketing και κατασκευή ιστοσελίδων κρατήσεων για βίλες, ξενοδοχεία, καταλύματα και rent a car στην Κρήτη (Ρέθυμνο, Χανιά, Ηράκλειο, Λασίθι), με στόχο την αύξηση direct bookings και τη μείωση εξάρτησης από OTA πλατφόρμες.",
   "hasOfferCatalog": {
-    "@type": "OfferCatalog", "name": "Υπηρεσίες Tourism Marketing",
+    "@type": "OfferCatalog", "name": "Υπηρεσίες Tourism & Hospitality Marketing Κρήτη",
     "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Booking Engine Websites" }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Targeted Google & Meta Ads για Τουρισμό" }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Aesthetic Brand Image & Photography" }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Direct Booking Strategy & OTA Reduction" }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Search / GEO Optimization για Καταλύματα" }}
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Hotel & Villa Websites με Booking Engine (WebHotelier, PrimalRes, Beds24)" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Ads, Performance Max for Travel & Google Hotel Ads" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Meta Ads (Facebook/Instagram) & TikTok/Reels για Διεθνείς Αγορές (DE, UK, FR, Nordics)" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Φωτογράφιση Καταλυμάτων & Κινηματογραφικά Drone Videos Κρήτη" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Πολυγλωσσικό SEO, Local SEO (Google Maps) & AI Search (GEO) Optimization" }}
     ]
   }
 };
@@ -53,7 +56,7 @@ const breadcrumbSchema = {
   "@context": "https://schema.org", "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Αρχική", "item": "https://www.digiads.gr/" },
-    { "@type": "ListItem", "position": 2, "name": "Τουριστικό Marketing", "item": "https://www.digiads.gr/touristiko-marketing" }
+    { "@type": "ListItem", "position": 2, "name": "Τουριστικό Marketing Κρήτη", "item": "https://www.digiads.gr/touristiko-marketing" }
   ]
 };
 ---
@@ -72,71 +75,146 @@ const breadcrumbSchema = {
             
             {/* Massive Visual */}
             <div class="lg:col-span-7 relative group h-[50vh] lg:h-[80vh] w-full rounded-[2rem] overflow-hidden bg-[#0a0d16] border border-white/10 order-2 lg:order-1 shadow-2xl">
-                <img src="/visuals/tourism_luxury.png" alt="Luxury Villa Infinity Pool Crete Tourism" class="w-full h-full object-cover scale-[1.03] group-hover:scale-[1.08] transition-transform duration-[3s] ease-out origin-center" loading="eager" />
+                <img src="/visuals/tourism_luxury.png" alt="Τουριστικό Marketing Κρήτη - Προώθηση Πολυτελών Βιλών & Ξενοδοχείων" class="w-full h-full object-cover scale-[1.03] group-hover:scale-[1.08] transition-transform duration-[3s] ease-out origin-center" loading="eager" />
                 <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#1B1F3B]/90 via-[#1B1F3B]/40 to-transparent pointer-events-none"></div>
-                <div class="absolute top-8 right-8">
+                <div class="absolute top-8 right-8 flex flex-wrap gap-2">
                      <span class="px-4 py-2 bg-black/50 backdrop-blur-md text-white border border-white/20 rounded-full text-xs font-bold tracking-widest uppercase">
-                         5★ Premium Guest
+                         5★ Hospitality Growth
+                     </span>
+                     <span class="px-4 py-2 bg-[#FFBF00]/90 text-black rounded-full text-xs font-bold tracking-widest uppercase">
+                         0% OTA Προμήθεια
                      </span>
                 </div>
             </div>
 
             {/* Text Content */}
             <div class="lg:col-span-5 order-1 lg:order-2 lg:pl-10">
-                <span class="text-[#FFBF00] font-mono tracking-[0.2em] uppercase text-xs mb-6 inline-block font-bold">Direct Bookings Mastery</span>
-                <h1 class="text-4xl md:text-5xl lg:text-7xl font-black text-white font-montserrat tracking-tight leading-[1.1] mb-8">
-                    Τουριστικό<br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-[#FFBF00]">Marketing.</span>
+                <span class="text-[#FFBF00] font-mono tracking-[0.2em] uppercase text-xs mb-6 inline-block font-bold">Direct Bookings Mastery • Κρητη</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white font-montserrat tracking-tight leading-[1.1] mb-8">
+                    Τουριστικό Marketing & <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-[#FFBF00]">Προώθηση Καταλυμάτων.</span>
                 </h1>
-                <p class="text-lg text-slate-300 font-light leading-relaxed mb-10">
-                    Απελευθερωθείτε από τις εξοντωτικές προμήθειες (15-20%) των <strong>OTA πλατφορμών (Booking.com, Airbnb)</strong>. Αναλαμβάνουμε την πλήρη ψηφιακή ταυτότητα και προώθηση του καταλύματός σας στην Κρήτη, προσελκύοντας <strong>Direct Bookings</strong> από premium πελατολόγιο του εξωτερικού.
+                <p class="text-lg text-slate-300 font-light leading-relaxed mb-6">
+                    Απελευθερωθείτε από τις εξοντωτικές προμήθειες (15-20%) των <strong>OTA πλατφορμών (Booking.com, Airbnb, Expedia)</strong>. Σχεδιάζουμε ολοκληρωμένα οικοσυστήματα <strong>Direct Bookings</strong> για <strong>βίλες, ξενοδοχεία, καταλύματα και rent a car</strong> στο <strong>Ρέθυμνο, τα Χανιά, το Ηράκλειο και το Λασίθι</strong>.
                 </p>
+                <div class="flex flex-wrap gap-2 mb-8">
+                    <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-slate-300 font-mono">WebHotelier / PrimalRes / Beds24</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-slate-300 font-mono">Google Hotel Ads</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-slate-300 font-mono">Multi-Market PPC (DE • UK • FR)</span>
+                </div>
                 
-                <a href="/contact" class="px-8 py-4 bg-gradient-to-r from-[#FFBF00] to-[#FFD966] text-black font-bold rounded-full hover:scale-105 transition-transform shadow-[0_0_20px_rgba(255, 191, 0,0.3)] inline-block uppercase tracking-wider">
-                    ΞΕΚΙΝΑ ΤΟ GROWTH
-                </a>
+                <div class="flex flex-wrap gap-4">
+                    <a href="/contact" class="px-8 py-4 bg-gradient-to-r from-[#FFBF00] to-[#FFD966] text-black font-bold rounded-full hover:scale-105 transition-transform shadow-[0_0_20px_rgba(255, 191, 0,0.3)] inline-block uppercase tracking-wider text-sm">
+                        Ζητηστε Δωρεαν Μελετη Καταλυματος
+                    </a>
+                    <a href="/kataskevi-istoselidon" class="px-6 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/15 font-semibold rounded-full transition-colors inline-block text-sm">
+                        Κατασκευή Hotel & Villa Sites →
+                    </a>
+                </div>
             </div>
             
         </div>
     </section>
 
-    <!-- NEW SECTION 1: Service Cards (Upgraded from the 3 bullets) -->
+    <!-- SECTION 1: Service Cards -->
     <section class="py-24 bg-[#1B1F3B] relative border-t border-white/5 z-10">
         <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-black text-white font-montserrat text-center mb-16">Οι 3 Πυλώνες της Στρατηγικής μας</h2>
+            <h2 class="text-3xl md:text-4xl font-black text-white font-montserrat text-center mb-4">Οι 3 Πυλώνες της Hospitality Στρατηγικής μας</h2>
+            <p class="text-slate-400 text-center max-w-3xl mx-auto mb-16">Συνδυάζουμε την <a href="/kataskevi-istoselidon" class="text-[#FFBF00] hover:underline">κατασκευή ταχύτατων τουριστικών ιστοσελίδων</a> με στοχευμένη διαφήμιση στις αγορές του εξωτερικού και κινηματογραφική παραγωγή περιεχομένου.</p>
             <div class="grid lg:grid-cols-3 gap-8">
                 <!-- Service 1 -->
                 <div class="bg-[#14172E]/80 backdrop-blur-md p-10 rounded-3xl border border-white/5 hover:border-[#FFBF00]/30 transition-colors duration-500 group">
                     <div class="w-12 h-12 rounded-full border border-[#FFBF00]/30 flex items-center justify-center text-[#FFBF00] font-mono font-bold mb-6 group-hover:bg-[#FFBF00]/10 transition-colors">01</div>
                     <h3 class="text-2xl font-bold text-white mb-4">Custom Booking Engine Websites</h3>
-                    <p class="text-slate-400 leading-relaxed font-light">Μια <a href="/kataskevi-istoselidon" class="text-[#FFBF00] hover:underline">custom ιστοσελίδα</a> με ενσωματωμένη μηχανή κρατήσεων (booking engine), χτισμένη σε σύγχρονο framework για μέγιστη ταχύτητα. Ο επισκέπτης κλείνει σε λίγα κλικ, με απόλυτη ασφάλεια και <strong>χωρίς καμία προμήθεια</strong> πλατφόρμας.</p>
+                    <p class="text-slate-400 leading-relaxed font-light">Μια <a href="/kataskevi-istoselidon" class="text-[#FFBF00] hover:underline">custom τουριστική ιστοσελίδα</a> με ενσωματωμένη μηχανή κρατήσεων (WebHotelier, PrimalRes, Beds24, Hosthub), χτισμένη σε Next.js/Astro με <strong>100/100 ταχύτητα</strong>. Ο επισκέπτης κλείνει σε 3 κλικ από το κινητό του, με <strong>μηδενική προμήθεια</strong> μεσαζόντων.</p>
                 </div>
                 <!-- Service 2 -->
                 <div class="bg-[#14172E]/80 backdrop-blur-md p-10 rounded-3xl border border-white/5 hover:border-[#FFBF00]/30 transition-colors duration-500 group">
                     <div class="w-12 h-12 rounded-full border border-[#FFBF00]/30 flex items-center justify-center text-[#FFBF00] font-mono font-bold mb-6 group-hover:bg-[#FFBF00]/10 transition-colors">02</div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Targeted Google & Meta Ads</h3>
-                    <p class="text-slate-400 leading-relaxed font-light">Στοχευμένες καμπάνιες αναζήτησης (Google Ads) που πιάνουν τον ταξιδιώτη στη φάση σχεδιασμού του ταξιδιού του, σε συνδυασμό με <a href="/social-media/diafimisi-facebook-instagram" class="text-blue-400 hover:underline">retargeting σε Facebook & Instagram</a> για μέγιστη απήχηση και μετατροπή.</p>
+                    <h3 class="text-2xl font-bold text-white mb-4">Google Hotel Ads & International PPC</h3>
+                    <p class="text-slate-400 leading-relaxed font-light">Στοχευμένες καμπάνιες <a href="/digital-marketing/performance-marketing" class="text-[#FFBF00] hover:underline">Google Ads</a> & Performance Max σε ταξιδιώτες από Γερμανία, Αγγλία, Γαλλία και Σκανδιναβία, σε συνδυασμό με <strong>Google Hotel Ads</strong> και <a href="/social-media/diafimisi-facebook-instagram" class="text-blue-400 hover:underline">Meta Retargeting</a> για μέγιστο ROAS.</p>
                 </div>
                 <!-- Service 3 -->
                 <div class="bg-[#14172E]/80 backdrop-blur-md p-10 rounded-3xl border border-white/5 hover:border-[#FFBF00]/30 transition-colors duration-500 group">
                     <div class="w-12 h-12 rounded-full border border-[#FFBF00]/30 flex items-center justify-center text-[#FFBF00] font-mono font-bold mb-6 group-hover:bg-[#FFBF00]/10 transition-colors">03</div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Aesthetic Brand Image</h3>
-                    <p class="text-slate-400 leading-relaxed font-light">Επαγγελματική φωτογράφιση, <a href="/photo-services/drone-services" class="text-[#FFBF00] hover:underline">drone βίντεο</a>, <a href="/social-media/tiktok-reels" class="text-[#FFBF00] hover:underline">viral short-form content</a> και <a href="/social-media/influencer-marketing" class="text-[#FFBF00] hover:underline">Influencer & Content Creator συνεργασίες</a> που μεταφέρουν την πολυτέλεια και την εμπειρία του καταλύματός σας πριν καν φτάσει ο επισκέπτης.</p>>
+                    <h3 class="text-2xl font-bold text-white mb-4">Luxury Visuals, Drone & Reels</h3>
+                    <p class="text-slate-400 leading-relaxed font-light">Αρχιτεκτονική φωτογράφιση, <a href="/photo-services/drone-services" class="text-[#FFBF00] hover:underline">κινηματογραφικά drone βίντεο</a>, <a href="/social-media/tiktok-reels" class="text-[#FFBF00] hover:underline">TikTok & Instagram Reels</a> και <a href="/social-media/influencer-marketing" class="text-[#FFBF00] hover:underline">Travel Creators</a> που μεταφέρουν την αυθεντική εμπειρία της κρητικής φιλοξενίας πριν καν φτάσει ο επισκέπτης.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- NEW SECTION 2: Γιατί Direct Bookings (Comparison) -->
+    <!-- NEW COMPETITIVE ADVANTAGE SECTION: Channel Manager, PMS & International Feeder Markets -->
+    <section class="py-24 bg-[#14172E]/60 relative border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <!-- Tech & Booking Integrations -->
+                <div class="bg-[#1B1F3B] p-8 md:p-10 rounded-3xl border border-white/10">
+                    <span class="text-[#FFBF00] font-mono text-xs uppercase tracking-widest block mb-3">Hospitality Tech Stack</span>
+                    <h2 class="text-2xl md:text-3xl font-black text-white font-montserrat mb-4">
+                        Πλήρης Διασύνδεση με Μηχανές Κρατήσεων & Channel Managers
+                    </h2>
+                    <p class="text-slate-300 font-light leading-relaxed mb-6">
+                        Το μεγαλύτερο πρόβλημα στις τουριστικές ιστοσελίδες στην Κρήτη είναι ότι «χάνουν» τον επισκέπτη τη στιγμή που πατάει <em>Book Now</em> ή δεν μετρούν σωστά ποιες διαφημίσεις φέρνουν πραγματικό τζίρο. Στη DIGIADS υλοποιούμε:
+                    </p>
+                    <ul class="space-y-3 text-slate-300 text-sm">
+                        <li class="flex items-start gap-3">
+                            <span class="text-[#FFBF00] font-bold mt-0.5">✓</span>
+                            <span><strong>Seamless Booking Engine Integration:</strong> WebHotelier, PrimalRes, Beds24, Hosthub, Cloudbeds, Smoobu, Guesty & Custom WooCommerce/Direct Engines με Stripe/Viva/Τράπεζες.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-[#FFBF00] font-bold mt-0.5">✓</span>
+                            <span><strong>Cross-Domain GA4 & Conversion API Tracking:</strong> Παρακολουθούμε την κράτηση ακόμα κι αν ολοκληρώνεται σε εξωτερικό domain (π.χ. <code>reserve-online.net</code>), τροφοδοτώντας τους αλγορίθμους της Google & της Meta με το ακριβές ποσό κράτησης σε ευρώ.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-[#FFBF00] font-bold mt-0.5">✓</span>
+                            <span><strong>Google Hotel Ads & Free Booking Links:</strong> Εμφανίζουμε την επίσημη ιστοσελίδα σας απευθείας στο Google Maps & Google Travel δίπλα στην Booking.com με ένδειξη <em>«Επίσημος Ιστότοπος - Καλύτερη Τιμή»</em>.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- International Feeder Markets -->
+                <div class="bg-[#1B1F3B] p-8 md:p-10 rounded-3xl border border-white/10">
+                    <span class="text-[#FFBF00] font-mono text-xs uppercase tracking-widest block mb-3">Διεθνης Στοχευση & Πολυγλωσσικο SEO</span>
+                    <h2 class="text-2xl md:text-3xl font-black text-white font-montserrat mb-4">
+                        Προσέλκυση Ταξιδιωτών Υψηλής Αξίας (High-ADR) από το Εξωτερικό
+                    </h2>
+                    <p class="text-slate-300 font-light leading-relaxed mb-6">
+                        Δεν σπαταλάμε το διαφημιστικό σας budget σε γενικές καμπάνιες. Στοχεύουμε χειρουργικά στις βασικές αγορές τροφοδοσίας (Feeder Markets) της Κρήτης, προσαρμόζοντας τα μηνύματα, τη γλώσσα και την περίοδο κράτησης:
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                        <div class="p-4 rounded-2xl bg-[#14172E] border border-white/5">
+                            <div class="font-bold text-white mb-1">🇩🇪 🇦🇹 🇨🇭 Αγορά DACH</div>
+                            <p class="text-xs text-slate-400">Ισχυρά Early Bookings (Νοέμβριος–Μάρτιος), μεγάλη διάρκεια διαμονής (7–14 διανυκτερεύσεις) & SEO στα Γερμανικά.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-[#14172E] border border-white/5">
+                            <div class="font-bold text-white mb-1">🇬🇧 Ηνωμένο Βασίλειο</div>
+                            <p class="text-xs text-slate-400">Υψηλή ζήτηση για Luxury Villas με ιδιωτική πισίνα σε Ρέθυμνο, Χανιά & Ελούντα με υψηλό Average Daily Rate (ADR).</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-[#14172E] border border-white/5">
+                            <div class="font-bold text-white mb-1">🇫🇷 🇧🇪 Γαλλία & Benelux</div>
+                            <p class="text-xs text-slate-400">Έμφαση στην αυθεντική κρητική γαστρονομία, boutique ξενοδοχεία και πολιτιστικό/φυσιολατρικό τουρισμό.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-[#14172E] border border-white/5">
+                            <div class="font-bold text-white mb-1">🇸🇪 🇳🇴 🇩🇰 Σκανδιναβία & ΗΠΑ</div>
+                            <p class="text-xs text-slate-400">Ταξιδιώτες υψηλού εισοδήματος που κλείνουν απευθείας από mobile συσκευές όταν η ιστοσελίδα εμπνέει απόλυτη εμπιστοσύνη.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Γιατί Direct Bookings (Comparison) -->
     <section class="py-24 bg-[#1B1F3B] relative border-t border-white/5">
         <div class="max-w-5xl mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div class="prose prose-invert prose-lg prose-headings:font-montserrat leading-[1.7]">
                     <h2 class="text-3xl font-bold text-white mb-6">Γιατί οι Direct Bookings Αλλάζουν τα Οικονομικά του Καταλύματός σας</h2>
                     <p class="text-slate-300 font-light">
-                        Κάθε κράτηση μέσω <strong>Booking.com ή Airbnb</strong> σας κοστίζει 15-20% σε προμήθεια. Πολλαπλασιάστε το σε μια ολόκληρη σεζόν και μιλάμε για δεκάδες χιλιάδες ευρώ που θα μπορούσαν να μείνουν καθαρό κέρδος στο κατάλυμά σας.
+                        Κάθε κράτηση μέσω <strong>Booking.com ή Airbnb</strong> σας κοστίζει 15-20% σε προμήθεια (συν επιπλέον προμήθειες για προγράμματα Genius / Preferred Partner). Πολλαπλασιάστε το σε μια ολόκληρη σεζόν στην Κρήτη και μιλάμε για δεκάδες χιλιάδες ευρώ που θα μπορούσαν να μείνουν καθαρό κέρδος στην επιχείρησή σας.
                     </p>
                     <p class="text-slate-300 font-light mt-4">
-                        Πέρα από το οικονομικό όφελος, οι <strong>direct κρατήσεις</strong> σας δίνουν την απόλυτη ιδιοκτησία της σχέσης με τον επισκέπτη — πραγματικά στοιχεία επικοινωνίας, δυνατότητα επαναπροσέγγισης (email marketing), και πλήρη έλεγχο στην τιμολόγηση χωρίς τους αυστηρούς περιορισμούς των OTA (Online Travel Agencies). <a href="/blog/direct-bookings" class="text-[#FFBF00] hover:underline">Διαβάστε τον αναλυτικό οδηγό μας</a>.
+                        Πέρα από το οικονομικό όφελος, οι <strong>direct κρατήσεις</strong> σας δίνουν την απόλυτη ιδιοκτησία της σχέσης με τον επισκέπτη — πραγματικά στοιχεία επικοινωνίας, δυνατότητα επαναπροσέγγισης (<a href="/blog/email-marketing" class="text-[#FFBF00] hover:underline">email marketing</a> για repeat guests), upselling υπηρεσιών (transfers, εκδρομές, ενοικίαση αυτοκινήτου) και πλήρη έλεγχο στην τιμολόγηση. <a href="/blog/direct-bookings" class="text-[#FFBF00] hover:underline">Διαβάστε τον αναλυτικό οδηγό μας</a>.
                     </p>
                 </div>
                 
@@ -149,7 +227,7 @@ const breadcrumbSchema = {
                         <div>
                             <div class="flex justify-between text-sm mb-2 font-mono">
                                 <span class="text-slate-400">Μέσω OTA (Booking/Airbnb)</span>
-                                <span class="text-red-400 font-bold">~80%</span>
+                                <span class="text-red-400 font-bold">~78-82%</span>
                             </div>
                             <div class="h-3 w-full bg-white/5 rounded-full overflow-hidden flex">
                                 <div class="h-full bg-red-500/80 w-[80%] rounded-l-full"></div>
@@ -177,10 +255,10 @@ const breadcrumbSchema = {
         </div>
     </section>
 
-    <!-- NEW SECTION 3: Process -->
+    <!-- SECTION 3: Process -->
     <section class="py-24 bg-[#1B1F3B] relative border-t border-white/5">
         <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-black text-white font-montserrat text-center mb-16">Η Στρατηγική μας για το Κατάλυμά σας</h2>
+            <h2 class="text-3xl md:text-4xl font-black text-white font-montserrat text-center mb-16">Η Στρατηγική μας σε 4 Βήματα</h2>
             
             <div class="space-y-8">
                 <!-- Step 1 -->
@@ -190,8 +268,8 @@ const breadcrumbSchema = {
                         <div class="w-[1px] h-full bg-gradient-to-b from-white/10 to-transparent mt-4 group-hover:from-[#FFBF00]/50 transition-colors"></div>
                     </div>
                     <div class="pb-10 pt-2">
-                        <h3 class="text-2xl font-bold text-white mb-3">Ανάλυση & Θέση στην Αγορά</h3>
-                        <p class="text-slate-400 font-light leading-relaxed">Μελετάμε σε βάθος το κατάλυμα, τον άμεσο ανταγωνισμό στην περιοχή (π.χ. <a href="/blog/local-seo-rethymno" class="text-blue-400 hover:underline">Ρέθυμνο ή Χανιά</a>) και το ιδανικό προφίλ του επισκέπτη σας (ideal guest persona).</p>
+                        <h3 class="text-2xl font-bold text-white mb-3">Ανάλυση Ανταγωνισμού & Τοποθέτηση (Positioning)</h3>
+                        <p class="text-slate-400 font-light leading-relaxed">Μελετάμε σε βάθος το κατάλυμα, την τιμολογιακή πολιτική, τον άμεσο ανταγωνισμό στην περιοχή σας (π.χ. <a href="/digital-marketing/seo-local-seo" class="text-blue-400 hover:underline">Local SEO σε Ρέθυμνο, Χανιά, Ηράκλειο ή Ελούντα</a>) και το ιδανικό προφίλ του επισκέπτη σας (ideal guest persona).</p>
                     </div>
                 </div>
                 <!-- Step 2 -->
@@ -201,8 +279,8 @@ const breadcrumbSchema = {
                         <div class="w-[1px] h-full bg-gradient-to-b from-white/10 to-transparent mt-4 group-hover:from-[#FFBF00]/50 transition-colors"></div>
                     </div>
                     <div class="pb-10 pt-2">
-                        <h3 class="text-2xl font-bold text-white mb-3">Ψηφιακή Ταυτότητα</h3>
-                        <p class="text-slate-400 font-light leading-relaxed">Κατασκευή custom ιστοσελίδας, επαγγελματική φωτογράφιση και δημιουργία ενός luxury brand image που αντικατοπτρίζει την πραγματική 5-star εμπειρία του καταλύματος.</p>
+                        <h3 class="text-2xl font-bold text-white mb-3">Custom Ιστοσελίδα Κρατήσεων & Παραγωγή Υλικού</h3>
+                        <p class="text-slate-400 font-light leading-relaxed"><a href="/kataskevi-istoselidon" class="text-[#FFBF00] hover:underline">Κατασκευή ταχύτατης ιστοσελίδας</a> με ενσωματωμένο Booking Engine, επαγγελματική φωτογράφιση, drone λήψεις και δημιουργία ενός luxury brand image που δικαιολογεί υψηλότερη τιμή διανυκτέρευσης.</p>
                     </div>
                 </div>
                 <!-- Step 3 -->
@@ -212,8 +290,8 @@ const breadcrumbSchema = {
                         <div class="w-[1px] h-full bg-gradient-to-b from-white/10 to-transparent mt-4 group-hover:from-[#FFBF00]/50 transition-colors"></div>
                     </div>
                     <div class="pb-10 pt-2">
-                        <h3 class="text-2xl font-bold text-white mb-3">Στοχευμένη Προβολή</h3>
-                        <p class="text-slate-400 font-light leading-relaxed">Google Ads, Meta Ads και οργανικό social content σε στοχευμένο διεθνές κοινό, τη στιγμή ακριβώς που βρίσκονται στη φάση του ταξιδιωτικού τους σχεδιασμού.</p>
+                        <h3 class="text-2xl font-bold text-white mb-3">Διεθνείς Καμπάνιες Google Ads, Meta & SEO</h3>
+                        <p class="text-slate-400 font-light leading-relaxed">Εκτέλεση πολυγλωσσικών καμπανιών Google Search, Performance Max for Travel Goals, Meta Ads και οργανικού SEO (<a href="/blog/seo-guide-hotels-crete" class="text-[#FFBF00] hover:underline">δείτε τον οδηγό SEO για ξενοδοχεία στην Κρήτη</a>) ώστε να βρίσκεστε μπροστά στον ταξιδιώτη σε κάθε στάδιο της έρευνάς του.</p>
                     </div>
                 </div>
                 <!-- Step 4 -->
@@ -222,74 +300,76 @@ const breadcrumbSchema = {
                         <div class="w-12 h-12 rounded-full border border-[#FFBF00] bg-[#FFBF00]/10 flex items-center justify-center text-[#FFBF00] font-mono font-bold shadow-[0_0_15px_rgba(255, 191, 0,0.3)] z-10">4</div>
                     </div>
                     <div class="pt-2">
-                        <h3 class="text-2xl font-bold text-white mb-3">Βελτιστοποίηση & Επαναλαμβανόμενες Κρατήσεις</h3>
-                        <p class="text-slate-400 font-light leading-relaxed">Email marketing, retargeting list building και data analysis για συνεχή αύξηση του direct booking rate χρόνο με τον χρόνο.</p>
+                        <h3 class="text-2xl font-bold text-white mb-3">Βελτιστοποίηση ROAS & Επαναλαμβανόμενες Κρατήσεις</h3>
+                        <p class="text-slate-400 font-light leading-relaxed">Αυτοματοποιημένο Email Marketing πριν και μετά τη διαμονή, συλλογή κριτικών 5★ στο Google Business Profile και συνεχής βελτιστοποίηση του κόστους απόκτησης κράτησης (CPA).</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- NEW SECTION 4: AI Search Ready (Competitive Advantage) -->
+    <!-- SECTION 4: AI Search Ready (Competitive Advantage) -->
     <section class="py-20 bg-gradient-to-b from-[#1B1F3B] to-[#1B1F3B] relative border-t border-white/5 overflow-hidden">
-        <div class="absolute right-0 top-1/2 -translate-y-1/2 opacity-5 pointer-events-none text-white">
-            <svg class="w-96 h-96" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-        </div>
-        
         <div class="max-w-4xl mx-auto px-6 relative z-10">
             <div class="flex items-center gap-4 mb-6">
                 <span class="px-3 py-1 rounded-full border border-[#FFBF00]/30 bg-[#FFBF00]/10 text-[#FFBF00] text-xs font-mono font-bold tracking-widest uppercase">GEO Optimization</span>
                 <span class="px-3 py-1 rounded-full border border-[#FFBF00]/30 bg-[#FFBF00]/10 text-[#FFBF00] text-xs font-mono font-bold tracking-widest uppercase">AI-Search Ready</span>
             </div>
             
-            <h2 class="text-3xl font-bold text-white mb-6">Ορατότητα στην Εποχή του AI Search</h2>
+            <h2 class="text-3xl font-bold text-white mb-6">Ορατότητα Καταλυμάτων στην Εποχή του AI Search (ChatGPT, Gemini, AI Overviews)</h2>
             <div class="prose prose-invert prose-lg font-light leading-[1.8] text-slate-300">
                 <p>
-                    Ο τρόπος που οι ταξιδιώτες αναζητούν κατάλυμα αλλάζει. Όλο και περισσότεροι ρωτούν <strong>AI εργαλεία (ChatGPT, Google AI Overviews, Gemini)</strong> με prompts όπως <em>«ποιο είναι το καλύτερο boutique κατάλυμα στο Ρέθυμνο με πισίνα;»</em> πριν καν ανοίξουν το Booking.com ή το Google Search.
+                    Ο τρόπος που οι Ευρωπαίοι και Αμερικανοί ταξιδιώτες αναζητούν διαμονή στην Κρήτη αλλάζει ριζικά. Όλο και περισσότεροι ρωτούν <strong>AI εργαλεία (ChatGPT, Google AI Overviews, Perplexity, Gemini)</strong> με ερωτήματα όπως <em>«ποια είναι η καλύτερη luxury βίλα στο Ρέθυμνο με θερμαινόμενη πισίνα κοντά στη θάλασσα;»</em> πριν καν ανοίξουν το Booking.com.
                 </p>
                 <p>
-                    Στη DIGIADS, δεν μένουμε στο παραδοσιακό SEO. Εφαρμόζουμε <strong>Generative Engine Optimization (GEO)</strong>. Ενσωματώνουμε εξειδικευμένο <code>Hotel/LodgingBusiness structured data (Schema.org)</code> και AI-readable metadata (όπως το <code>meta-llm-opt</code> tag) στον κώδικα της ιστοσελίδας σας. 
-                </p>
-                <p>
-                    Αυτή η τεχνολογική υποδομή διασφαλίζει ότι τα Μεγάλα Γλωσσικά Μοντέλα (LLMs) μπορούν να «διαβάσουν» και να προτείνουν τη δική σας βίλα ή ξενοδοχείο στις απαντήσεις τους. Είναι ένα κρίσιμο τεχνολογικό πλεονέκτημα που ελάχιστα agencies στην Ελλάδα προσφέρουν σήμερα.
+                    Στη DIGIADS εφαρμόζουμε <strong>Generative Engine Optimization (GEO)</strong>. Ενσωματώνουμε εξειδικευμένο <code>Hotel / VacationRental / LodgingBusiness Schema.org</code> (παροχές, συντεταγμένες, πολιτικές, κριτικές, εύρος τιμών) και δομημένο πολυγλωσσικό περιεχόμενο, ώστε τα Μεγάλα Γλωσσικά Μοντέλα (LLMs) να προτείνουν απευθείας τη δική σας ιστοσελίδα.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- NEW SECTION 5: Property Types -->
+    <!-- SECTION 5: Property & Tourism Business Types + Local Crete Silo -->
     <section class="py-24 bg-[#1B1F3B] relative border-t border-white/5">
         <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-black text-white font-montserrat text-center mb-16">Εξειδίκευση σε Κάθε Τύπο Καταλύματος</h2>
+            <h2 class="text-3xl md:text-4xl font-black text-white font-montserrat text-center mb-16">Εξειδίκευση σε Κάθε Τουριστική Επιχείρηση στην Κρήτη</h2>
             
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
                 <!-- Luxury Villas -->
-                <div class="group cursor-pointer">
-                    <div class="h-64 w-full rounded-[2rem] overflow-hidden mb-6 bg-[#0a0d16] border border-white/5">
-                        <img src="/visuals/tourism_luxury.png" alt="Luxury Villa Marketing Crete" class="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" loading="lazy" />
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-3">Πολυτελείς Βίλες</h3>
-                    <p class="text-slate-400 font-light leading-relaxed">Premium positioning για αυτόνομες βίλες με πισίνα, προβάλλοντας την ιδιωτικότητα, τις παροχές και την υψηλή αξία ανά διανυκτέρευση (High ADR).</p>
+                <div class="bg-[#14172E]/80 p-7 rounded-3xl border border-white/5 hover:border-[#FFBF00]/30 transition-all">
+                    <h3 class="text-xl font-bold text-white mb-3">Πολυτελείς Βίλες (Luxury Villas)</h3>
+                    <p class="text-slate-400 text-sm font-light leading-relaxed">Premium positioning για αυτόνομες βίλες και συγκροτήματα βιλών με πισίνα, εστιάζοντας στην αύξηση του Average Daily Rate (ADR) και στην επιμήκυνση της σεζόν (Απρίλιος–Νοέμβριος).</p>
                 </div>
                 
                 <!-- Boutique Hotels -->
-                <div class="group cursor-pointer">
-                    <div class="h-64 w-full rounded-[2rem] overflow-hidden mb-6 bg-[#0a0d16] border border-white/5 relative flex items-center justify-center">
-                        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-[#0a0d16]"></div>
-                        <svg class="w-16 h-16 text-[#FFBF00]/30 group-hover:text-[#FFBF00]/60 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-3">Boutique Ξενοδοχεία</h3>
-                    <p class="text-slate-400 font-light leading-relaxed">Ολοκληρωμένη ψηφιακή ταυτότητα και ισχυρή μηχανή κρατήσεων (booking engine) για μικρές, στοχευμένες και design-oriented μονάδες.</p>
+                <div class="bg-[#14172E]/80 p-7 rounded-3xl border border-white/5 hover:border-[#FFBF00]/30 transition-all">
+                    <h3 class="text-xl font-bold text-white mb-3">Boutique & Resort Ξενοδοχεία</h3>
+                    <p class="text-slate-400 text-sm font-light leading-relaxed">Ολοκληρωμένη ψηφιακή ταυτότητα, σύνδεση με PMS/WebHotelier, Google Hotel Ads και καμπάνιες Performance Max που μειώνουν το μερίδιο των OTA υπέρ των απευθείας κρατήσεων.</p>
                 </div>
                 
                 <!-- Rooms & Airbnb -->
-                <div class="group cursor-pointer">
-                    <div class="h-64 w-full rounded-[2rem] overflow-hidden mb-6 bg-[#0a0d16] border border-white/5 relative flex items-center justify-center">
-                        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-[#0a0d16]"></div>
-                        <svg class="w-16 h-16 text-[#FFBF00]/30 group-hover:text-[#FFBF00]/60 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-3">Ενοικιαζόμενα Δωμάτια</h3>
-                    <p class="text-slate-400 font-light leading-relaxed">Στρατηγική προβολής και σταδιακής μείωσης της απόλυτης εξάρτησης από τις πλατφόρμες (Airbnb marketing), προσαρμοσμένη στο budget μικρότερων καταλυμάτων.</p>
+                <div class="bg-[#14172E]/80 p-7 rounded-3xl border border-white/5 hover:border-[#FFBF00]/30 transition-all">
+                    <h3 class="text-xl font-bold text-white mb-3">Καταλύματα Airbnb & Διαμερίσματα</h3>
+                    <p class="text-slate-400 text-sm font-light leading-relaxed">Δημιουργία αυτόνομου brand και direct booking ιστοσελίδας με συγχρονισμό ημερολογίων (Channel Manager / iCal / Hosthub) ώστε να χτίσετε δικό σας επαναλαμβανόμενο πελατολόγιο.</p>
+                </div>
+
+                <!-- Rent a Car & Experiences -->
+                <div class="bg-[#14172E]/80 p-7 rounded-3xl border border-white/5 hover:border-[#FFBF00]/30 transition-all">
+                    <h3 class="text-xl font-bold text-white mb-3">Rent a Car, Yachting & Εκδρομές</h3>
+                    <p class="text-slate-400 text-sm font-light leading-relaxed"><a href="/kataskevi-istoselidon" class="text-[#FFBF00] hover:underline">Custom συστήματα online κράτησης στόλου</a> (αυτοκίνητα, μηχανές, σκάφη, transfers & private tours) με δυναμική τιμολόγηση ανά περίοδο και Google Ads στα αεροδρόμια/λιμάνια Κρήτης.</p>
+                </div>
+            </div>
+
+            <!-- Local SEO Coverage Across Crete -->
+            <div class="bg-[#14172E]/50 border border-white/5 rounded-3xl p-8 md:p-10">
+                <h3 class="text-xl md:text-2xl font-bold text-white mb-4">Τοπική Γνώση & Κάλυψη σε Όλη την Κρήτη</h3>
+                <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                    Με έδρα το <strong>Ρέθυμνο</strong>, γνωρίζουμε από πρώτο χέρι τη γεωγραφία, την εποχικότητα και τις ιδιαιτερότητες κάθε τουριστικής ζώνης του νησιού. Υλοποιούμε στοχευμένες καμπάνιες και φωτογραφίσεις/drone παραγωγές σε:
+                </p>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs text-slate-400">
+                    <div><strong class="text-[#FFBF00] block mb-1">Νομός Ρεθύμνου:</strong> Πόλη Ρεθύμνου, Πλακιάς, Αγία Γαλήνη, Μπαλί, Πάνορμο, Αδελιανός Κάμπος, Πλατανιάς, Αρκάδι & Νότιο Ρέθυμνο.</div>
+                    <div><strong class="text-[#FFBF00] block mb-1">Νομός Χανίων:</strong> Πόλη Χανίων, Πλατανιάς, Αγία Μαρίνα, Αποκόρωνας (Αλμυρίδα, Καλύβες, Γεωργιούπολη), Κίσαμος, Φαλάσαρνα, Ελαφονήσι, Παλαιόχωρα & Σφακιά.</div>
+                    <div><strong class="text-[#FFBF00] block mb-1">Νομός Ηρακλείου:</strong> Ηράκλειο, Χερσόνησος, Αγία Πελαγία, Μάλια, Γούβες, Κοκκίνη Χάνι, Μάταλα, Καλαμάκι & Αγίασμα.</div>
+                    <div><strong class="text-[#FFBF00] block mb-1">Νομός Λασιθίου:</strong> Άγιος Νικόλαος, Ελούντα, Πλάκα, Ιεράπετρα, Μακρύ Γιαλός & Σητεία.</div>
                 </div>
             </div>
         </div>
@@ -298,31 +378,31 @@ const breadcrumbSchema = {
     <!-- FAQ Section -->
     <section class="py-24 bg-[#1B1F3B] relative border-t border-white/5">
         <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-black text-white font-montserrat mb-12 text-center">Συχνές Ερωτήσεις (FAQ)</h2>
+            <h2 class="text-3xl md:text-4xl font-black text-white font-montserrat mb-12 text-center">Συχνές Ερωτήσεις για το Τουριστικό Marketing (FAQ)</h2>
             <div class="space-y-6">
                 <div class="bg-[#14172E]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-[#FFBF00]/30 transition-colors">
                     <h3 class="text-xl font-bold text-white mb-3">Πώς μπορώ να μειώσω την εξάρτηση από Booking.com και Airbnb;</h3>
-                    <p class="text-slate-400 font-light">Χτίζοντας ένα ισχυρό direct booking κανάλι: γρήγορη ιστοσελίδα με ενσωματωμένη μηχανή κρατήσεων, στοχευμένη διαφήμιση Google & Meta, και κίνητρα (καλύτερη τιμή, extras) που ωθούν τον επισκέπτη να κλείσει απευθείας αντί μέσω πλατφόρμας.</p>
+                    <p class="text-slate-400 font-light">Χτίζοντας ένα ισχυρό direct booking κανάλι: γρήγορη ιστοσελίδα με ενσωματωμένη μηχανή κρατήσεων, Google Hotel Ads, στοχευμένη διαφήμιση Google & Meta σε αγορές εξωτερικού και κίνητρα (καλύτερη τιμή, δωρεάν παροχές/late check-out) που ωθούν τον επισκέπτη να κλείσει απευθείας από το επίσημο site σας.</p>
+                </div>
+                <div class="bg-[#14172E]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-[#FFBF00]/30 transition-colors">
+                    <h3 class="text-xl font-bold text-white mb-3">Υποστηρίζετε διασύνδεση με WebHotelier, PrimalRes και Channel Managers (Beds24, Hosthub, Smoobu);</h3>
+                    <p class="text-slate-400 font-light">Ναι. Ενσωματώνουμε όλες τις κορυφαίες μηχανές κρατήσεων και Channel Managers (WebHotelier, PrimalRes, Beds24, Cloudbeds, Hosthub, Guesty, Smoobu) με πλήρες Google Analytics 4 (GA4) Cross-Domain eCommerce Tracking ώστε να μετράτε με ακρίβεια ευρώ το ROAS κάθε καμπάνιας.</p>
                 </div>
                 <div class="bg-[#14172E]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-[#FFBF00]/30 transition-colors">
                     <h3 class="text-xl font-bold text-white mb-3">Πόσο κοστίζει το τουριστικό marketing για μια βίλα ή ξενοδοχείο;</h3>
                     <p class="text-slate-400 font-light">Εξαρτάται από τον αριθμό καταλυμάτων, τον στόχο (νέα ιστοσελίδα, διαφήμιση, ή πλήρες πακέτο) και το επίπεδο διεθνούς στόχευσης. Ζητήστε δωρεάν αξιολόγηση για εξατομικευμένη προσφορά βάσει του καταλύματός σας.</p>
                 </div>
                 <div class="bg-[#14172E]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-[#FFBF00]/30 transition-colors">
-                    <h3 class="text-xl font-bold text-white mb-3">Αναλαμβάνετε και ξενοδοχειακές μονάδες, όχι μόνο βίλες;</h3>
-                    <p class="text-slate-400 font-light">Ναι. Εξειδικευόμαστε σε boutique ξενοδοχεία, πολυτελείς βίλες, ενοικιαζόμενα δωμάτια και καταλύματα Airbnb, με στρατηγική προσαρμοσμένη στην κλίμακα και το προφίλ φιλοξενούμενων κάθε μονάδας.</p>
-                </div>
-                <div class="bg-[#14172E]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-[#FFBF00]/30 transition-colors">
-                    <h3 class="text-xl font-bold text-white mb-3">Τι διαφορά έχει το τουριστικό marketing από το γενικό digital marketing;</h3>
-                    <p class="text-slate-400 font-light">Ο τουρισμός έχει έντονη εποχικότητα, διεθνές κοινό, μεγάλο κύκλο απόφασης (μήνες πριν την κράτηση) και ανταγωνισμό από OTA πλατφόρμες με τεράστια διαφημιστικά budget. Χρειάζεται στρατηγική που συνδυάζει branding, στοχευμένη διεθνή διαφήμιση και βελτιστοποιημένο booking funnel, ειδικά φτιαγμένη για αυτές τις ιδιαιτερότητες.</p>
+                    <h3 class="text-xl font-bold text-white mb-3">Αναλαμβάνετε και ξενοδοχειακές μονάδες ή Rent a Car, όχι μόνο βίλες;</h3>
+                    <p class="text-slate-400 font-light">Ναι. Εξειδικευόμαστε σε boutique ξενοδοχεία, πολυτελείς βίλες, ενοικιαζόμενα δωμάτια (Airbnb), καθώς και γραφεία Rent a Car / Moto Rental και εταιρείες Yachting / Εκδρομών σε όλη την Κρήτη.</p>
                 </div>
                 <div class="bg-[#14172E]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-[#FFBF00]/30 transition-colors">
                     <h3 class="text-xl font-bold text-white mb-3">Πόσο νωρίς πρέπει να ξεκινήσω τη στρατηγική marketing πριν τη σεζόν;</h3>
-                    <p class="text-slate-400 font-light">Ιδανικά 4-6 μήνες πριν, καθώς πολλοί ταξιδιώτες σχεδιάζουν και κλείνουν το κατάλυμά τους νωρίς. Η awareness καμπάνια τον χειμώνα χτίζει το κοινό που θα κάνει κράτηση την άνοιξη.</p>
+                    <p class="text-slate-400 font-light">Ιδανικά 4-6 μήνες πριν (Οκτώβριο - Ιανουάριο), ώστε να κερδίσετε τα Early Bookings από Γερμανία, Αγγλία και Σκανδιναβία με χαμηλότερο κόστος διαφήμισης και μεγαλύτερη μέση διάρκεια διαμονής.</p>
                 </div>
                 <div class="bg-[#14172E]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-[#FFBF00]/30 transition-colors">
                     <h3 class="text-xl font-bold text-white mb-3">Βοηθάτε το κατάλυμά μου να εμφανίζεται σε AI αναζητήσεις (ChatGPT, Google AI Overviews);</h3>
-                    <p class="text-slate-400 font-light">Ναι. Όλο και περισσότεροι ταξιδιώτες ρωτούν AI εργαλεία για προτάσεις καταλυμάτων πριν καν ανοίξουν μια πλατφόρμα κράτησης. Εφαρμόζουμε structured data (Hotel/LodgingBusiness schema) και στρατηγική περιεχομένου ώστε το κατάλυμά σας να εμφανίζεται σε αυτές τις απαντήσεις.</p>
+                    <p class="text-slate-400 font-light">Ναι. Εφαρμόζουμε structured data (Hotel / VacationRental / LodgingBusiness Schema) και στρατηγική περιεχομένου (GEO) ώστε το κατάλυμά σας να προτείνεται στις απαντήσεις των AI μηχανών αναζήτησης.</p>
                 </div>
             </div>
         </div>

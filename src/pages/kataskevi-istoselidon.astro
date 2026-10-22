@@ -5,48 +5,49 @@ import Footer from '../components/Astro/Footer.astro';
 import SiteAuditor from '../components/React/SiteAuditor';
 import TechShowcase from '../components/React/TechShowcase';
 
-const title = "Κατασκευή Ιστοσελίδων & E-shop Κρήτη | Web Design Ρέθυμνο | DIGIADS";
-const description = "Custom κατασκευή ιστοσελίδων & e-shop στην Κρήτη (Ρέθυμνο, Χανιά, Ηράκλειο). 100/100 ταχύτητα σε Next.js/Astro. Δημιουργία ιστοσελίδας που πουλάει. Ζητήστε προσφορά!";
+const title = "Κατασκευή Ιστοσελίδων Ρέθυμνο & Κρήτη | Κατασκευή E-shop & Ξενοδοχειακών Sites | DIGIADS";
+const description = "Custom κατασκευή ιστοσελίδων & e-shop στο Ρέθυμνο και σε όλη την Κρήτη (Χανιά, Ηράκλειο, Άγιος Νικόλαος). 100/100 ταχύτητα Google PageSpeed, ιστοσελίδες ξενοδοχείων, βιλών, rent a car & προδιαγραφές ΕΣΠΑ WCAG 2.1 AA.";
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "Πόσο κοστίζει η κατασκευή ιστοσελίδας;",
-      "acceptedAnswer": { "@type": "Answer", "text": "Το κόστος εξαρτάται από τον τύπο (εταιρική παρουσίαση ή e-shop) και τις λειτουργίες. Μια custom εταιρική ιστοσελίδα ξεκινά από ανταγωνιστικό πάγιο, ενώ τα e-shop κοστολογούνται βάσει διασυνδέσεων (ERP, τράπεζες) και αριθμού προϊόντων. Ζητήστε δωρεάν, χωρίς δέσμευση προσφορά." }},
+    { "@type": "Question", "name": "Πόσο κοστίζει η κατασκευή ιστοσελίδας ή e-shop στην Κρήτη;",
+      "acceptedAnswer": { "@type": "Answer", "text": "Το κόστος εξαρτάται από τον τύπο (εταιρική ιστοσελίδα, τουριστικό site με μηχανή κρατήσεων ή e-shop) και τις απαιτήσεις. Κάθε έργο κοστολογείται με διαφάνεια βάσει των λειτουργιών, των διασυνδέσεων (ERP, τράπεζες, Channel Manager) και των γλωσσών. Ζητήστε δωρεάν προσφορά χωρίς δέσμευση." }},
     { "@type": "Question", "name": "Πόσος χρόνος χρειάζεται για την κατασκευή μιας ιστοσελίδας;",
-      "acceptedAnswer": { "@type": "Answer", "text": "Μια εταιρική ιστοσελίδα ολοκληρώνεται σε 15-20 εργάσιμες ημέρες, ενώ ένα e-shop απαιτεί 30-45 ημέρες ανάλογα με την πολυπλοκότητα των διασυνδέσεων (ERP, τράπεζες)." }},
+      "acceptedAnswer": { "@type": "Answer", "text": "Μια custom εταιρική ή τουριστική ιστοσελίδα ολοκληρώνεται σε 15-20 εργάσιμες ημέρες, ενώ ένα πλήρες e-shop ή custom web application απαιτεί 30-45 ημέρες ανάλογα με τις διασυνδέσεις (ERP, XML προμηθευτών, τράπεζες)." }},
+    { "@type": "Question", "name": "Αναλαμβάνετε κατασκευή ιστοσελίδων μέσω προγραμμάτων ΕΣΠΑ και με πρότυπο ΑμεΑ WCAG 2.1 AA;",
+      "acceptedAnswer": { "@type": "Answer", "text": "Ναι. Κατασκευάζουμε ιστοσελίδες και e-shop που πληρούν 100% τις τεχνικές προδιαγραφές των προγραμμάτων ΕΣΠΑ (Ψηφιακός Μετασχηματισμός ΜμΕ, Ενίσχυση Τουριστικών Επιχειρήσεων), συμπεριλαμβανομένης της πιστοποιημένης προσβασιμότητας ΑμεΑ κατά το πρότυπο WCAG 2.1 Επίπεδο AA και της πολυγλωσσικής υποστήριξης." }},
     { "@type": "Question", "name": "Οι ιστοσελίδες σας βγαίνουν στην πρώτη σελίδα της Google;",
-      "acceptedAnswer": { "@type": "Answer", "text": "Χτίζουμε σε Next.js και Astro με δείκτες Core Web Vitals 100/100, δίνοντας τεράστιο προβάδισμα έναντι ανταγωνισμού που χρησιμοποιεί WordPress." }},
-    { "@type": "Question", "name": "Τι διαφορά έχει το custom web design από ένα έτοιμο template;",
-      "acceptedAnswer": { "@type": "Answer", "text": "Ένα custom-built site σχεδιάζεται αποκλειστικά για την ταυτότητα και τους στόχους σας, με ανώτερη ταχύτητα, ασφάλεια και SEO. Τα έτοιμα templates είναι φθηνότερα αλλά κοινότυπα, πιο αργά και δύσκολα ξεχωρίζουν στη Google." }},
-    { "@type": "Question", "name": "Κατασκευάζετε e-shop με σύνδεση σε ERP και τράπεζες;",
-      "acceptedAnswer": { "@type": "Answer", "text": "Ναι. Υλοποιούμε πλήρεις διασυνδέσεις με ERP, τραπεζικά gateways, Viva/Stripe, IRIS, PayPal και μεταφορικές (ACS, Speedex) για αυτοματοποιημένη λειτουργία." }},
-    { "@type": "Question", "name": "Αναλαμβάνετε projects εκτός Κρήτης;",
-      "acceptedAnswer": { "@type": "Answer", "text": "Ναι. Με έδρα το Ρέθυμνο, αναλαμβάνουμε projects υψηλών προδιαγραφών σε όλη την Ελλάδα και το εξωτερικό." }}
+      "acceptedAnswer": { "@type": "Answer", "text": "Χτίζουμε σε Next.js και Astro ( αλλά και σε βελτιστοποιημένο custom WordPress/WooCommerce όπου απαιτείται) εξασφαλίζοντας δείκτες Core Web Vitals έως 100/100, δομή H1-H3, JSON-LD Schema.org και AI Search (GEO) βελτιστοποίηση που δίνουν τεράστιο προβάδισμα έναντι του τοπικού ανταγωνισμού." }},
+    { "@type": "Question", "name": "Αναλαμβάνετε ανακατασκευή (redesign) παλιάς ιστοσελίδας WordPress χωρίς απώλεια SEO;",
+      "acceptedAnswer": { "@type": "Answer", "text": "Ναι. Αναλαμβάνουμε την πλήρη ανακατασκευή και αναβάθμιση παλαιών ιστοσελίδων με χαρτογράφηση 301 redirects, διατήρηση και ενίσχυση των οργανικών κατατάξεων στη Google και πολλαπλασιασμό της ταχύτητας φόρτωσης." }},
+    { "@type": "Question", "name": "Κατασκευάζετε e-shop με σύνδεση σε ERP, Skroutz/BestPrice και ελληνικές τράπεζες;",
+      "acceptedAnswer": { "@type": "Answer", "text": "Ναι. Υλοποιούμε πλήρεις διασυνδέσεις με ERP (Soft1, Epsilon, Pylon, Entersoft), αυτόματα XML feeds για Skroutz και BestPrice, τραπεζικά gateways (Eurobank, Πειραιώς, Alpha, Εθνική), Stripe, Viva Wallet, IRIS και εταιρείες courier (ACS, Speedex, Γενική Ταχυδρομική, Box Now)." }}
   ]
 };
 
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "serviceType": "Κατασκευή Ιστοσελίδων & E-shop",
+  "serviceType": "Κατασκευή Ιστοσελίδων, E-shop & Τουριστικών Websites",
   "provider": { "@id": "https://www.digiads.gr/#organization" },
   "areaServed": [
     { "@type": "City", "name": "Ρέθυμνο" },
     { "@type": "City", "name": "Χανιά" },
     { "@type": "City", "name": "Ηράκλειο" },
+    { "@type": "City", "name": "Άγιος Νικόλαος" },
     { "@type": "AdministrativeArea", "name": "Κρήτη" }
   ],
-  "description": "Custom κατασκευή ιστοσελίδων και e-shop με Next.js/Astro, 100/100 Lighthouse, στο Ρέθυμνο και σε όλη την Κρήτη.",
+  "description": "Custom κατασκευή ιστοσελίδων, e-shop και τουριστικών ιστοσελίδων κρατήσεων με Next.js/Astro (100/100 Lighthouse) και εξειδικευμένο WordPress/WooCommerce, στο Ρέθυμνο και σε όλη την Κρήτη.",
   "hasOfferCatalog": {
-    "@type": "OfferCatalog", "name": "Υπηρεσίες Web Development",
+    "@type": "OfferCatalog", "name": "Υπηρεσίες Web Development Κρήτη",
     "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Κατασκευή Εταιρικής Ιστοσελίδας" }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Κατασκευή E-shop / Ηλεκτρονικού Καταστήματος" }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Web Application" }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ιστοσελίδες για Ξενοδοχεία & Βίλες" }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ιστοσελίδες για Rent a Car" }}
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Κατασκευή Ιστοσελίδων Ξενοδοχείων, Βιλών & Καταλυμάτων (Direct Booking)" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Κατασκευή Εταιρικής Ιστοσελίδας (Corporate Web Design)" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Κατασκευή E-shop με σύνδεση ERP, Τραπεζών & Skroutz/BestPrice" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ιστοσελίδες για Rent a Car, Moto Rental & Εκδρομές" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ιστοσελίδες ΕΣΠΑ & Πρότυπο Προσβασιμότητας ΑμεΑ WCAG 2.1 AA" }}
     ]
   }
 };
@@ -75,27 +76,30 @@ const breadcrumbSchema = {
         </div>
 
         <div class="max-w-5xl mx-auto px-6 relative z-10 text-center">
-            <span class="text-[#FFBF00] font-mono tracking-[0.2em] uppercase text-sm mb-6 inline-block">Web Design Agency Crete</span>
+            <span class="text-[#FFBF00] font-mono tracking-[0.2em] uppercase text-sm mb-6 inline-block">Web Design & Development Agency • Ρεθυμνο, Κρητη</span>
             
             <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white font-montserrat tracking-tight leading-tight mb-6">
-                Κατασκευή Ιστοσελίδων & <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FFBF00] to-[#FFBF00]">E-shop</span>
+                Κατασκευή Ιστοσελίδων & <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FFBF00] to-[#FFD966]">E-shop στην Κρήτη</span>
             </h1>
 
             <!-- Tech Badges -->
             <div class="flex flex-wrap justify-center gap-3 mb-8">
-                <span class="px-4 py-1.5 rounded-full border border-[#FFBF00]/30 bg-[#FFBF00]/5 text-[#FFBF00] text-xs font-mono font-bold tracking-wide backdrop-blur-sm">Next.js</span>
-                <span class="px-4 py-1.5 rounded-full border border-[#FFBF00]/30 bg-[#FFBF00]/5 text-[#FFBF00] text-xs font-mono font-bold tracking-wide backdrop-blur-sm">Astro</span>
-                <span class="px-4 py-1.5 rounded-full border border-[#FFBF00]/30 bg-[#FFBF00]/5 text-green-400 text-xs font-mono font-bold tracking-wide backdrop-blur-sm">100/100 Lighthouse</span>
-                <span class="px-4 py-1.5 rounded-full border border-white/20 bg-white/5 text-slate-300 text-xs font-mono font-bold tracking-wide backdrop-blur-sm">Serverless</span>
+                <span class="px-4 py-1.5 rounded-full border border-[#FFBF00]/30 bg-[#FFBF00]/5 text-[#FFBF00] text-xs font-mono font-bold tracking-wide backdrop-blur-sm">Next.js & Astro</span>
+                <span class="px-4 py-1.5 rounded-full border border-[#FFBF00]/30 bg-[#FFBF00]/5 text-green-400 text-xs font-mono font-bold tracking-wide backdrop-blur-sm">100/100 Google PageSpeed</span>
+                <span class="px-4 py-1.5 rounded-full border border-white/20 bg-white/5 text-slate-300 text-xs font-mono font-bold tracking-wide backdrop-blur-sm">Hotel & Villa Booking Sites</span>
+                <span class="px-4 py-1.5 rounded-full border border-white/20 bg-white/5 text-slate-300 text-xs font-mono font-bold tracking-wide backdrop-blur-sm">ΕΣΠΑ & WCAG 2.1 AA Ready</span>
             </div>
             
             <h2 class="text-xl md:text-2xl text-slate-300 font-light max-w-3xl mx-auto leading-relaxed mb-10">
-                Δεν φτιάχνουμε απλώς site. Χτίζουμε <strong>ταχύτατα ψηφιακά περιουσιακά στοιχεία (assets)</strong> με 100/100 ταχύτητα που μετατρέπουν τους επισκέπτες σε πελάτες στο Ρέθυμνο, τα Χανιά και σε όλη την Ελλάδα.
+                Δεν φτιάχνουμε απλώς «όμορφες βιτρίνες». Κατασκευάζουμε <strong>ταχύτατες μηχανές κρατήσεων και πωλήσεων</strong> με 100/100 απόδοση στη Google για επιχειρήσεις, ξενοδοχεία, βίλες και e-shop στο <strong>Ρέθυμνο, τα Χανιά, το Ηράκλειο</strong> και σε όλη την Ελλάδα.
             </h2>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                  <a href="/contact" class="px-8 py-4 bg-[#FFBF00] text-black rounded-full font-bold uppercase tracking-wider hover:bg-white hover:shadow-[0_0_30px_rgba(255, 191, 0,0.4)] transition-all duration-300 hover:-translate-y-1">
-                    Ζητηστε Προσφορα
+                    Ζητηστε Δωρεαν Προσφορα
+                 </a>
+                 <a href="/touristiko-marketing" class="px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/15 rounded-full font-semibold transition-all duration-300">
+                    Τουριστικές Ιστοσελίδες & Direct Bookings →
                  </a>
             </div>
         </div>
@@ -110,25 +114,140 @@ const breadcrumbSchema = {
                     <div class="w-12 h-12 mb-6 rounded-2xl bg-[#FFBF00]/10 flex items-center justify-center text-[#FFBF00] group-hover:scale-110 transition-transform">
                         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Εκρηκτική Ταχύτητα</h3>
-                    <p class="text-slate-400 leading-relaxed">Χρησιμοποιούμε τεχνολογίες αιχμής όπως React, Next.js και Astro. Το e-shop ή η ιστοσελίδα σας φορτώνει σε χιλιοστά του δευτερολέπτου, προστατεύοντας τα rankings σας στη Google.</p>
+                    <h3 class="text-2xl font-bold text-white mb-4">Εκρηκτική Ταχύτητα (100/100)</h3>
+                    <p class="text-slate-400 leading-relaxed">Χρησιμοποιούμε αρχιτεκτονική Next.js, Astro και βελτιστοποιημένο custom κώδικα. Η ιστοσελίδα ή το e-shop σας φορτώνει σε λιγότερο από 0.5 δευτερόλεπτα, μειώνοντας το κόστος διαφήμισης (CPC) και ανεβάζοντας τα οργανικά rankings στη Google.</p>
                 </div>
                 <!-- Feature 2 -->
                 <div class="bg-[#14172E]/80 backdrop-blur-lg p-8 rounded-3xl border border-[#FFBF00]/15 hover:border-[#FFBF00]/50 hover:-translate-y-2 hover:shadow-[0_10px_40px_-10px_rgba(255, 191, 0,0.2)] transition-all duration-300 group">
                     <div class="w-12 h-12 mb-6 rounded-2xl bg-[#FFBF00]/10 flex items-center justify-center text-[#FFBF00] group-hover:scale-110 transition-transform">
                         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Responsive Web Design</h3>
-                    <p class="text-slate-400 leading-relaxed">Άψογη εμπειρία (Mobile First) σε κινητά και tablet. Η πλειοψηφία των πωλήσεων γίνεται από smartphones, ειδικά στον Τουρισμό της Κρήτης και το λιανεμπόριο.</p>
+                    <h3 class="text-2xl font-bold text-white mb-4">Mobile-First Conversion Design</h3>
+                    <p class="text-slate-400 leading-relaxed">Πάνω από το 78% των κρατήσεων στον τουρισμό της Κρήτης και των αγορών σε e-shop γίνεται από κινητό. Σχεδιάζουμε κάθε οθόνη με γνώμονα την ευκολία πλοήγησης και την άμεση ολοκλήρωση κράτησης ή αγοράς.</p>
                 </div>
                 <!-- Feature 3 -->
                 <div class="bg-[#14172E]/80 backdrop-blur-lg p-8 rounded-3xl border border-[#FFBF00]/15 hover:border-[#FFBF00]/50 hover:-translate-y-2 hover:shadow-[0_10px_40px_-10px_rgba(34,197,94,0.2)] transition-all duration-300 group">
                     <div class="w-12 h-12 mb-6 rounded-2xl bg-[#FFBF00]/10 flex items-center justify-center text-green-400 group-hover:scale-110 transition-transform">
                         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">SEO & Core Web Vitals</h3>
-                    <p class="text-slate-400 leading-relaxed">Custom κατασκευή που τηρεί αυστηρά τα κριτήρια της Google. Σωστή δομή H1/H2, JSON-LD Schema markup και βελτιστοποίηση εικόνων από την πρώτη μέρα.</p>
+                    <h3 class="text-2xl font-bold text-white mb-4">Τεχνικό SEO & AI Search (GEO)</h3>
+                    <p class="text-slate-400 leading-relaxed">Κάθε ιστοσελίδα παραδίδεται με πλήρη υποδομή <a href="/digital-marketing/seo-local-seo" class="text-[#FFBF00] hover:underline">SEO & Local SEO</a>: σημασιολογική δομή H1-H3, JSON-LD Schema markup, αυτόματα sitemaps και βελτιστοποίηση για ChatGPT & Google AI Overviews.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Τύποι Ιστοσελίδων (Expanded with Tourism & ESPA) -->
+    <section class="py-24 bg-[#1B1F3B] border-t border-white/5 relative z-10">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-black text-white font-montserrat mb-6">Εξειδικευμένες Λύσεις Κατασκευής Ιστοσελίδων</h2>
+                <p class="text-slate-400 text-lg max-w-3xl mx-auto">Από την κατασκευή τουριστικής ιστοσελίδας με μηχανή κρατήσεων μέχρι σύνθετα B2C/B2B e-shop, σχεδιάζουμε την ιδανική λύση για τον κλάδο σας.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Type 1: Hotels & Villas (Highlighted) -->
+                <div class="bg-[#14172E] p-8 rounded-3xl border-2 border-[#FFBF00]/40 hover:border-[#FFBF00] hover:-translate-y-1 transition-all duration-300 relative">
+                    <span class="absolute top-4 right-4 text-[10px] font-mono uppercase px-2.5 py-1 rounded-full bg-[#FFBF00]/20 text-[#FFBF00] font-bold">High Demand • Κρητη</span>
+                    <h3 class="text-2xl font-bold text-white mb-3 mt-2">Ξενοδοχεία, Luxury Βίλες & Καταλύματα</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Custom ιστοσελίδες υψηλής αισθητικής με ενσωματωμένο <strong>Booking Engine (WebHotelier, PrimalRes, Beds24, Hosthub)</strong>, πολυγλωσσική υποστήριξη (EN, DE, FR) και στρατηγική <a href="/touristiko-marketing" class="text-[#FFBF00] hover:underline">αύξησης Direct Bookings</a> χωρίς προμήθειες OTA.
+                    </p>
+                </div>
+
+                <!-- Type 2: Rent a Car & Tours -->
+                <div class="bg-[#14172E]/80 p-8 rounded-3xl border border-[#FFBF00]/15 hover:border-[#FFBF00]/40 hover:-translate-y-1 transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-white mb-3 mt-2">Rent a Car, Moto & Yachting</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Ολοκληρωμένα συστήματα online κράτησης στόλου οχημάτων, μοτοσυκλετών, σκαφών και εκδρομών στην Κρήτη. Περιλαμβάνουν τιμοκαταλόγους ανά σεζόν (Low/Mid/High), επιλογή τοποθεσίας παράδοσης (Αεροδρόμιο Χανίων/Ηρακλείου, Ρέθυμνο), extras και online πληρωμή.
+                    </p>
+                </div>
+
+                <!-- Type 3: E-shop -->
+                <div class="bg-[#14172E]/80 p-8 rounded-3xl border border-[#FFBF00]/15 hover:border-[#FFBF00]/40 hover:-translate-y-1 transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-white mb-3 mt-2">Κατασκευή E-shop (B2C & B2B)</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        <strong>Κατασκευή ηλεκτρονικού καταστήματος</strong> με ταχύτατο one-page checkout, σύνδεση με <strong>ERP (Soft1, Epsilon, Pylon, Entersoft)</strong>, αυτόματα XML για <strong>Skroutz & BestPrice</strong>, πληρωμές με κάρτα/IRIS/Klarna και αυτόματη έκδοση voucher courier (ACS, Speedex, Box Now).
+                    </p>
+                </div>
+
+                <!-- Type 4: Corporate -->
+                <div class="bg-[#14172E]/80 p-8 rounded-3xl border border-[#FFBF00]/15 hover:border-[#FFBF00]/40 hover:-translate-y-1 transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-white mb-3 mt-2">Εταιρικές Ιστοσελίδες Κύρους</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Για τεχνικές εταιρείες, ιατρεία, δικηγορικά γραφεία, λογιστές, μεσιτικά γραφεία (Real Estate Κρήτη) και B2B επιχειρήσεις που απαιτούν κορυφαία εταιρική εικόνα, ταχύτητα 100/100 και συνεχή ροή ποιοτικών leads.
+                    </p>
+                </div>
+
+                <!-- Type 5: ESPA & WCAG -->
+                <div class="bg-[#14172E]/80 p-8 rounded-3xl border border-[#FFBF00]/15 hover:border-[#FFBF00]/40 hover:-translate-y-1 transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-white mb-3 mt-2">Ιστοσελίδες ΕΣΠΑ & Πρότυπο ΑμεΑ (WCAG 2.1 AA)</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Πλήρης συμμόρφωση με όλες τις προδιαγραφές επιδοτούμενων προγραμμάτων <strong>ΕΣΠΑ (Ψηφιακός Μετασχηματισμός ΜμΕ & Τουρισμού)</strong>, πιστοποιημένη προσβασιμότητα ΑμεΑ κατά <strong>WCAG 2.1 Επίπεδο AA</strong> και πολυγλωσσικό περιβάλλον.
+                    </p>
+                </div>
+
+                <!-- Type 6: Redesign & Custom Apps -->
+                <div class="bg-[#14172E]/80 p-8 rounded-3xl border border-[#FFBF00]/15 hover:border-[#FFBF00]/40 hover:-translate-y-1 transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-white mb-3 mt-2">Ανακατασκευή (Redesign) & Web Apps</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Μετατρέπουμε παλιές, αργές ιστοσελίδες WordPress σε σύγχρονα, ασφαλή και ταχύτατα ψηφιακά συστήματα με πλήρη διατήρηση του SEO (301 redirects), ή αναπτύσσουμε custom B2B portals και AI εργαλεία.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW COMPETITIVE COMPARISON TABLE: DIGIADS vs Traditional WordPress Agencies -->
+    <section class="py-24 bg-[#14172E]/60 border-t border-white/5 relative z-10">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <span class="text-[#FFBF00] font-mono text-xs uppercase tracking-widest block mb-2">Γιατι Ξεχωριζουμε στην Κρητη</span>
+                <h2 class="text-3xl md:text-4xl font-black text-white font-montserrat mb-4">
+                    Custom Αρχιτεκτονική DIGIADS vs Κοινά Έτοιμα Templates
+                </h2>
+                <p class="text-slate-400 max-w-2xl mx-auto text-sm md:text-base">
+                    Δείτε γιατί οι επιχειρήσεις σε Ρέθυμνο, Χανιά και Ηράκλειο επιλέγουν τη DIGIADS αντί για ένα τυποποιημένο, αργό template:
+                </p>
+            </div>
+
+            <div class="overflow-x-auto rounded-3xl border border-white/10 bg-[#1B1F3B] shadow-2xl">
+                <table class="w-full text-left border-collapse text-sm">
+                    <thead>
+                        <tr class="border-b border-white/10 bg-[#14172E]">
+                            <th class="p-5 text-slate-300 font-semibold">Κριτήριο Απόδοσης</th>
+                            <th class="p-5 text-[#FFBF00] font-bold">DIGIADS Custom (Next.js / Astro / Pro Stack)</th>
+                            <th class="p-5 text-slate-400 font-semibold">Τυπικό Έτοιμο Template Ανταγωνισμού</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/5 text-slate-300">
+                        <tr>
+                            <td class="p-5 font-medium text-white">Χρόνος Φόρτωσης σε Κινητό</td>
+                            <td class="p-5 text-emerald-400 font-bold">⚡ 0.3 – 0.6 δευτερόλεπτα (Ακαριαίο)</td>
+                            <td class="p-5 text-slate-400">3.5 – 6.5+ δευτερόλεπτα</td>
+                        </tr>
+                        <tr>
+                            <td class="p-5 font-medium text-white">Google PageSpeed / Core Web Vitals</td>
+                            <td class="p-5 text-emerald-400 font-bold">✓ 95 – 100 / 100</td>
+                            <td class="p-5 text-slate-400">40 – 65 / 100 (λόγω 20+ βαριών plugins)</td>
+                        </tr>
+                        <tr>
+                            <td class="p-5 font-medium text-white">Ασφάλεια & Σταθερότητα</td>
+                            <td class="p-5 text-emerald-400 font-bold">✓ Απόλυτη προστασία χωρίς ευπάθειες plugins</td>
+                            <td class="p-5 text-slate-400">Συχνά προβλήματα μετά από updates / κίνδυνος κακόβουλου κώδικα</td>
+                        </tr>
+                        <tr>
+                            <td class="p-5 font-medium text-white">SEO & AI Search (ChatGPT / Google AI)</td>
+                            <td class="p-5 text-emerald-400 font-bold">✓ Native JSON-LD Schema, Local SEO & GEO Ready</td>
+                            <td class="p-5 text-slate-400">Βασική εγκατάσταση ενός δωρεάν plugin χωρίς στρατηγική</td>
+                        </tr>
+                        <tr>
+                            <td class="p-5 font-medium text-white">Απόδοση Διαφημίσεων (Google / Meta Ads)</td>
+                            <td class="p-5 text-emerald-400 font-bold">✓ Υψηλό Quality Score & χαμηλότερο κόστος ανά κλικ</td>
+                            <td class="p-5 text-slate-400">Υψηλή εγκατάλειψη επισκεπτών πριν καν ανοίξει η σελίδα</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
@@ -136,85 +255,24 @@ const breadcrumbSchema = {
     <!-- Content Silo: Text-Heavy Section for Local SEO -->
     <section class="py-24 bg-[#1B1F3B]">
         <div class="max-w-4xl mx-auto px-6 prose prose-invert prose-lg prose-headings:font-montserrat leading-[1.7]">
-            <h2 class="text-3xl font-bold text-white mb-6">Η Νο#1 Εταιρεία Κατασκευής Ιστοσελίδων στην Κρήτη</h2>
+            <h2 class="text-3xl font-bold text-white mb-6">Η Κορυφαία Εταιρεία Κατασκευής Ιστοσελίδων στο Ρέθυμνο & την Κρήτη</h2>
             <p class="text-slate-300 mb-8">
-                Η παρουσία σας στο διαδίκτυο δεν είναι απλώς μια 'βιτρίνα'. Στη DIGIADS αντιμετωπίζουμε το <strong>custom web design</strong> ως δημιουργία ενός μηχανισμού πωλήσεων που συνδυάζεται άψογα με τη <a href="/digital-marketing/performance-marketing" class="text-[#FFBF00] underline hover:text-white transition-colors">διαφήμιση Google Ads</a>. Με έδρα το <strong>Ρέθυμνο</strong>, εξυπηρετούμε κορυφαίες επιχειρήσεις στα <strong>Χανιά, το Ηράκλειο</strong> και διαχειριζόμαστε projects (ξενοδοχεία, βίλες, rent a car, e-commerce) σε όλη την Ελλάδα. Ειδικά στον τουριστικό τομέα, αναλαμβάνουμε ολοκληρωμένο <a href="/touristiko-marketing" class="text-[#FFBF00] underline hover:text-white transition-colors">τουριστικό marketing για ξενοδοχεία</a> και βίλες.
+                Η παρουσία σας στο διαδίκτυο είναι ο πιο αποδοτικός πωλητής της επιχείρησής σας. Στη DIGIADS αντιμετωπίζουμε την <strong>κατασκευή ιστοσελίδων</strong> ως δημιουργία ενός ολοκληρωμένου μηχανισμού πωλήσεων που συνδυάζεται άψογα με το <a href="/digital-marketing/seo-local-seo" class="text-[#FFBF00] underline hover:text-white transition-colors">SEO</a> και τη <a href="/digital-marketing/performance-marketing" class="text-[#FFBF00] underline hover:text-white transition-colors">διαφήμιση Google Ads</a>. Με φυσική έδρα στην <strong>Κολοκοτρώνη 34 στο Ρέθυμνο</strong>, εξυπηρετούμε επιχειρήσεις σε <strong>Ρέθυμνο, Χανιά, Ηράκλειο και Άγιο Νικόλαο</strong>, ενώ υλοποιούμε projects σε όλη την Ελλάδα και το εξωτερικό. Ειδικά στον τουριστικό κλάδο, προσφέρουμε εξειδικευμένο <a href="/touristiko-marketing" class="text-[#FFBF00] underline hover:text-white transition-colors">τουριστικό marketing για ξενοδοχεία και βίλες</a>.
             </p>
 
-            <h2 class="text-3xl font-bold text-white mb-6 mt-12">Κατασκευή E-shop στο Ρέθυμνο & σε όλη την Κρήτη</h2>
+            <h2 class="text-3xl font-bold text-white mb-6 mt-12">Κατασκευή E-shop με Αυτοματοποιήσεις ERP & Skroutz/BestPrice</h2>
             <p class="text-slate-300 mb-6">
-                Η <strong>κατασκευή ηλεκτρονικού καταστήματος (e-shop)</strong> είναι μαθηματικά και User Experience (UX). Σχεδιάζουμε τη διαδρομή του πελάτη (funnel) βήμα-βήμα, μειώνοντας το cart abandonment rate και αυξάνοντας το Average Order Value (AOV). Δείτε τον <a href="/blog/kataskevi-eshop" class="text-[#FFBF00] underline hover:text-white transition-colors">αναλυτικό μας οδηγό για κατασκευή e-shop</a>.
+                Η <strong>κατασκευή ηλεκτρονικού καταστήματος (e-shop)</strong> απαιτεί ταχύτητα, μηδενικές τριβές στο ταμείο (checkout) και αυτοματοποίηση της καθημερινής σας λειτουργίας. Σχεδιάζουμε τη διαδρομή του πελάτη βήμα-βήμα, μειώνοντας τα εγκαταλελειμμένα καλάθια (abandoned carts) και αυξάνοντας τη μέση αξία παραγγελίας (AOV). Δείτε τον <a href="/blog/kataskevi-eshop" class="text-[#FFBF00] underline hover:text-white transition-colors">αναλυτικό οδηγό κατασκευής e-shop</a> και πώς διαμορφώνεται το <a href="/blog/poso-kostizei-kataskevi-istoselidas" class="text-[#FFBF00] underline hover:text-white transition-colors">κόστος κατασκευής ιστοσελίδας</a>.
             </p>
             <ul class="text-slate-300 space-y-3 mb-12 list-none pl-0">
-                <li class="flex items-center gap-3"><svg class="w-5 h-5 text-[#FFBF00] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Υποστήριξη πολλαπλών τρόπων πληρωμής (Πιστωτική, PayPal, Stripe, IRIS)</li>
-                <li class="flex items-center gap-3"><svg class="w-5 h-5 text-[#FFBF00] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Διασύνδεση με ERP (Soft1, Epsilon, Pylon) και μεταφορικές εταιρείες (Speedex, ACS)</li>
-                <li class="flex items-center gap-3"><svg class="w-5 h-5 text-[#FFBF00] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Full SEO Optimization σε Κατηγορίες και Προϊόντα, ακολουθώντας τον <a href="/blog/seo-odigos-google" class="text-[#FFBF00] underline hover:text-white transition-colors ml-1">πλήρη οδηγό SEO της Google</a>.</li>
+                <li class="flex items-center gap-3"><svg class="w-5 h-5 text-[#FFBF00] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Όλοι οι σύγχρονοι τρόποι πληρωμής: Ελληνικές Τράπεζες (Eurobank, Πειραιώς, Alpha, Εθνική), Stripe, Viva Wallet, IRIS, Apple Pay, Google Pay & Klarna (άτοκες δόσεις)</li>
+                <li class="flex items-center gap-3"><svg class="w-5 h-5 text-[#FFBF00] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Αμφίδρομη διασύνδεση με ERP (Soft1, Epsilon, Pylon, Entersoft), XML προμηθευτών & μεταφορικές (ACS, Speedex, Γενική Ταχυδρομική, Box Now)</li>
+                <li class="flex items-center gap-3"><svg class="w-5 h-5 text-[#FFBF00] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Full SEO Optimization σε Κατηγορίες, Φίλτρα και Προϊόντα σύμφωνα με τον <a href="/blog/seo-odigos-google" class="text-[#FFBF00] underline hover:text-white transition-colors ml-1">πλήρη οδηγό SEO της Google</a>.</li>
             </ul>
         </div>
     </section>
 
-    <!-- NEW SECTION 1: Τύποι Ιστοσελίδων -->
-    <section class="py-24 bg-[#1B1F3B] border-t border-white/5 relative z-10">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-black text-white font-montserrat mb-6">Τι Είδους Ιστοσελίδα Χρειάζεστε;</h2>
-                <p class="text-slate-400 text-lg max-w-3xl mx-auto">Κάθε επιχείρηση έχει διαφορετικές ανάγκες. Από την <strong>δημιουργία ιστοσελίδας</strong> παρουσίασης μέχρι το πλήρες <strong>ηλεκτρονικό κατάστημα</strong>, σχεδιάζουμε τη σωστή λύση για τον στόχο σας.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6">
-                <!-- Type 1 -->
-                <div class="bg-[#14172E]/80 backdrop-blur-lg p-8 rounded-3xl border border-[#FFBF00]/15 hover:border-[#FFBF00]/40 hover:-translate-y-1 transition-all duration-300">
-                    <div class="w-12 h-12 mb-5 rounded-xl bg-[#FFBF00]/10 flex items-center justify-center text-blue-400">
-                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-3">Εταιρική Ιστοσελίδα (Corporate)</h3>
-                    <p class="text-slate-400 leading-relaxed">Η ψηφιακή σας ταυτότητα. Ιδανική για επαγγελματίες και επιχειρήσεις που θέλουν κύρος, αξιοπιστία και σταθερή ροή leads. Custom <strong>σχεδιασμός ιστοσελίδας</strong>, άψογο responsive design και τεχνικό SEO από την πρώτη μέρα.</p>
-                </div>
-                <!-- Type 2 -->
-                <div class="bg-[#14172E]/80 backdrop-blur-lg p-8 rounded-3xl border border-[#FFBF00]/15 hover:border-[#FFBF00]/40 hover:-translate-y-1 transition-all duration-300">
-                    <div class="w-12 h-12 mb-5 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400">
-                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-3">Κατασκευή E-shop</h3>
-                    <p class="text-slate-400 leading-relaxed">Πουλήστε online 24/7. <strong>Κατασκευή ηλεκτρονικού καταστήματος</strong> με έμφαση στο conversion: γρήγορο checkout, ασφαλείς πληρωμές και βελτιστοποίηση για μέγιστες πωλήσεις. <a href="/blog/poso-kostizei-kataskevi-istoselidas" class="text-[#FFBF00] hover:underline">Δείτε πώς διαμορφώνεται το κόστος.</a></p>
-                </div>
-                <!-- Type 3 -->
-                <div class="bg-[#14172E]/80 backdrop-blur-lg p-8 rounded-3xl border border-[#FFBF00]/15 hover:border-[#FFBF00]/40 hover:-translate-y-1 transition-all duration-300">
-                    <div class="w-12 h-12 mb-5 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-400">
-                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-3">Ξενοδοχεία, Βίλες & Rent a Car</h3>
-                    <p class="text-slate-400 leading-relaxed">Εξειδίκευση στην τουριστική αγορά της Κρήτης. <strong>Ιστοσελίδες για ξενοδοχεία και ενοικιαζόμενα δωμάτια</strong> με μηχανή κρατήσεων, καθώς και λύσεις για <strong>rent a car</strong> που φέρνουν direct bookings και μειώνουν την εξάρτηση από OTAs (Booking, Airbnb).</p>
-                </div>
-                <!-- Type 4 -->
-                <div class="bg-[#14172E]/80 backdrop-blur-lg p-8 rounded-3xl border border-[#FFBF00]/15 hover:border-[#FFBF00]/40 hover:-translate-y-1 transition-all duration-300">
-                    <div class="w-12 h-12 mb-5 rounded-xl bg-[#FFBF00]/10 flex items-center justify-center text-[#FFBF00]">
-                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-3">Custom Web Applications</h3>
-                    <p class="text-slate-400 leading-relaxed">Για projects υψηλών απαιτήσεων: headless πλατφόρμες, συστήματα διαχείρισης B2B, portals και web apps. Χτισμένα σε σύγχρονο, ασφαλές stack (Jamstack) για ασταμάτητη λειτουργία και scaling.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- NEW SECTION 2: Custom vs Template -->
-    <section class="py-24 bg-[#1B1F3B]">
-        <div class="max-w-4xl mx-auto px-6 prose prose-invert prose-lg prose-headings:font-montserrat leading-[1.7]">
-            <h2 class="text-3xl font-bold text-white mb-6">Γιατί Custom Web Design & Όχι Έτοιμο Template;</h2>
-            <p class="text-slate-300 mb-6">
-                Πολλές εταιρείες προσφέρουν φθηνές ιστοσελίδες βασισμένες σε έτοιμα templates του WordPress. Το αποτέλεσμα; Κοινότυπα, αργά sites που δυσκολεύονται να ξεχωρίσουν στη Google. Στη DIGIADS, κάθε <strong>κατασκευή ιστοσελίδας</strong> είναι μοναδική, σχεδιασμένη αποκλειστικά για την ταυτότητα και τους εμπορικούς στόχους σας.
-            </p>
-            <p class="text-slate-300 mb-6">
-                Το <strong>custom web design</strong> προσφέρει ανώτερη ταχύτητα, ασφάλεια και SEO — τα τρία στοιχεία που καθορίζουν αν η ιστοσελίδα σας θα φέρνει πελάτες ή απλά θα υπάρχει (μάθετε <a href="/blog/giati-wordpress-se-kovei" class="text-[#FFBF00] hover:underline">γιατί το WordPress σας κόβει στη Google</a>).
-            </p>
-            <p class="text-slate-300">
-                Σκέφτεστε <strong>ανακατασκευή (redesign) ιστοσελίδας</strong>; Αναλαμβάνουμε πλήρη αναβάθμιση της υπάρχουσας παρουσίας σας, με μετάβαση σε σύγχρονο, γρήγορο κώδικα χωρίς να χάσετε την αξία του SEO που έχετε ήδη χτίσει, αλλά αντίθετα απογειώνοντάς το.
-            </p>
-        </div>
-    </section>
-
-    <!-- NEW SECTION 3: Η Διαδικασία μας (Timeline) -->
+    <!-- SECTION: Η Διαδικασία μας (Timeline) -->
     <section class="py-24 bg-[#1B1F3B] relative border-t border-white/5 overflow-hidden">
         <div class="max-w-6xl mx-auto px-6 relative z-10">
             <h2 class="text-3xl md:text-4xl font-black text-white font-montserrat text-center mb-16">Η Διαδικασία Κατασκευής της Ιστοσελίδας σας</h2>
@@ -229,8 +287,8 @@ const breadcrumbSchema = {
                 <div class="relative flex-1 md:text-center flex md:flex-col items-start md:items-center gap-6">
                     <div class="w-14 h-14 rounded-full bg-[#14172E] border-2 border-[#FFBF00] text-[#FFBF00] flex items-center justify-center font-bold text-xl z-10 shrink-0 shadow-[0_0_20px_rgba(255, 191, 0,0.2)]">1</div>
                     <div>
-                        <h3 class="text-xl font-bold text-white mb-2">Ανάλυση & Στρατηγική</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Κατανοούμε την επιχείρησή σας, το κοινό και τους ανταγωνιστές, ορίζοντας ξεκάθαρους στόχους και δομή.</p>
+                        <h3 class="text-xl font-bold text-white mb-2">Ανάλυση & Στρατηγική SEO</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Μελετάμε τον κλάδο σας, τις λέξεις-κλειδιά και τους ανταγωνιστές σας στην Κρήτη και την Ελλάδα, ορίζοντας την ιδανική αρχιτεκτονική σελίδων.</p>
                     </div>
                 </div>
 
@@ -238,8 +296,8 @@ const breadcrumbSchema = {
                 <div class="relative flex-1 md:text-center flex md:flex-col items-start md:items-center gap-6">
                     <div class="w-14 h-14 rounded-full bg-[#14172E] border-2 border-[#FFBF00] text-[#FFBF00] flex items-center justify-center font-bold text-xl z-10 shrink-0 shadow-[0_0_20px_rgba(255, 191, 0,0.2)]">2</div>
                     <div>
-                        <h3 class="text-xl font-bold text-white mb-2">Σχεδιασμός (UI/UX)</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Σχεδιάζουμε τη διαδρομή του χρήστη (user journey) και το custom web design που αντικατοπτρίζει το brand σας.</p>
+                        <h3 class="text-xl font-bold text-white mb-2">Custom UI/UX Σχεδιασμός</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Σχεδιάζουμε ένα μοναδικό, υψηλής αισθητικής περιβάλλον προσαρμοσμένο στο brand σας, με έμφαση στη μετατροπή του επισκέπτη σε πελάτη.</p>
                     </div>
                 </div>
 
@@ -247,8 +305,8 @@ const breadcrumbSchema = {
                 <div class="relative flex-1 md:text-center flex md:flex-col items-start md:items-center gap-6">
                     <div class="w-14 h-14 rounded-full bg-[#14172E] border-2 border-[#FFBF00] text-[#FFBF00] flex items-center justify-center font-bold text-xl z-10 shrink-0 shadow-[0_0_20px_rgba(255, 191, 0,0.2)]">3</div>
                     <div>
-                        <h3 class="text-xl font-bold text-white mb-2">Ανάπτυξη (Dev)</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Χτίζουμε το site σε Next.js/Astro με καθαρό κώδικα, 100/100 ταχύτητα και τεχνικό SEO από τη βάση.</p>
+                        <h3 class="text-xl font-bold text-white mb-2">Ανάπτυξη & Διασυνδέσεις</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Υλοποίηση κώδικα με 100/100 Core Web Vitals, ενσωμάτωση Booking Engine / ERP / Πληρωμών και πλήρης τεχνική βελτιστοποίηση SEO.</p>
                     </div>
                 </div>
 
@@ -256,58 +314,42 @@ const breadcrumbSchema = {
                 <div class="relative flex-1 md:text-center flex md:flex-col items-start md:items-center gap-6">
                     <div class="w-14 h-14 rounded-full bg-[#14172E] border-2 border-[#FFBF00] text-[#FFBF00] flex items-center justify-center font-bold text-xl z-10 shrink-0 shadow-[0_0_20px_rgba(255, 191, 0,0.2)]">4</div>
                     <div>
-                        <h3 class="text-xl font-bold text-white mb-2">Launch & Υποστήριξη</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Θέτουμε το project live με όλα τα analytics και παραμένουμε δίπλα σας για συνεχή υποστήριξη και marketing.</p>
+                        <h3 class="text-xl font-bold text-white mb-2">Launch, Υποστήριξη & Growth</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Έλεγχος ποιότητας (QA), σύνδεση GA4/Search Console, εκπαίδευση διαχείρισης και άμεση τεχνική υποστήριξη μέσω του δικού μας AI Ticketing System.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- NEW SECTION 4: Γιατί DIGIADS -->
-    <section class="py-24 bg-[#1B1F3B] border-t border-white/5 relative">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-black text-white font-montserrat mb-8">Γιατί να Επιλέξετε τη DIGIADS</h2>
-            <p class="text-slate-300 text-lg leading-relaxed mb-10">
-                Ως κορυφαία <strong>εταιρεία κατασκευής ιστοσελίδων στο Ρέθυμνο</strong>, συνδυάζουμε την τεχνολογία αιχμής της Silicon Valley με τη βαθιά γνώση της κρητικής αγοράς. Δεν είμαστε απλώς κατασκευαστές — είμαστε growth partners. Εξειδικευόμαστε σε high-performance sites που φέρνουν μετρήσιμα αποτελέσματα. Ενώ ο ανταγωνισμός παραδίδει αργές και ευάλωτες σελίδες WordPress, εμείς δημιουργούμε ένα τεχνολογικό οπλοστάσιο με ταχύτητα, απόλυτη ασφάλεια και SEO που σας δίνει πραγματικό επιχειρηματικό προβάδισμα. Ανακαλύψτε πώς το <a href="/digital-marketing-rethymno" class="text-[#FFBF00] underline hover:text-white transition-colors">digital marketing στο Ρέθυμνο</a> απογειώνεται όταν έχει ένα ισχυρό θεμέλιο.
-            </p>
-        </div>
-    </section>
-
     <!-- FAQ Section (Voice Search SEO) -->
     <section class="py-24 bg-[#1B1F3B] relative border-t border-white/5">
         <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-black text-white font-montserrat mb-12 text-center">Συχνές Ερωτήσεις (FAQ)</h2>
+            <h2 class="text-3xl md:text-4xl font-black text-white font-montserrat mb-12 text-center">Συχνές Ερωτήσεις για Κατασκευή Ιστοσελίδων & E-shop</h2>
             <div class="space-y-6">
-                <!-- Question 1 -->
                 <div class="bg-[#14172E]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-[#FFBF00]/30 transition-colors">
-                    <h3 class="text-xl font-bold text-[#FFBF00] mb-3">Πόσο κοστίζει η κατασκευή ιστοσελίδας;</h3>
-                    <p class="text-slate-400">Το κόστος εξαρτάται από τον τύπο (εταιρική παρουσίαση ή e-shop) και τις λειτουργίες. Μια custom εταιρική ιστοσελίδα ξεκινά από ανταγωνιστικό πάγιο, ενώ τα e-shop κοστολογούνται βάσει διασυνδέσεων (ERP, τράπεζες) και αριθμού προϊόντων. Ζητήστε δωρεάν, χωρίς δέσμευση προσφορά.</p>
+                    <h3 class="text-xl font-bold text-[#FFBF00] mb-3">Πόσο κοστίζει η κατασκευή ιστοσελίδας ή e-shop στην Κρήτη;</h3>
+                    <p class="text-slate-400">Το κόστος εξαρτάται από τον τύπο (εταιρική ιστοσελίδα, τουριστικό site με μηχανή κρατήσεων ή e-shop) και τις απαιτήσεις. Κάθε έργο κοστολογείται με διαφάνεια βάσει των λειτουργιών, των διασυνδέσεων (ERP, τράπεζες, Channel Manager) και των γλωσσών. Ζητήστε δωρεάν προσφορά χωρίς δέσμευση.</p>
                 </div>
-                <!-- Question 2 -->
+                <div class="bg-[#14172E]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-[#FFBF00]/30 transition-colors">
+                    <h3 class="text-xl font-bold text-[#FFBF00] mb-3">Αναλαμβάνετε κατασκευή ιστοσελίδων μέσω προγραμμάτων ΕΣΠΑ και με πρότυπο ΑμεΑ WCAG 2.1 AA;</h3>
+                    <p class="text-slate-400">Ναι. Κατασκευάζουμε ιστοσελίδες και e-shop που πληρούν 100% τις τεχνικές προδιαγραφές των προγραμμάτων ΕΣΠΑ (Ψηφιακός Μετασχηματισμός ΜμΕ, Ενίσχυση Τουριστικών Επιχειρήσεων), συμπεριλαμβανομένης της πιστοποιημένης προσβασιμότητας ΑμεΑ κατά το πρότυπο WCAG 2.1 Επίπεδο AA και της πολυγλωσσικής υποστήριξης.</p>
+                </div>
                 <div class="bg-[#14172E]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-[#FFBF00]/30 transition-colors">
                     <h3 class="text-xl font-bold text-[#FFBF00] mb-3">Πόσος χρόνος χρειάζεται για την κατασκευή μιας ιστοσελίδας;</h3>
-                    <p class="text-slate-400">Μια εταιρική ιστοσελίδα (corporate site) ολοκληρώνεται σε 15-20 εργάσιμες ημέρες, ενώ ένα e-shop απαιτεί 30-45 ημέρες ανάλογα με την πολυπλοκότητα των διασυνδέσεων (ERP, τράπεζες).</p>
+                    <p class="text-slate-400">Μια custom εταιρική ή τουριστική ιστοσελίδα ολοκληρώνεται σε 15-20 εργάσιμες ημέρες, ενώ ένα πλήρες e-shop απαιτεί 30-45 ημέρες ανάλογα με την πολυπλοκότητα των διασυνδέσεων (ERP, XML προμηθευτών, τράπεζες).</p>
                 </div>
-                <!-- Question 3 -->
                 <div class="bg-[#14172E]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-[#FFBF00]/30 transition-colors">
-                    <h3 class="text-xl font-bold text-[#FFBF00] mb-3">Οι ιστοσελίδες σας βγαίνουν στην πρώτη σελίδα της Google;</h3>
-                    <p class="text-slate-400">Απολύτως. Χτίζουμε σε τεχνολογίες Next.js και Astro (Server-Side Rendering) εξασφαλίζοντας δείκτες Core Web Vitals στο απόλυτο 100/100, το οποίο δίνει τεράστιο προβάδισμα έναντι του ανταγωνισμού που χρησιμοποιεί τεχνολογίες όπως το WordPress.</p>
+                    <h3 class="text-xl font-bold text-[#FFBF00] mb-3">Αναλαμβάνετε ανακατασκευή (redesign) παλιάς ιστοσελίδας WordPress χωρίς απώλεια SEO;</h3>
+                    <p class="text-slate-400">Ναι. Αναλαμβάνουμε την πλήρη ανακατασκευή και αναβάθμιση παλαιών ιστοσελίδων με πλήρη χαρτογράφηση 301 redirects, διατήρηση και ενίσχυση των οργανικών κατατάξεων στη Google και πολλαπλασιασμό της ταχύτητας φόρτωσης.</p>
                 </div>
-                <!-- Question 4 -->
                 <div class="bg-[#14172E]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-[#FFBF00]/30 transition-colors">
-                    <h3 class="text-xl font-bold text-[#FFBF00] mb-3">Τι διαφορά έχει το custom web design από ένα έτοιμο template;</h3>
-                    <p class="text-slate-400">Ένα custom-built site σχεδιάζεται αποκλειστικά για την ταυτότητα και τους στόχους σας, με ανώτερη ταχύτητα, ασφάλεια και SEO. Τα έτοιμα templates είναι φθηνότερα αλλά κοινότυπα, πιο αργά και δύσκολα ξεχωρίζουν στη Google.</p>
+                    <h3 class="text-xl font-bold text-[#FFBF00] mb-3">Κατασκευάζετε e-shop με σύνδεση σε ERP, Skroutz/BestPrice και ελληνικές τράπεζες;</h3>
+                    <p class="text-slate-400">Ναι. Υλοποιούμε πλήρεις διασυνδέσεις με ERP (Soft1, Epsilon, Pylon, Entersoft), αυτόματα XML feeds για Skroutz και BestPrice, τραπεζικά gateways (Eurobank, Πειραιώς, Alpha, Εθνική), Stripe, Viva Wallet, IRIS, Klarna και εταιρείες courier (ACS, Speedex, Γενική Ταχυδρομική, Box Now).</p>
                 </div>
-                <!-- Question 5 -->
                 <div class="bg-[#14172E]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-[#FFBF00]/30 transition-colors">
-                    <h3 class="text-xl font-bold text-[#FFBF00] mb-3">Κατασκευάζετε e-shop με σύνδεση σε ERP και τράπεζες;</h3>
-                    <p class="text-slate-400">Ναι. Υλοποιούμε πλήρεις διασυνδέσεις με ERP (Soft1, Pylon, κ.ά.), τραπεζικά gateways (Alpha, Eurobank), Viva Wallet/Stripe, IRIS, PayPal και μεταφορικές εταιρείες (ACS, Speedex) για απόλυτα αυτοματοποιημένη λειτουργία.</p>
-                </div>
-                <!-- Question 6 -->
-                <div class="bg-[#14172E]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-[#FFBF00]/30 transition-colors">
-                    <h3 class="text-xl font-bold text-[#FFBF00] mb-3">Αναλαμβάνετε projects εκτός Κρήτης;</h3>
-                    <p class="text-slate-400">Ναι. Με έδρα το Ρέθυμνο και γραφεία σε όλη την Κρήτη (Χανιά, Ηράκλειο), αναλαμβάνουμε projects υψηλών προδιαγραφών σε όλη την Ελλάδα και το εξωτερικό.</p>
+                    <h3 class="text-xl font-bold text-[#FFBF00] mb-3">Παρέχετε άμεση τεχνική υποστήριξη μετά την παράδοση της ιστοσελίδας;</h3>
+                    <p class="text-slate-400">Ναι. Με έδρα το Ρέθυμνο, είμαστε δίπλα σας καθημερινά, ενώ διαθέτουμε και αποκλειστικό AI Ticketing System για τους πελάτες μας με άμεση κοστολόγηση, ιεράρχηση και εγγυημένο χρόνο παράδοσης (ETD) κάθε τεχνικής εργασίας.</p>
                 </div>
             </div>
         </div>
