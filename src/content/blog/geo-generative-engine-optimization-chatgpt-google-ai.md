@@ -2,7 +2,8 @@
 title: "GEO (Generative Engine Optimization): Πώς να Βγαίνει η Επιχείρηση ή το Ξενοδοχείο σας Πρώτο στο ChatGPT & το Google AI"
 description: "Τι είναι το Generative Engine Optimization (GEO) και γιατί αντικαθιστά το παραδοσιακό SEO. Πώς το ChatGPT, το Google Gemini και το Perplexity επιλέγουν ποιες επιχειρήσεις και ποια καταλύματα θα προτείνουν."
 pubDate: 2026-10-21
-heroImage: "/visuals/cyberpunk.png"
+image: "/blog/ai-digital-marketing-epicheiriseis.webp"
+heroImage: "/blog/ai-digital-marketing-epicheiriseis.webp"
 heroAlt: "Generative Engine Optimization (GEO) και AI SEO για ChatGPT και Google AI Overviews"
 keywords: ["Generative Engine Optimization", "GEO SEO", "AI SEO Ελλάδα", "πώς να βγω στο ChatGPT", "Google AI Overviews", "SEO Κρήτη Ρέθυμνο", "llms.txt", "Schema.org"]
 category: "AI & SEO"

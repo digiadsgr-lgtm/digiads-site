@@ -2,6 +2,7 @@
 title: "Google Hotel Ads & Performance Max for Travel: Ο Απόλυτος Οδηγός Διαφήμισης για Ξενοδοχεία & Βίλες"
 description: "Πώς να εμφανίσετε την επίσημη ιστοσελίδα του ξενοδοχείου ή της βίλας σας δίπλα στην Booking.com στους χάρτες της Google με 0% προμήθεια και πώς να στοχεύσετε ταξιδιώτες από Γερμανία, Αγγλία και Γαλλία."
 pubDate: 2026-10-20
+image: "/visuals/tourism_luxury.png"
 heroImage: "/visuals/tourism_luxury.png"
 heroAlt: "Google Hotel Ads και διαφήμιση για ξενοδοχεία και βίλες στην Κρήτη"
 keywords: ["Google Hotel Ads", "Performance Max for Travel", "διαφήμιση ξενοδοχείου Google", "προώθηση βίλας Κρήτη", "WebHotelier Google Ads", "τουριστικό marketing Κρήτη", "direct bookings"]

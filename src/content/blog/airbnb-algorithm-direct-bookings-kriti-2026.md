@@ -2,6 +2,7 @@
 title: "Αλγόριθμος Airbnb & Booking 2026: Πώς να Βγείτε Πρώτοι και να Μετατρέψετε τους Επισκέπτες σε Direct Bookings"
 description: "Ο πλήρης οδηγός για ιδιοκτήτες βιλών και καταλυμάτων Airbnb στην Κρήτη. Πώς λειτουργεί ο αλγόριθμος κατάταξης του 2026 (Guest Favorites, Dynamic Pricing) και πώς να χτίσετε δικό σας κανάλι απευθείας κρατήσεων χωρίς προμήθειες."
 pubDate: 2026-10-22
+image: "/visuals/luxury_villa.png"
 heroImage: "/visuals/luxury_villa.png"
 heroAlt: "Προώθηση Airbnb και πολυτελούς βίλας στην Κρήτη - Αύξηση Direct Bookings"
 keywords: ["αλγόριθμος Airbnb", "προώθηση Airbnb Κρήτη", "αύξηση κρατήσεων βίλας", "direct bookings Κρήτη", "διαχείριση Airbnb Ρέθυμνο Χανιά", "Guest Favorites Airbnb", "τουριστικό marketing"]
