@@ -44,7 +44,7 @@ author: "Αθανάσιος Βούρδας"
 Μια ιστοσελίδα από μόνη της δεν αρκεί. Χρειάζεστε ροή επισκεπτών:
 
 ### 1. Organic social & video
-Τα [TikTok και Reels](/blog/tiktok-reels-gia-xenodocheia-villes-kriti) δημιουργούν επιθυμία και οδηγούν τον κόσμο να ψάξει το όνομά σας. Το short-form video είναι ίσως το πιο αποδοτικό εργαλείο για άμεση ζήτηση.
+Τα [TikTok και Reels](/blog/tiktok-reels-xenodocheia) δημιουργούν επιθυμία και οδηγούν τον κόσμο να ψάξει το όνομά σας. Το short-form video είναι ίσως το πιο αποδοτικό εργαλείο για άμεση ζήτηση.
 
 ### 2. Στοχευμένη διαφήμιση
 Με [Google Ads και διαφήμιση Facebook/Instagram](/digital-marketing/performance-marketing), πιάνετε ταξιδιώτες που ψάχνουν προορισμό στην Κρήτη και τους οδηγείτε απευθείας στο booking σας.

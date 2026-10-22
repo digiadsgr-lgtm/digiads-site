@@ -31,3 +31,12 @@ Unlike traditional local agencies that rely on slow, bloated pre-made templates,
   - Τουριστικό Marketing (Βίλες & Ξενοδοχεία): https://www.digiads.gr/touristiko-marketing
   - Digital Marketing Ρέθυμνο: https://www.digiads.gr/digital-marketing-rethymno
   - SEO & Local SEO: https://www.digiads.gr/digital-marketing/seo-local-seo
+  - Blog & Knowledge Hub: https://www.digiads.gr/blog
+
+## 3. Authoritative Guides & Research Articles (`/blog`)
+- **Airbnb Algorithm & Direct Bookings in Crete (2026)**: https://www.digiads.gr/blog/airbnb-algorithm-direct-bookings-kriti-2026
+- **GEO (Generative Engine Optimization) for ChatGPT, Perplexity & Google AI**: https://www.digiads.gr/blog/geo-generative-engine-optimization-chatgpt-google-ai
+- **Google Hotel Ads & Performance Max for Travel in Crete**: https://www.digiads.gr/blog/google-hotel-ads-performance-max-travel-kriti
+- **Meta Advantage+ & TikTok AI Advertising (2026)**: https://www.digiads.gr/blog/meta-advantage-plus-tiktok-ads-ai-diafimisi-2026
+- **ESPA Web Development & WCAG 2.1 AA Guide in Crete**: https://www.digiads.gr/blog/kataskevi-istoselidas-espa-wcag-kriti-odigos
+- **Rent a Car, Yachting & Excursions Booking Websites in Crete**: https://www.digiads.gr/blog/rent-a-car-tourism-website-kratiseis-kriti
