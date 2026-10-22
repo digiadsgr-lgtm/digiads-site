@@ -9,6 +9,34 @@ const servicesData = {
     subhead: "Δεν κάνουμε απλά digital marketing. Χτίζουμε ολοκληρωμένα οικοσυστήματα που μετατρέπουν κάθε ψηφιακό touchpoint σε κερδοφόρο asset.",
     items: [
       {
+        id: "web-design",
+        icon: (
+          <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          </svg>
+        ),
+        title: "Κατασκευή Ιστοσελίδων & E-shop",
+        subtitle: "Next.js · Astro · ERP · ΕΣΠΑ",
+        description: "Ψηφιακή αρχιτεκτονική υψηλής ακρίβειας. Custom κατασκευή ιστοσελίδων, ξενοδοχειακών sites & e-shop με 100/100 Lighthouse, διασύνδεση ERP/Skroutz και μέγιστο conversion.",
+        metrics: ["100/100", "Lighthouse"],
+        color: "#FFBF00",
+        href: "/kataskevi-istoselidon",
+      },
+      {
+        id: "tourism",
+        icon: (
+          <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        ),
+        title: "Τουριστικό Marketing",
+        subtitle: "Βίλες · Ξενοδοχεία · Direct Bookings",
+        description: "Απόλυτη εξειδίκευση στον τουριστικό τομέα της Κρήτης. Αύξηση Direct Bookings, μείωση προμηθειών Booking/Airbnb, WebHotelier/Channel Manager & Google Hotel Ads.",
+        metrics: ["+340%", "Direct Bookings"],
+        color: "#22c55e",
+        href: "/touristiko-marketing",
+      },
+      {
         id: "performance-ads",
         icon: (
           <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -21,34 +49,6 @@ const servicesData = {
         metrics: ["+127%", "Μέσος ROI"],
         color: "#FFBF00",
         href: "/digital-marketing/performance-marketing",
-      },
-      {
-        id: "web-design",
-        icon: (
-          <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-          </svg>
-        ),
-        title: "Web Design & E-shop",
-        subtitle: "Next.js · Astro · Headless",
-        description: "Ψηφιακή αρχιτεκτονική υψηλής ακρίβειας. Κατασκευή ιστοσελίδων με 100/100 Lighthouse, CRO optimization και cinematic UX/UI που μετατρέπει επισκέπτες σε πελάτες.",
-        metrics: ["100/100", "Lighthouse"],
-        color: "#FFBF00",
-        href: "/kataskevi-istoselidon",
-      },
-      {
-        id: "tourism",
-        icon: (
-          <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-        ),
-        title: "Tourism Marketing",
-        subtitle: "Villas · Hotels · Airbnb",
-        description: "Απόλυτη εξειδίκευση στον τουριστικό τομέα της Κρήτης. Στρατηγικές προώθησης βιλών, ξενοδοχείων και boutique properties για μέγιστες direct bookings.",
-        metrics: ["+340%", "Direct Bookings"],
-        color: "#22c55e",
-        href: "/touristiko-marketing",
       },
       {
         id: "branding",
