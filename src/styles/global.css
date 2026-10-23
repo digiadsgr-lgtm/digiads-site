@@ -20,16 +20,27 @@
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   background-color: var(--hp-bg);
   color: #f8fafc;
   overflow-x: hidden;
+  cursor: auto;
+}
+
+a, button, [role="button"], input, select, textarea, summary {
+  touch-action: manipulation;
+}
+
+a, button, [role="button"], summary {
+  cursor: pointer;
 }
 
 /* Selection */

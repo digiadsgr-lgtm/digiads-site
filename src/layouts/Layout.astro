@@ -1,6 +1,5 @@
 ---
 import '../styles/global.css';
-import CustomCursor from '../components/React/CustomCursor';
 import CookieConsent from '../components/React/CookieConsent';
 import DigiChat from '../components/React/AI/DigiChat';
 import Analytics from '@vercel/analytics/astro';
@@ -174,7 +173,7 @@ const structuredData = {
         <!-- Schema.org -->
         <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 	</head>
-	<body class="bg-[#1B1F3B] text-white font-inter flex flex-col min-h-screen film-grain overflow-x-hidden border-none m-0 p-0" style="cursor: none;">
+	<body class="bg-[#1B1F3B] text-white font-inter flex flex-col min-h-screen film-grain overflow-x-hidden border-none m-0 p-0">
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MGJQ8PZ"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -183,9 +182,6 @@ const structuredData = {
         <canvas id="space-canvas" class="fixed inset-0 z-[100] pointer-events-none opacity-40 mix-blend-screen"></canvas>
 
 		<Analytics />
-
-
-        <CustomCursor client:only="react" />
 
 		<main class="flex-grow z-10 relative">
 			<slot />
@@ -196,19 +192,25 @@ const structuredData = {
         {/* DIGI — Virtual Sales Agent (global, client-side only) */}
         <DigiChat client:only="react" />
 
-        <!-- Smooth Scroll & Space Background -->
+        <!-- Smooth Scroll (Desktop only) & Space Background -->
         <script>
             import Lenis from 'lenis';
 
-            // Initialize High-Performance Crisp Lenis Scroll
-            const lenis = new Lenis({
-              autoRaf: true,
-              duration: 0.7, // Reduced for faster, snappier feel
-              easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
-              orientation: 'vertical',
-              smoothWheel: true,
-              wheelMultiplier: 1.2, // Increases scroll distance per wheel click
-            });
+            const isTouchDevice = window.matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window;
+
+            // Initialize Lenis Smooth Scroll ONLY on Desktop mouse/trackpad devices.
+            // Mobile & tablet devices keep 100% native hardware finger momentum scrolling.
+            if (!isTouchDevice) {
+                new Lenis({
+                  autoRaf: true,
+                  duration: 0.65,
+                  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+                  orientation: 'vertical',
+                  smoothWheel: true,
+                  syncTouch: false,
+                  wheelMultiplier: 1.15,
+                });
+            }
 
             // --- Space Background Effect (Highly Optimized 3D Starfield) ---
             const canvas = document.getElementById('space-canvas') as HTMLCanvasElement | null;
@@ -220,8 +222,8 @@ const structuredData = {
                 canvas.height = height;
 
                 const stars: {x: number, y: number, z: number}[] = [];
-                // Adaptive count based on screen size for max performance (PageSpeed)
-                const numStars = width < 768 ? 120 : 300; 
+                // Lighter star count on mobile for 120fps native touch scrolling
+                const numStars = width < 768 ? 65 : 260; 
 
                 for (let i = 0; i < numStars; i++) {
                     stars.push({
@@ -236,11 +238,13 @@ const structuredData = {
                 let targetX = 0;
                 let targetY = 0;
 
-                // Subtle parallax on mouse move, using passive for scroll perf
-                window.addEventListener('mousemove', (e) => {
-                    targetX = (e.clientX - width / 2) * 0.1;
-                    targetY = (e.clientY - height / 2) * 0.1;
-                }, { passive: true });
+                // Subtle parallax on mouse move (Desktop only)
+                if (!isTouchDevice) {
+                    window.addEventListener('mousemove', (e) => {
+                        targetX = (e.clientX - width / 2) * 0.1;
+                        targetY = (e.clientY - height / 2) * 0.1;
+                    }, { passive: true });
+                }
 
                 function drawStars() {
                     if (!ctx) return;
