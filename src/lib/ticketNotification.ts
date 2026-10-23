@@ -153,7 +153,6 @@ export async function sendPaidTicketNotification(
     port: 465,
     secure: true,
     auth: { user, pass },
-    tls: { rejectUnauthorized: false },
   });
 
   const tasksHtml =

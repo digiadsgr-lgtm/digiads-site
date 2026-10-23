@@ -10,31 +10,41 @@ export const POST: APIRoute = async ({ request }) => {
   const webhookSecret =
     import.meta.env.STRIPE_WEBHOOK_SECRET || process.env.STRIPE_WEBHOOK_SECRET;
 
-  if (!stripeSecretKey) {
-    return new Response(JSON.stringify({ error: 'Missing STRIPE_SECRET_KEY' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
+  if (!stripeSecretKey || !webhookSecret || webhookSecret.startsWith('whsec_...')) {
+    return new Response(
+      JSON.stringify({ error: 'Server webhook configuration incomplete' }),
+      {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' },
+      }
+    );
+  }
+
+  const signature = request.headers.get('stripe-signature');
+  if (!signature) {
+    return new Response(
+      JSON.stringify({ error: 'Missing stripe-signature header' }),
+      {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      }
+    );
   }
 
   const stripe = new Stripe(stripeSecretKey);
 
   try {
     const rawBody = await request.text();
-    const signature = request.headers.get('stripe-signature');
 
-    let event: Stripe.Event;
-
-    if (webhookSecret && signature && !webhookSecret.startsWith('whsec_...')) {
-      event = stripe.webhooks.constructEvent(rawBody, signature, webhookSecret);
-    } else {
-      event = JSON.parse(rawBody) as Stripe.Event;
-    }
+    // Always enforce cryptographic signature verification
+    const event = stripe.webhooks.constructEvent(rawBody, signature, webhookSecret);
 
     if (event.type === 'checkout.session.completed') {
       const session = event.data.object as Stripe.Checkout.Session;
-      console.log('=== STRIPE TICKET PAID (WEBHOOK) ===', session.id);
-      await sendPaidTicketNotification(stripe, session);
+      if (session.payment_status === 'paid') {
+        console.log('=== STRIPE TICKET PAID (VERIFIED WEBHOOK) ===', session.id);
+        await sendPaidTicketNotification(stripe, session);
+      }
     }
 
     return new Response(JSON.stringify({ received: true }), {
@@ -42,8 +52,8 @@ export const POST: APIRoute = async ({ request }) => {
       headers: { 'Content-Type': 'application/json' },
     });
   } catch (err: any) {
-    console.error('[Stripe Webhook Error]:', err);
-    return new Response(JSON.stringify({ error: err.message }), {
+    console.error('[Stripe Webhook Verification Error]:', err.message);
+    return new Response(JSON.stringify({ error: 'Webhook signature verification failed' }), {
       status: 400,
       headers: { 'Content-Type': 'application/json' },
     });
